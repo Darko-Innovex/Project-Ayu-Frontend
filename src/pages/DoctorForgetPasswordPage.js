@@ -2,8 +2,8 @@ import RegistrationBackground from "./component/registration/RegistrationBackgro
 import ForgetPassword from "./component/registration/ForgetPassword";
 import { getForgetPasswordUrlAndNavigations } from "./component/registration/ForgetPassword";
 
-const PatientForgetPasswordPage = () => {
-  const navigations = ["/"];
+const DoctorForgetPasswordPage = () => {
+  const navigations = ["/DoctorSignIn"];
 
   getForgetPasswordUrlAndNavigations("Enter Forget Password URL", navigations);
 
@@ -14,4 +14,4 @@ const PatientForgetPasswordPage = () => {
   );
 };
 
-export default PatientForgetPasswordPage;
+export default DoctorForgetPasswordPage;
