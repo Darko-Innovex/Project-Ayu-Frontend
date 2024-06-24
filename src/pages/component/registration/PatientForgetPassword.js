@@ -2,6 +2,12 @@ import React, {useState} from "react";
 import '../../../css/component/RegistrationFormStyle.css'
 import { useNavigate } from "react-router-dom";
 
+var url = ""
+
+export function changeForgetPasswordURL( getUrl ){
+    url = getUrl;
+}
+
 const PatientForgetPassword = () => {
 
     const [ nic , setNic ] = useState( null )
@@ -26,7 +32,7 @@ const PatientForgetPassword = () => {
             nic : nic,
             opt : opt
         }
-        fetch( " ENTER URL " , {
+        fetch( url , {
             method : " POST ",
             headers : {
                 Accept: " application/json ",
