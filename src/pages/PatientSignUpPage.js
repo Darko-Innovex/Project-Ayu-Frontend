@@ -1,10 +1,10 @@
 import PatientSignUp from "./component/registration/PatientSignUp";
-import MainLoginForm from "./component/registration/MainLoginForm";
+import RegistrationBackground from "./component/registration/RegistrationBackground";
 
 const MainPatientSignUp = () => {
   return (
     <div>
-        <MainLoginForm GetForm={PatientSignUp} />
+      <RegistrationBackground GetForm={PatientSignUp} />
     </div>
   );
 };
