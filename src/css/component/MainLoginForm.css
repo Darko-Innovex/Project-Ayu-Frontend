@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
+body{
+    overflow: hidden;
+}
+
+#MainForm .container{
+    background-color: #A0E6CC;
+    height: 100vh;
+    align-items: center;
+}
+
+#MainForm > .container{
+    padding-top: 14vh;
+}
+
+#MainForm .container .cir > div{
+    background-color: #7CE8C0;
+    border-radius: 50%;
+    position: absolute;
+    width: 474px;
+    height: 474px;
+}
+
+#MainForm .container .cir > :nth-child(2){
+    bottom: 674px;
+    right: 583px;
+}
+
+#MainForm .container .cir > :nth-child(3){
+    top: 690px;
+    right: -5rem;
+}
+
+#MainForm .container .cir img{
+    width: 686px;
+    height: auto;
+    position: absolute;
+    top: 24.5%;
+    left: 161px;
+}
+
+#MainForm  .logo{
+    position: absolute;
+    top: 70px;
+    left: 160px;
+}
+
+#MainForm .container .subText{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    margin-top: 50px;
+}
+
+#MainForm .container h3{
+    font-size: 85px;
+    font-family: 'karla', sans-serif;
+    font-weight: 700;
+}
+
+#MainForm .container p{
+    font-family: 'karla', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+#MainForm .container > .subContainer > :first-child > div{
+    display: flex;
+    gap: 63px;
+    align-items: center;
+}
+
+#MainForm .container > .subContainer .learnMore{
+    font-size: 18px;
+    padding: 17px 30px;
+    background-color: #262626;
+    color: #ffff;
+    font-family: 'Karla', sans-serif;
+    border: 0;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 413px;
+    margin-left: 278px;
+}
+
+#MainForm .container > .subContainer{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    z-index: 1;
+    height: 87%;
+}
+
+#MainForm .container > .subContainer > :last-child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#MainForm .container > .subContainer > *{
+    z-index: 1;
+}
+
+#MainForm .container > :last-child > *{
+    z-index: 1;
+}
+
+#MainForm .container > :last-child{
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+    padding: 0 160px;
+}
+
+#MainForm .container > :last-child h2 , i{
+    font-size: 20px;
+    font-family: 'Karla', sans-serif;
+    letter-spacing: 0.8px;
+    font-weight: 700;
+    color: #262626;
+}
+
+#MainForm .container > :last-child > div{
+    display: flex;
+    gap: 20px;
+}
+
+#MainForm .container > :last-child span{
+    padding: 0 28px;
+}
+
+#MainForm .container > :last-child > div > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#MainForm .container > :last-child > div > div > div{
+    display: flex;
+    width: 33px;
+    height: 33px;
+    border: 1px solid #262626;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+}

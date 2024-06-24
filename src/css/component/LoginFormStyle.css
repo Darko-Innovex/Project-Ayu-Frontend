@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#MainForm #Form form *{
+    font-size: 17px;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 400;
+}
+
+#MainForm #Form form{
+    background-color: #262626;
+    width: 640px;
+    /* height: 714px; */
+    padding: 50px;
+    border-radius: 30px;
+}
+
+#MainForm #Form form > div{
+    display: flex;
+    justify-content: space-between;
+}
+
+#MainForm #Form form > div .GetOTP{
+    margin: 0;
+    width: 223px;
+    height: 65px;
+    margin-top: 36px;
+}
+
+#MainForm #Form input{
+    width: 260px;
+    height: 60px;
+    padding: 20px 17px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: none;
+}
+
+#MainForm #Form form > input{
+    width: 100%;
+}
+
+#MainForm #Form form button{
+    padding: 10px 50px;
+    font-size: 19px;
+    background-color: #12C080;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+#MainForm #Form form >:last-child button{
+    margin-bottom: 0px;
+}
+
+#MainForm #Form form h2{
+    font-size: 35px;
+    color: #ffff;
+}
+
+#MainForm #Form form p{
+    color: #ffff;
+    font-size: 14px;
+}
+
+#MainForm #Form form > :last-child{
+    margin-top: 40px;
+    margin-bottom: 0px;
+}
+
+#MainForm #Form .ForgetPassword{
+    color: #12C080;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 15px;
+}
+
+#MainForm #Form label{
+    color: #FFF;
+    font-size: 17px;
+    font-weight: 275;
+    display: block;
+    margin-bottom: 13px;
+}
+
+#MainForm #Form form button svg{
+    margin-left: 10px;
+}
