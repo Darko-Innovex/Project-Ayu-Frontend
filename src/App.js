@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PatientSignInPage from "./pages/PatientSignInPage";
 import PatientSignUpPage from "./pages/PatientSignUpPage";
+import PatientForgetPasswordPage from "./pages/PatientForgetPasswordPage";
 
 function App() {
   return (
@@ -10,7 +11,8 @@ function App() {
           <Router>
               <Routes>
                   <Route path="/" element={ <PatientSignInPage /> }/>
-                  <Route path="/PatientSIgnUp" element={ <PatientSignUpPage /> } />
+                  <Route path="/PatientSignUp" element={ <PatientSignUpPage /> } />
+                  <Route path="/PatientForgetPasswordPage" element={ <PatientForgetPasswordPage /> }/>
               </Routes>
           </Router>
       </div>

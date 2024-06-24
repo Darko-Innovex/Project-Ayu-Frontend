@@ -9,7 +9,7 @@ const PatientSignIn = () => {
     const navigate = useNavigate();
 
     const navigateToSignUp = () =>{
-        navigate( "/PatientSIgnUp" )
+        navigate( "/PatientSignUp" )
     }
 
     const handleNic = ( event ) =>{
@@ -60,7 +60,7 @@ const PatientSignIn = () => {
                 <p>By Sign Up , you agree to our <u>Terms & Conditions</u></p>
                 <div>
                     <button type="submit" >Sign In</button>
-                    <Link to="/">
+                    <Link to="/PatientForgetPasswordPage">
                         <h2 className="ForgetPassword">Forget Password</h2>
                     </Link>
                 </div>
