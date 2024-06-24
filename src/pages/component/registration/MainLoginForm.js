@@ -2,7 +2,7 @@ import nfc_image from '../../../img/nfc.png'
 import sideLines from '../../../img/sideLines.png'
 import logo from '../../../img/loginFormLogo.png'
 import buttonLine from '../../../img/buttonLine.png'
-import '../../../css/component/MainLoginForm.css'
+import '../../../css/component/registration/MainLoginForm.css'
 
 const MainLoginForm = ({GetForm}) => {
     return(

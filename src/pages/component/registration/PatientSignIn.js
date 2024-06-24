@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import '../../../css/component/RegistrationFormStyle.css'
+import '../../../css/component/registration/RegistrationFormStyle.css'
 import {Link, useNavigate} from "react-router-dom";
 
 const PatientSignIn = () => {
