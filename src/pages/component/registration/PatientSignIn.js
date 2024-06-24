@@ -1,11 +1,16 @@
 import React, {useEffect, useState} from "react";
-import '../../../css/component/LoginFormStyle.css'
-import { Link } from "react-router-dom";
+import '../../../css/component/RegistrationFormStyle.css'
+import {Link, useNavigate} from "react-router-dom";
 
-const PatientLogin = () => {
+const PatientSignIn = () => {
 
     const [ nicNum , setNicNum ] = useState( null )
     const [ password , setPassword ] = useState( null )
+    const navigate = useNavigate();
+
+    const navigateToSignUp = () =>{
+        navigate( "/PatientSignUp" )
+    }
 
     const handleNic = ( event ) =>{
         setNicNum( event.target.value )
@@ -46,7 +51,7 @@ const PatientLogin = () => {
             <form>
                 <div>
                     <h2>Sign In</h2>
-                    <button>Sign Up</button>
+                    <button onClick={ navigateToSignUp } >Sign Up</button>
                 </div>
                 <label htmlFor="">NIC</label>
                 <input type="text" onChange={ handleNic } placeholder="Enter Your NIC Number" required/>
@@ -55,7 +60,7 @@ const PatientLogin = () => {
                 <p>By Sign Up , you agree to our <u>Terms & Conditions</u></p>
                 <div>
                     <button type="submit" >Sign In</button>
-                    <Link to="/">
+                    <Link to="/PatientForgetPasswordPage">
                         <h2 className="ForgetPassword">Forget Password</h2>
                     </Link>
                 </div>
@@ -64,4 +69,4 @@ const PatientLogin = () => {
     );
 }
 
-export default PatientLogin;
+export default PatientSignIn;

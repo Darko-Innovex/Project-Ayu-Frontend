@@ -1,10 +1,10 @@
 import MainLoginForm from "./component/registration/MainLoginForm";
-import PatientLogin from "./component/registration/PatientLogin";
+import PatientSignIn from "./component/registration/PatientSignIn";
 
 const MainPatientLogin = () => {
     return (
         <div>
-            <MainLoginForm GetForm={PatientLogin} />
+            <MainLoginForm GetForm={PatientSignIn} />
         </div>
     );
 }

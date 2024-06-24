@@ -1,14 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import PatientLogin from "./pages/PatientLoginPage";
+import PatientSignInPage from "./pages/PatientSignInPage";
+import PatientSignUpPage from "./pages/PatientSignUpPage";
+import PatientForgetPasswordPage from "./pages/PatientForgetPasswordPage";
 
 function App() {
   return (
       <div className="App">
           <Router>
               <Routes>
-                  <Route path="/" element={ <PatientLogin /> }/>
+                  <Route path="/" element={ <PatientSignInPage /> }/>
+                  <Route path="/PatientSignUp" element={ <PatientSignUpPage /> } />
+                  <Route path="/PatientForgetPasswordPage" element={ <PatientForgetPasswordPage /> }/>
               </Routes>
           </Router>
       </div>
