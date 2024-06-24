@@ -2,6 +2,14 @@ import React, {useEffect, useState} from "react";
 import '../../../css/component/registration/RegistrationFormStyle.css'
 import {Link, useNavigate} from "react-router-dom";
 
+var url = ""
+var navigations = []
+
+export function changeLoginURL( getUrl , getNavigations ){
+    url = getUrl;
+    navigations = getNavigations
+}
+
 const PatientSignIn = () => {
 
     const [ nicNum , setNicNum ] = useState( null )
@@ -9,7 +17,7 @@ const PatientSignIn = () => {
     const navigate = useNavigate();
 
     const navigateToSignUp = () =>{
-        navigate( "/PatientSignUp" )
+        navigate( "/"+navigations[0] )
     }
 
     const handleNic = ( event ) =>{
@@ -26,7 +34,7 @@ const PatientSignIn = () => {
             nicNum : nicNum,
             password : password
         }
-        fetch( " ENTER URL " , {
+        fetch( url , {
             method : " POST ",
             headers : {
                 Accept: " application/json ",
