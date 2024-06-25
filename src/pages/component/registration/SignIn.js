@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../../css/component/RegistrationFormStyle.css";
+import "../../../css/component/registration/RegistrationFormStyle.css";
 import { Link, useNavigate } from "react-router-dom";
 
 let url = "";
@@ -15,12 +15,16 @@ const SignIn = ({ showSignUp = true }) => {
   const [password, setPassword] = useState(null);
   const navigate = useNavigate();
 
-  const navigateToPath = () => {
+  const handleNic = (event) => {
+    setNicNum(event.target.value);
+  };
+
+  const navigateToSignUp = () => {
     navigate(navigations[0]);
   };
 
-  const handleNic = (event) => {
-    setNicNum(event.target.value);
+  const navigateToDashboard = () => {
+    navigate(navigations[2]);
   };
 
   const handlePassword = (event) => {
@@ -59,7 +63,7 @@ const SignIn = ({ showSignUp = true }) => {
         <div>
           <h2>Sign In</h2>
           {showSignUp && (
-            <button type="button" onClick={navigateToPath}>
+            <button type="button" onClick={navigateToSignUp}>
               Sign Up
             </button>
           )}
@@ -82,7 +86,9 @@ const SignIn = ({ showSignUp = true }) => {
           By Sign Up , you agree to our <u>Terms & Conditions</u>
         </p>
         <div>
-          <button type="submit">Sign In</button>
+          <button type="submit" onClick={navigateToDashboard}>
+            Sign In
+          </button>
           <Link to={navigations[1]}>
             <h2 className="ForgetPassword">Forget Password</h2>
           </Link>

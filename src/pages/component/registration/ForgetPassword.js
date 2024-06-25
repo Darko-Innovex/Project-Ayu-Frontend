@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../../css/component/RegistrationFormStyle.css";
+import "../../../css/component/registration/RegistrationFormStyle.css";
 import { useNavigate } from "react-router-dom";
 
 let url = "";
@@ -83,7 +83,7 @@ const ForgetPassword = () => {
           By Sign Up , you agree to our <u>Terms & Conditions</u>
         </p>
         <div>
-          <button>
+          <button onClick={navigateToSignIn}>
             Confirm
             <svg
               xmlns="http://www.w3.org/2000/svg"

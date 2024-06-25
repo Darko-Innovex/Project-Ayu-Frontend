@@ -61,6 +61,7 @@
 #MainForm #Form form h2{
     font-size: 35px;
     color: #ffff;
+    margin-bottom: 50px;
 }
 
 #MainForm #Form form p{
@@ -78,6 +79,7 @@
     font-size: 16px;
     font-weight: 400;
     margin-top: 15px;
+    margin-bottom: 0px;
 }
 
 #MainForm #Form label{
