@@ -1,12 +1,17 @@
-import MainLoginForm from "./component/registration/MainLoginForm";
-import PatientSignIn from "./component/registration/PatientSignIn";
+import RegistrationBackground from "./component/registration/RegistrationBackground";
+import SignIn from "./component/registration/SignIn";
+import { getSignInUrlAndNavigations } from "./component/registration/SignIn";
 
-const MainPatientLogin = () => {
-    return (
-        <div>
-            <MainLoginForm GetForm={PatientSignIn} />
-        </div>
-    );
-}
+const PatientSignInPage = () => {
+  const navigations = ["/PatientSignUp", "/PatientForgetPassword"];
 
-export default MainPatientLogin;
+  getSignInUrlAndNavigations("Enter Sign-in URL", navigations);
+
+  return (
+    <div>
+      <RegistrationBackground GetForm={() => <SignIn showSignUp={true} />} />
+    </div>
+  );
+};
+
+export default PatientSignInPage;
