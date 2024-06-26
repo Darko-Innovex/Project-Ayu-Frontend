@@ -1,5 +1,5 @@
-import PatientSignUp from "./component/registration/PatientSignUp";
-import RegistrationBackground from "./component/registration/RegistrationBackground";
+import PatientSignUp from "../component/registration/PatientSignUp";
+import RegistrationBackground from "../component/registration/RegistrationBackground";
 
 const MainPatientSignUp = () => {
   return (

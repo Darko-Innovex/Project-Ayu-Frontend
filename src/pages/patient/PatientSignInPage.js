@@ -1,6 +1,6 @@
-import RegistrationBackground from "./component/registration/RegistrationBackground";
-import SignIn from "./component/registration/SignIn";
-import { getSignInUrlAndNavigations } from "./component/registration/SignIn";
+import RegistrationBackground from "../component/registration/RegistrationBackground";
+import SignIn from "../component/registration/SignIn";
+import { getSignInUrlAndNavigations } from "../component/registration/SignIn";
 
 const PatientSignInPage = () => {
   const navigations = [

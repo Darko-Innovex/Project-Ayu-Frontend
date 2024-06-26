@@ -1,0 +1,289 @@
+#PatientMediReport{
+    position: absolute;
+    padding: 43px;
+    left: 8.4vw;
+}
+
+#PatientMediReport .labReport{
+    width: 1170px;
+    height: 417px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.30);
+    padding: 20px;
+}
+
+#PatientMediReport .cardSet::-webkit-scrollbar{
+    width: 0px;
+}
+
+#PatientMediReport .cardSet{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 25px;
+    height: 320px;
+    overflow-y: scroll;
+}
+
+#PatientMediReport .cardSet .labCard{
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.30);
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.10);
+    padding: 15px;
+}
+
+#PatientMediReport .cardSet .labCard h1{
+    color: #000;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.64px;
+    margin-bottom: 6px;
+}
+
+#PatientMediReport .cardSet .labCard h2{
+    color: #7C7C7C;
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.4px;
+    margin-bottom: 8px;
+}
+
+#PatientMediReport .cardSet .labCard div{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 34px;
+}
+
+#PatientMediReport  .cardSet .labCard h3{
+    color: #7C7C7C;
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.4px;
+}
+
+#PatientMediReport .cardSet .labCard button{
+    width: 100%;
+    height: 30px;
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+    color: #FFFFFF;
+    font-weight: 400;
+    letter-spacing: 0.4px;
+    border-radius: 30px;
+    border: none;
+    background: #12C080;
+}
+
+#PatientMediReport .search input{
+    width: 211px;
+    height: 38px;
+    border: none;
+    border-radius: 40px;
+    color: #7E7E7E;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    padding-left: 1.5vw;
+    letter-spacing: 0.84px;
+}
+
+#PatientMediReport .search > :nth-child(2){
+    position: relative;
+    right: 10.5vw;
+}
+
+#PatientMediReport .search div{
+    width: 38px;
+    height: 38px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#PatientMediReport .search{
+    display: flex;
+    align-items: center;
+}
+
+#PatientMediReport .title h1{
+    color: #262626;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+#PatientMediReport .title{
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0px;
+    margin-bottom: 15px;
+    backdrop-filter: blur(3px);
+}
+
+#PatientMediReport .OldMediReport{
+    width: 1170px;
+    height: 519px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.30);
+    margin-top: 30px;
+}
+
+#PatientMediReport .OldMediReport{
+    padding: 20px;
+    overflow-y: scroll;
+}
+
+#PatientMediReport .OldMediReport::-webkit-scrollbar{
+    width: 0px;
+}
+#PatientMediReport .OldMediReport .labCard .viewDoctor{
+    background-color: #41CD99;
+    margin-bottom: 6px;
+}
+
+#PatientMediReport .OldMediReport .cardSet{
+    height: 430px;
+}
+
+#PatientMediReport{
+    display: grid;
+    grid-template-columns: 1213px 541px;
+}
+
+#PatientMediReport > :last-child > div{
+    width: 445px;
+    height: 340px;
+    border-radius: 30px;
+    background: #262626;
+    padding: 36px;
+}
+
+#PatientMediReport > :last-child h1{
+    color: #FFFFFF;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.48px;
+    width: 100%;
+    background: #262626;
+    margin-bottom: 19px;
+}
+
+#PatientMediReport > :last-child h2{
+    font-size: 22px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    color: #FFFFFF;
+    letter-spacing: 0.88px;
+}
+
+#PatientMediReport > :last-child{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 50px;
+}
+
+#PatientMediReport > :last-child div > div{
+    height: 230px;
+    overflow-y: scroll;
+}
+
+#PatientMediReport > :last-child > div > div::-webkit-scrollbar{
+    width: 0;
+}
+
+
+.background{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(38, 38, 38, 0.75);
+    z-index: 2;
+}
+
+.background .filter{
+    height: 242px;
+    width: 337px;
+    background-color: #FFFFFF;
+    border-radius: 30px;
+    position: relative;
+    padding: 16px;
+}
+
+.background .filter .closeBtn{
+    width: 24px;
+    height: 24px;
+    fill: rgba(227, 227, 227, 0.50);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
+}
+
+.background .filter .option{
+    margin-top: 30px;
+}
+
+.background .filter .option input{
+    border-radius: 18px;
+    background: #BFFFE7;
+    padding: 8px 57px 9px 56px;
+    color: #0E9A66;
+    font-family: "Poppins", sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    border: none;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.background .filter label{
+    color: #636363;
+    font-family: "Poppins", sans-serif;
+    font-size: 8px;
+    font-weight: 400
+}
+
+.background .filter select{
+    width: 134px;
+    height: 38px;
+    padding: 9px 30px 11px 30px;
+    border-radius: 18px;
+    background: #BFFFE7;
+    border: none;
+    color: #0E9A66;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+}
+.background .filter .option div{
+    display: flex;
+    gap: 30px;
+}
+
+.background {
+    display: block;
+}
+
+.filterActive{
+    display: block;
+}
+
+#PatientDashboard .labReportFilter{
+    position: absolute;
+    left: 70vw;
+    top: 11vh;
+}
+
+#PatientDashboard .oldReportFilter{
+    position: absolute;
+    left: 70vw;
+    top: 52vh;
+}

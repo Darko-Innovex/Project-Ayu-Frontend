@@ -1,12 +1,13 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import PatientSignInPage from "./pages/PatientSignInPage";
-import PatientSignUpPage from "./pages/PatientSignUpPage";
-import PatientForgetPasswordPage from "./pages/PatientForgetPasswordPage";
-import DoctorSignInPage from "./pages/DoctorSignInPage";
-import DoctorForgetPasswordPage from "./pages/DoctorForgetPasswordPage";
-import PatientDashboardPage from "./pages/PatientDashboardPage";
+import PatientSignInPage from "./pages/patient/PatientSignInPage";
+import PatientSignUpPage from "./pages/patient/PatientSignUpPage";
+import PatientForgetPasswordPage from "./pages/patient/PatientForgetPasswordPage";
+import DoctorSignInPage from "./pages/doctor/DoctorSignInPage";
+import DoctorForgetPasswordPage from "./pages/doctor/DoctorForgetPasswordPage";
+import PatientDashboardPage from "./pages/patient/PatientDashboardPage";
+import PatientMedicalReportPage from "./pages/patient/PatientMedicalReportPage";
 
 function App() {
   return (
@@ -25,6 +26,10 @@ function App() {
             element={<DoctorForgetPasswordPage />}
           />
           <Route path="/PatientDashboard" element={<PatientDashboardPage />} />
+          <Route
+            path="/PatientMedicalReport"
+            element={<PatientMedicalReportPage />}
+          />
         </Routes>
       </Router>
     </div>
