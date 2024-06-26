@@ -15,8 +15,12 @@ const ForgetPassword = () => {
   const [opt, setOtp] = useState(null);
   const navigate = useNavigate();
 
-  const navigateToSignIn = () => {
-    navigate(navigations[0]);
+  const navigateTo = (target) => {
+    if (target === "signIn") {
+      navigate(navigations[0]);
+    } else if (target === "resetPassword") {
+      navigate(navigations[1]);
+    }
   };
 
   const handleNic = (event) => {
@@ -58,7 +62,7 @@ const ForgetPassword = () => {
       <form>
         <div>
           <h2>Forget Password</h2>
-          <button onClick={navigateToSignIn}>Sign In</button>
+          <button onClick={() => navigateTo("signIn")}>Sign In</button>
         </div>
         <label htmlFor="">Enter NIC Or Email</label>
         <input
@@ -83,7 +87,7 @@ const ForgetPassword = () => {
           By Sign Up , you agree to our <u>Terms & Conditions</u>
         </p>
         <div>
-          <button onClick={navigateToSignIn}>
+          <button onClick={() => navigateTo("resetPassword")}>
             Confirm
             <svg
               xmlns="http://www.w3.org/2000/svg"

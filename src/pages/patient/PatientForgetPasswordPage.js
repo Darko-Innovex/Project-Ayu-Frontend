@@ -3,7 +3,7 @@ import ForgetPassword from "../component/registration/ForgetPassword";
 import { getForgetPasswordUrlAndNavigations } from "../component/registration/ForgetPassword";
 
 const PatientForgetPasswordPage = () => {
-  const navigations = ["/"];
+  const navigations = ["/", "/PatientResetPassword"];
 
   getForgetPasswordUrlAndNavigations("Enter Forget Password URL", navigations);
 
