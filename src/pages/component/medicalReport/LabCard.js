@@ -1,13 +1,19 @@
-const LabCard = () => {
+import PopupBackground, { setReportData } from "./popup/PopupBackground";
+
+const LabCard = ({ data, showReport }) => {
+  const onClickViewBtn = () => {
+    setReportData(data);
+    showReport();
+  };
   return (
     <div className="labCard">
-      <h1>Blood Test</h1>
-      <h2>Ruhunu Hospital</h2>
+      <h1>{data.title}</h1>
+      <h2>{data.place}</h2>
       <div>
-        <h3>2024 / 06 / 25 </h3>
-        <h3>05 : 30 : 52 PM</h3>
+        <h3>{data.date}</h3>
+        <h3>{data.time}</h3>
       </div>
-      <button>View</button>
+      <button onClick={onClickViewBtn}>View</button>
     </div>
   );
 };

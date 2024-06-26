@@ -1,0 +1,164 @@
+#ViewReport .ReportBackground{
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    height: 100%;
+    background: rgba(38, 38, 38, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#ViewReport .container{
+    width: 882px;
+    height: 972px;
+    border-radius: 30px;
+    background: #A0E6CC;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#ViewReport .container header{
+    width: 773px;
+}
+
+#ViewReport .container header > div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#ViewReport .container .title button{
+    border-radius: 10px;
+    background: #12C080;
+    display: flex;
+    width: 218px;
+    height: 53px;
+    padding: 10px 46px 10px 40px;
+    align-items: center;
+    gap: 43px;
+    color: #262626;
+    font-family: 'Kanit', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    border: 0;
+}
+
+#ViewReport .container h1{
+    color: #000;
+    font-family: "Poppins", sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+}
+
+#ViewReport .container header .subData{
+    color: #0E9A66;
+    font-family: "Poppins", sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    margin-top: 50px;
+}
+
+#ViewReport .container .subData > div{
+    border-radius: 10px;
+    background: #FFF;
+    padding: 16px 90px 15px 80px;
+}
+
+#ViewReport #ReportData{
+    width: 100%;
+    height: 655px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.50);
+    backdrop-filter: blur(2px);
+    margin-top: 50px;
+    overflow-y: scroll;
+}
+
+#ViewReport #ReportData > *{
+    height: 100%;
+}
+
+#ViewReport #ReportData::-webkit-scrollbar{
+    width: 0;
+}
+
+#ViewReport #ReportData h2{
+    color: #262626;
+    font-family: 'Kanit', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    margin: 30px;
+}
+
+#ViewReport #ReportData table{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    color: #000;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    margin: 28px 0;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+#ViewReport #ReportData table th ,#ViewReport #ReportData table td{
+    width: 214px;
+    align-items: center;
+}
+
+#ViewReport #ReportData table td{
+    font-weight: 300;
+    margin: 14px 0;
+}
+
+#ViewReport #ReportData table tbody tr{
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.50);
+}
+
+#ViewReport #ReportData table thead{
+    position: sticky;
+    top: 28px;
+    background-color: #D2F7E9;
+}
+
+#ViewReport .container header{
+    position: absolute;
+}
+
+#ViewReport .container .cir > div{
+    position: relative;
+    width: 440px;
+    height: 440px;
+    background: #7CE8C0;
+    filter: blur(20px);
+}
+
+#ViewReport .container .cir > :first-child{
+    right: 18vh;
+    top: 56vh;
+}
+
+#ViewReport .container .cir > :nth-child(2){
+    width: 790px;
+    height: 790px;
+    top: 73vh;
+    left: 6vh;
+}
+
+#ViewReport .container .cir > :last-child{
+    width: 915px;
+    height: 915px;
+    bottom: 95vh;
+    left: 23vw;
+}
