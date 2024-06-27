@@ -11,7 +11,7 @@ import PopupBackground from "../component/medicalReport/popup/PopupBackground";
 import SearchFilter from "../component/medicalReport/SearchFilter";
 import OldCard from "../component/medicalReport/OldCard";
 
-const PatientNFCCardScanPage = () => {
+const DoctorPatientDetailPage = () => {
   const [labReportFilter, setLabReportFilter] = useState(false);
   const [oldReportFilter, setOldReportFilter] = useState(false);
   const [reportViewPopup, setReportViewPopup] = useState(false);
@@ -235,4 +235,4 @@ const PatientNFCCardScanPage = () => {
   );
 };
 
-export default PatientNFCCardScanPage;
+export default DoctorPatientDetailPage;
