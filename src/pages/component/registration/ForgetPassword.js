@@ -10,7 +10,7 @@ export function getForgetPasswordUrlAndNavigations(getUrl, getNavigations) {
   navigations = getNavigations;
 }
 
-const ForgetPassword = () => {
+const ForgetPassword = ({ isHospital = false }) => {
   const [nic, setNic] = useState(null);
   const [opt, setOtp] = useState(null);
   const navigate = useNavigate();
@@ -64,11 +64,15 @@ const ForgetPassword = () => {
           <h2>Forget Password</h2>
           <button onClick={() => navigateTo("signIn")}>Sign In</button>
         </div>
-        <label htmlFor="">Enter NIC Or Email</label>
+        <label htmlFor="nic">
+          {isHospital ? "Enter Email" : "Enter NIC Or Email"}
+        </label>
         <input
-          type="text"
+          type={isHospital ? "email" : "text"}
           onChange={handleNic}
-          placeholder="Enter Your NIC Number or Email"
+          placeholder={
+            isHospital ? "Enter Your Email" : "Enter Your NIC Number or Email"
+          }
           required
         />
         <div>
@@ -84,7 +88,7 @@ const ForgetPassword = () => {
           <button className="GetOTP">Get OTP</button>
         </div>
         <p>
-          By Sign Up , you agree to our <u>Terms & Conditions</u>
+          By Signing Up , you agree to our <u>Terms & Conditions</u>
         </p>
         <div>
           <button onClick={() => navigateTo("resetPassword")}>

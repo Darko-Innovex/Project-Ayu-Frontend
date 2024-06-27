@@ -9,6 +9,9 @@ import PatientMedicalReportPage from "./pages/patient/PatientMedicalReportPage";
 import DoctorSignInPage from "./pages/doctor/DoctorSignInPage";
 import DoctorForgetPasswordPage from "./pages/doctor/DoctorForgetPasswordPage";
 import DoctorResetPasswordPage from "./pages/doctor/DoctorResetPasswordPage";
+import HospitalSignInPage from "./pages/hospital/HospitalSignInPage";
+import HospitalForgetPasswordPage from "./pages/hospital/HospitalForgetPasswordPage";
+import HospitalResetPasswordPage from "./pages/hospital/HospitalResetPasswordPage";
 import AdminSignInPage from "./pages/admin/AdminSignInPage";
 import AdminSignUpPage from "./pages/admin/AdminSignUpPage";
 import AdminForgetPasswordPage from "./pages/admin/AdminForgetPasswordPage";
@@ -45,6 +48,17 @@ function App() {
           <Route
             path="/DoctorResetPassword"
             element={<DoctorResetPasswordPage />}
+          />
+
+          {/* ----------- hospital routes ----------- */}
+          <Route path="/HospitalSignIn" element={<HospitalSignInPage />} />
+          <Route
+            path="/HospitalForgetPassword"
+            element={<HospitalForgetPasswordPage />}
+          />
+          <Route
+            path="/HospitalResetPassword"
+            element={<HospitalResetPasswordPage />}
           />
 
           {/* ----------- admin routes ----------- */}
