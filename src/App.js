@@ -16,6 +16,7 @@ import AdminSignInPage from "./pages/admin/AdminSignInPage";
 import AdminSignUpPage from "./pages/admin/AdminSignUpPage";
 import AdminForgetPasswordPage from "./pages/admin/AdminForgetPasswordPage";
 import AdminResetPasswordPage from "./pages/admin/AdminResetPasswordPage";
+import PatientNFCCardScanPage from "./pages/doctor/PatientNFCCardScanPage";
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
       <Router>
         <Routes>
           {/* ----------- patient routes ----------- */}
-          <Route path="/" element={<PatientSignInPage />} />
+          <Route path="/P" element={<PatientSignInPage />} />
           <Route path="/PatientSignUp" element={<PatientSignUpPage />} />
           <Route
             path="/PatientForgetPassword"
@@ -49,6 +50,7 @@ function App() {
             path="/DoctorResetPassword"
             element={<DoctorResetPasswordPage />}
           />
+          <Route path="/" element={<PatientNFCCardScanPage />} />
 
           {/* ----------- hospital routes ----------- */}
           <Route path="/HospitalSignIn" element={<HospitalSignInPage />} />
