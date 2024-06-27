@@ -68,7 +68,7 @@ const ForgetPassword = () => {
         <input
           type="text"
           onChange={handleNic}
-          placeholder="Enter Your NIC Number"
+          placeholder="Enter Your NIC Number or Email"
           required
         />
         <div>
