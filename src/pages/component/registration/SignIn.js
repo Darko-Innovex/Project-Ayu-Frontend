@@ -10,7 +10,7 @@ export function getSignInUrlAndNavigations(getUrl, getNavigations) {
   navigations = getNavigations;
 }
 
-const SignIn = ({ showSignUp = true }) => {
+const SignIn = ({ showSignUp = true, isHospital = false }) => {
   const [nicNum, setNicNum] = useState(null);
   const [password, setPassword] = useState(null);
   const navigate = useNavigate();
@@ -68,11 +68,13 @@ const SignIn = ({ showSignUp = true }) => {
             </button>
           )}
         </div>
-        <label htmlFor="">NIC</label>
+        <label htmlFor="nic">{isHospital ? "Email" : "NIC"}</label>
         <input
-          type="text"
+          type={isHospital ? "email" : "text"}
           onChange={handleNic}
-          placeholder="Enter Your NIC Number"
+          placeholder={
+            isHospital ? "Enter Your Email" : "Enter Your NIC Number"
+          }
           required
         />
         <label htmlFor="">Password</label>
@@ -83,7 +85,7 @@ const SignIn = ({ showSignUp = true }) => {
           required
         />
         <p>
-          By Sign Up , you agree to our <u>Terms & Conditions</u>
+          By Signing Up , you agree to our <u>Terms & Conditions</u>
         </p>
         <div>
           <button type="submit" onClick={navigateToDashboard}>

@@ -10,13 +10,17 @@ export function getForgetPasswordUrlAndNavigations(getUrl, getNavigations) {
   navigations = getNavigations;
 }
 
-const ForgetPassword = () => {
+const ForgetPassword = ({ isHospital = false }) => {
   const [nic, setNic] = useState(null);
   const [opt, setOtp] = useState(null);
   const navigate = useNavigate();
 
-  const navigateToSignIn = () => {
-    navigate(navigations[0]);
+  const navigateTo = (target) => {
+    if (target === "signIn") {
+      navigate(navigations[0]);
+    } else if (target === "resetPassword") {
+      navigate(navigations[1]);
+    }
   };
 
   const handleNic = (event) => {
@@ -58,13 +62,17 @@ const ForgetPassword = () => {
       <form>
         <div>
           <h2>Forget Password</h2>
-          <button onClick={navigateToSignIn}>Sign In</button>
+          <button onClick={() => navigateTo("signIn")}>Sign In</button>
         </div>
-        <label htmlFor="">Enter NIC Or Email</label>
+        <label htmlFor="nic">
+          {isHospital ? "Enter Email" : "Enter NIC Or Email"}
+        </label>
         <input
-          type="text"
+          type={isHospital ? "email" : "text"}
           onChange={handleNic}
-          placeholder="Enter Your NIC Number"
+          placeholder={
+            isHospital ? "Enter Your Email" : "Enter Your NIC Number or Email"
+          }
           required
         />
         <div>
@@ -80,10 +88,10 @@ const ForgetPassword = () => {
           <button className="GetOTP">Get OTP</button>
         </div>
         <p>
-          By Sign Up , you agree to our <u>Terms & Conditions</u>
+          By Signing Up , you agree to our <u>Terms & Conditions</u>
         </p>
         <div>
-          <button onClick={navigateToSignIn}>
+          <button onClick={() => navigateTo("resetPassword")}>
             Confirm
             <svg
               xmlns="http://www.w3.org/2000/svg"

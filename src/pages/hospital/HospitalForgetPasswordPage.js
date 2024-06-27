@@ -2,16 +2,16 @@ import RegistrationBackground from "../component/registration/RegistrationBackgr
 import ForgetPassword from "../component/registration/ForgetPassword";
 import { getForgetPasswordUrlAndNavigations } from "../component/registration/ForgetPassword";
 
-const PatientForgetPasswordPage = () => {
-  const navigations = ["/", "/PatientResetPassword"];
+const HospitalForgetPasswordPage = () => {
+  const navigations = ["/HospitalSignIn", "/HospitalResetPassword"];
 
   getForgetPasswordUrlAndNavigations("Enter Forget Password URL", navigations);
 
   return (
     <div>
-      <RegistrationBackground GetForm={ForgetPassword} />
+      <RegistrationBackground GetForm={() => <ForgetPassword isHospital />} />
     </div>
   );
 };
 
-export default PatientForgetPasswordPage;
+export default HospitalForgetPasswordPage;
