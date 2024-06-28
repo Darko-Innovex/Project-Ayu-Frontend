@@ -52,10 +52,14 @@ function App() {
             element={<DoctorResetPasswordPage />}
           />
           <Route
-            path="/DoctorPatientDetailPage"
+            // path="/DoctorPatientDetailPage"
+            path="/"
             element={<DoctorPatientDetailPage />}
           />
-          <Route path="/" element={<DoctorPatientNfcCardScanPage />} />
+          <Route
+            path="/DoctorPatientNfcCardScanPage"
+            element={<DoctorPatientNfcCardScanPage />}
+          />
 
           {/* ----------- hospital routes ----------- */}
           <Route path="/HospitalSignIn" element={<HospitalSignInPage />} />

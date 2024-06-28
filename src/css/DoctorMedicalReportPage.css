@@ -320,3 +320,50 @@
     align-items: center;
     justify-content: center;
 }
+
+#DoctorDashboard .labReportFilter{
+    position: absolute;
+    left: 53vw;
+    top: 11vh;
+}
+
+#DoctorDashboard .oldReportFilter{
+    position: absolute;
+    left: 53vw;
+    top: 52vh;
+}
+
+#DoctorDashboard #PatientReports .patientDetails{
+    display: grid;
+    grid-template-columns: 90% 10%;
+    height: 201px !important;
+}
+
+#DoctorDashboard #PatientReports .patientDetails h2{
+    color: #FFF;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.48px;
+}
+
+#DoctorDashboard #PatientReports .patientDetails h1{
+    color: #FFF;
+    font-family: "Poppins", sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 0.88px;
+}
+
+#DoctorDashboard #PatientReports .patientDetails > :first-child >div{
+    height: auto;
+    overflow: unset;
+}
+
+#DoctorDashboard #PatientReports .patientDetails > :first-child > :last-child{
+    margin-top: 22px;
+}
+
+#DoctorDashboard #PatientReports .patientDetails > :last-child > div{
+    overflow: unset;
+}

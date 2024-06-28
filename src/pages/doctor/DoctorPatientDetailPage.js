@@ -2,7 +2,7 @@ import Navbar from "../component/dashboard/Navbar";
 import HomeButton from "../component/dashboard/button/HomeButton";
 import AppointmentButton from "../component/dashboard/button/AppointmentButton";
 import PatientReportViewButton from "../component/dashboard/button/PatientReportViewButton";
-import "../../css/DoctorDashboardPage.css";
+import "../../css/DoctorMedicalReportPage.css";
 import Search from "../component/medicalReport/Search";
 import LabCard from "../component/medicalReport/LabCard";
 import labReport from "../../img/a-visual-guide-chart-showing-blood-chemistry-test-interpretation 2.pdf";
@@ -10,11 +10,13 @@ import { useState } from "react";
 import PopupBackground from "../component/medicalReport/popup/PopupBackground";
 import SearchFilter from "../component/medicalReport/SearchFilter";
 import OldCard from "../component/medicalReport/OldCard";
+import AddReport from "../component/medicalReport/popup/AddReport";
 
 const DoctorPatientDetailPage = () => {
   const [labReportFilter, setLabReportFilter] = useState(false);
   const [oldReportFilter, setOldReportFilter] = useState(false);
   const [reportViewPopup, setReportViewPopup] = useState(false);
+  const [addReportPopup, setAddReportPopup] = useState(false);
   const Components = [HomeButton, AppointmentButton, PatientReportViewButton];
   const Paths = ["/", "/", "/"];
 
@@ -56,7 +58,7 @@ const DoctorPatientDetailPage = () => {
     reportType: "Table",
   };
 
-  const sowAndHideLabReportFilter = () => {
+  const showAndHideLabReportFilter = () => {
     setLabReportFilter(!labReportFilter);
   };
 
@@ -66,6 +68,10 @@ const DoctorPatientDetailPage = () => {
 
   const showAndHideReportViesPopUp = () => {
     setReportViewPopup(!reportViewPopup);
+  };
+
+  const showAndHideAddReportPopup = () => {
+    setAddReportPopup(!addReportPopup);
   };
 
   const Allergies = [
@@ -100,7 +106,7 @@ const DoctorPatientDetailPage = () => {
       {labReportFilter && (
         <SearchFilter
           getClassName={"labReportFilter"}
-          hideFilter={sowAndHideLabReportFilter}
+          hideFilter={showAndHideLabReportFilter}
         />
       )}
       {oldReportFilter && (
@@ -109,6 +115,8 @@ const DoctorPatientDetailPage = () => {
           hideFilter={showAndHideOldReportFilter}
         />
       )}
+      {/*---------------------------------------- Add Report --------------------- */}
+      {addReportPopup && <AddReport backOnAction={showAndHideAddReportPopup} />}
       <div className="container">
         <Navbar components={Components} Paths={Paths} />
         <div id="PatientReports">
@@ -116,7 +124,7 @@ const DoctorPatientDetailPage = () => {
             <div className="labReport">
               <div className="title">
                 <h1>Lab Reports</h1>
-                <Search showFilter={sowAndHideLabReportFilter} />
+                <Search showFilter={showAndHideLabReportFilter} />
               </div>
               <div className="cardSet">
                 <LabCard data={data} showReport={showAndHideReportViesPopUp} />
@@ -186,7 +194,10 @@ const DoctorPatientDetailPage = () => {
             </div>
           </div>
           <div className="addPopups">
-            <div className="addMedicalReport">
+            <div
+              className="addMedicalReport"
+              onClick={showAndHideAddReportPopup}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="80"
@@ -220,6 +231,21 @@ const DoctorPatientDetailPage = () => {
             </div>
           </div>
           <div>
+            <div className="patientDetails">
+              <div>
+                <div>
+                  <h2>Age</h2>
+                  <h1>38</h1>
+                </div>
+                <div>
+                  <h2>Name</h2>
+                  <h1>Mr. Gayanuka Bullegoda</h1>
+                </div>
+              </div>
+              <div>
+                <div>A+ </div>
+              </div>
+            </div>
             <div className="Allergies">
               <h1>Allergies</h1>
               <div className="list">{AllergiesList}</div>
