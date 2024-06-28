@@ -276,13 +276,13 @@
     display: block;
 }
 
-#PatientDashboard .labReportFilter{
+#dashboard .labReportFilter{
     position: absolute;
     left: 70vw;
     top: 11vh;
 }
 
-#PatientDashboard .oldReportFilter{
+#dashboard .oldReportFilter{
     position: absolute;
     left: 70vw;
     top: 52vh;

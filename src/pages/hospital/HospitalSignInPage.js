@@ -4,7 +4,7 @@ import SignIn, {
 } from "../component/registration/SignIn";
 
 const HospitalSignInPage = () => {
-  const navigations = ["", "/HospitalForgetPassword"];
+  const navigations = ["", "/HospitalForgetPassword", "/HospitalDashboard"];
 
   getSignInUrlAndNavigations("Enter Sign-in URL", navigations);
 
