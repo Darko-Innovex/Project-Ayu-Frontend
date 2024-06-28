@@ -9,15 +9,16 @@ import PatientMedicalReportPage from "./pages/patient/PatientMedicalReportPage";
 import DoctorSignInPage from "./pages/doctor/DoctorSignInPage";
 import DoctorForgetPasswordPage from "./pages/doctor/DoctorForgetPasswordPage";
 import DoctorResetPasswordPage from "./pages/doctor/DoctorResetPasswordPage";
+import DoctorDashboardPage from "./pages/doctor/DoctorDashboardPage";
 import HospitalSignInPage from "./pages/hospital/HospitalSignInPage";
 import HospitalForgetPasswordPage from "./pages/hospital/HospitalForgetPasswordPage";
 import HospitalResetPasswordPage from "./pages/hospital/HospitalResetPasswordPage";
+import HospitalDashboardPage from "./pages/hospital/HospitalDashboardPage";
 import AdminSignInPage from "./pages/admin/AdminSignInPage";
 import AdminSignUpPage from "./pages/admin/AdminSignUpPage";
 import AdminForgetPasswordPage from "./pages/admin/AdminForgetPasswordPage";
 import AdminResetPasswordPage from "./pages/admin/AdminResetPasswordPage";
-import DoctorPatientDetailPage from "./pages/doctor/DoctorPatientDetailPage";
-import DoctorPatientNfcCardScanPage from "./pages/doctor/DoctorPatientNfcCardScanPage";
+import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
 
 function App() {
   return (
@@ -51,15 +52,7 @@ function App() {
             path="/DoctorResetPassword"
             element={<DoctorResetPasswordPage />}
           />
-          <Route
-            // path="/DoctorPatientDetailPage"
-            path="/"
-            element={<DoctorPatientDetailPage />}
-          />
-          <Route
-            path="/DoctorPatientNfcCardScanPage"
-            element={<DoctorPatientNfcCardScanPage />}
-          />
+          <Route path="/DoctorDashboard" element={<DoctorDashboardPage />} />
 
           {/* ----------- hospital routes ----------- */}
           <Route path="/HospitalSignIn" element={<HospitalSignInPage />} />
@@ -70,6 +63,10 @@ function App() {
           <Route
             path="/HospitalResetPassword"
             element={<HospitalResetPasswordPage />}
+          />
+          <Route
+            path="/HospitalDashboard"
+            element={<HospitalDashboardPage />}
           />
 
           {/* ----------- admin routes ----------- */}
@@ -83,6 +80,7 @@ function App() {
             path="/AdminResetPassword"
             element={<AdminResetPasswordPage />}
           />
+          <Route path="/AdminDashboard" element={<AdminDashboardPage />} />
         </Routes>
       </Router>
     </div>
