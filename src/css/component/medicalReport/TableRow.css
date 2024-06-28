@@ -1,0 +1,10 @@
+#AddMedicalTableRow{
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.50);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05);
+    display: flex;
+    width: 846px;
+    height: 58px;
+    align-items: center;
+    padding: 15px 20px;
+}

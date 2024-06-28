@@ -1,0 +1,275 @@
+#AddMedicine{
+    width: 100%;
+    height: 100%;
+    background: rgba(38, 38, 38, 0.75);
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#AddMedicine > div{
+    width: 1526px;
+    height: 937px;
+    border-radius: 30px;
+    background: #A0E6CC;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+#AddMedicine > div .circle div{
+    border-radius: 50%;
+    background: #7CE8C0;
+    filter: blur(20px);
+    position: relative;
+}
+
+#AddMedicine > div .circle :first-child{
+    width: 440px;
+    height: 440px;
+    right: 6vw;
+}
+
+#AddMedicine > div .circle :nth-child(2){
+    width: 790px;
+    height: 790px;
+    left: 3vw;
+    top: 10vh;
+}
+
+#AddMedicine > div .circle :nth-child(3){
+    width: 559px;
+    height: 559px;
+    bottom: 77vh;
+    left: 53vw;
+}
+
+#AddMedicine > div .circle :last-child{
+    width: 915px;
+    height: 915px;
+    bottom: 145rem;
+    left: 25vw;
+}
+
+#AddMedicine > div .contend{
+    position: relative;
+    z-index: 1;
+    padding: 50px 70px;
+}
+
+#AddMedicine > div .contend .title{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#AddMedicine > div .contend .title button{
+    display: flex;
+    width: 218px;
+    height: 65px;
+    padding: 14px 60px 18px 40px;
+    align-items: center;
+    gap: 29px;
+    color: #262626;
+    font-family: 'Kanit', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    border-radius: 10px;
+    background: #12C080;
+    border: none;
+}
+
+#AddMedicine > div .contend .title h1{
+    color: #262626;
+    font-family: 'Kanit', sans-serif;
+    font-size: 50px;
+    font-weight: 400;
+    letter-spacing: 3.5px;
+}
+
+#AddMedicine > div .contend > :last-child{
+    display: flex;
+    margin-top: 38px;
+    gap: 50px;
+}
+
+#AddMedicine > div .contend .table{
+    height: 705px;
+    width: 886px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.30);
+    padding: 20px;
+}
+
+#AddMedicine .table .tableHead > div {
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.50);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05);
+    display: flex;
+    width: 846px;
+    height: 58px;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+#AddMedicine > div .contend .table div{
+    color: #000;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.72px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#AddMedicine > div .contend .table > div > div > :first-child > :first-child{
+    width: 21px;
+    height: 21px;
+    margin-right: 37px;
+}
+
+
+#AddMedicine > div .contend .table input{
+    width: 100%;
+    height: 100%;
+}
+
+#AddMedicine > div .contend .table > div > div > :nth-child(2){
+    width: 152px;
+    margin-right: 58px;
+}
+
+#AddMedicine > div .contend .table > div > div > :nth-child(3) , #AddMedicine > div .contend .table > div > div > :nth-child(4){
+    width: 51px;
+    margin-right: 80px;
+}
+
+#AddMedicine > div .contend .table > div > div > :nth-child(5){
+    width: 74px;
+    margin-right: 80px;
+}
+
+#AddMedicine > div .contend .table > div > div > :nth-child(6){
+    width: 63px;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#AddMedicine .tableRows{
+    display: flex;
+}
+
+#AddMedicine .table .tableRows {
+    height: 569px;
+    margin-top: 15px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: start !important;
+}
+
+#AddMedicine .table .tableRows::-webkit-scrollbar{
+    width: 0;
+}
+
+#AddMedicine > div .contend .addForm > div{
+    width: 450px;
+    height: 600px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.30);
+    padding: 36px 20px 20px 20px;
+}
+
+#AddMedicine > div .contend .addForm h1{
+    color: #262626;
+    font-family: 'Kanit', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    margin-top: 20px;
+}
+
+#AddMedicine > div .contend .addForm label h1{
+    color: #616161;
+    margin-top: 15px;
+}
+
+#AddMedicine > div .contend .addForm input[type="text"] , #AddMedicine > div .contend .addForm select{
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    background: #FFFEFE;
+    font-family: 'Kanit', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    padding: 10px;
+    border: none;
+    margin-top: 5px;
+}
+#AddMedicine > div .contend .addForm > div > div{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+}
+
+#AddMedicine > div .contend .addForm label div{
+    display: flex;
+    margin-top: 5px;
+}
+
+#AddMedicine > div .contend .addForm label div div{
+    display: flex;
+    align-items: center;
+}
+
+#AddMedicine > div .contend .addForm label input{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+#AddMedicine > div .contend .addForm h2{
+    color: #262626;
+    font-family: 'Kanit', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    margin-right: 20px;
+}
+
+#AddMedicine .contend .addForm div button{
+    width: 200px;
+    height: 50px;
+    padding: 8px 0;
+    align-items: center;
+    border-radius: 10px;
+    background: #12C080;
+    box-shadow: 0px 4px 10px 0px rgba(255, 255, 255, 0.20);
+    border: none;
+    margin-top: 16px;
+    color: #262626;
+    font-family: 'Kanit', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 2.2px;
+    float: right;
+}
+
+#AddMedicine .contend .addForm button{
+    width: 100%;
+    height: 65px;
+    margin-top: 40px;
+    border-radius: 10px;
+    background: #12C080;
+    border: none;
+    color: #262626;
+    font-family: 'Kanit', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+}
+

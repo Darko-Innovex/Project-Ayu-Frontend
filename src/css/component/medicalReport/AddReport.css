@@ -1,0 +1,69 @@
+#AddReport{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(38, 38, 38, 0.75);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#AddReport > div{
+    width: 1005px;
+    height: 858px;
+    border-radius: 30px;
+    background: #A0E6CC;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.25);
+    padding: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#AddReport > div > :first-child{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+#AddReport > div :first-child h1{
+    color: #262626;
+    font-family: 'Kanit', sans-serif;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 3.5px;
+}
+
+#AddReport textarea{
+    width: 899px;
+    height: 465px;
+    border-radius: 30px;
+    background: #FFF;
+    border: none;
+    margin-top: 69px;
+    color: #000;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.8px;
+    padding: 45px;
+}
+
+#AddReport > div > :last-child{
+    width: 549px;
+    height: 64px;
+    border-radius: 14px;
+    background: #12C080;
+    border: none;
+    color: #262626;
+    font-family: 'Kanit', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 6.6px;
+    margin-top: 60px;
+}
