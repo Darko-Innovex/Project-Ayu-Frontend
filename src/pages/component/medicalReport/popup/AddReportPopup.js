@@ -1,7 +1,7 @@
 import "../../../../css/component/medicalReport/AddReport.css";
 import AddReportBackButton from "../Button/AddReportBackButton";
 
-const AddReport = ({ backOnAction }) => {
+const AddReportPopup = ({ backOnAction }) => {
   return (
     <div id="AddReport">
       <div>
@@ -18,4 +18,4 @@ const AddReport = ({ backOnAction }) => {
   );
 };
 
-export default AddReport;
+export default AddReportPopup;

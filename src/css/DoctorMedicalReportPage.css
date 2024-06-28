@@ -156,6 +156,7 @@
     top: 0px;
     margin-bottom: 15px;
     backdrop-filter: blur(3px);
+    align-items: center;
 }
 
 #DoctorDashboard #PatientReports .search div{
@@ -239,9 +240,32 @@
     gap: 50px;
 }
 
-#DoctorDashboard #PatientReports > :last-child div > div{
+#DoctorDashboard #PatientReports .list{
     height: 230px;
     overflow-y: scroll;
+}
+
+#DoctorDashboard #PatientReports .Allergies .title .addButton{
+    height: 33px;
+    width: 33px;
+    background-color: rgba(255, 255, 255, 0.20);
+    filter: drop-shadow(0px 1px 6px rgba(255, 255, 255, 0.25));
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+#DoctorDashboard #PatientReports .Allergies .title h1{
+    margin: 0;
+}
+
+#DoctorDashboard #PatientReports .Allergies .title {
+    margin-bottom: 19px;
+    display: flex;
+    align-items: center;
+    position: relative; /* Ensure the pseudo-element is positioned relative to this element */
 }
 
 #DoctorDashboard #PatientReports > :last-child > div > div::-webkit-scrollbar{
@@ -335,7 +359,7 @@
 
 #DoctorDashboard #PatientReports .patientDetails{
     display: grid;
-    grid-template-columns: 90% 10%;
+    grid-template-columns: 88% 18%;
     height: 201px !important;
 }
 
@@ -366,4 +390,52 @@
 
 #DoctorDashboard #PatientReports .patientDetails > :last-child > div{
     overflow: unset;
+}
+
+#DoctorDashboard #PatientReports .bloodType{
+    background-color: rgba(255, 255, 255, 0.20);
+    filter: drop-shadow(0px 1px 6px rgba(255, 255, 255, 0.25));
+    backdrop-filter: blur(5px);
+    width: 44px;
+    height: 44px !important;
+    color: #FF6060;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-family: "Poppins", sans-serif;
+}
+
+#DoctorDashboard .AddAllergy{
+    padding: 31px 28px;
+    border-radius: 28px;
+    background: #515151;
+    position: absolute;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 3.67vw;
+    top: 28.3vh;
+}
+
+#DoctorDashboard .AddAllergy input{
+    color: #FFF;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.72px;
+    background: transparent;
+    padding-bottom: 5px;
+    border: none;
+    border-bottom: 2px solid #FFFFFF;
+    width: 350.001px;
+}
+
+#DoctorDashboard .AddAllergy button{
+    position: relative;
+    bottom: 25px;
+    left: 368px;
+    background-color: transparent;
+    border: none;
 }

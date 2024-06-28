@@ -10,13 +10,17 @@ import { useState } from "react";
 import PopupBackground from "../component/medicalReport/popup/PopupBackground";
 import SearchFilter from "../component/medicalReport/SearchFilter";
 import OldCard from "../component/medicalReport/OldCard";
-import AddReport from "../component/medicalReport/popup/AddReport";
+import AddReportPopup from "../component/medicalReport/popup/AddReportPopup";
+import DoctorAddMedicinePopup from "../component/medicalReport/popup/DoctorAddMedicinePopup";
+import DoctorAddAllergyPopup from "../component/medicalReport/popup/DoctorAddAllergyPopup";
 
 const DoctorPatientDetailPage = () => {
   const [labReportFilter, setLabReportFilter] = useState(false);
   const [oldReportFilter, setOldReportFilter] = useState(false);
   const [reportViewPopup, setReportViewPopup] = useState(false);
   const [addReportPopup, setAddReportPopup] = useState(false);
+  const [addMedicinePopup, setAddMedicinePopup] = useState(false);
+  const [addAllergy, setAddAllergyPopup] = useState(false);
   const Components = [HomeButton, AppointmentButton, PatientReportViewButton];
   const Paths = ["/", "/", "/"];
 
@@ -74,6 +78,14 @@ const DoctorPatientDetailPage = () => {
     setAddReportPopup(!addReportPopup);
   };
 
+  const showAndHideAddMedicalPopup = () => {
+    setAddMedicinePopup(!addMedicinePopup);
+  };
+
+  const showAndHideAddAllergyPopup = () => {
+    setAddAllergyPopup(!addAllergy);
+  };
+
   const Allergies = [
     "Api ",
     "Apa",
@@ -116,7 +128,18 @@ const DoctorPatientDetailPage = () => {
         />
       )}
       {/*---------------------------------------- Add Report --------------------- */}
-      {addReportPopup && <AddReport backOnAction={showAndHideAddReportPopup} />}
+      {addReportPopup && (
+        <AddReportPopup backOnAction={showAndHideAddReportPopup} />
+      )}
+      {addMedicinePopup && (
+        <DoctorAddMedicinePopup
+          backButtonOnAction={showAndHideAddMedicalPopup}
+        />
+      )}
+      {addAllergy && (
+        <DoctorAddAllergyPopup addButtonOnAction={showAndHideAddAllergyPopup} />
+      )}
+
       <div className="container">
         <Navbar components={Components} Paths={Paths} />
         <div id="PatientReports">
@@ -212,7 +235,7 @@ const DoctorPatientDetailPage = () => {
               </svg>
               <h1>Medical Report</h1>
             </div>
-            <div className="addMedicine">
+            <div className="addMedicine" onClick={showAndHideAddMedicalPopup}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="80"
@@ -243,11 +266,29 @@ const DoctorPatientDetailPage = () => {
                 </div>
               </div>
               <div>
-                <div>A+ </div>
+                <div className="bloodType">A+ </div>
               </div>
             </div>
             <div className="Allergies">
-              <h1>Allergies</h1>
+              <div className="title">
+                <h1>Allergies</h1>
+                <div className="addButton" onClick={showAndHideAddAllergyPopup}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="19"
+                    height="19"
+                    viewBox="0 0 19 19"
+                    fill="none"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M9.5 17.8125C4.90912 17.8125 1.1875 14.0897 1.1875 9.5C1.1875 4.91031 4.90912 1.1875 9.5 1.1875C14.0909 1.1875 17.8125 4.91031 17.8125 9.5C17.8125 14.0897 14.0909 17.8125 9.5 17.8125ZM9.5 0C4.25303 0 0 4.25125 0 9.5C0 14.7487 4.25303 19 9.5 19C14.747 19 19 14.7487 19 9.5C19 4.25125 14.747 0 9.5 0ZM13.0625 8.90625H10.0938V5.9375C10.0938 5.61094 9.82834 5.34375 9.5 5.34375C9.17166 5.34375 8.90625 5.61094 8.90625 5.9375V8.90625H5.9375C5.60916 8.90625 5.34375 9.17344 5.34375 9.5C5.34375 9.82656 5.60916 10.0938 5.9375 10.0938H8.90625V13.0625C8.90625 13.3891 9.17166 13.6562 9.5 13.6562C9.82834 13.6562 10.0938 13.3891 10.0938 13.0625V10.0938H13.0625C13.3908 10.0938 13.6562 9.82656 13.6562 9.5C13.6562 9.17344 13.3908 8.90625 13.0625 8.90625Z"
+                      fill="white"
+                    />
+                  </svg>
+                </div>
+              </div>
               <div className="list">{AllergiesList}</div>
             </div>
             <div className="Allergies">
