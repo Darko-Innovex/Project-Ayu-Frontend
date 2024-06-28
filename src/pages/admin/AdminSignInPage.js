@@ -4,7 +4,11 @@ import SignIn, {
 } from "../component/registration/SignIn";
 
 const AdminSignInPage = () => {
-  const navigations = ["/AdminSignUp", "/AdminForgetPassword"];
+  const navigations = [
+    "/AdminSignUp",
+    "/AdminForgetPassword",
+    "/AdminDashboard",
+  ];
 
   getSignInUrlAndNavigations("Enter Sign-in URL", navigations);
 

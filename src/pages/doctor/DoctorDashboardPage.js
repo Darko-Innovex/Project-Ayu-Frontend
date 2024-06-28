@@ -1,21 +1,14 @@
 import "../../css/component/dashboard/DashboardBackground.css";
 import Navbar from "../component/dashboard/Navbar";
 import HomeButton from "../component/dashboard/button/HomeButton";
-import AppointmentButton from "../component/dashboard/button/AppointmentButton";
-import ReportButton from "../component/dashboard/button/ReportButton";
+import ScanButton from "../component/dashboard/button/ScanButton";
 import ReviewButton from "../component/dashboard/button/ReviewButton";
 import DashboardHeader from "../component/dashboard/DashboardHeader";
 import SearchLine from "../component/dashboard/SearchSection";
-import DashboardMediCard from "../component/dashboard/DashboardMediCard";
 
-const PatientDashboardPage = () => {
-  const Components = [
-    HomeButton,
-    AppointmentButton,
-    ReportButton,
-    ReviewButton,
-  ];
-  const Paths = ["/PatientDashboard", "/", "/PatientMedicalReport", "/"];
+const DoctorDashboardPage = () => {
+  const Components = [HomeButton, ReviewButton, ScanButton];
+  const Paths = ["/DoctorDashboard", "/DoctorSignIn", "/DoctorSignIn"];
 
   return (
     <div>
@@ -31,9 +24,7 @@ const PatientDashboardPage = () => {
             <div>
               <div>
                 <SearchLine />
-                <div>
-                  <DashboardMediCard />
-                </div>
+                <div></div>
               </div>
             </div>
           </div>
@@ -43,4 +34,4 @@ const PatientDashboardPage = () => {
   );
 };
 
-export default PatientDashboardPage;
+export default DoctorDashboardPage;
