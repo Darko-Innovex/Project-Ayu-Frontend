@@ -10,6 +10,8 @@ import DoctorSignInPage from "./pages/doctor/DoctorSignInPage";
 import DoctorForgetPasswordPage from "./pages/doctor/DoctorForgetPasswordPage";
 import DoctorResetPasswordPage from "./pages/doctor/DoctorResetPasswordPage";
 import DoctorDashboardPage from "./pages/doctor/DoctorDashboardPage";
+import DoctorPatientNfcCardScanPage from "./pages/doctor/DoctorPatientNfcCardScanPage";
+import DoctorPatientDetailPage from "./pages/doctor/DoctorPatientDetailPage";
 import HospitalSignInPage from "./pages/hospital/HospitalSignInPage";
 import HospitalForgetPasswordPage from "./pages/hospital/HospitalForgetPasswordPage";
 import HospitalResetPasswordPage from "./pages/hospital/HospitalResetPasswordPage";
@@ -26,7 +28,7 @@ function App() {
       <Router>
         <Routes>
           {/* ----------- patient routes ----------- */}
-          <Route path="/P" element={<PatientSignInPage />} />
+          <Route path="/" element={<PatientSignInPage />} />
           <Route path="/PatientSignUp" element={<PatientSignUpPage />} />
           <Route
             path="/PatientForgetPassword"
@@ -53,6 +55,14 @@ function App() {
             element={<DoctorResetPasswordPage />}
           />
           <Route path="/DoctorDashboard" element={<DoctorDashboardPage />} />
+          <Route
+            path="/DoctorPatientNfcCardScanPage"
+            element={<DoctorPatientNfcCardScanPage />}
+          />
+          <Route
+            path="/DoctorPatientDetailPage"
+            element={<DoctorPatientDetailPage />}
+          />
 
           {/* ----------- hospital routes ----------- */}
           <Route path="/HospitalSignIn" element={<HospitalSignInPage />} />

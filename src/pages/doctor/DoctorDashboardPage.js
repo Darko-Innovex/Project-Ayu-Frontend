@@ -8,7 +8,11 @@ import SearchLine from "../component/dashboard/SearchSection";
 
 const DoctorDashboardPage = () => {
   const Components = [HomeButton, ReviewButton, ScanButton];
-  const Paths = ["/DoctorDashboard", "/DoctorSignIn", "/DoctorSignIn"];
+  const Paths = [
+    "/DoctorDashboard",
+    "/DoctorSignIn",
+    "/DoctorPatientNfcCardScanPage",
+  ];
 
   return (
     <div>

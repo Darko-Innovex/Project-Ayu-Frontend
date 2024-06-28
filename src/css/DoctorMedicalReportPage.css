@@ -1,441 +1,441 @@
-#DoctorDashboard{
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(116deg, #D0F2E6 18.78%, #A0E6CC 54.2%);
+#DoctorDashboard {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(116deg, #d0f2e6 18.78%, #a0e6cc 54.2%);
 }
 
 #DoctorDashboard .cir div {
-    width: 1615px;
-    height: 1615px;
-    border-radius: 1615px;
-    background: linear-gradient(127deg, #D0F2E6 37.69%, #A0E6CC 60.5%);
-    position: absolute;
+  width: 1615px;
+  height: 1615px;
+  border-radius: 1615px;
+  background: linear-gradient(127deg, #d0f2e6 37.69%, #a0e6cc 60.5%);
+  position: absolute;
 }
 
-#DoctorDashboard .cir > :first-child{
-    transform: rotate(23.047deg);
-    right: 950px;
-    top: 190px;
+#DoctorDashboard .cir > :first-child {
+  transform: rotate(23.047deg);
+  right: 950px;
+  top: 190px;
 }
 
-#DoctorDashboard .cir > :last-child{
-    left: 970px;
-    bottom: 7px;
-    transform: rotate(1.676deg);
-    background: linear-gradient(330deg, #D0F2E6 46.92%, #A0E6CC 65.16%);
+#DoctorDashboard .cir > :last-child {
+  left: 970px;
+  bottom: 7px;
+  transform: rotate(1.676deg);
+  background: linear-gradient(330deg, #d0f2e6 46.92%, #a0e6cc 65.16%);
 }
 
-#DoctorDashboard > .container{
-    height: 100%;
-    display: grid;
-    grid-template-columns: 198px 1722px;
+#DoctorDashboard > .container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 198px 1722px;
 }
 
-#PatientReports{
-    position: absolute;
-    padding: 43px;
-    left: 8.4vw;
+#PatientReports {
+  position: absolute;
+  padding: 43px;
+  left: 8.4vw;
 }
 
-#PatientReports .labReport{
-    width: 873px;
-    height: 417px;
-    border-radius: 30px;
-    background: rgba(255, 255, 255, 0.30);
-    padding: 20px;
+#PatientReports .labReport {
+  width: 873px;
+  height: 417px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 20px;
 }
 
-#PatientReports .cardSet::-webkit-scrollbar{
-    width: 0px;
+#PatientReports .cardSet::-webkit-scrollbar {
+  width: 0px;
 }
 
-#PatientReports .cardSet{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 25px;
-    height: 320px;
-    overflow-y: scroll;
+#PatientReports .cardSet {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  height: 320px;
+  overflow-y: scroll;
 }
 
-#PatientReports .cardSet .labCard{
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.30);
-    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.10);
-    padding: 15px;
+#PatientReports .cardSet .labCard {
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+  padding: 15px;
 }
 
-#PatientReports .cardSet .labCard h1{
-    color: #000;
-    font-family: "Poppins", sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: 0.64px;
-    margin-bottom: 6px;
+#PatientReports .cardSet .labCard h1 {
+  color: #000;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.64px;
+  margin-bottom: 6px;
 }
 
-#PatientReports .cardSet .labCard h2{
-    color: #7C7C7C;
-    font-family: "Poppins", sans-serif;
-    font-size: 10px;
-    font-weight: 400;
-    letter-spacing: 0.4px;
-    margin-bottom: 8px;
+#PatientReports .cardSet .labCard h2 {
+  color: #7c7c7c;
+  font-family: "Poppins", sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+  margin-bottom: 8px;
 }
 
-#PatientReports .cardSet .labCard div{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 34px;
+#PatientReports .cardSet .labCard div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 34px;
 }
 
-#PatientReports  .cardSet .labCard h3{
-    color: #7C7C7C;
-    font-family: "Poppins", sans-serif;
-    font-size: 10px;
-    font-weight: 400;
-    letter-spacing: 0.4px;
+#PatientReports .cardSet .labCard h3 {
+  color: #7c7c7c;
+  font-family: "Poppins", sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.4px;
 }
 
-#PatientReports .cardSet .labCard button{
-    width: 100%;
-    height: 30px;
-    font-family: "Poppins", sans-serif;
-    font-size: 10px;
-    color: #FFFFFF;
-    font-weight: 400;
-    letter-spacing: 0.4px;
-    border-radius: 30px;
-    border: none;
-    background: #12C080;
+#PatientReports .cardSet .labCard button {
+  width: 100%;
+  height: 30px;
+  font-family: "Poppins", sans-serif;
+  font-size: 10px;
+  color: #ffffff;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+  border-radius: 30px;
+  border: none;
+  background: #12c080;
 }
 
-#PatientReports .search input{
-    width: 211px;
-    height: 38px;
-    border: none;
-    border-radius: 40px;
-    color: #7E7E7E;
-    font-family: "Poppins", sans-serif;
-    font-size: 14px;
-    font-weight: 300;
-    padding-left: 1.5vw;
-    letter-spacing: 0.84px;
+#PatientReports .search input {
+  width: 211px;
+  height: 38px;
+  border: none;
+  border-radius: 40px;
+  color: #7e7e7e;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  padding-left: 1.5vw;
+  letter-spacing: 0.84px;
 }
 
-#PatientReports .search > :nth-child(2){
-    position: relative;
-    right: 10.5vw;
+#PatientReports .search > :nth-child(2) {
+  position: relative;
+  right: 10.5vw;
 }
 
-#PatientReports #PatientReports .search div{
-    width: 38px;
-    height: 38px;
-    background-color: #FFFFFF;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#PatientReports #PatientReports .search div {
+  width: 38px;
+  height: 38px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#DoctorDashboard #PatientReports .search{
-    display: flex;
-    align-items: center;
+#DoctorDashboard #PatientReports .search {
+  display: flex;
+  align-items: center;
 }
 
-#DoctorDashboard #PatientReports .title h1{
-    color: #262626;
-    font-family: "Poppins", sans-serif;
-    font-size: 18px;
-    font-weight: 400;
+#DoctorDashboard #PatientReports .title h1 {
+  color: #262626;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
 }
 
-#DoctorDashboard #PatientReports .title{
-    display: flex;
-    justify-content: space-between;
-    position: sticky;
-    top: 0px;
-    margin-bottom: 15px;
-    backdrop-filter: blur(3px);
-    align-items: center;
+#DoctorDashboard #PatientReports .title {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0px;
+  margin-bottom: 15px;
+  backdrop-filter: blur(3px);
+  align-items: center;
 }
 
-#DoctorDashboard #PatientReports .search div{
-    width: 38px;
-    height: 38px;
-    background-color: #FFFFFF;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#DoctorDashboard #PatientReports .search div {
+  width: 38px;
+  height: 38px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#DoctorDashboard #PatientReports .OldMediReport{
-    width: 873px;
-    height: 519px;
-    border-radius: 30px;
-    background: rgba(255, 255, 255, 0.30);
-    margin-top: 30px;
+#DoctorDashboard #PatientReports .OldMediReport {
+  width: 873px;
+  height: 519px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.3);
+  margin-top: 30px;
 }
 
-#DoctorDashboard #PatientReports .OldMediReport{
-    padding: 20px;
-    overflow-y: scroll;
+#DoctorDashboard #PatientReports .OldMediReport {
+  padding: 20px;
+  overflow-y: scroll;
 }
 
-#DoctorDashboard #PatientReports .OldMediReport::-webkit-scrollbar{
-    width: 0px;
+#DoctorDashboard #PatientReports .OldMediReport::-webkit-scrollbar {
+  width: 0px;
 }
-#DoctorDashboard #PatientReports .OldMediReport .labCard .viewDoctor{
-    background-color: #41CD99;
-    margin-bottom: 6px;
-}
-
-#DoctorDashboard #PatientReports .OldMediReport .cardSet{
-    height: 430px;
+#DoctorDashboard #PatientReports .OldMediReport .labCard .viewDoctor {
+  background-color: #41cd99;
+  margin-bottom: 6px;
 }
 
-#DoctorDashboard #PatientReports{
-    display: grid;
-    grid-template-columns: 892px 272px 546px;
+#DoctorDashboard #PatientReports .OldMediReport .cardSet {
+  height: 430px;
 }
 
-#DoctorDashboard #PatientReports header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#DoctorDashboard #PatientReports {
+  display: grid;
+  grid-template-columns: 892px 272px 546px;
 }
 
-#DoctorDashboard #PatientReports > :last-child > div{
-    width: 445px;
-    height: 340px;
-    border-radius: 30px;
-    background: #262626;
-    padding: 36px;
-    margin-left: 2vw;
+#DoctorDashboard #PatientReports header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#DoctorDashboard #PatientReports > :last-child h1{
-    color: #FFFFFF;
-    font-family: "Poppins", sans-serif;
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 0.48px;
-    width: 100%;
-    background: #262626;
-    margin-bottom: 19px;
+#DoctorDashboard #PatientReports > :last-child > div {
+  width: 445px;
+  height: 340px;
+  border-radius: 30px;
+  background: #262626;
+  padding: 36px;
+  margin-left: 2vw;
 }
 
-#DoctorDashboard #PatientReports > :last-child h2{
-    font-size: 22px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    color: #FFFFFF;
-    letter-spacing: 0.88px;
+#DoctorDashboard #PatientReports > :last-child h1 {
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.48px;
+  width: 100%;
+  background: #262626;
+  margin-bottom: 19px;
 }
 
-#DoctorDashboard #PatientReports > :last-child{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 50px;
+#DoctorDashboard #PatientReports > :last-child h2 {
+  font-size: 22px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: 0.88px;
 }
 
-#DoctorDashboard #PatientReports .list{
-    height: 230px;
-    overflow-y: scroll;
+#DoctorDashboard #PatientReports > :last-child {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 50px;
 }
 
-#DoctorDashboard #PatientReports .Allergies .title .addButton{
-    height: 33px;
-    width: 33px;
-    background-color: rgba(255, 255, 255, 0.20);
-    filter: drop-shadow(0px 1px 6px rgba(255, 255, 255, 0.25));
-    backdrop-filter: blur(5px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
+#DoctorDashboard #PatientReports .list {
+  height: 230px;
+  overflow-y: scroll;
 }
 
-#DoctorDashboard #PatientReports .Allergies .title h1{
-    margin: 0;
+#DoctorDashboard #PatientReports .Allergies .title .addButton {
+  height: 33px;
+  width: 33px;
+  background-color: rgba(255, 255, 255, 0.2);
+  filter: drop-shadow(0px 1px 6px rgba(255, 255, 255, 0.25));
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+#DoctorDashboard #PatientReports .Allergies .title h1 {
+  margin: 0;
 }
 
 #DoctorDashboard #PatientReports .Allergies .title {
-    margin-bottom: 19px;
-    display: flex;
-    align-items: center;
-    position: relative; /* Ensure the pseudo-element is positioned relative to this element */
+  margin-bottom: 19px;
+  display: flex;
+  align-items: center;
+  position: relative; /* Ensure the pseudo-element is positioned relative to this element */
 }
 
-#DoctorDashboard #PatientReports > :last-child > div > div::-webkit-scrollbar{
-    width: 0;
+#DoctorDashboard #PatientReports > :last-child > div > div::-webkit-scrollbar {
+  width: 0;
 }
 
-#DoctorDashboard #PatientReports > :nth-child(2){
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    gap: 50px;
+#DoctorDashboard #PatientReports > :nth-child(2) {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
 }
 
-#DoctorDashboard #PatientReports > :nth-child(2) > div{
-    width: 213px;
-    height: 213px;
-    border-radius: 20px;
-    background: rgba(65, 205, 153, 0.60);
-    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.10);
-    font-family: "Poppins", sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
+#DoctorDashboard #PatientReports > :nth-child(2) > div {
+  width: 213px;
+  height: 213px;
+  border-radius: 20px;
+  background: rgba(65, 205, 153, 0.6);
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
 }
 
-#DoctorDashboard #PatientReports > :nth-child(2) h1{
-    font-weight: 400;
-    font-size: 30px;
-    color: #262626;
-    line-height: 128.7%; /* 38.61px */
-    letter-spacing: 1.2px;
-    text-align: center;
+#DoctorDashboard #PatientReports > :nth-child(2) h1 {
+  font-weight: 400;
+  font-size: 30px;
+  color: #262626;
+  line-height: 128.7%; /* 38.61px */
+  letter-spacing: 1.2px;
+  text-align: center;
 }
 
-#DoctorDashboard #PatientReports > :nth-child(2) > :last-child{
-    gap: 30px;
+#DoctorDashboard #PatientReports > :nth-child(2) > :last-child {
+  gap: 30px;
 }
 
-#DoctorDashboard .container .nfcScan{
-    padding-top: 3%;
-    z-index: 1;
+#DoctorDashboard .container .nfcScan {
+  padding-top: 3%;
+  z-index: 1;
 }
 
-#DoctorDashboard .container .nfcScan h1{
-    color: #262626;
-    font-family: "Poppins", sans-serif;
-    font-size: 60px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 1.8px;
+#DoctorDashboard .container .nfcScan h1 {
+  color: #262626;
+  font-family: "Poppins", sans-serif;
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.8px;
 }
 
-#DoctorDashboard .container .nfcScan > div{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 14vh;
+#DoctorDashboard .container .nfcScan > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 14vh;
 }
 
-#DoctorDashboard .container .nfcScan > div > div{
-    width: 982px;
-    height: 562px;
-    flex-shrink: 0;
-    border-radius: 20px;
-    border: 5px dashed rgba(122, 122, 122, 0.80);
-    background: rgba(255, 255, 255, 0.00);
-    font-size: 80px;
-    font-family: "Poppins", sans-serif;
-    color: rgba(122, 122, 122, 0.80);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#DoctorDashboard .container .nfcScan > div > div {
+  width: 982px;
+  height: 562px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  border: 5px dashed rgba(122, 122, 122, 0.8);
+  background: rgba(255, 255, 255, 0);
+  font-size: 80px;
+  font-family: "Poppins", sans-serif;
+  color: rgba(122, 122, 122, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#DoctorDashboard .labReportFilter{
-    position: absolute;
-    left: 53vw;
-    top: 11vh;
+#DoctorDashboard .labReportFilter {
+  position: absolute;
+  left: 53vw;
+  top: 11vh;
 }
 
-#DoctorDashboard .oldReportFilter{
-    position: absolute;
-    left: 53vw;
-    top: 52vh;
+#DoctorDashboard .oldReportFilter {
+  position: absolute;
+  left: 53vw;
+  top: 52vh;
 }
 
-#DoctorDashboard #PatientReports .patientDetails{
-    display: grid;
-    grid-template-columns: 88% 18%;
-    height: 201px !important;
+#DoctorDashboard #PatientReports .patientDetails {
+  display: grid;
+  grid-template-columns: 88% 18%;
+  height: 201px !important;
 }
 
-#DoctorDashboard #PatientReports .patientDetails h2{
-    color: #FFF;
-    font-family: "Poppins", sans-serif;
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 0.48px;
+#DoctorDashboard #PatientReports .patientDetails h2 {
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.48px;
 }
 
-#DoctorDashboard #PatientReports .patientDetails h1{
-    color: #FFF;
-    font-family: "Poppins", sans-serif;
-    font-size: 22px;
-    font-weight: 400;
-    letter-spacing: 0.88px;
+#DoctorDashboard #PatientReports .patientDetails h1 {
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0.88px;
 }
 
-#DoctorDashboard #PatientReports .patientDetails > :first-child >div{
-    height: auto;
-    overflow: unset;
+#DoctorDashboard #PatientReports .patientDetails > :first-child > div {
+  height: auto;
+  overflow: unset;
 }
 
-#DoctorDashboard #PatientReports .patientDetails > :first-child > :last-child{
-    margin-top: 22px;
+#DoctorDashboard #PatientReports .patientDetails > :first-child > :last-child {
+  margin-top: 22px;
 }
 
-#DoctorDashboard #PatientReports .patientDetails > :last-child > div{
-    overflow: unset;
+#DoctorDashboard #PatientReports .patientDetails > :last-child > div {
+  overflow: unset;
 }
 
-#DoctorDashboard #PatientReports .bloodType{
-    background-color: rgba(255, 255, 255, 0.20);
-    filter: drop-shadow(0px 1px 6px rgba(255, 255, 255, 0.25));
-    backdrop-filter: blur(5px);
-    width: 44px;
-    height: 44px !important;
-    color: #FF6060;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    font-family: "Poppins", sans-serif;
+#DoctorDashboard #PatientReports .bloodType {
+  background-color: rgba(255, 255, 255, 0.2);
+  filter: drop-shadow(0px 1px 6px rgba(255, 255, 255, 0.25));
+  backdrop-filter: blur(5px);
+  width: 44px;
+  height: 44px !important;
+  color: #ff6060;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-family: "Poppins", sans-serif;
 }
 
-#DoctorDashboard .AddAllergy{
-    padding: 31px 28px;
-    border-radius: 28px;
-    background: #515151;
-    position: absolute;
-    z-index: 100;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    right: 3.67vw;
-    top: 28.3vh;
+#DoctorDashboard .AddAllergy {
+  padding: 31px 28px;
+  border-radius: 28px;
+  background: #515151;
+  position: absolute;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 3.67vw;
+  top: 28.3vh;
 }
 
-#DoctorDashboard .AddAllergy input{
-    color: #FFF;
-    font-family: "Poppins", sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    letter-spacing: 0.72px;
-    background: transparent;
-    padding-bottom: 5px;
-    border: none;
-    border-bottom: 2px solid #FFFFFF;
-    width: 350.001px;
+#DoctorDashboard .AddAllergy input {
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.72px;
+  background: transparent;
+  padding-bottom: 5px;
+  border: none;
+  border-bottom: 2px solid #ffffff;
+  width: 350.001px;
 }
 
-#DoctorDashboard .AddAllergy button{
-    position: relative;
-    bottom: 25px;
-    left: 368px;
-    background-color: transparent;
-    border: none;
+#DoctorDashboard .AddAllergy button {
+  position: relative;
+  bottom: 25px;
+  left: 368px;
+  background-color: transparent;
+  border: none;
 }
