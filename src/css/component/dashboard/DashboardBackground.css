@@ -1,34 +1,34 @@
-#dashboard{
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(116deg, #D0F2E6 18.78%, #A0E6CC 54.2%);
+#dashboard {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(116deg, #d0f2e6 18.78%, #a0e6cc 54.2%);
 }
 
 #dashboard .cir div {
-    width: 1615px;
-    height: 1615px;
-    border-radius: 1615px;
-    background: linear-gradient(127deg, #D0F2E6 37.69%, #A0E6CC 60.5%);
-    position: absolute;
+  width: 1615px;
+  height: 1615px;
+  border-radius: 1615px;
+  background: linear-gradient(127deg, #d0f2e6 37.69%, #a0e6cc 60.5%);
+  position: absolute;
 }
 
-#dashboard .cir > :first-child{
-    transform: rotate(23.047deg);
-    right: 950px;
-    top: 190px;
+#dashboard .cir > :first-child {
+  transform: rotate(23.047deg);
+  right: 950px;
+  top: 190px;
 }
 
-#dashboard .cir > :last-child{
-    left: 970px;
-    bottom: 7px;
-    transform: rotate(1.676deg);
-    background: linear-gradient(330deg, #D0F2E6 46.92%, #A0E6CC 65.16%);
+#dashboard .cir > :last-child {
+  left: 970px;
+  bottom: 7px;
+  transform: rotate(1.676deg);
+  background: linear-gradient(330deg, #d0f2e6 46.92%, #a0e6cc 65.16%);
 }
 
-#dashboard .container{
-    height: 100%;
-    display: grid;
-    grid-template-columns: 198px 1722px;
+#dashboard .container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 198px 1722px;
 }
 
 /*#PatientDashboardPage .container .navBar img{*/
@@ -36,19 +36,19 @@
 /*    height: 68px;*/
 /*}*/
 
-#dashboard .container .navBar .buttons{
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+#dashboard .container .navBar .buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
-#dashboard .container .contend{
-    padding: 30px 70px 70px 10px;
-    position: absolute;
-    left: 10vw;
+#dashboard .container .contend {
+  padding: 30px 70px 70px 10px;
+  position: absolute;
+  left: 10vw;
 }
 
-#dashboard .contend > :last-child{
-    display: grid;
-    grid-template-columns: 1052px 626px;
+#dashboard .contend > :last-child {
+  display: grid;
+  grid-template-columns: 1052px 626px;
 }

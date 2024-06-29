@@ -1,11 +1,29 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../component/dashboard/Navbar";
 import HomeButton from "../component/dashboard/button/HomeButton";
-import AppointmentButton from "../component/dashboard/button/AppointmentButton";
-import PatientReportViewButton from "../component/dashboard/button/PatientReportViewButton";
+import ReviewButton from "../component/dashboard/button/ReviewButton";
+import ScanButton from "../component/dashboard/button/ScanButton";
+import DoctorPatientDetailPage from "./DoctorPatientDetailPage";
 
 const DoctorPatientNfcCardScanPage = () => {
-  const Components = [HomeButton, AppointmentButton, PatientReportViewButton];
-  const Paths = ["/", "/", "/"];
+  const Components = [HomeButton, ReviewButton, ScanButton];
+
+  const Paths = [
+    "/DoctorDashboard",
+    "/DoctorSignIn",
+    "/DoctorPatientNfcCardScanPage",
+  ];
+
+  // const [showPatientDetail, setShowPatientDetail] = useState(false);
+  const navigate = useNavigate();
+
+  const handleScanPatientCardClick = () => {
+    navigate("/DoctorPatientDetailPage");
+
+    // If you want to conditionally render the detail page
+    // setShowPatientDetail(true);
+  };
 
   return (
     <div>
@@ -19,8 +37,9 @@ const DoctorPatientNfcCardScanPage = () => {
           <div className="nfcScan">
             <h1>Patient Details</h1>
             <div>
-              <div>Scan Patient Card</div>
+              <div onClick={handleScanPatientCardClick}>Scan Patient Card</div>
             </div>
+            {/*{showPatientDetail && <DoctorPatientDetailPage />}*/}
           </div>
         </div>
       </div>

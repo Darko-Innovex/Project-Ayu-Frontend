@@ -1,15 +1,15 @@
-#BackButton{
-    display: flex;
-    width: 218px;
-    height: 53px;
-    padding: 10px 46px 10px 40px;
-    align-items: center;
-    gap: 43px;
-    border-radius: 10px;
-    background: #12C080;
-    border: none;
-    color: #262626;
-    font-family: 'Kanit', sans-serif;
-    font-size: 22px;
-    font-weight: 400;
+#BackButton {
+  display: flex;
+  width: 218px;
+  height: 53px;
+  padding: 10px 46px 10px 40px;
+  align-items: center;
+  gap: 43px;
+  border-radius: 10px;
+  background: #12c080;
+  border: none;
+  color: #262626;
+  font-family: "Kanit", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
 }

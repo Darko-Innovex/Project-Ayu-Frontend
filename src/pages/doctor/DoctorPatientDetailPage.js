@@ -1,12 +1,12 @@
+import { useState } from "react";
+import "../../css/DoctorMedicalReportPage.css";
 import Navbar from "../component/dashboard/Navbar";
 import HomeButton from "../component/dashboard/button/HomeButton";
-import AppointmentButton from "../component/dashboard/button/AppointmentButton";
-import PatientReportViewButton from "../component/dashboard/button/PatientReportViewButton";
-import "../../css/DoctorMedicalReportPage.css";
+import ReviewButton from "../component/dashboard/button/ReviewButton";
+import ScanButton from "../component/dashboard/button/ScanButton";
 import Search from "../component/medicalReport/Search";
 import LabCard from "../component/medicalReport/LabCard";
 import labReport from "../../img/a-visual-guide-chart-showing-blood-chemistry-test-interpretation 2.pdf";
-import { useState } from "react";
 import PopupBackground from "../component/medicalReport/popup/PopupBackground";
 import SearchFilter from "../component/medicalReport/SearchFilter";
 import OldCard from "../component/medicalReport/OldCard";
@@ -21,8 +21,14 @@ const DoctorPatientDetailPage = () => {
   const [addReportPopup, setAddReportPopup] = useState(false);
   const [addMedicinePopup, setAddMedicinePopup] = useState(false);
   const [addAllergy, setAddAllergyPopup] = useState(false);
-  const Components = [HomeButton, AppointmentButton, PatientReportViewButton];
-  const Paths = ["/", "/", "/"];
+
+  const Components = [HomeButton, ReviewButton, ScanButton];
+
+  const Paths = [
+    "/DoctorDashboard",
+    "/DoctorSignIn",
+    "/DoctorPatientNfcCardScanPage",
+  ];
 
   let data = {
     title: "Blood Test",
@@ -87,14 +93,14 @@ const DoctorPatientDetailPage = () => {
   };
 
   const Allergies = [
-    "Api ",
-    "Apa",
-    "Api ",
-    "Apa",
-    "Api ",
-    "Apa",
-    "Api ",
-    "Apa",
+    "Sideritrocine Allergy ",
+    "Sideritrocine Allergy",
+    "Sideritrocine Allergy ",
+    "Sideritrocine Allergy",
+    "Sideritrocine Allergy ",
+    "Sideritrocine Allergy",
+    "Sideritrocine Allergy ",
+    "Sideritrocine Allergy",
   ];
   const AllergiesList = [];
 

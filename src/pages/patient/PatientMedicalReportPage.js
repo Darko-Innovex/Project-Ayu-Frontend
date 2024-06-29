@@ -1,14 +1,14 @@
+import { useState } from "react";
+import "../../css/PatientMediReport.css";
 import Navbar from "../component/dashboard/Navbar";
 import HomeButton from "../component/dashboard/button/HomeButton";
 import AppointmentButton from "../component/dashboard/button/AppointmentButton";
 import ReportButton from "../component/dashboard/button/ReportButton";
 import ReviewButton from "../component/dashboard/button/ReviewButton";
-import "../../css/PatientMediReport.css";
 import Search from "../component/medicalReport/Search";
 import LabCard from "../component/medicalReport/LabCard";
 import OldCard from "../component/medicalReport/OldCard";
 import SearchFilter from "../component/medicalReport/SearchFilter";
-import { useState } from "react";
 import PopupBackground from "../component/medicalReport/popup/PopupBackground";
 import labReport from "../../../src/img/a-visual-guide-chart-showing-blood-chemistry-test-interpretation 2.pdf";
 
@@ -92,7 +92,7 @@ const PatientMedicalReportPage = () => {
   };
 
   return (
-    <div id="PatientDashboard">
+    <div id="dashboard">
       <div className="cir">
         <div></div>
         <div></div>
