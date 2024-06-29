@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../component/dashboard/Navbar";
 import HomeButton from "../component/dashboard/button/HomeButton";
@@ -8,6 +8,13 @@ import DoctorPatientDetailPage from "./DoctorPatientDetailPage";
 
 const DoctorPatientNfcCardScanPage = () => {
   const Components = [HomeButton, ReviewButton, ScanButton];
+  const [cardId, setCardId] = useState(null);
+
+  useEffect(() => {
+    scanNFC();
+  }, []);
+
+  const scanNFC = () => {};
 
   const Paths = [
     "/DoctorDashboard",
