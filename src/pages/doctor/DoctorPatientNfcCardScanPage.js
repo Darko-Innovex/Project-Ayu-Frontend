@@ -9,6 +9,7 @@ import DoctorPatientDetailPage from "./DoctorPatientDetailPage";
 const DoctorPatientNfcCardScanPage = () => {
   const Components = [HomeButton, ReviewButton, ScanButton];
   const [cardId, setCardId] = useState(null);
+
   const [port, setPort] = useState(null);
 
   const connect = async () => {
@@ -61,6 +62,13 @@ const DoctorPatientNfcCardScanPage = () => {
       readLoop();
     }
   }, [port]);
+
+
+  useEffect(() => {
+    scanNFC();
+  }, []);
+
+  const scanNFC = () => {};
 
   const Paths = [
     "/DoctorDashboard",
