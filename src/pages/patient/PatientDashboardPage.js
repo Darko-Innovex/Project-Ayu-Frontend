@@ -7,6 +7,7 @@ import ReviewButton from "../component/dashboard/button/ReviewButton";
 import DashboardHeader from "../component/dashboard/DashboardHeader";
 import SearchLine from "../component/dashboard/SearchSection";
 import DashboardMediCard from "../component/dashboard/DashboardMediCard";
+import DashboardAppointmentCard from "../component/dashboard/DashboardAppointmentCard";
 
 const PatientDashboardPage = () => {
   const Components = [
@@ -54,6 +55,38 @@ const PatientDashboardPage = () => {
                     <DashboardMediCard />
                     <DashboardMediCard />
                     <DashboardMediCard />
+                  </div>
+                  <h1 className="AppointmentCardTitle">Appointments</h1>
+                  <div className="AppointmentCardList">
+                    <div>
+                      <DashboardAppointmentCard />
+                      <DashboardAppointmentCard />
+                      <DashboardAppointmentCard />
+                    </div>
+                    <div className="viewMore">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="80"
+                        height="80"
+                        viewBox="0 0 80 80"
+                        fill="none"
+                      >
+                        <rect
+                          x="0.5"
+                          y="0.5"
+                          width="79"
+                          height="79"
+                          rx="39.5"
+                          fill="white"
+                          fill-opacity="0.6"
+                          stroke="#E5E5E5"
+                        />
+                        <path
+                          d="M33.449 54.1162C34.0477 54.7346 35.0183 54.7346 35.617 54.1162L45.803 43.594C47.5986 41.7391 47.599 38.7322 45.8042 36.8766L35.7319 26.4638C35.1332 25.8454 34.1626 25.8454 33.5639 26.4638C32.9652 27.0823 32.9652 28.0849 33.5639 28.7034L43.6388 39.1108C44.2376 39.7294 44.2376 40.7319 43.6388 41.3503L33.449 51.8765C32.8503 52.4951 32.8503 53.4977 33.449 54.1162Z"
+                          fill="black"
+                        />
+                      </svg>
+                    </div>
                   </div>
                 </div>
               </div>
