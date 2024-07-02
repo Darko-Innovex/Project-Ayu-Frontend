@@ -137,21 +137,111 @@
     gap: 15px;
 }
 
-/*#DashMediCard{*/
-/*    background-image: url("src/img/MediCardDashboard.png");*/
-/*    width: 302px;*/
-/*    height: 200px;*/
-/*    background-size: cover;*/
-/*}*/
+#DashMediCard{
+    background-image: url("/src/img/MediCardDashboard.png");
+    width: 354px;
+    height: 230px;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: 100% 10%;
+    padding: 17px 20px;
+}
 
-/*#DashMediCard .viewButton{*/
-/*    width: 35px;*/
-/*    height: 35px;*/
-/*    border-radius: 50%;*/
-/*    border: 2px solid rgba(255, 255, 255, 0.70);*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    justify-content: center;*/
-/*    position: relative;*/
-/*    left: 14.2vw;*/
-/*}*/
+#DashMediCard .viewButton{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.70);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-19px) translateX(-27px);
+}
+
+#DashMediCard .img{
+    width: 35px;
+    height: 35px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 24px;
+}
+
+#DashMediCard .img img{
+    width: 75%;
+    height: 75%;
+}
+
+#DashMediCard .title h1{
+    color: #FFF;
+    font-family: "Poppins", sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0.22px;
+}
+
+#DashMediCard .title{
+    display: flex;
+    width: 100%;
+}
+
+#DashMediCard .title h2{
+    color: rgba(255, 251, 251, 0.75);
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+}
+
+#DashMediCard .MediCardContend{
+    display: flex;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+#DashMediCard .MediCardContend h1{
+    color: #FFF;
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+    transform: translateY(-15px);
+}
+
+#DashMediCard .MediCardDetails{
+    display: flex;
+    gap: 13px;
+    margin-top: 28px;
+}
+
+#DashMediCard .MediCardDetails > div{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: #262626;
+    font-family: 'Kanit', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.1px;
+    padding: 8px 16px;
+    background-color: rgba(255, 255, 255, 0.20);
+    backdrop-filter: blur(2px);
+    border-radius: 30px;
+}
+
+#DashMediCard .MediCardContend button{
+    border-radius: 20px;
+    background: #262626;
+    border: none;
+    color: #FFF;
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+    padding: 12px 18px;
+    display: flex;
+    gap: 9px;
+    align-items: center;
+}
