@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../component/dashboard/Navbar";
 import HomeButton from "../component/dashboard/button/HomeButton";
@@ -8,6 +8,59 @@ import DoctorPatientDetailPage from "./DoctorPatientDetailPage";
 
 const DoctorPatientNfcCardScanPage = () => {
   const Components = [HomeButton, ReviewButton, ScanButton];
+  const [cardId, setCardId] = useState(null);
+  const [port, setPort] = useState(null);
+
+  const connect = async () => {
+    try {
+      const port = await navigator.serial.requestPort();
+      await port.open({ baudRate: 9600 });
+      setPort(port);
+      console.log("Connected to port:", port);
+    } catch (error) {
+      console.error("Error connecting to port:", error);
+    }
+  };
+
+  let original = "";
+
+  useEffect(() => {
+    if (port) {
+      const reader = port.readable.getReader();
+      const textDecoder = new TextDecoder();
+
+      const readLoop = async () => {
+        while (true) {
+          const { value, done } = await reader.read();
+          if (done) {
+            console.log("Reader closed");
+            reader.releaseLock();
+            break;
+          }
+          if (value) {
+            const decodedValue = textDecoder.decode(value, { stream: true });
+
+            if (decodedValue.includes("$")) {
+              let splitedarray = decodedValue.split("$");
+              original += splitedarray.at(1);
+            }
+            if (!decodedValue.includes("$") && !decodedValue.includes("#")) {
+              original += decodedValue;
+            }
+            if (decodedValue.includes("#")) {
+              let splitedarray = decodedValue.split("#");
+              original += splitedarray.at(0);
+              console.log(original);
+              setCardId(original);
+              original = "";
+            }
+          }
+        }
+      };
+
+      readLoop();
+    }
+  }, [port]);
 
   const Paths = [
     "/DoctorDashboard",
@@ -19,10 +72,7 @@ const DoctorPatientNfcCardScanPage = () => {
   const navigate = useNavigate();
 
   const handleScanPatientCardClick = () => {
-    navigate("/DoctorPatientDetailPage");
-
-    // If you want to conditionally render the detail page
-    // setShowPatientDetail(true);
+    connect();
   };
 
   return (
