@@ -1,0 +1,75 @@
+#sideCard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+#sideCard > div{
+    width: 452px;
+    height: auto;
+    border-radius: 40px;
+    background: #262626;
+    margin-top: 40px;
+    padding: 10px;
+}
+
+#sideCard > div .image{
+    width: 432px;
+    height: 290px;
+    border-radius: 30px;
+    background: #FFF;
+    object-fit: cover;
+}
+
+#sideCard .image img{
+    width: 100%;
+    height: auto;
+}
+
+#sideCard .bloodType{
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.20);
+    filter: drop-shadow(0px 1px 6px rgba(255, 255, 255, 0.25));
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #FF6060;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.64px;
+    margin: 30px 0 10px 370px;
+}
+
+#sideCard h2{
+    color: #FFF;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.48px;
+    margin-left: 1vw;
+}
+
+#sideCard h1{
+    color: #FFF;
+    font-family: "Poppins", sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 0.88px;
+    margin-bottom: 25px;
+    margin-left: 1vw;
+}
+
+#sideCard .highlight{
+    display: flex;
+    align-items: center;
+    width: 372px;
+    height: 40px;
+    padding-left: 3px;
+    border-radius: 5px;
+    background: #303030;
+}

@@ -8,6 +8,7 @@ import DashboardHeader from "../component/dashboard/DashboardHeader";
 import SearchLine from "../component/dashboard/SearchSection";
 import DashboardMediCard from "../component/dashboard/DashboardMediCard";
 import DashboardAppointmentCard from "../component/dashboard/DashboardAppointmentCard";
+import DashboardUserDetailsCard from "../component/dashboard/DashboardUserDetailsCard";
 
 const PatientDashboardPage = () => {
   const Components = [
@@ -89,6 +90,9 @@ const PatientDashboardPage = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+              <div className="sideCard">
+                <DashboardUserDetailsCard />
               </div>
             </div>
           </div>
