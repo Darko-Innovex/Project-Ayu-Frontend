@@ -38,14 +38,14 @@ const PatientMedicalReportPage = () => {
   };
 
   const Allergies = [
-    "Api ",
-    "Apa",
-    "Api ",
-    "Apa",
-    "Api ",
-    "Apa",
-    "Api ",
-    "Apa",
+    "Latex Allergy ",
+    "Latex Allergy",
+    "Latex Allergy ",
+    "Latex Allergy",
+    "Latex Allergy ",
+    "Latex Allergy",
+    "Latex Allergy ",
+    "Latex Allergy",
   ];
   const AllergiesList = [];
 

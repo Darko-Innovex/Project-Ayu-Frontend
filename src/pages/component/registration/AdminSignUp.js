@@ -137,7 +137,6 @@ const AdminSignUp = () => {
         <p>
           By Sign Up , you agree to our <u>Terms & Conditions</u>
         </p>
-        {/*here on Submit= need to call handleSubmit method*/}
         <button onClick={navigateToDashboard}>Sign Up</button>
       </form>
     </div>
