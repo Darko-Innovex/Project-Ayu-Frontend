@@ -1,157 +1,247 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-* {
-  box-sizing: border-box;
+*{
+    box-sizing: border-box;
 }
 
-#DashboardHead h1 {
-  font-family: "Poppins", sans-serif;
-  font-size: 60px;
-  font-weight: 400;
-  letter-spacing: 1.8px;
-  color: #262626;
+#DashboardHead h1{
+    font-family: "Poppins", sans-serif;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 1.8px;
+    color: #262626;
 }
 
-#DashboardHead .timeAndDate {
-  display: flex;
-  gap: 18px;
-  border-radius: 50px;
-  background: rgba(255, 255, 255, 0.2);
-  width: 341px;
-  height: 70px;
-  align-items: center;
-  justify-content: center;
+#DashboardHead .timeAndDate{
+    display: flex;
+    gap: 18px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.20);
+    width: 341px;
+    height: 70px;
+    align-items: center;
+    justify-content: center;
 }
 
-#DashboardHead h2 {
-  font-family: "Poppins", sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0.56px;
+#DashboardHead h2{
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.56px;
 }
 
-#DashboardHead .timeAndDate div {
-  display: flex;
-  gap: 18px;
-  z-index: 1;
+#DashboardHead .timeAndDate div{
+    display: flex;
+    gap: 18px;
+    z-index: 1;
 }
 
-#DashboardHead .noti {
-  display: flex;
-  width: 70px;
-  height: 70px;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #929292;
-  border-radius: 50%;
-  transition: 1.5s;
+#DashboardHead .noti{
+    display: flex;
+    width: 70px;
+    height: 70px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #929292;
+    border-radius: 50%;
+    transition: 1.5s;
 }
 
-#DashboardHead .noti:hover {
-  transition: 5.5s;
-  border: none;
+#DashboardHead .noti:hover{
+    transition: 5.5s;
+    border: none;
 }
 
-#DashboardHead > :last-child {
-  display: flex;
-  gap: 30px;
+#DashboardHead > :last-child{
+    display: flex;
+    gap: 30px;
 }
 
-#DashboardHead {
-  width: 1616px;
-  display: flex;
-  justify-content: space-between;
+#DashboardHead{
+    width: 1616px;
+    display: flex;
+    justify-content: space-between;
 }
 
-#counts h1 {
-  font-family: "Poppins", sans-serif;
-  color: #262626;
-  font-size: 55px;
-  font-weight: 300;
-  letter-spacing: 1.1px;
+#counts h1{
+    font-family: "Poppins", sans-serif;
+    color: #262626;
+    font-size: 55px;
+    font-weight: 300;
+    letter-spacing: 1.1px;
 }
 
-#counts h2 {
-  color: #898989;
-  font-family: "Poppins", sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  letter-spacing: 0.54px;
+#counts h2{
+    color: #898989;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.54px;
 }
 
-#counts div {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+#counts div{
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-#counts span {
-  color: #12c080;
+#counts span{
+    color: #12C080;
 }
 
-#counts {
-  display: flex;
-  gap: 38px;
+#counts{
+    display: flex;
+    gap: 38px;
 }
 
-.SearchLine {
-  margin-top: 49px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.SearchLine{
+    margin-top: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-#Search input {
-  width: 343px;
-  height: 56px;
-  border-radius: 40px;
-  border: 1px solid #d7d7d7;
-  background: #fff;
-  color: #7e7e7e;
-  font-size: 18px;
-  font-weight: 300;
-  letter-spacing: 0.54px;
-  font-family: "Poppins", sans-serif;
-  padding-left: 50px;
+#Search input{
+    width: 343px;
+    height: 56px;
+    border-radius: 40px;
+    border: 1px solid #D7D7D7;
+    background: #FFF;
+    color: #7E7E7E;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 0.54px;
+    font-family: "Poppins", sans-serif;
+    padding-left: 50px;
 }
 
-#Search > :first-child svg {
-  position: relative;
-  right: 17vw;
-  top: 2px;
+#Search > :first-child svg{
+    position: relative;
+    right: 17vw;
+    top: 2px;
 }
 
-#Search .filter {
-  width: 53px;
-  height: 53px;
-  border-radius: 50%;
-  border: 1px solid #d7d7d7;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#Search .filter{
+    width: 53px;
+    height: 53px;
+    border-radius: 50%;
+    border: 1px solid #D7D7D7;
+    background: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#Search {
-  display: flex;
-  gap: 15px;
+#Search{
+    display: flex;
+    gap: 15px;
 }
 
-/*#DashMediCard{*/
-/*    background-image: url("src/img/MediCardDashboard.png");*/
-/*    width: 302px;*/
-/*    height: 200px;*/
-/*    background-size: cover;*/
-/*}*/
+#DashMediCard{
+    background-image: url("/src/img/MediCardDashboard.png");
+    width: 354px;
+    height: 230px;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: 100% 10%;
+    padding: 17px 20px;
+}
 
-/*#DashMediCard .viewButton{*/
-/*    width: 35px;*/
-/*    height: 35px;*/
-/*    border-radius: 50%;*/
-/*    border: 2px solid rgba(255, 255, 255, 0.70);*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    justify-content: center;*/
-/*    position: relative;*/
-/*    left: 14.2vw;*/
-/*}*/
+#DashMediCard .viewButton{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.70);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-19px) translateX(-27px);
+}
+
+#DashMediCard .img{
+    width: 35px;
+    height: 35px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 24px;
+}
+
+#DashMediCard .img img{
+    width: 75%;
+    height: 75%;
+}
+
+#DashMediCard .title h1{
+    color: #FFF;
+    font-family: "Poppins", sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0.22px;
+}
+
+#DashMediCard .title{
+    display: flex;
+    width: 100%;
+}
+
+#DashMediCard .title h2{
+    color: rgba(255, 251, 251, 0.75);
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+}
+
+#DashMediCard .MediCardContend{
+    display: flex;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+#DashMediCard .MediCardContend h1{
+    color: #FFF;
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+    transform: translateY(-15px);
+}
+
+#DashMediCard .MediCardDetails{
+    display: flex;
+    gap: 13px;
+    margin-top: 28px;
+}
+
+#DashMediCard .MediCardDetails > div{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: #262626;
+    font-family: 'Kanit', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.1px;
+    padding: 8px 16px;
+    background-color: rgba(255, 255, 255, 0.20);
+    backdrop-filter: blur(2px);
+    border-radius: 30px;
+}
+
+#DashMediCard .MediCardContend button{
+    border-radius: 20px;
+    background: #262626;
+    border: none;
+    color: #FFF;
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+    padding: 12px 18px;
+    display: flex;
+    gap: 9px;
+    align-items: center;
+}
