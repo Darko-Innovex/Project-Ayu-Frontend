@@ -1,8 +1,8 @@
 import "../../../../css/component/dashboard/Buttons.css";
 
-const LogOutButton = () => {
+const LogOutButton = ({ logOut }) => {
   return (
-    <div id="logOut">
+    <div id="logOut" onClick={logOut}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="32"

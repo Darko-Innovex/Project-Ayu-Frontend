@@ -9,8 +9,15 @@ import SearchLine from "../component/dashboard/SearchSection";
 import DashboardMediCard from "../component/dashboard/DashboardMediCard";
 import DashboardAppointmentCard from "../component/dashboard/DashboardAppointmentCard";
 import DashboardUserDetailsCard from "../component/dashboard/DashboardUserDetailsCard";
+import NotificationPanel from "../component/dashboard/NotificationPanel";
+import { useState } from "react";
+import DashboardFilter from "../component/dashboard/DashboardFilter";
+import { useNavigate } from "react-router-dom";
 
 const PatientDashboardPage = () => {
+  const [notificationPanel, setNotificationPanel] = useState(false);
+  const [filterPanel, setFilterPanel] = useState(false);
+  const navigate = useNavigate(null);
   const Components = [
     HomeButton,
     AppointmentButton,
@@ -19,6 +26,26 @@ const PatientDashboardPage = () => {
   ];
   const Paths = ["/PatientDashboard", "/", "/PatientMedicalReport", "/"];
 
+  const showNotificationPanel = () => {
+    setNotificationPanel(true);
+  };
+
+  const hideNotificationPanel = () => {
+    setNotificationPanel(false);
+  };
+
+  const showAndHideFilterPanel = () => {
+    setFilterPanel(!filterPanel);
+  };
+
+  const navigateToMedicalPage = () => {
+    navigate("/PatientMedicalReport");
+  };
+
+  const logOutBtnOnAction = () => {
+    navigate("/");
+  };
+
   return (
     <div>
       <div id="PatientDashboard">
@@ -26,17 +53,30 @@ const PatientDashboardPage = () => {
           <div></div>
           <div></div>
         </div>
+
+        {notificationPanel && (
+          <NotificationPanel hideNotification={hideNotificationPanel} />
+        )}
+
+        {filterPanel && (
+          <DashboardFilter closeFilter={showAndHideFilterPanel} />
+        )}
+
         <div className="container">
-          <Navbar components={Components} Paths={Paths} />
+          <Navbar
+            components={Components}
+            Paths={Paths}
+            LogOut={logOutBtnOnAction}
+          />
           <div className="contend">
-            <DashboardHeader />
+            <DashboardHeader showNotification={showNotificationPanel} />
             <div>
               <div>
-                <SearchLine />
+                <SearchLine showFilter={showAndHideFilterPanel} />
                 <div>
                   <div className="MediCardSectionTitle">
                     <h1>Medical Reports</h1>
-                    <button>
+                    <button onClick={navigateToMedicalPage}>
                       View All
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

@@ -25,7 +25,7 @@ const PopupBackground = ({ hideReport }) => {
   return (
     <div id="ViewReport">
       <div className="ReportBackground">
-        <div className="container">
+        <div className="container medicalReportContainer">
           <div className="cir">
             <div></div>
             <div></div>

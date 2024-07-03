@@ -1,4 +1,4 @@
-const SearchLine = () => {
+const SearchLine = ({ showFilter }) => {
   return (
     <div className="SearchLine">
       <div id="counts">
@@ -39,7 +39,7 @@ const SearchLine = () => {
             />
           </svg>
         </div>
-        <div className="filter">
+        <div className="filter" onClick={showFilter}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="23"
