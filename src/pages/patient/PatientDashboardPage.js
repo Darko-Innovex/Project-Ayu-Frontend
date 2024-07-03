@@ -1,4 +1,4 @@
-import "../../css/component/dashboard/DashboardBackground.css";
+import "../../css/PatientDashboardPage.css";
 import Navbar from "../component/dashboard/Navbar";
 import HomeButton from "../component/dashboard/button/HomeButton";
 import AppointmentButton from "../component/dashboard/button/AppointmentButton";
@@ -21,7 +21,7 @@ const PatientDashboardPage = () => {
 
   return (
     <div>
-      <div id="dashboard">
+      <div id="PatientDashboard">
         <div className="cir">
           <div></div>
           <div></div>

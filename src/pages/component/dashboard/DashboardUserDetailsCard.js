@@ -1,4 +1,4 @@
-import "../../../css/component/dashboard/sideCard.css";
+import "../../../css/component/dashboard/DashboardUserDetailsCard.css";
 import Image from "../../../img/sideImage.png";
 
 const DashboardUserDetailsCard = () => {

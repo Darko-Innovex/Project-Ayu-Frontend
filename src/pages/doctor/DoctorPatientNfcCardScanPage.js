@@ -55,6 +55,7 @@ const DoctorPatientNfcCardScanPage = () => {
               setCardId(original);
               original = "";
             }
+            navigate("/DoctorPatientDetailPage");
           }
         }
       };
@@ -62,7 +63,6 @@ const DoctorPatientNfcCardScanPage = () => {
       readLoop();
     }
   }, [port]);
-
 
   useEffect(() => {
     scanNFC();
