@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "../../../css/component/dashboard/Dashboard.css";
 
-export const DashboardHeader = () => {
+export const DashboardHeader = ({ showNotification }) => {
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
   useEffect(() => {
@@ -70,7 +70,7 @@ export const DashboardHeader = () => {
             <h2>{formatDate(currentDateTime)}</h2>
           </div>
         </div>
-        <div className="noti">
+        <div className="noti" onClick={showNotification}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="18"

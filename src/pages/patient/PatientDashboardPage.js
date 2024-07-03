@@ -9,8 +9,11 @@ import SearchLine from "../component/dashboard/SearchSection";
 import DashboardMediCard from "../component/dashboard/DashboardMediCard";
 import DashboardAppointmentCard from "../component/dashboard/DashboardAppointmentCard";
 import DashboardUserDetailsCard from "../component/dashboard/DashboardUserDetailsCard";
+import NotificationPanel from "../component/dashboard/NotificationPanel";
+import { useState } from "react";
 
 const PatientDashboardPage = () => {
+  const [notificationPanel, setNotificationPanel] = useState(false);
   const Components = [
     HomeButton,
     AppointmentButton,
@@ -19,6 +22,14 @@ const PatientDashboardPage = () => {
   ];
   const Paths = ["/PatientDashboard", "/", "/PatientMedicalReport", "/"];
 
+  const showNotificationPanel = () => {
+    setNotificationPanel(true);
+  };
+
+  const hideNotificationPanel = () => {
+    setNotificationPanel(false);
+  };
+
   return (
     <div>
       <div id="PatientDashboard">
@@ -26,10 +37,15 @@ const PatientDashboardPage = () => {
           <div></div>
           <div></div>
         </div>
+
+        {notificationPanel && (
+          <NotificationPanel hideNotification={hideNotificationPanel} />
+        )}
+
         <div className="container">
           <Navbar components={Components} Paths={Paths} />
           <div className="contend">
-            <DashboardHeader />
+            <DashboardHeader showNotification={showNotificationPanel} />
             <div>
               <div>
                 <SearchLine />
