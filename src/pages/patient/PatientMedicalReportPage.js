@@ -11,11 +11,13 @@ import OldCard from "../component/medicalReport/OldCard";
 import SearchFilter from "../component/medicalReport/SearchFilter";
 import PopupBackground from "../component/medicalReport/popup/PopupBackground";
 import labReport from "../../../src/img/a-visual-guide-chart-showing-blood-chemistry-test-interpretation 2.pdf";
+import { useNavigate } from "react-router-dom";
 
 const PatientMedicalReportPage = () => {
   const [labReportFilter, setLabReportFilter] = useState(false);
   const [oldReportFilter, setOldReportFilter] = useState(false);
   const [reportViewPopup, setReportViewPopup] = useState(false);
+  const navigate = useNavigate(null);
 
   const Components = [
     HomeButton,
@@ -35,6 +37,10 @@ const PatientMedicalReportPage = () => {
 
   const showAndHideReportViesPopUp = () => {
     setReportViewPopup(!reportViewPopup);
+  };
+
+  const logOutBtnOnAction = () => {
+    navigate("/");
   };
 
   const Allergies = [
@@ -117,7 +123,11 @@ const PatientMedicalReportPage = () => {
         />
       )}
       <div className="container">
-        <Navbar components={Components} Paths={Paths} />
+        <Navbar
+          components={Components}
+          Paths={Paths}
+          LogOut={logOutBtnOnAction}
+        />
         <div id="PatientMediReport">
           <div>
             <div className="labReport">
