@@ -34,7 +34,7 @@ const NotificationPanel = ({ hideNotification }) => {
 
   const handleButtonClick = (status, button) => {
     setCurrentStatus(status);
-    setSelectedButton(status); // Set selectedButton to the clicked status
+    setSelectedButton(button);
   };
 
   const filteredNotifications = data.filter((notification) => {

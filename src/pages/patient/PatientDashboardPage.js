@@ -11,9 +11,11 @@ import DashboardAppointmentCard from "../component/dashboard/DashboardAppointmen
 import DashboardUserDetailsCard from "../component/dashboard/DashboardUserDetailsCard";
 import NotificationPanel from "../component/dashboard/NotificationPanel";
 import { useState } from "react";
+import DashboardFilter from "../component/dashboard/DashboardFilter";
 
 const PatientDashboardPage = () => {
   const [notificationPanel, setNotificationPanel] = useState(false);
+  const [filterPanel, setFilterPanel] = useState(false);
   const Components = [
     HomeButton,
     AppointmentButton,
@@ -30,6 +32,10 @@ const PatientDashboardPage = () => {
     setNotificationPanel(false);
   };
 
+  const showAndHideFilterPanel = () => {
+    setFilterPanel(!filterPanel);
+  };
+
   return (
     <div>
       <div id="PatientDashboard">
@@ -42,13 +48,17 @@ const PatientDashboardPage = () => {
           <NotificationPanel hideNotification={hideNotificationPanel} />
         )}
 
+        {filterPanel && (
+          <DashboardFilter closeFilter={showAndHideFilterPanel} />
+        )}
+
         <div className="container">
           <Navbar components={Components} Paths={Paths} />
           <div className="contend">
             <DashboardHeader showNotification={showNotificationPanel} />
             <div>
               <div>
-                <SearchLine />
+                <SearchLine showFilter={showAndHideFilterPanel} />
                 <div>
                   <div className="MediCardSectionTitle">
                     <h1>Medical Reports</h1>

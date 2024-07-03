@@ -1,0 +1,66 @@
+#dashboardFilter{
+    width: 516px;
+    height: 361px;
+    border-radius: 30px;
+    background: #F0FFFA;
+    padding: 60px 40px;
+    position: relative;left: 65vw;
+    top: 17vh;
+}
+
+#dashboardFilter .closeBtn{
+    width: 34px;
+    height: 34px;
+    background-color: #E3E3E3;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
+    position: relative;
+    bottom: 47px;
+    left: 27px;
+}
+
+#dashboardFilter h1{
+    color: #636363;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 20px;
+    font-size: 15px;;
+    font-weight: 400;
+}
+
+#dashboardFilter .buttons{
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+#dashboardFilter button , #dashboardFilter select{
+    padding: 10px 33px;
+    color: #0E9A66;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 18px;
+    background: #BFFFE7;
+    border: none;
+}
+
+#dashboardFilter button{
+    padding: 10px 26px;
+}
+
+#dashboardFilter h2{
+    float: right;
+    color: #0E9A66;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline;
+}
