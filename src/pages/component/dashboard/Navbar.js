@@ -3,7 +3,7 @@ import "../../../css/component/dashboard/Navbar.css";
 import { Link } from "react-router-dom";
 import LogOutButton from "./button/LogOutButton";
 
-const Navbar = ({ components, Paths }) => {
+const Navbar = ({ components, Paths, LogOut }) => {
   const renderedComponents = [];
 
   for (let i = 0; i < components.length; i++) {
@@ -20,7 +20,7 @@ const Navbar = ({ components, Paths }) => {
       <div>
         <img src={AyuLogo} alt="AyuLogo" />
         <div className="buttons">{renderedComponents}</div>
-        <LogOutButton />
+        <LogOutButton logOut={LogOut} />
       </div>
     </div>
   );

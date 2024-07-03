@@ -12,10 +12,12 @@ import DashboardUserDetailsCard from "../component/dashboard/DashboardUserDetail
 import NotificationPanel from "../component/dashboard/NotificationPanel";
 import { useState } from "react";
 import DashboardFilter from "../component/dashboard/DashboardFilter";
+import { useNavigate } from "react-router-dom";
 
 const PatientDashboardPage = () => {
   const [notificationPanel, setNotificationPanel] = useState(false);
   const [filterPanel, setFilterPanel] = useState(false);
+  const navigate = useNavigate(null);
   const Components = [
     HomeButton,
     AppointmentButton,
@@ -36,6 +38,14 @@ const PatientDashboardPage = () => {
     setFilterPanel(!filterPanel);
   };
 
+  const navigateToMedicalPage = () => {
+    navigate("/PatientMedicalReport");
+  };
+
+  const logOutBtnOnAction = () => {
+    navigate("/");
+  };
+
   return (
     <div>
       <div id="PatientDashboard">
@@ -53,7 +63,11 @@ const PatientDashboardPage = () => {
         )}
 
         <div className="container">
-          <Navbar components={Components} Paths={Paths} />
+          <Navbar
+            components={Components}
+            Paths={Paths}
+            LogOut={logOutBtnOnAction}
+          />
           <div className="contend">
             <DashboardHeader showNotification={showNotificationPanel} />
             <div>
@@ -62,7 +76,7 @@ const PatientDashboardPage = () => {
                 <div>
                   <div className="MediCardSectionTitle">
                     <h1>Medical Reports</h1>
-                    <button>
+                    <button onClick={navigateToMedicalPage}>
                       View All
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
