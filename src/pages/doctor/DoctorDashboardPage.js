@@ -10,14 +10,39 @@ import "../../../src/css/DoctordashboardPage.css";
 import DoctorDashboardOldPatientCard from "../component/dashboard/DoctorDashboardOldPatientCard";
 import DashboardUserDetailsCard from "../component/dashboard/DashboardUserDetailsCard";
 import Image from "../../../src/img/sideImage.png";
+import NotificationPanel from "../component/dashboard/NotificationPanel";
+import { useState } from "react";
+import DashboardFilter from "../component/dashboard/DashboardFilter";
+import DoctorDashboardFilter from "../component/dashboard/DoctorDashboardFilter";
+import { useNavigate } from "react-router-dom";
 
 const DoctorDashboardPage = () => {
   const Components = [HomeButton, ReviewButton, ScanButton];
+  const [notificationPanel, setNotificationPanel] = useState(false);
+  const [filterPanel, setFilterPanel] = useState(false);
+  const navigate = useNavigate(null);
+
   const Paths = [
     "/DoctorDashboard",
     "/DoctorSignIn",
     "/DoctorPatientNfcCardScanPage",
   ];
+
+  const showNotificationPanel = () => {
+    setNotificationPanel(true);
+  };
+
+  const hideNotificationPanel = () => {
+    setNotificationPanel(false);
+  };
+
+  const showAndHideFilterPanel = () => {
+    setFilterPanel(!filterPanel);
+  };
+
+  const logOutBtnOnAction = () => {
+    navigate("/DoctorSignIn");
+  };
 
   let userData = {
     img: Image,
@@ -36,13 +61,23 @@ const DoctorDashboardPage = () => {
           <div></div>
           <div></div>
         </div>
+        {notificationPanel && (
+          <NotificationPanel hideNotification={hideNotificationPanel} />
+        )}
+        {filterPanel && (
+          <DoctorDashboardFilter closeFilter={showAndHideFilterPanel} />
+        )}
         <div className="container DoctorDashboardContainer">
-          <Navbar components={Components} Paths={Paths} />
+          <Navbar
+            components={Components}
+            Paths={Paths}
+            LogOut={logOutBtnOnAction}
+          />
           <div className="contend">
-            <DashboardHeader />
+            <DashboardHeader showNotification={showNotificationPanel} />
             <div>
               <div>
-                <SearchLine />
+                <SearchLine showFilter={showAndHideFilterPanel} />
                 <div></div>
                 <div>
                   <h1 className="title">Monthly Patients</h1>

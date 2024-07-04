@@ -9,7 +9,6 @@ import DoctorPatientDetailPage from "./DoctorPatientDetailPage";
 const DoctorPatientNfcCardScanPage = () => {
   const Components = [HomeButton, ReviewButton, ScanButton];
   const [cardId, setCardId] = useState(null);
-
   const [port, setPort] = useState(null);
 
   const connect = async () => {
@@ -83,6 +82,10 @@ const DoctorPatientNfcCardScanPage = () => {
     connect();
   };
 
+  const logOutBtnOnAction = () => {
+    navigate("/DoctorSignIn");
+  };
+
   return (
     <div>
       <div id="DoctorDashboard">
@@ -91,7 +94,11 @@ const DoctorPatientNfcCardScanPage = () => {
           <div></div>
         </div>
         <div className="container">
-          <Navbar components={Components} Paths={Paths} />
+          <Navbar
+            components={Components}
+            Paths={Paths}
+            LogOut={logOutBtnOnAction}
+          />
           <div className="nfcScan">
             <h1>Patient Details</h1>
             <div>
