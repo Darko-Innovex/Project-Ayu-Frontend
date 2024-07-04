@@ -8,6 +8,7 @@ import {
   Title,
   Tooltip,
 } from "chart.js";
+import { useEffect, useState } from "react";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -18,6 +19,12 @@ ChartJS.register(
 );
 
 const BarChart = () => {
+  const [counts, setCounts] = useState([]);
+
+  useEffect(() => {
+    setCounts([12, 7, 10, 14, 5, 15, 10, 9, 17, 8, 13, 14]);
+  }, []);
+
   const data = {
     labels: [
       "Jan",
@@ -35,7 +42,7 @@ const BarChart = () => {
     ],
     datasets: [
       {
-        data: [12, 7, 10, 14, 5, 15, 10, 9, 17, 8, 13, 14],
+        data: counts,
         backgroundColor: "#1BCE8C",
         barThickness: 40,
         gap: 100,
