@@ -5,7 +5,9 @@ const OldCard = ({ Appointment, hideReport }) => {
   function onClickViewDoctorReport() {
     //Must get Medical Report using Appointment ID
     try {
-      const response = axios.get(`/appointment/${Appointment}/medical_report`);
+      const response = axios.get(
+        `http://localhost:8080/appointment/${Appointment}/medical_report`,
+      );
       setReportData(response.data);
     } catch (error) {
       console.error(error);
@@ -17,7 +19,9 @@ const OldCard = ({ Appointment, hideReport }) => {
   function onClickMedicalList() {
     //Must get Medicine List using Appointment ID
     try {
-      const response = axios.get(`/appointment/${Appointment}/medicine_list`);
+      const response = axios.get(
+        `http://localhost:8080/appointment/${Appointment}/medicine_list`,
+      );
       setReportData(response.data);
     } catch (error) {
       console.error(error);

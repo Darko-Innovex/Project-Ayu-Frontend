@@ -118,7 +118,9 @@ const DoctorPatientDetailPage = () => {
 
   const getAppointments = async () => {
     try {
-      const response = await axios.get(`/patient/${patientId}/appointment`);
+      const response = await axios.get(
+        `http://localhost:8080/patient/${patientId}/appointment`,
+      );
       setAppointments(response.data);
     } catch (error) {
       console.error(error);
@@ -127,7 +129,9 @@ const DoctorPatientDetailPage = () => {
 
   const getAllergies = async () => {
     try {
-      const response = await axios.get(`/patient/${patientId}/allergies`);
+      const response = await axios.get(
+        `http://localhost:8080/patient/${patientId}/allergies`,
+      );
       setAllergies(response.data);
     } catch (error) {
       console.error(error);
@@ -136,7 +140,9 @@ const DoctorPatientDetailPage = () => {
 
   const getRegularDrugs = async () => {
     try {
-      const response = await axios.get(`/patient/{id}/drug_list`);
+      const response = await axios.get(
+        `http://localhost:8080/patient/{id}/drug_list`,
+      );
       setRegularDrugs(response.data);
     } catch (error) {
       console.error(error);
@@ -145,7 +151,9 @@ const DoctorPatientDetailPage = () => {
 
   const getPatinet = async () => {
     try {
-      const response = await axios.get(`/patient/${patientId}`);
+      const response = await axios.get(
+        `http://localhost:8080/patient/${patientId}`,
+      );
       setPatient(response.data);
     } catch (error) {
       console.error(error);
@@ -154,7 +162,9 @@ const DoctorPatientDetailPage = () => {
 
   const getLabReports = async () => {
     try {
-      const response = await axios.get(`/patient/${patientId}/lab_reports`);
+      const response = await axios.get(
+        `http://localhost:8080/patient/${patientId}/lab_reports`,
+      );
       setLabReports(response.data);
     } catch (error) {
       console.error(error);
