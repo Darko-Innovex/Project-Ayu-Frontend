@@ -1,0 +1,174 @@
+#PatientDashboard .PatientAppointmentContend{
+    position: absolute;
+    top: 0;
+    left: 8.5vw;
+    padding: 59px 68px;
+    width: 94%;
+}
+
+#PatientDashboard .PatientAppointmentContend .title{
+    color: #262626;
+    font-family: "Poppins", sans-serif;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 1.8px;
+}
+
+#PatientDashboard .PatientAppointmentContend > :nth-child(2){
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 43px;
+}
+
+#PatientDashboard .PatientAppointmentContend > :nth-child(2) > div{
+    display: flex;
+}
+
+#PatientDashboard .PatientAppointmentContend > :nth-child(2) > div svg{
+    position: absolute;
+    margin-left: 2vw;
+    margin-top: 1.8vh;
+}
+
+#PatientDashboard .PatientAppointmentContend > :nth-child(2) input{
+    border-radius: 40px;
+    border: 1px solid #D7D7D7;
+    background: #FFF;
+    width: 343px;
+    height: 56px;
+    padding: 0 20px;
+    padding-left: 60px;
+    color: #7E7E7E;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 1.08px;
+}
+
+#PatientDashboard .PatientAppointmentContend > :nth-child(2) .filter{
+    position: static;
+    margin: 0;
+    margin-left: 15px;
+}
+
+#PatientDashboard .PatientAppointmentContend > :nth-child(2) button{
+    width: 228px;
+    height: 56px;
+    border-radius: 30px;
+    background: #262626;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #FFF;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.6px;
+}
+
+#PatientDashboard .PatientAppointmentContend .tableBody > div,
+#PatientDashboard .PatientAppointmentContend .tableHead{
+    width: 1596px;
+    height: 58px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.50);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+}
+
+#PatientDashboard .PatientAppointmentContend .appointmentNm{
+    max-width: 158px;
+    width: 158px;
+    overflow: hidden;
+    margin-left: 46px;
+}
+
+#PatientDashboard .PatientAppointmentContend .tableBody h1,
+#PatientDashboard .PatientAppointmentContend .tableHead h1{
+    color: #000;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.72px;
+    text-align: center;
+}
+
+#PatientDashboard .PatientAppointmentContend .doctorName{
+    max-width: 237px;
+    width: 237px;
+    overflow: hidden;
+    margin-left: 74px;
+}
+
+#PatientDashboard .PatientAppointmentContend .hospital{
+    width: 164px;
+    max-width: 164px;
+    overflow: hidden;
+    margin-left: 128px;
+}
+
+#PatientDashboard .PatientAppointmentContend .date{
+    width: 135px;
+    max-width: 135px;
+    overflow: hidden;
+    margin-left: 151px;
+}
+
+#PatientDashboard .PatientAppointmentContend .status{
+    width: 112px;
+    max-width: 112px;
+    overflow: hidden;
+    margin-left: 128px;
+}
+
+#PatientDashboard .PatientAppointmentContend .action{
+    width: 61px;
+    max-width: 61px;
+    overflow: hidden;
+    margin-left: 114px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#PatientDashboard .PatientAppointmentContend input{
+    width: 21px;
+    height: 21px;
+    background-color: #262626;
+    margin-left: 18px;
+}
+
+#PatientDashboard .PatientAppointmentContend .tableHead{
+    margin-top: 63px;
+}
+
+#PatientDashboard .PatientAppointmentContend .tableBody{
+    margin-top: 26px;
+    max-height: 570px;
+    height: 570px;
+    overflow-y: scroll;
+}
+
+#PatientDashboard .PatientAppointmentContend .tableBody > div{
+    margin-top: 15px;
+}
+
+#PatientDashboard .PatientAppointmentContend .tableBody button{
+    background-color: transparent;
+    border: none;
+}
+
+#PatientDashboard .PatientAppointmentContend .tableBody::-webkit-scrollbar{
+    background-color: #B5B5B5;
+    width: 2px;
+}
+
+#PatientDashboard .PatientAppointmentContend .tableBody::-webkit-scrollbar-thumb{
+    max-width: 10px !important;
+    height: 46px;
+    background-color: #0e9a66;
+}
