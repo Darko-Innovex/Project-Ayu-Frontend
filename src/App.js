@@ -60,7 +60,7 @@ function App() {
             element={<DoctorPatientNfcCardScanPage />}
           />
           <Route
-            path="/DoctorPatientDetailPage"
+            path="/DoctorPatientDetailPage/:patientId"
             element={<DoctorPatientDetailPage />}
           />
 

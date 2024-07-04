@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../../css/DoctorMedicalReportPage.css";
 import Navbar from "../component/dashboard/Navbar";
 import HomeButton from "../component/dashboard/button/HomeButton";
@@ -13,6 +13,8 @@ import OldCard from "../component/medicalReport/OldCard";
 import AddReportPopup from "../component/medicalReport/popup/AddReportPopup";
 import DoctorAddMedicinePopup from "../component/medicalReport/popup/DoctorAddMedicinePopup";
 import DoctorAddAllergyPopup from "../component/medicalReport/popup/DoctorAddAllergyPopup";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const DoctorPatientDetailPage = () => {
   const [labReportFilter, setLabReportFilter] = useState(false);
@@ -22,7 +24,19 @@ const DoctorPatientDetailPage = () => {
   const [addMedicinePopup, setAddMedicinePopup] = useState(false);
   const [addAllergy, setAddAllergyPopup] = useState(false);
 
+  const [appointments, setAppointments] = useState([]);
+  const [labReports, setLabReports] = useState([]);
+  const [allergies, setAllergies] = useState([]);
+  const [regularDrugs, setRegularDrugs] = useState([]);
+  const [patient, setPatient] = useState(null);
+
   const Components = [HomeButton, ReviewButton, ScanButton];
+
+  const { patientId } = useParams();
+
+  useEffect(() => {
+    console.log(patientId);
+  }, [patientId]);
 
   const Paths = [
     "/DoctorDashboard",
@@ -92,21 +106,78 @@ const DoctorPatientDetailPage = () => {
     setAddAllergyPopup(!addAllergy);
   };
 
-  const Allergies = [
-    "Sideritrocine Allergy ",
-    "Sideritrocine Allergy",
-    "Sideritrocine Allergy ",
-    "Sideritrocine Allergy",
-    "Sideritrocine Allergy ",
-    "Sideritrocine Allergy",
-    "Sideritrocine Allergy ",
-    "Sideritrocine Allergy",
-  ];
-  const AllergiesList = [];
+  useEffect(() => {
+    if (patientId) {
+      getAppointments();
+      getAllergies();
+      getRegularDrugs();
+      getPatinet();
+      getLabReports();
+    }
+  }, [patientId]);
 
-  for (let i = 0; i < Allergies.length; i++) {
-    AllergiesList.push(<h2 key={i}>{Allergies[i]}</h2>);
-  }
+  const getAppointments = async () => {
+    try {
+      const response = await axios.get(`/patient/${patientId}/appointment`);
+      setAppointments(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const getAllergies = async () => {
+    try {
+      const response = await axios.get(`/patient/${patientId}/allergies`);
+      setAllergies(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const getRegularDrugs = async () => {
+    try {
+      const response = await axios.get(`/patient/{id}/drug_list`);
+      setRegularDrugs(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const getPatinet = async () => {
+    try {
+      const response = await axios.get(`/patient/${patientId}`);
+      setPatient(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const getLabReports = async () => {
+    try {
+      const response = await axios.get(`/patient/${patientId}/lab_reports`);
+      setLabReports(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const calculateAge = (dob) => {
+    const dobDate = new Date(dob);
+    const today = new Date();
+
+    let age = today.getFullYear() - dobDate.getFullYear();
+    const monthDifference = today.getMonth() - dobDate.getMonth();
+
+    // If the birth month hasn't occurred yet this year, or if it's the birth month but the birth date hasn't occurred yet this month, subtract a year.
+    if (
+      monthDifference < 0 ||
+      (monthDifference === 0 && today.getDate() < dobDate.getDate())
+    ) {
+      age--;
+    }
+
+    return age;
+  };
 
   return (
     <div id="DoctorDashboard">
@@ -156,16 +227,13 @@ const DoctorPatientDetailPage = () => {
                 <Search showFilter={showAndHideLabReportFilter} />
               </div>
               <div className="cardSet">
-                <LabCard data={data} showReport={showAndHideReportViesPopUp} />
-                <LabCard data={data} showReport={showAndHideReportViesPopUp} />
-                <LabCard data={data} showReport={showAndHideReportViesPopUp} />
-                <LabCard data={data} showReport={showAndHideReportViesPopUp} />
-                <LabCard data={data} showReport={showAndHideReportViesPopUp} />
-                <LabCard data={data} showReport={showAndHideReportViesPopUp} />
-                <LabCard data={data} showReport={showAndHideReportViesPopUp} />
-                <LabCard data={data} showReport={showAndHideReportViesPopUp} />
-                <LabCard data={data} showReport={showAndHideReportViesPopUp} />
-                <LabCard data={data} showReport={showAndHideReportViesPopUp} />
+                {labReports &&
+                  labReports.map((labReport) => (
+                    <LabCard
+                      data={labReport}
+                      showReport={showAndHideReportViesPopUp}
+                    />
+                  ))}
               </div>
             </div>
             <div className="OldMediReport">
@@ -174,51 +242,13 @@ const DoctorPatientDetailPage = () => {
                 <Search showFilter={showAndHideOldReportFilter} />
               </div>
               <div className="cardSet">
-                <OldCard
-                  MedicalReport={data1}
-                  MedicalList={data2}
-                  hideReport={showAndHideReportViesPopUp}
-                />
-                <OldCard
-                  MedicalReport={data1}
-                  MedicalList={data2}
-                  hideReport={showAndHideReportViesPopUp}
-                />
-                <OldCard
-                  MedicalReport={data1}
-                  MedicalList={data2}
-                  hideReport={showAndHideReportViesPopUp}
-                />
-                <OldCard
-                  MedicalReport={data1}
-                  MedicalList={data2}
-                  hideReport={showAndHideReportViesPopUp}
-                />
-                <OldCard
-                  MedicalReport={data1}
-                  MedicalList={data2}
-                  hideReport={showAndHideReportViesPopUp}
-                />
-                <OldCard
-                  MedicalReport={data1}
-                  MedicalList={data2}
-                  hideReport={showAndHideReportViesPopUp}
-                />
-                <OldCard
-                  MedicalReport={data1}
-                  MedicalList={data2}
-                  hideReport={showAndHideReportViesPopUp}
-                />
-                <OldCard
-                  MedicalReport={data1}
-                  MedicalList={data2}
-                  hideReport={showAndHideReportViesPopUp}
-                />
-                <OldCard
-                  MedicalReport={data1}
-                  MedicalList={data2}
-                  hideReport={showAndHideReportViesPopUp}
-                />
+                {appointments &&
+                  appointments.map((appointment) => (
+                    <OldCard
+                      Appointment={appointment}
+                      hideReport={showAndHideReportViesPopUp}
+                    />
+                  ))}
               </div>
             </div>
           </div>
@@ -261,18 +291,20 @@ const DoctorPatientDetailPage = () => {
           </div>
           <div>
             <div className="patientDetails">
-              <div>
+              {patient && (
                 <div>
-                  <h2>Age</h2>
-                  <h1>38</h1>
+                  <div>
+                    <h2>Age</h2>
+                    <h1>{calculateAge(patient.dob)}</h1>
+                  </div>
+                  <div>
+                    <h2>Name</h2>
+                    <h1>{patient.name}</h1>
+                  </div>
                 </div>
-                <div>
-                  <h2>Name</h2>
-                  <h1>Mr. Gayanuka Bullegoda</h1>
-                </div>
-              </div>
+              )}
               <div>
-                <div className="bloodType">A+ </div>
+                <div className="bloodType">{patient.bloodType}</div>
               </div>
             </div>
             <div className="Allergies">
@@ -295,11 +327,21 @@ const DoctorPatientDetailPage = () => {
                   </svg>
                 </div>
               </div>
-              <div className="list">{AllergiesList}</div>
+              <div className="list">
+                {allergies &&
+                  allergies.map((allergy) => (
+                    <h2 key={allergy.id}>{allergy.allergy}</h2>
+                  ))}
+              </div>
             </div>
             <div className="Allergies">
               <h1>Regular drug list</h1>
-              <div className="list">{AllergiesList}</div>
+              <div className="list">
+                {regularDrugs &&
+                  regularDrugs.map((drug) => (
+                    <h2 key={drug.id}>{drug.medicineName}</h2>
+                  ))}
+              </div>
             </div>
           </div>
         </div>
