@@ -25,7 +25,12 @@ const PatientMedicalReportPage = () => {
     ReportButton,
     ReviewButton,
   ];
-  const Paths = ["/PatientDashboard", "/", "/PatientMedicalReport", "/"];
+  const Paths = [
+    "/PatientDashboard",
+    "/PatientAppointment",
+    "/PatientMedicalReport",
+    "/",
+  ];
 
   const sowAndHideLabReportFilter = () => {
     setLabReportFilter(!labReportFilter);

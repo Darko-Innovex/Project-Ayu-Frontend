@@ -24,7 +24,12 @@ const PatientDashboardPage = () => {
     ReportButton,
     ReviewButton,
   ];
-  const Paths = ["/PatientDashboard", "/", "/PatientMedicalReport", "/"];
+  const Paths = [
+    "/PatientDashboard",
+    "/PatientAppointment",
+    "/PatientMedicalReport",
+    "/",
+  ];
 
   const showNotificationPanel = () => {
     setNotificationPanel(true);
