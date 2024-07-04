@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import "../../../css/component/registration/RegistrationFormStyle.css";
+import "../../component/registration/RegistrationBackground";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const PatientSignUp = () => {
   const [firstName, setFirstName] = useState(null);
@@ -31,76 +32,71 @@ const PatientSignUp = () => {
   };
 
   const handleNicNum = (event) => {
-    setLastName(event.target.value);
+    setNicNum(event.target.value);
   };
 
   const handleDateOfBirth = (event) => {
-    setLastName(event.target.value);
+    setDateOfBirth(event.target.value);
   };
 
   const handleMobileNum = (event) => {
-    setLastName(event.target.value);
+    setMobile(event.target.value);
   };
 
   const handleBloodType = (event) => {
-    setLastName(event.target.value);
+    setBloodType(event.target.value);
   };
 
   const handleMail = (event) => {
-    setLastName(event.target.value);
+    setMail(event.target.value);
   };
 
   const handlePassword = (event) => {
-    setLastName(event.target.value);
+    setPassword(event.target.value);
   };
 
   const handleConfirmPassword = (event) => {
-    setLastName(event.target.value);
+    setConfirmPassword(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = {
       firstName: firstName,
       lastName: lastName,
-      nicNum: nicNum,
-      dateOfBirth: dateOfBirth,
-      mobileNum: mobileNum,
+      dob: dateOfBirth,
+      nic: nicNum,
+      mobile: mobileNum,
+      email: mail,
       bloodType: bloodType,
-      mail: mail,
       password: password,
-      confirmPassword: confirmPassword,
+      healthCardPin: null,
+      hospitalId: null,
     };
-    fetch(" ENTER URL ", {
-      method: " POST ",
-      headers: {
-        Accept: " application/json ",
-        " Contend-Type ": " application/json ",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then(() => {
-        setFirstName(null);
-        setLastName(null);
-        setNicNum(null);
-        setDateOfBirth(null);
-        setMobile(null);
-        setBloodType(null);
-        setMail(null);
-        setPassword(null);
-        setConfirmPassword(null);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+
+    try {
+      const response = await axios.post("http://localhost:8080/patient", data);
+      console.log(response.data);
+      console.log("Success");
+      navigateToDashboard();
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setFirstName(null);
+      setLastName(null);
+      setNicNum(null);
+      setDateOfBirth(null);
+      setMobile(null);
+      setBloodType(null);
+      setMail(null);
+      setPassword(null);
+      setConfirmPassword(null);
+    }
   };
 
   return (
     <div id="Form">
-      <form action="">
+      <form action="" onSubmit={handleSubmit}>
         <div>
           <h2>Sign Up</h2>
           <button onClick={navigateToSignIn}>Sign In</button>
@@ -165,7 +161,7 @@ const PatientSignUp = () => {
         <p>
           By Sign Up , you agree to our <u>Terms & Conditions</u>
         </p>
-        <button onClick={navigateToDashboard}>Sign Up</button>
+        <button type={"submit"}>Sign Up</button>
       </form>
     </div>
   );
