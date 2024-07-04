@@ -141,7 +141,7 @@ const DoctorPatientDetailPage = () => {
   const getRegularDrugs = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/patient/{id}/drug_list`,
+        `http://localhost:8080/patient/${patientId}/drug_list`,
       );
       setRegularDrugs(response.data);
     } catch (error) {
@@ -309,13 +309,12 @@ const DoctorPatientDetailPage = () => {
                   </div>
                   <div>
                     <h2>Name</h2>
-                    <h1>{patient.name}</h1>
+                    <h1>
+                      {patient.firstName} {patient.lastName}
+                    </h1>
                   </div>
                 </div>
               )}
-              <div>
-                <div className="bloodType">{patient.bloodType}</div>
-              </div>
             </div>
             <div className="Allergies">
               <div className="title">
