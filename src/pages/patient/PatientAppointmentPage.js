@@ -8,11 +8,14 @@ import "../../../src/css/PatientAppointment.css";
 import { useState } from "react";
 import PatientAppointmentFilter from "../component/PatientAppointment/PatientAppointmentFilter";
 import AddAppointment from "../../pages/component/PatientAppointment/AddAppointment";
+import ViewAppointment from "../component/PatientAppointment/ViewAppointment";
 
 const PatientAppointmentPage = () => {
   const navigate = useNavigate(null);
   const [Filter, setFilter] = useState(false);
   const [addAppointment, setAppointment] = useState(false);
+  const [appointmentData, setAppointmentData] = useState(null);
+  const [viewAppointment, setViewAppointment] = useState(false);
   const Components = [
     HomeButton,
     AppointmentButton,
@@ -35,6 +38,11 @@ const PatientAppointmentPage = () => {
 
   const handleAppointment = () => {
     setAppointment(!addAppointment);
+  };
+
+  const handleViewAppointment = (appointmentData) => {
+    setAppointmentData(appointmentData);
+    setViewAppointment(!viewAppointment);
   };
 
   let data = {
@@ -85,6 +93,12 @@ const PatientAppointmentPage = () => {
         {Filter && <PatientAppointmentFilter closeFilter={handleFilter} />}
         {addAppointment && (
           <AddAppointment hideAppointment={handleAppointment} />
+        )}
+        {viewAppointment && (
+          <ViewAppointment
+            HideAppointment={handleViewAppointment}
+            AppointmentData={appointmentData}
+          />
         )}
         <div className="container">
           <Navbar
@@ -169,14 +183,16 @@ const PatientAppointmentPage = () => {
             <h1 className="status">Status</h1>
             <h1 className="action">Action</h1>
           </div>
-          <div className="tableBody">{setRows(dataSet)}</div>
+          <div className="tableBody">
+            {setRows(dataSet, handleViewAppointment)}
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-const setRows = (dataSet) => {
+const setRows = (dataSet, ViewAppointment) => {
   const RowSet = [];
 
   const StatusColor = (status) => {
@@ -216,7 +232,7 @@ const setRows = (dataSet) => {
                 />
               </svg>
             </button>
-            <button>
+            <button onClick={() => ViewAppointment(dataSet[i])}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
