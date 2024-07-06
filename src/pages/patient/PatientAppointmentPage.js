@@ -9,6 +9,7 @@ import { useState } from "react";
 import PatientAppointmentFilter from "../component/PatientAppointment/PatientAppointmentFilter";
 import AddAppointment from "../../pages/component/PatientAppointment/AddAppointment";
 import ViewAppointment from "../component/PatientAppointment/ViewAppointment";
+import CancelAppointment from "../component/PatientAppointment/CancelAppointment";
 
 const PatientAppointmentPage = () => {
   const navigate = useNavigate(null);
@@ -16,6 +17,7 @@ const PatientAppointmentPage = () => {
   const [addAppointment, setAppointment] = useState(false);
   const [appointmentData, setAppointmentData] = useState(null);
   const [viewAppointment, setViewAppointment] = useState(false);
+  const [cancelAppointment, setCancelAppointment] = useState(false);
   const Components = [
     HomeButton,
     AppointmentButton,
@@ -43,6 +45,11 @@ const PatientAppointmentPage = () => {
   const handleViewAppointment = (appointmentData) => {
     setAppointmentData(appointmentData);
     setViewAppointment(!viewAppointment);
+  };
+
+  const handleCancelAppointment = (appointmentData) => {
+    setAppointmentData(appointmentData);
+    setCancelAppointment(!cancelAppointment);
   };
 
   let data = {
@@ -100,6 +107,13 @@ const PatientAppointmentPage = () => {
             AppointmentData={appointmentData}
           />
         )}
+        {cancelAppointment && (
+          <CancelAppointment
+            AppointmentData={appointmentData}
+            cancel={handleCancelAppointment}
+          />
+        )}
+
         <div className="container">
           <Navbar
             components={Components}
@@ -184,7 +198,7 @@ const PatientAppointmentPage = () => {
             <h1 className="action">Action</h1>
           </div>
           <div className="tableBody">
-            {setRows(dataSet, handleViewAppointment)}
+            {setRows(dataSet, handleViewAppointment, handleCancelAppointment)}
           </div>
         </div>
       </div>
@@ -192,7 +206,7 @@ const PatientAppointmentPage = () => {
   );
 };
 
-const setRows = (dataSet, ViewAppointment) => {
+const setRows = (dataSet, ViewAppointment, cancelAppointment) => {
   const RowSet = [];
 
   const StatusColor = (status) => {
@@ -218,7 +232,7 @@ const setRows = (dataSet, ViewAppointment) => {
             {dataSet[i].Status}
           </h1>
           <div className="action">
-            <button>
+            <button onClick={() => cancelAppointment(dataSet[i])}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="15"
