@@ -1,0 +1,102 @@
+#AppointmentDetails .background{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#AppointmentDetails .background > div{
+    width: 694px;
+    height: 626px;
+    border-radius: 30px;
+    background: #A0E6CC;
+    position: absolute;
+    overflow: hidden;
+}
+
+#AppointmentDetails .circle > *{
+    border-radius: 50%;
+    background: #7CE8C0;
+    filter: blur(15px);
+    position: absolute;
+    width: 615px;
+    height: 615px;
+}
+
+#AppointmentDetails .circle > :first-child{
+    bottom: 370px;
+    right: 96px;
+}
+
+#AppointmentDetails .circle > :nth-child(2){
+    top: 273px;
+    right: 501px;
+}
+
+#AppointmentDetails .circle > :last-child{
+    top: 399px;
+    left: 216px;
+}
+
+#AppointmentDetails .circle + div{
+    position: absolute;
+    padding: 19px 70px;
+    width: 100%;
+}
+#AppointmentDetails .close{
+    width: 30px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.50);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: calc(637px - 70px);
+}
+
+#AppointmentDetails h1{
+    text-align: center;
+    color: #262626;
+    font-family: 'Kanit', sans-serif;
+    font-size: 50px;
+    font-weight: 400;
+    letter-spacing: 3.5px;
+    margin-bottom: 30px;
+}
+
+#AppointmentDetails h1 + div > div{
+    display: flex;
+    justify-content: space-between;
+}
+
+#AppointmentDetails h2{
+    color: #262626;
+    font-family: 'Kanit', sans-serif;
+    font-size: 19px;
+    font-weight: 300;
+    margin-bottom: 3px;
+}
+
+#AppointmentDetails h3{
+    width: 255px;
+    height: 50px;
+    padding: 10px 20px;
+    color: #262626;
+    font-family: 'Kanit', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    overflow: hidden;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.50);
+    margin-bottom: 30px;
+}
+
+#AppointmentDetails .status{
+    color: transparent;
+}
+
+#AppointmentDetails .status + h3{
+    background-color: #00E590;
+    color: #262626;
+    text-align: center;
+}
