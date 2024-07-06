@@ -7,10 +7,12 @@ import { useNavigate } from "react-router-dom";
 import "../../../src/css/PatientAppointment.css";
 import { useState } from "react";
 import PatientAppointmentFilter from "../component/PatientAppointment/PatientAppointmentFilter";
+import AddAppointment from "../../pages/component/PatientAppointment/AddAppointment";
 
 const PatientAppointmentPage = () => {
   const navigate = useNavigate(null);
-  const [Filter, setFilter] = useState(null);
+  const [Filter, setFilter] = useState(false);
+  const [addAppointment, setAppointment] = useState(false);
   const Components = [
     HomeButton,
     AppointmentButton,
@@ -29,6 +31,10 @@ const PatientAppointmentPage = () => {
 
   const handleFilter = () => {
     setFilter(!Filter);
+  };
+
+  const handleAppointment = () => {
+    setAppointment(!addAppointment);
   };
 
   let data = {
@@ -77,6 +83,9 @@ const PatientAppointmentPage = () => {
           <div></div>
         </div>
         {Filter && <PatientAppointmentFilter closeFilter={handleFilter} />}
+        {addAppointment && (
+          <AddAppointment hideAppointment={handleAppointment} />
+        )}
         <div className="container">
           <Navbar
             components={Components}
@@ -127,7 +136,7 @@ const PatientAppointmentPage = () => {
                 />
               </svg>
             </div>
-            <button>
+            <button onClick={handleAppointment}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="27"
