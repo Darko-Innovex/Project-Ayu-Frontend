@@ -6,9 +6,11 @@ import ReviewButton from "../component/dashboard/button/ReviewButton";
 import { useNavigate } from "react-router-dom";
 import "../../../src/css/PatientAppointment.css";
 import { useState } from "react";
+import PatientAppointmentFilter from "../component/PatientAppointment/PatientAppointmentFilter";
 
 const PatientAppointmentPage = () => {
   const navigate = useNavigate(null);
+  const [Filter, setFilter] = useState(null);
   const Components = [
     HomeButton,
     AppointmentButton,
@@ -24,6 +26,10 @@ const PatientAppointmentPage = () => {
     "/PatientMedicalReport",
     "/",
   ];
+
+  const handleFilter = () => {
+    setFilter(!Filter);
+  };
 
   let data = {
     AppointmentNumber: 10,
@@ -70,6 +76,7 @@ const PatientAppointmentPage = () => {
           <div></div>
           <div></div>
         </div>
+        {Filter && <PatientAppointmentFilter closeFilter={handleFilter} />}
         <div className="container">
           <Navbar
             components={Components}
@@ -95,6 +102,7 @@ const PatientAppointmentPage = () => {
               </svg>
               <input type="text" placeholder="Search" />
               <svg
+                onClick={handleFilter}
                 className="filter"
                 xmlns="http://www.w3.org/2000/svg"
                 width="53"
