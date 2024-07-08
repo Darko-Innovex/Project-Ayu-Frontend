@@ -1,4 +1,4 @@
-import "../../../css/component/PatientAppointmentFilter.css";
+import "../../../css/component/Appointment/PatientAppointmentFilter.css";
 import { useState } from "react";
 
 const PatientAppointmentFilter = ({ closeFilter }) => {
