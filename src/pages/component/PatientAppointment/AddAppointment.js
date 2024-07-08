@@ -1,4 +1,4 @@
-import "../../../css/component/AddAppointment.css";
+import "../../../css/component/Appointment/AddAppointment.css";
 
 const AddAppointment = ({ hideAppointment }) => {
   return (

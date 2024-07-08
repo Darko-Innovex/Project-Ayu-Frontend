@@ -1,4 +1,4 @@
-import "../../../css/component/AppointmentDetails.css";
+import "../../../css/component/Appointment/AppointmentDetails.css";
 
 const ViewAppointment = ({ AppointmentData, HideAppointment }) => {
   return (
