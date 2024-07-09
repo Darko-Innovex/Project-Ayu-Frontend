@@ -4,11 +4,19 @@ import AppointmentButton from "../component/dashboard/button/AppointmentButton";
 import ReportButton from "../component/dashboard/button/ReportButton";
 import ReviewButton from "../component/dashboard/button/ReviewButton";
 import { useNavigate } from "react-router-dom";
-import PatientDoctorReviewCard from "../component/PatientDoctorReviewCard";
+import PatientDoctorReviewCard from "../component/DoctorReview/PatientDoctorReviewCard";
 import "../../css/PatientDoctorReview.css";
+import PatientDoctorReviewBackground from "../component/DoctorReview/PatientDoctorReviewBackground";
+import AddPatientDoctorReviewReview from "../component/DoctorReview/AddPatientDoctorReviewReview";
+import { useState } from "react";
+import AddPatientDoctorReviewPopup from "../component/DoctorReview/AddPatientDoctorReviewReview";
+import ViewPatientReviewPopup from "../component/DoctorReview/ViewPatientReviewPopup";
 
 const PatientDoctorReviewPage = () => {
   const navigate = useNavigate(null);
+  const [addReview, setAddReview] = useState(false);
+  const [viewReview, setViewReview] = useState(false);
+  const [currentForcingPatient, setCurrentForcingPatient] = useState(null);
   const Components = [
     HomeButton,
     AppointmentButton,
@@ -25,6 +33,25 @@ const PatientDoctorReviewPage = () => {
   const logOutBtnOnAction = () => {
     navigate("/");
   };
+
+  const data = {
+    ReviewType: "addReview",
+  };
+
+  const data1 = {
+    ReviewType: "viewReview",
+  };
+
+  const handleAddReviewPopup = (data) => {
+    setCurrentForcingPatient(data);
+    setAddReview(!addReview);
+  };
+
+  const handleViewReviewPopup = (data) => {
+    setCurrentForcingPatient(data);
+    setViewReview(!viewReview);
+  };
+
   return (
     <div>
       <div>
@@ -33,6 +60,20 @@ const PatientDoctorReviewPage = () => {
             <div></div>
             <div></div>
           </div>
+          {addReview && (
+            <AddPatientDoctorReviewPopup
+              data={currentForcingPatient}
+              backBtnAction={handleAddReviewPopup}
+            />
+          )}
+
+          {viewReview && (
+            <ViewPatientReviewPopup
+              data={data1}
+              backBtnAction={handleViewReviewPopup}
+            />
+          )}
+
           <div className="container">
             <Navbar
               components={Components}
@@ -57,22 +98,11 @@ const PatientDoctorReviewPage = () => {
                 <input type="text" placeholder="Search" />
               </div>
               <div className="cardSet">
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
+                <PatientDoctorReviewCard
+                  addReview={handleAddReviewPopup}
+                  data={data}
+                  viewReview={handleViewReviewPopup}
+                />
               </div>
             </div>
           </div>

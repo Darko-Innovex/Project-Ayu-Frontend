@@ -1,0 +1,110 @@
+#PatientDoctorReviewBackground .background{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#PatientDoctorReviewPopup{
+    width: 1066px;
+    height: auto;
+    padding: 68px 70px;
+    background-image: url("../../../img/PatientDoctorReviewBackground.png");
+    background-size: cover;
+    border-radius: 30px;
+}
+
+#PatientDoctorReviewPopup > :first-child{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 56px;
+}
+
+#PatientDoctorReviewPopup  *{
+    color: #262626;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 400;
+}
+
+#PatientDoctorReviewPopup h1{
+    color: #262626;
+    font-family: 'Kanit', sans-serif;
+    font-size: 50px;
+    font-weight: 400;
+    letter-spacing: 3.5px;
+}
+
+#PatientDoctorReviewPopup > :first-child button{
+    display: flex;
+    width: 218px;
+    height: 53px;
+    padding: 10px 46px 10px 40px;
+    align-items: center;
+    gap: 43px;
+    font-size: 22px;
+    border-radius: 10px;
+    background: #12C080;
+    border: none;
+}
+
+#PatientDoctorReviewPopup > :nth-child(2){
+    display: flex;
+    gap: 107px;
+    margin-bottom: 57px;
+}
+
+#PatientDoctorReviewPopup h3{
+    font-size: 20px;
+    font-weight: 300;
+}
+
+#PatientDoctorReviewPopup h2{
+    font-size: 26px;
+    font-weight: 300;
+    width: 411px;
+}
+
+#PatientDoctorReviewPopup textarea{
+    width: 928px;
+    height: 264px;
+    border-radius: 10px;
+    background: #FFFEFE;
+    padding: 20px;
+    border: none;
+    margin-top: 17px;
+    margin-bottom: 32px;
+}
+
+#PatientDoctorReviewPopup .lastLine > div{
+    display: flex;
+    gap: 37px;
+    align-items: center;
+}
+
+#PatientDoctorReviewPopup .lastLine > div svg{
+    margin-right: 8px;
+}
+
+#PatientDoctorReviewPopup .lastLine > button{
+    display: flex;
+    width: 929px;
+    height: 65px;
+    padding: 16px 0;
+    justify-content: center;
+    align-items: center;
+    margin-top: 46px;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 6.6px;
+    border-radius: 10px;
+    background: #12C080;
+    border: none;
+    box-shadow: 0 4px 10px 0 rgba(255, 255, 255, 0.20);
+}
+
+#PatientDoctorReviewPopup .stars{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
