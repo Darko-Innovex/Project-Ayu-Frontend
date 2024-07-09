@@ -6,9 +6,14 @@ import ReviewButton from "../component/dashboard/button/ReviewButton";
 import { useNavigate } from "react-router-dom";
 import PatientDoctorReviewCard from "../component/PatientDoctorReviewCard";
 import "../../css/PatientDoctorReview.css";
+import PatientDoctorReviewBackground from "../component/PatientDoctorReviewBackground";
+import AddPatientDoctorReviewReview from "../component/AddPatientDoctorReviewReview";
+import { useState } from "react";
 
 const PatientDoctorReviewPage = () => {
   const navigate = useNavigate(null);
+  const [addReview, setAddReview] = useState(false);
+  const [currentForcingPatient, setCurrentForcingPatient] = useState(null);
   const Components = [
     HomeButton,
     AppointmentButton,
@@ -25,6 +30,16 @@ const PatientDoctorReviewPage = () => {
   const logOutBtnOnAction = () => {
     navigate("/");
   };
+
+  const data = {
+    ReviewType: "addReview",
+  };
+
+  const handleAddReviewPopup = (data) => {
+    setCurrentForcingPatient(data);
+    setAddReview(!addReview);
+  };
+
   return (
     <div>
       <div>
@@ -33,6 +48,12 @@ const PatientDoctorReviewPage = () => {
             <div></div>
             <div></div>
           </div>
+          {addReview && (
+            <AddPatientDoctorReviewReview
+              data={currentForcingPatient}
+              backBtnAction={handleAddReviewPopup}
+            />
+          )}
           <div className="container">
             <Navbar
               components={Components}
@@ -57,22 +78,10 @@ const PatientDoctorReviewPage = () => {
                 <input type="text" placeholder="Search" />
               </div>
               <div className="cardSet">
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
-                <PatientDoctorReviewCard />
+                <PatientDoctorReviewCard
+                  addReview={handleAddReviewPopup}
+                  data={data}
+                />
               </div>
             </div>
           </div>

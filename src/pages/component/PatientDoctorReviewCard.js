@@ -2,12 +2,16 @@ import image from "../../img/Young bearded man with striped shirt.png";
 import "../../css/component/PatientDoctorReviewCard.css";
 import { useEffect, useState } from "react";
 
-const PatientDoctorReviewCard = () => {
+const PatientDoctorReviewCard = ({ addReview, data }) => {
   const [stars, setStars] = useState([]);
 
   useEffect(() => {
     returnStarCount(3, setStars);
   }, []);
+
+  const AddReviewOnClick = () => {
+    addReview(data);
+  };
 
   return (
     <div id="PatientDoctorReviewCard">
@@ -19,7 +23,7 @@ const PatientDoctorReviewCard = () => {
       <div className="stars">{stars}</div>
       <div className="buttons">
         <button className="viewButton">View</button>
-        <button className="addButton">
+        <button onClick={AddReviewOnClick} className="addButton">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="12"
