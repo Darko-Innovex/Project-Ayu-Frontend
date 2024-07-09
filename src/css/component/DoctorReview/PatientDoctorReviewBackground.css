@@ -8,7 +8,7 @@
     width: 1066px;
     height: auto;
     padding: 68px 70px;
-    background-image: url("../../img/PatientDoctorReviewBackground.png");
+    background-image: url("../../../img/PatientDoctorReviewBackground.png");
     background-size: cover;
     border-radius: 30px;
 }
@@ -100,4 +100,11 @@
     background: #12C080;
     border: none;
     box-shadow: 0 4px 10px 0 rgba(255, 255, 255, 0.20);
+}
+
+#PatientDoctorReviewPopup .stars{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
 }

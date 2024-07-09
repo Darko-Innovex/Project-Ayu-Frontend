@@ -1,8 +1,8 @@
-import image from "../../img/Young bearded man with striped shirt.png";
-import "../../css/component/PatientDoctorReviewCard.css";
+import image from "../../../img/Young bearded man with striped shirt.png";
+import "../../../css/component/DoctorReview/PatientDoctorReviewCard.css";
 import { useEffect, useState } from "react";
 
-const PatientDoctorReviewCard = ({ addReview, data }) => {
+const PatientDoctorReviewCard = ({ addReview, data, viewReview }) => {
   const [stars, setStars] = useState([]);
 
   useEffect(() => {
@@ -11,6 +11,10 @@ const PatientDoctorReviewCard = ({ addReview, data }) => {
 
   const AddReviewOnClick = () => {
     addReview(data);
+  };
+
+  const ViewReviewOnClick = () => {
+    viewReview(data);
   };
 
   return (
@@ -22,7 +26,9 @@ const PatientDoctorReviewCard = ({ addReview, data }) => {
       <h2>Neurologist</h2>
       <div className="stars">{stars}</div>
       <div className="buttons">
-        <button className="viewButton">View</button>
+        <button onClick={ViewReviewOnClick} className="viewButton">
+          View
+        </button>
         <button onClick={AddReviewOnClick} className="addButton">
           <svg
             xmlns="http://www.w3.org/2000/svg"
