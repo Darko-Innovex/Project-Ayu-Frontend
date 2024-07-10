@@ -25,6 +25,7 @@ import PatientAppointmentPage from "./pages/patient/PatientAppointmentPage";
 import DoctorDoctorReviewPage from "./pages/doctor/DoctorDoctorReviewPage";
 import PatientDoctorReviewPage from "./pages/patient/PatientDoctorReviewPage";
 import DoctorOldPatientPage from "./pages/doctor/DoctorOldPatientPage";
+import HealthCardManagementPage from "./pages/admin/HealthCardManagementPage";
 
 function App() {
   return (
@@ -114,6 +115,10 @@ function App() {
             element={<AdminResetPasswordPage />}
           />
           <Route path="/AdminDashboard" element={<AdminDashboardPage />} />
+          <Route
+            path="/HealthCardManage"
+            element={<HealthCardManagementPage />}
+          />
         </Routes>
       </Router>
     </div>
