@@ -6,9 +6,18 @@ import ReviewButton from "../component/dashboard/button/ReviewButton";
 import { useNavigate } from "react-router-dom";
 import "../../../src/css/PatientAppointment.css";
 import { useState } from "react";
+import PatientAppointmentFilter from "../component/PatientAppointment/PatientAppointmentFilter";
+import AddAppointment from "../../pages/component/PatientAppointment/AddAppointment";
+import ViewAppointment from "../component/PatientAppointment/ViewAppointment";
+import CancelAppointment from "../component/PatientAppointment/CancelAppointment";
 
 const PatientAppointmentPage = () => {
   const navigate = useNavigate(null);
+  const [Filter, setFilter] = useState(false);
+  const [addAppointment, setAppointment] = useState(false);
+  const [appointmentData, setAppointmentData] = useState(null);
+  const [viewAppointment, setViewAppointment] = useState(false);
+  const [cancelAppointment, setCancelAppointment] = useState(false);
   const Components = [
     HomeButton,
     AppointmentButton,
@@ -22,8 +31,26 @@ const PatientAppointmentPage = () => {
     "/PatientDashboard",
     "/PatientAppointment",
     "/PatientMedicalReport",
-    "/",
+    "/PatientDoctorReviewPage",
   ];
+
+  const handleFilter = () => {
+    setFilter(!Filter);
+  };
+
+  const handleAppointment = () => {
+    setAppointment(!addAppointment);
+  };
+
+  const handleViewAppointment = (appointmentData) => {
+    setAppointmentData(appointmentData);
+    setViewAppointment(!viewAppointment);
+  };
+
+  const handleCancelAppointment = (appointmentData) => {
+    setAppointmentData(appointmentData);
+    setCancelAppointment(!cancelAppointment);
+  };
 
   let data = {
     AppointmentNumber: 10,
@@ -70,6 +97,23 @@ const PatientAppointmentPage = () => {
           <div></div>
           <div></div>
         </div>
+        {Filter && <PatientAppointmentFilter closeFilter={handleFilter} />}
+        {addAppointment && (
+          <AddAppointment hideAppointment={handleAppointment} />
+        )}
+        {viewAppointment && (
+          <ViewAppointment
+            HideAppointment={handleViewAppointment}
+            AppointmentData={appointmentData}
+          />
+        )}
+        {cancelAppointment && (
+          <CancelAppointment
+            AppointmentData={appointmentData}
+            cancel={handleCancelAppointment}
+          />
+        )}
+
         <div className="container">
           <Navbar
             components={Components}
@@ -95,6 +139,7 @@ const PatientAppointmentPage = () => {
               </svg>
               <input type="text" placeholder="Search" />
               <svg
+                onClick={handleFilter}
                 className="filter"
                 xmlns="http://www.w3.org/2000/svg"
                 width="53"
@@ -119,7 +164,7 @@ const PatientAppointmentPage = () => {
                 />
               </svg>
             </div>
-            <button>
+            <button onClick={handleAppointment}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="27"
@@ -152,14 +197,16 @@ const PatientAppointmentPage = () => {
             <h1 className="status">Status</h1>
             <h1 className="action">Action</h1>
           </div>
-          <div className="tableBody">{setRows(dataSet)}</div>
+          <div className="tableBody">
+            {setRows(dataSet, handleViewAppointment, handleCancelAppointment)}
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-const setRows = (dataSet) => {
+const setRows = (dataSet, ViewAppointment, cancelAppointment) => {
   const RowSet = [];
 
   const StatusColor = (status) => {
@@ -185,7 +232,7 @@ const setRows = (dataSet) => {
             {dataSet[i].Status}
           </h1>
           <div className="action">
-            <button>
+            <button onClick={() => cancelAppointment(dataSet[i])}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="15"
@@ -199,7 +246,7 @@ const setRows = (dataSet) => {
                 />
               </svg>
             </button>
-            <button>
+            <button onClick={() => ViewAppointment(dataSet[i])}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"

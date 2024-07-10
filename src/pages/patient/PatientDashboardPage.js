@@ -28,7 +28,7 @@ const PatientDashboardPage = () => {
     "/PatientDashboard",
     "/PatientAppointment",
     "/PatientMedicalReport",
-    "/",
+    "/PatientDoctorReviewPage",
   ];
 
   const showNotificationPanel = () => {

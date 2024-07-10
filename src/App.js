@@ -23,6 +23,7 @@ import AdminResetPasswordPage from "./pages/admin/AdminResetPasswordPage";
 import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
 import PatientAppointmentPage from "./pages/patient/PatientAppointmentPage";
 import DoctorDoctorReviewPage from "./pages/doctor/DoctorDoctorReviewPage";
+import PatientDoctorReviewPage from "./pages/patient/PatientDoctorReviewPage";
 
 function App() {
   return (
@@ -48,6 +49,11 @@ function App() {
           <Route
             path="/PatientAppointment"
             element={<PatientAppointmentPage />}
+          />
+
+          <Route
+            path="/PatientDoctorReviewPage"
+            element={<PatientDoctorReviewPage />}
           />
 
           {/* ----------- doctor routes ----------- */}

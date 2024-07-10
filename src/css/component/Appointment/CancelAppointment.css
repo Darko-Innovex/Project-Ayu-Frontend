@@ -1,0 +1,60 @@
+#CancelAppointment .background{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#CancelAppointment .background > div{
+    width: 790px;
+    height: 365px;
+    border-radius: 21px;
+    background: #DCF7ED;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#CancelAppointment .title{
+    display: flex;
+    gap: 22px;
+    align-items: center;
+}
+
+#CancelAppointment h1{
+    color: #262626;
+    font-family: "Poppins", sans-serif;
+    font-size: 42px;
+    font-weight: 500;
+    letter-spacing: 1.68px;
+}
+
+#CancelAppointment h2{
+    color: #808080;
+    font-family: "Poppins", sans-serif;
+    font-size: 23px;
+    font-weight: 500;
+    letter-spacing: 0.92px;
+}
+
+#CancelAppointment button{
+    width: 181px;
+    height: 65px;
+    border-radius: 6px;
+    background: #0E9A66;
+    color: #FFF;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    border: none;
+}
+
+#CancelAppointment .buttons{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 60px;
+}
+
+#CancelAppointment button + button{
+    background-color: #262626;
+}

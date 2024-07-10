@@ -11,14 +11,15 @@ export const setReportData = (getData) => {
 };
 
 const ReportType = () => {
-  switch (data.reportType) {
+  /*switch (data.reportType) {
     case "pdf":
-      return <MedicalTestViewPopup data={data.report} />;
+      return <MedicalTestViewPopup data={data.file} />;
     case "text":
-      return <DoctorReportViewPopup data={data.report} />;
+      return <DoctorReportViewPopup data={data.file} />;
     default:
-      return <MedicineReportViewPopup />; // Must add data function when we connect front-end with backend
-  }
+    // return <MedicineReportViewPopup />; // Must add data function when we connect front-end with backend
+  }*/
+  return <DoctorReportViewPopup data={data.file} />;
 };
 
 const PopupBackground = ({ hideReport }) => {
@@ -33,15 +34,17 @@ const PopupBackground = ({ hideReport }) => {
           </div>
           <header>
             <div className="title">
-              <h1>{data.title}</h1>
+              {/*<h1>{data.title}</h1>*/}
+              <h1>Medical Report</h1>
               <button className="backBtn" onClick={hideReport}>
                 <img src={ButtonArrow} alt="" />
                 Back
               </button>
             </div>
             <div className="subData">
-              <div>{data.place}</div>
-              <div>{data.date}</div>
+              {/*<div>{data.place}</div>*/}
+              <div>Ruhunu Hospital</div>
+              <div>{data.timestamp}</div>
             </div>
             {ReportType()}
           </header>

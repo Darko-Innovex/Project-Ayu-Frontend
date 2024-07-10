@@ -79,7 +79,9 @@ const DoctorPatientNfcCardScanPage = () => {
     const fetchPatient = async () => {
       if (cardId !== null) {
         try {
-          const response = await axios.get(`/card/${cardId}/patient`);
+          const response = await axios.get(
+            `http://localhost:8080/card/${cardId}/patient`,
+          );
           if (response.status === 200) {
             setPatient(response.data);
             navigate(`/DoctorPatientDetailPage/${response.data.id}`);
