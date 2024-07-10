@@ -22,9 +22,11 @@
     object-fit: cover;
 }
 
-#sideCard .image img{
+#sideCard .image >:last-child{
     width: 100%;
     height: auto;
+    position: relative;
+    bottom: 3.4vh;
 }
 
 #sideCard .bloodType{
@@ -54,7 +56,8 @@
     margin-left: 1vw;
 }
 
-#sideCard h1{
+#sideCard h1,
+#sideCard input{
     color: #FFF;
     font-family: "Poppins", sans-serif;
     font-size: 22px;
@@ -72,6 +75,7 @@
     padding-left: 3px;
     border-radius: 5px;
     background: #303030;
+    border: none;
 }
 
 #sideCard .hospitalsCount{
@@ -89,4 +93,17 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+}
+
+#sideCard .editIcon{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    left: 20vw;
+    top: 1vh;
+    z-index: 2;
+}
+
+#sideCard .editIcon :hover{
+    cursor: pointer;
 }
