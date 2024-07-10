@@ -27,7 +27,7 @@ const PatientDoctorReviewPage = () => {
     "/PatientDashboard",
     "/PatientAppointment",
     "/PatientMedicalReport",
-    "/",
+    "/PatientDoctorReviewPage",
   ];
 
   const logOutBtnOnAction = () => {

@@ -1,20 +1,8 @@
 #Button {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(38, 38, 38, 0.35);
-  transition: 1.5s;
-}
-
-#Button:hover {
-  background: #262626;
-}
-
-.HomeButton .active {
-  background: #262626;
+  background: transparent;
 }
 
 #logOut {
