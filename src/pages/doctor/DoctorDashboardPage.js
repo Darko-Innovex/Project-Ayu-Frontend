@@ -24,7 +24,7 @@ const DoctorDashboardPage = () => {
 
   const Paths = [
     "/DoctorDashboard",
-    "/DoctorSignIn",
+    "/DoctorDoctorReviewPage",
     "/DoctorPatientNfcCardScanPage",
   ];
 
