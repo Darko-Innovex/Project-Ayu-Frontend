@@ -24,6 +24,7 @@ import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
 import PatientAppointmentPage from "./pages/patient/PatientAppointmentPage";
 import DoctorDoctorReviewPage from "./pages/doctor/DoctorDoctorReviewPage";
 import PatientDoctorReviewPage from "./pages/patient/PatientDoctorReviewPage";
+import DoctorOldPatientPage from "./pages/doctor/DoctorOldPatientPage";
 
 function App() {
   return (
@@ -79,6 +80,11 @@ function App() {
           <Route
             path="/DoctorDoctorReviewPage"
             element={<DoctorDoctorReviewPage />}
+          />
+
+          <Route
+            path="/DoctorOldPatientPage"
+            element={<DoctorOldPatientPage />}
           />
 
           {/* ----------- hospital routes ----------- */}
