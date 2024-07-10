@@ -22,6 +22,7 @@ import AdminForgetPasswordPage from "./pages/admin/AdminForgetPasswordPage";
 import AdminResetPasswordPage from "./pages/admin/AdminResetPasswordPage";
 import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
 import PatientAppointmentPage from "./pages/patient/PatientAppointmentPage";
+import DoctorDoctorReviewPage from "./pages/doctor/DoctorDoctorReviewPage";
 import PatientDoctorReviewPage from "./pages/patient/PatientDoctorReviewPage";
 
 function App() {
@@ -73,6 +74,11 @@ function App() {
           <Route
             path="/DoctorPatientDetailPage/:patientId"
             element={<DoctorPatientDetailPage />}
+          />
+
+          <Route
+            path="/DoctorDoctorReviewPage"
+            element={<DoctorDoctorReviewPage />}
           />
 
           {/* ----------- hospital routes ----------- */}
