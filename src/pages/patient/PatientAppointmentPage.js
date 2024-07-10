@@ -31,7 +31,7 @@ const PatientAppointmentPage = () => {
     "/PatientDashboard",
     "/PatientAppointment",
     "/PatientMedicalReport",
-    "/",
+    "/PatientDoctorReviewPage",
   ];
 
   const handleFilter = () => {

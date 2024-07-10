@@ -29,7 +29,7 @@ const PatientMedicalReportPage = () => {
     "/PatientDashboard",
     "/PatientAppointment",
     "/PatientMedicalReport",
-    "/",
+    "/PatientDoctorReviewPage",
   ];
 
   const sowAndHideLabReportFilter = () => {
