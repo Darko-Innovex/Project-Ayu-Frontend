@@ -19,7 +19,7 @@ const AdminDashboardPage = () => {
     "/AdminDashboard",
     "/AdminSignIn",
     "/AdminSignIn",
-    "/AdminSignIn",
+    "/HealthCardManage",
   ];
 
   return (

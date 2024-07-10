@@ -172,3 +172,38 @@
     height: 46px;
     background-color: #0e9a66;
 }
+
+#PatientDashboard .PatientAppointmentContend .indexId{
+    max-width: 237px;
+    width: 237px;
+    overflow: hidden;
+    margin-left: 46px;
+}
+
+#PatientDashboard .PatientAppointmentContend .indexNo{
+    max-width: 237px;
+    width: 237px;
+    overflow: hidden;
+    margin-left: 74px;
+}
+
+#PatientDashboard .PatientAppointmentContend .appointmentStatus{
+    width: 164px;
+    max-width: 164px;
+    overflow: hidden;
+    margin-left: 128px;
+}
+
+#PatientDashboard .PatientAppointmentContend .appointmentDate{
+    width: 135px;
+    max-width: 135px;
+    overflow: hidden;
+    margin-left: 151px;
+}
+
+#PatientDashboard .PatientAppointmentContend .time{
+    width: 112px;
+    max-width: 112px;
+    overflow: hidden;
+    margin-left: 158px;
+}
