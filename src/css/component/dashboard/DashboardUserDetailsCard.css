@@ -107,7 +107,7 @@
     height: 40px;
     left: 20vw;
     top: 1vh;
-    z-index: 2;
+    z-index: 1;
 }
 
 #sideCard .editIcon :hover{
