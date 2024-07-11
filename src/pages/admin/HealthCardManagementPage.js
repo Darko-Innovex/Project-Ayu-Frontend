@@ -29,7 +29,7 @@ const HealthCardManagementPage = () => {
   const Paths = [
     "/AdminDashboard",
     "/AdminSignIn",
-    "/AdminSignIn",
+    "/AdminHospitalManage",
     "/HealthCardManage",
   ];
 

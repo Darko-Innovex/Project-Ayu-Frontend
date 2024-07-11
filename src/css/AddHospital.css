@@ -1,0 +1,70 @@
+
+#PatientDashboard .AdminHospitalContend{
+    position: absolute;
+    top: 0;
+    left: 8.5vw;
+    padding: 59px 68px;
+    width: 94%;
+}
+
+#PatientDashboard .AdminHospitalContend > :nth-child(2){
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 43px;
+
+}
+
+#PatientDashboard .AdminHospitalContend > :nth-child(2) > div{
+    display: flex;
+}
+
+#PatientDashboard .AdminHospitalContend > :nth-child(2) > div svg{
+    position: absolute;
+    margin-left: 2vw;
+    margin-top: 1.8vh;
+}
+
+#PatientDashboard .AdminHospitalContend > :nth-child(2) input{
+    border-radius: 40px;
+    border: 1px solid #D7D7D7;
+    background: #FFF;
+    width: 343px;
+    height: 56px;
+    padding: 0 20px;
+    padding-left: 80px;
+    color: #7E7E7E;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 1.08px;
+}
+
+
+
+#PatientDashboard .AdminHospitalContend > :nth-child(2) button{
+    width: 228px;
+    height: 56px;
+    border-radius: 30px;
+    background: #262626;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #FFF;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.6px;
+    margin-right: 10%;
+}
+
+
+
+
+
+
+
+
