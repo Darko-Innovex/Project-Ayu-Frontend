@@ -4,6 +4,8 @@ import hartIcon from "../../../img/hartIcon.png";
 import { useState, useEffect } from "react";
 import editIcon from "../../../img/profileEdit.png";
 import saveIcon from "../../../img/profileSave.png";
+import { Link } from "react-router-dom";
+import viewMapArrow from "../../../img/ViewMapArrow.png";
 
 const DashboardUserDetailsCard = ({ userData }) => {
   if (!userData) {
@@ -23,30 +25,42 @@ const DashboardUserDetailsCard = ({ userData }) => {
   const [email, setEmail] = useState(userData.Email);
   const [editBtnAction, setEditBtnAction] = useState(false);
   const [editImage, setEditImage] = useState(editIcon);
+  const [imagePosition, setImagePosition] = useState();
+
+  const setMargin =
+    userData.UserType === "Hospital" ? { marginTop: "27px" } : {};
 
   useEffect(() => {
     setMobile(userData.Mobile);
     setEmail(userData.Email);
+    if (userData.UserType === "Hospital") {
+      setEditImage(null);
+      setImagePosition({ position: "static" });
+    }
   }, [userData]);
 
   const handleEditAction = () => {
     if (!editBtnAction) {
       setEditImage(saveIcon);
-      setEditBtnAction(!editBtnAction);
+      setEditBtnAction(true);
     } else {
       setEditImage(editIcon);
-      setEditBtnAction(!editBtnAction);
+      setEditBtnAction(false);
     }
   };
 
   return (
-    <div id="sideCard">
+    <div style={setMargin} id="sideCard">
       <div>
         <div className="image">
-          <div className="editIcon" onClick={handleEditAction}>
-            <img src={editImage} alt="" />
-          </div>
-          <img src={Image} alt="" />
+          {userData.UserType === "Hospital" ? (
+            ""
+          ) : (
+            <div className="editIcon" onClick={handleEditAction}>
+              <img src={editImage} alt="" />
+            </div>
+          )}
+          <img style={imagePosition} src={Image} alt="" />
         </div>
         {passTags(userData, mobile, email, setMobile, setEmail, editBtnAction)}
       </div>
@@ -57,7 +71,10 @@ const DashboardUserDetailsCard = ({ userData }) => {
 const passTags = (data, mobile, email, setMobile, setEmail, editAction) => {
   const Tags = [];
 
-  const setMargin = data.UserType === "Doctor" ? { marginTop: "30px" } : {};
+  const setMargin =
+    data.UserType === "Doctor" || data.UserType === "Hospital"
+      ? { marginTop: "30px" }
+      : {};
 
   const setHospitalCount = (count) => {
     const Hospitals = [];
@@ -70,6 +87,8 @@ const passTags = (data, mobile, email, setMobile, setEmail, editAction) => {
     }
     return Hospitals;
   };
+
+  const highlightClass = editAction ? "highlight" : "";
 
   if (data && data.UserType === "Patient") {
     Tags.push(
@@ -87,7 +106,7 @@ const passTags = (data, mobile, email, setMobile, setEmail, editAction) => {
       <h2 key="mobileLabel">Mobile</h2>,
       <input
         type="text"
-        className="highlight"
+        className={highlightClass}
         value={mobile}
         onChange={(e) => setMobile(e.target.value)}
         readOnly={!editAction}
@@ -96,7 +115,7 @@ const passTags = (data, mobile, email, setMobile, setEmail, editAction) => {
       <h2 key="emailLabel">Email</h2>,
       <input
         type="email"
-        className="highlight"
+        className={highlightClass}
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         key="email"
@@ -114,7 +133,7 @@ const passTags = (data, mobile, email, setMobile, setEmail, editAction) => {
       <h2 key="mobileLabel">Mobile</h2>,
       <input
         type="text"
-        className="highlight"
+        className={highlightClass}
         value={mobile}
         onChange={(e) => setMobile(e.target.value)}
         readOnly={!editAction}
@@ -123,7 +142,7 @@ const passTags = (data, mobile, email, setMobile, setEmail, editAction) => {
       <h2 key="emailLabel">Email</h2>,
       <input
         type="email"
-        className="highlight"
+        className={highlightClass}
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         key="email"
@@ -132,6 +151,31 @@ const passTags = (data, mobile, email, setMobile, setEmail, editAction) => {
       <div className="hospitalsCount" key="hospitalsCount">
         {setHospitalCount(data.HospitalCount)}
       </div>,
+    );
+  } else if (data && data.UserType === "Hospital") {
+    Tags.push(
+      <h2 style={setMargin} key="nameLabel">
+        Name
+      </h2>,
+      <h1 key="name">{data.Name}</h1>,
+      <h2 key="locationLabel">Location</h2>,
+      <h1 key="location">
+        <Link to={data.LocationUrl} target="_blank">
+          Open In Map
+        </Link>
+        <img src={viewMapArrow} alt="" />
+      </h1>,
+      <h2 key="mobileLabel">Mobile</h2>,
+      <h1 key="mobile">{data.Mobile}</h1>,
+      <h2 key="emailLabel">Email</h2>,
+      <h1 key="email">{data.Email}</h1>,
+      <h2 key="websiteLabel">Website</h2>,
+      <h1 key="website">
+        <Link to={data.WebiteUrl} target="_blank">
+          Open in Browser
+        </Link>
+        <img src={viewMapArrow} alt="" />
+      </h1>,
     );
   }
 
