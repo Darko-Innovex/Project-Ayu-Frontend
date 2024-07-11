@@ -1,0 +1,102 @@
+#HospitalDashboardFilter .background > div{
+    width: 516px;
+    height: 385px;
+    border-radius: 30px;
+    background: #F0FFFA;
+    position: relative;
+    top: 23vh;
+    left: 63%;
+    padding: 18px;
+}
+
+#HospitalDashboardFilter .closeBtn{
+    width: 34px;
+    height: 34px;
+    background-color: #E3E3E3;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
+    position: relative;
+}
+
+#HospitalDashboardFilter h1{
+    margin-top: 25px;
+    color: #636363;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;;
+    font-weight: 400;
+}
+
+#HospitalDashboardFilter .buttons{
+    display: flex;
+    width: 100%;
+    gap: 21px;
+    margin-top: 19px;
+}
+
+#HospitalDashboardFilter button ,
+#HospitalDashboardFilter select{
+    display: flex;
+    height: 38px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 18px;
+    background: #BFFFE7;
+    border: none;
+    padding: 10px 0 11px 0;
+    color: #0E9A66;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+#HospitalDashboardFilter h2 + div{
+    display: flex;
+    gap: 24px;
+}
+
+#HospitalDashboardFilter h3{
+    color: #0E9A66;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    text-decoration-line: underline;
+    float: right;
+    margin-right: 10px;
+}
+
+#HospitalDashboardFilter select{
+    padding: 9px 30px 11px 30px;
+    margin-top: 8px;
+}
+
+#HospitalDashboardFilter .buttons > :first-child{
+    width: 71px;
+}
+
+#HospitalDashboardFilter .buttons > :nth-child(2){
+    width: 148px;
+}
+
+#HospitalDashboardFilter .buttons > :last-child{
+    width: 176px;
+}
+
+#HospitalDashboardFilter .buttons + h1 {
+    margin-top: 48px;
+}
+
+#HospitalDashboardFilter h2{
+    margin-top: 30px;
+    color: #636363;
+    font-family: "Poppins", sans-serif  ;
+    font-size: 8px;
+    font-weight: 400;
+}
+
+#HospitalDashboardFilter .buttons button.active {
+    background-color: #0e9a66;
+    color: #FFFFFF;
+}
