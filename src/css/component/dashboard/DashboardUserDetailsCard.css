@@ -65,6 +65,12 @@
     letter-spacing: 0.88px;
     margin-bottom: 25px;
     margin-left: 1vw;
+    background: transparent;
+    border: none;
+}
+
+#sideCard input{
+    width: 90%;
 }
 
 #sideCard .highlight{
@@ -106,4 +112,8 @@
 
 #sideCard .editIcon :hover{
     cursor: pointer;
+}
+
+#sideCard a + img{
+    margin-left: 12px;
 }
