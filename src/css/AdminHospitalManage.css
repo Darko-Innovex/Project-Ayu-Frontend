@@ -1,0 +1,8 @@
+#PatientDashboard .PatientDoctorReviewPage .HospitalSearch{
+    width: 95%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 13px;
+    margin-bottom: 45px;
+}
