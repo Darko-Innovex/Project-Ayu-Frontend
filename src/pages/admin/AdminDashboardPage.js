@@ -17,7 +17,7 @@ const AdminDashboardPage = () => {
 
   const Paths = [
     "/AdminDashboard",
-    "/AdminSignIn",
+    "/AdminPatientManage",
     "/AdminHospitalManage",
     "/HealthCardManage",
   ];
