@@ -27,6 +27,7 @@ import PatientDoctorReviewPage from "./pages/patient/PatientDoctorReviewPage";
 import DoctorOldPatientPage from "./pages/doctor/DoctorOldPatientPage";
 import HealthCardManagementPage from "./pages/admin/HealthCardManagementPage";
 import AdminHospitalManagePage from "./pages/admin/AdminHospitalManagePage";
+import AdminPatientManagePage from "./pages/admin/AdminPatientManagePage";
 
 function App() {
   return (
@@ -116,6 +117,10 @@ function App() {
             element={<AdminResetPasswordPage />}
           />
           <Route path="/AdminDashboard" element={<AdminDashboardPage />} />
+          <Route
+            path="/AdminPatientManage"
+            element={<AdminPatientManagePage />}
+          />
           <Route
             path="/AdminHospitalManage"
             element={<AdminHospitalManagePage />}
