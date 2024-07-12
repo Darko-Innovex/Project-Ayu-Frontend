@@ -45,7 +45,10 @@ function App() {
             path="/PatientResetPassword"
             element={<PatientResetPasswordPage />}
           />
-          <Route path="/PatientDashboard" element={<PatientDashboardPage />} />
+          <Route
+            path="/PatientDashboard/:patientId"
+            element={<PatientDashboardPage />}
+          />
           <Route
             path="/PatientMedicalReport"
             element={<PatientMedicalReportPage />}
@@ -70,7 +73,10 @@ function App() {
             path="/DoctorResetPassword"
             element={<DoctorResetPasswordPage />}
           />
-          <Route path="/DoctorDashboard" element={<DoctorDashboardPage />} />
+          <Route
+            path="/DoctorDashboard/:doctorId"
+            element={<DoctorDashboardPage />}
+          />
           <Route
             path="/DoctorPatientNfcCardScanPage"
             element={<DoctorPatientNfcCardScanPage />}
@@ -101,7 +107,7 @@ function App() {
             element={<HospitalResetPasswordPage />}
           />
           <Route
-            path="/HospitalDashboard"
+            path="/HospitalDashboard/:hospitalId"
             element={<HospitalDashboardPage />}
           />
 
