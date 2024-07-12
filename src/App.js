@@ -27,6 +27,7 @@ import PatientDoctorReviewPage from "./pages/patient/PatientDoctorReviewPage";
 import DoctorOldPatientPage from "./pages/doctor/DoctorOldPatientPage";
 import HealthCardManagementPage from "./pages/admin/HealthCardManagementPage";
 import AdminHospitalManagePage from "./pages/admin/AdminHospitalManagePage";
+import PatientManagementPage from "./pages/hospital/PatientManagementPage";
 
 function App() {
   return (
@@ -53,12 +54,10 @@ function App() {
             path="/PatientAppointment"
             element={<PatientAppointmentPage />}
           />
-
           <Route
             path="/PatientDoctorReviewPage"
             element={<PatientDoctorReviewPage />}
           />
-
           {/* ----------- doctor routes ----------- */}
           <Route path="/DoctorSignIn" element={<DoctorSignInPage />} />
           <Route
@@ -78,17 +77,14 @@ function App() {
             path="/DoctorPatientDetailPage/:patientId"
             element={<DoctorPatientDetailPage />}
           />
-
           <Route
             path="/DoctorDoctorReviewPage"
             element={<DoctorDoctorReviewPage />}
           />
-
           <Route
             path="/DoctorOldPatientPage"
             element={<DoctorOldPatientPage />}
           />
-
           {/* ----------- hospital routes ----------- */}
           <Route path="/HospitalSignIn" element={<HospitalSignInPage />} />
           <Route
@@ -103,7 +99,10 @@ function App() {
             path="/HospitalDashboard"
             element={<HospitalDashboardPage />}
           />
-
+          <Route
+            path="/HospitalPatientManagement"
+            element={<PatientManagementPage />}
+          />
           {/* ----------- admin routes ----------- */}
           <Route path="/AdminSignIn" element={<AdminSignInPage />} />
           <Route path="/AdminSignUp" element={<AdminSignUpPage />} />

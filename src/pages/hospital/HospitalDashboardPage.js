@@ -15,6 +15,7 @@ import NotificationPanel from "../component/dashboard/NotificationPanel";
 import { useState } from "react";
 import HospitalDashboardFilter from "../component/dashboard/HospitalDashboardFilter";
 import { useNavigate } from "react-router-dom";
+import "../../css/PatientAppointment.css";
 
 const HospitalDashboardPage = () => {
   const [notificationPanel, setNotificationPanel] = useState(false);
@@ -39,7 +40,7 @@ const HospitalDashboardPage = () => {
 
   const Paths = [
     "/HospitalDashboard",
-    "/HospitalSignIn",
+    "/HospitalPatientManagement",
     "/HospitalSignIn",
     "/HospitalSignIn",
   ];
