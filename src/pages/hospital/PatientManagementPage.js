@@ -7,10 +7,12 @@ import { useNavigate } from "react-router-dom";
 import "../../css/HospitalPatientManagementPage.css";
 import HospitalAddPatient from "../component/HospitalPatientManage/HospitalAddPatient";
 import { useState } from "react";
+import HospitalPatientManagementFilter from "../component/HospitalPatientManage/HospitalPatientManagementFilter";
 
 const PatientManagementPage = () => {
   const navigate = useNavigate(null);
   const [addPatient, setAddPatient] = useState(false);
+  const [filter, setFilter] = useState(false);
   const Components = [
     HomeButton,
     PatientsButton,
@@ -31,6 +33,10 @@ const PatientManagementPage = () => {
 
   const handelAddPatient = () => {
     setAddPatient(!addPatient);
+  };
+
+  const handelFilter = () => {
+    setFilter(!filter);
   };
 
   const dataSet = [
@@ -132,6 +138,9 @@ const PatientManagementPage = () => {
           <div></div>
         </div>
         {addPatient && <HospitalAddPatient BackOnAction={handelAddPatient} />}
+        {filter && (
+          <HospitalPatientManagementFilter closeFilter={handelFilter} />
+        )}
         <div className="container">
           <Navbar
             components={Components}
@@ -158,6 +167,7 @@ const PatientManagementPage = () => {
                   </svg>
                 </div>
                 <svg
+                  onClick={handelFilter}
                   xmlns="http://www.w3.org/2000/svg"
                   width="53"
                   height="53"

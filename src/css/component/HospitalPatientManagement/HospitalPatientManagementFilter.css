@@ -1,0 +1,79 @@
+#PatientManageFilter input{
+    width: 100%;
+    border-radius: 18px;
+    background: #BFFFE7;
+    border: none;
+    padding: 8px 57px 9px 56px;
+    text-align: center;
+    margin-bottom: 17px;
+    color: #0E9A66;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+#PatientManageFilter .DoctorSelect select{
+    padding: 11px 30px;
+}
+
+#PatientManageFilter{
+    width: 337px;
+    height: 260px;
+    border-radius: 30px;
+    background: #F0FFFA;
+    padding: 35px 40px;
+    position: relative;
+    left: 41vw;
+    top: 24vh;
+}
+
+#PatientManageFilter .closeBtn{
+    width: 34px;
+    height: 34px;
+    background-color: #E3E3E3;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
+    position: relative;
+    bottom: 22px;
+    left: 26px;
+}
+
+#PatientManageFilter h1{
+    color: #636363;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 11px;
+    font-size: 15px;;
+    font-weight: 400;
+}
+
+#PatientManageFilter select{
+    padding: 10px 33px;
+    color: #0E9A66;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 18px;
+    background: #BFFFE7;
+    border: none;
+}
+
+#PatientManageFilter .DoctorSelect{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#PatientManageFilter h2{
+    float: right;
+    color: #0E9A66;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline;
+    margin-top: 18px;
+}
