@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../../../css/component/registration/RegistrationFormStyle.css";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 let url = "";
 let navigations = [];
@@ -31,30 +32,30 @@ const SignIn = ({ showSignUp = true, isHospital = false }) => {
     setPassword(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = {
-      nicNum: nicNum,
+      username: nicNum,
       password: password,
     };
-    fetch(url, {
-      method: " POST ",
-      headers: {
-        Accept: " application/json ",
-        " Contend-Type ": " application/json ",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then(() => {
-        setNicNum(null);
-        setPassword(null);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+
+    try {
+      const response = await axios.post(
+        `http://localhost:8080/auth/signIn`,
+        data,
+      );
+      console.log(response.data.type);
+      if (response.status === 200) {
+        if (response.data.type === "patient")
+          navigate(`/PatientDashboard/${response.data.id}`);
+        else if (response.data.type === "doctor")
+          navigate(`/DoctorDashboard/${response.data.id}`);
+        else if (response.data.type === "hospital")
+          navigate(`/HospitalDashboard/${response.data.id}`);
+      }
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
   };
 
   return (
@@ -88,7 +89,7 @@ const SignIn = ({ showSignUp = true, isHospital = false }) => {
           By Signing Up , you agree to our <u>Terms & Conditions</u>
         </p>
         <div>
-          <button type="submit" onClick={navigateToDashboard}>
+          <button type="submit" onClick={handleSubmit}>
             Sign In
           </button>
           <Link to={navigations[1]}>
