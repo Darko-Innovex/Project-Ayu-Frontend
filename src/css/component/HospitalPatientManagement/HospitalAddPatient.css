@@ -1,0 +1,90 @@
+#HospitalAddPatient .background > div{
+    width: 1526px;
+    height: 858px;
+    background-image: url("/src/img/Hospital-PatientManagementPopup.png");
+    border-radius: 30px;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.25);
+    padding: 50px 68px;
+    box-sizing: border-box;
+}
+
+#HospitalAddPatient .background{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#HospitalAddPatient .title{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 43px;
+}
+
+#HospitalAddPatient .title h1{
+    color: #262626;
+    font-family: 'Kanit', sans-serif;
+    font-size: 45px;
+    font-weight: 400;
+    letter-spacing: 3.5px;
+}
+
+#HospitalAddPatient .title button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 43px;
+    width: 218px;
+    height: 53px;
+    border-radius: 10px;
+    background: #12C080;
+    border: none;
+    color: #262626;
+    font-family: 'Kanit', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+#HospitalAddPatient .title + div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 84px;
+}
+
+#HospitalAddPatient h2{
+    color: #262626;
+    font-family: 'Kanit', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+#HospitalAddPatient select,
+#HospitalAddPatient input{
+    width: 100%;
+    height: 70px;
+    border-radius: 10px;
+    background: #FFFEFE;
+    font-family: 'Kanit', sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: 22px;
+    padding: 20px;
+    border: none;
+}
+
+#HospitalAddPatient .background > div > button{
+    width: 100%;
+    height: 65px;
+    padding: 16px 0;
+    border-radius: 10px;
+    background: #12C080;
+    border: none;
+    color: #262626;
+    font-family: 'Kanit', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 6.6px;
+    box-shadow: 0 4px 10px 0 rgba(255, 255, 255, 0.20);
+    margin-top: 30px;
+}

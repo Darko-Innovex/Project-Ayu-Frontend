@@ -1,0 +1,150 @@
+#dashboard .hospitalPatientManagement{
+    width: 90%;
+}
+
+#dashboard .hospitalPatientManagement *{
+    color: #262626;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.72px;
+}
+
+#dashboard .hospitalPatientManagement > h1{
+    font-size: 45px;
+    letter-spacing: 1.35px;
+    margin-top: 25px;
+}
+
+#dashboard .hospitalPatientManagement .searchSection{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    margin-top: 64px;
+}
+
+#dashboard .hospitalPatientManagement .searchSection input + svg{
+    float: left;
+    position: absolute;
+    left: 30px;
+    margin-top: 20px;
+}
+
+#dashboard .hospitalPatientManagement .searchSection input {
+    width: 478px;
+    height: 56px;
+    border-radius: 40px;
+    border: 1px solid #D7D7D7;
+    background: #FFF;
+    padding-left: 65px;
+    padding-right: 30px;
+}
+
+#dashboard .hospitalPatientManagement .searchSection > :first-child{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+#dashboard .hospitalPatientManagement .searchSection button{
+    width: 228px;
+    height: 56px;
+    border-radius: 30px;
+    background: #262626;
+    border: none;
+    color: #FFFFFF;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+#dashboard .hospitalPatientManagement .tableHead,
+#dashboard .hospitalPatientManagement .tableBody > div{
+    display: flex;
+    width: 1596px;
+}
+
+#dashboard .hospitalPatientManagement input{
+    width: 21px;
+    height: 21px;
+    margin-right: 73px;
+}
+
+#dashboard .hospitalPatientManagement .id{
+    width: 41px;
+    overflow: hidden;
+    margin-right: 120px;
+    text-align: center;
+}
+
+#dashboard .hospitalPatientManagement .Name{
+    width: 230px;
+    overflow: hidden;
+    margin-right: 120px;
+    text-align: center;
+}
+
+#dashboard .hospitalPatientManagement .NIC{
+    width: 155px;
+    overflow: hidden;
+    text-align: center;
+    margin-right: 120px;
+}
+
+#dashboard .hospitalPatientManagement .indexNo{
+    width: 200px;
+    text-align: center;
+    overflow: hidden;
+    margin-right: 120px;
+}
+
+#dashboard .hospitalPatientManagement .Date{
+    width: 130px;
+    overflow: hidden;
+    text-align: center;
+    margin-right: 120px;
+}
+
+#dashboard .hospitalPatientManagement .Time{
+    width: 60px;
+    overflow: hidden;
+    text-align: center;
+}
+
+#dashboard .hospitalPatientManagement .tableHead ,
+#dashboard .hospitalPatientManagement .tableBody > div{
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.50);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+    height: 58px;
+    align-items: center;
+    padding: 0 18px;
+    margin-top: 78px;
+}
+
+#dashboard .hospitalPatientManagement .tableBody{
+    margin-top: 26px;
+    height: auto;
+    max-height: 570px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+#dashboard .hospitalPatientManagement .tableBody > div{
+    margin-bottom: 15px;
+    margin-top: 0;
+    min-height: 58px !important;
+}
+
+#dashboard .hospitalPatientManagement .tableBody::-webkit-scrollbar{
+    width: 2px;
+    background: #B5B5B5;
+}
+
+#dashboard .hospitalPatientManagement .tableBody::-webkit-scrollbar-thumb{
+    background: #949191;
+}
