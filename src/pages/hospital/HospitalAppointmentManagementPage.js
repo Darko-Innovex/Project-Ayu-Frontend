@@ -5,9 +5,12 @@ import DoctorsButton from "../component/dashboard/button/DoctorsButton";
 import Navbar from "../component/dashboard/Navbar";
 import { useNavigate } from "react-router-dom";
 import "../../../src/css/PatientAppointment.css";
+import HospitalAddAppointment from "../component/HospitalAppointment/HospitalAddAppointment";
+import { useState } from "react";
 
 const HospitalAppointmentManagementPage = () => {
   const navigate = useNavigate(null);
+  const [addAppointment, setAddAppointment] = useState(false);
 
   const Components = [
     HomeButton,
@@ -24,6 +27,10 @@ const HospitalAppointmentManagementPage = () => {
 
   const logOutBtnOnAction = () => {
     navigate("/HospitalSignIn");
+  };
+
+  const handleAddAppointment = () => {
+    setAddAppointment(!addAppointment);
   };
 
   let data = {
@@ -67,6 +74,11 @@ const HospitalAppointmentManagementPage = () => {
         <div></div>
         <div></div>
       </div>
+
+      {addAppointment && (
+        <HospitalAddAppointment hideAppointment={handleAddAppointment} />
+      )}
+
       <div className="container">
         <Navbar
           components={Components}
@@ -115,7 +127,7 @@ const HospitalAppointmentManagementPage = () => {
                 />
               </svg>
             </div>
-            <button>
+            <button onClick={handleAddAppointment}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="27"
