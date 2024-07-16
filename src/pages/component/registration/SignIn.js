@@ -11,7 +11,7 @@ export function getSignInUrlAndNavigations(getUrl, getNavigations) {
   navigations = getNavigations;
 }
 
-const SignIn = ({ showSignUp = true, isHospital = false }) => {
+const SignIn = () => {
   const [nicNum, setNicNum] = useState(null);
   const [password, setPassword] = useState(null);
   const navigate = useNavigate();
@@ -20,16 +20,12 @@ const SignIn = ({ showSignUp = true, isHospital = false }) => {
     setNicNum(event.target.value);
   };
 
-  const navigateToSignUp = () => {
-    navigate(navigations[0]);
-  };
-
-  const navigateToDashboard = () => {
-    navigate(navigations[2]);
-  };
-
   const handlePassword = (event) => {
     setPassword(event.target.value);
+  };
+
+  const navigateToSignUp = () => {
+    navigate(navigations[0]);
   };
 
   const handleSubmit = async (event) => {
@@ -40,18 +36,18 @@ const SignIn = ({ showSignUp = true, isHospital = false }) => {
     };
 
     try {
-      const response = await axios.post(
-        `http://localhost:8080/auth/signIn`,
-        data,
-      );
+      const response = await axios.post(url, data);
       console.log(response.data.type);
+
       if (response.status === 200) {
         if (response.data.type === "patient")
-          navigate(`/PatientDashboard/${response.data.id}`);
+          navigate(`/PatientDashboard/${response.data.patientId}`);
         else if (response.data.type === "doctor")
-          navigate(`/DoctorDashboard/${response.data.id}`);
+          navigate(`/DoctorDashboard/${response.data.doctorId}`);
         else if (response.data.type === "hospital")
-          navigate(`/HospitalDashboard/${response.data.id}`);
+          navigate(`/HospitalDashboard/${response.data.hospitalId}`);
+        else if (response.data.type === "admin")
+          navigate(`/AdminDashboard/${response.data.adminId}`);
       }
     } catch (error) {
       console.error("Error fetching user data:", error);
@@ -63,19 +59,15 @@ const SignIn = ({ showSignUp = true, isHospital = false }) => {
       <form>
         <div>
           <h2>Sign In</h2>
-          {showSignUp && (
-            <button type="button" onClick={navigateToSignUp}>
-              Sign Up
-            </button>
-          )}
+          <button type="button" onClick={navigateToSignUp}>
+            Sign Up
+          </button>
         </div>
-        <label htmlFor="nic">{isHospital ? "Email" : "NIC"}</label>
+        <label htmlFor="nic">NIC or Email</label>
         <input
-          type={isHospital ? "email" : "text"}
+          type="text"
           onChange={handleNic}
-          placeholder={
-            isHospital ? "Enter Your Email" : "Enter Your NIC Number"
-          }
+          placeholder="Enter Your NIC or Email"
           required
         />
         <label htmlFor="">Password</label>

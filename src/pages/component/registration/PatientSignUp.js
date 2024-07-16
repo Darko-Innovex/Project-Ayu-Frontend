@@ -19,10 +19,6 @@ const PatientSignUp = () => {
     navigate("/");
   };
 
-  const navigateToDashboard = () => {
-    navigate("/PatientDashboard");
-  };
-
   const handleFistName = (event) => {
     setFirstName(event.target.value);
   };
@@ -75,22 +71,25 @@ const PatientSignUp = () => {
     };
 
     try {
-      const response = await axios.post("http://localhost:8080/patient", data);
+      const response = await axios.post(
+        "http://localhost:8080/auth/sign-up",
+        data,
+      );
       console.log(response.data);
-      console.log("Success");
-      navigateToDashboard();
+      navigateToSignIn();
     } catch (error) {
       console.log(error);
+      window.location.reload();
     } finally {
-      setFirstName(null);
-      setLastName(null);
-      setNicNum(null);
-      setDateOfBirth(null);
-      setMobile(null);
-      setBloodType(null);
-      setMail(null);
-      setPassword(null);
-      setConfirmPassword(null);
+      setFirstName("");
+      setLastName("");
+      setNicNum("");
+      setDateOfBirth("");
+      setMobile("");
+      setBloodType("");
+      setMail("");
+      setPassword("");
+      setConfirmPassword("");
     }
   };
 
