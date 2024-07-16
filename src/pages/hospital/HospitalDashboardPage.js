@@ -41,7 +41,7 @@ const HospitalDashboardPage = () => {
   const Paths = [
     "/HospitalDashboard",
     "/HospitalPatientManagement",
-    "/HospitalSignIn",
+    "/HospitalAppointmentManagementPage",
     "/HospitalSignIn",
   ];
 

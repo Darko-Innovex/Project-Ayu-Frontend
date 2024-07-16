@@ -1,7 +1,7 @@
 import "../../../css/component/Appointment/AppointmentFilter.css";
 import { useState } from "react";
 
-const PatientAppointmentFilter = ({ closeFilter }) => {
+const HospitalAppointmentFilter = ({ closeFilter }) => {
   const [pressButton, setPressButton] = useState("");
 
   const handleButtonClick = (button) => {
@@ -11,7 +11,7 @@ const PatientAppointmentFilter = ({ closeFilter }) => {
   return (
     <div id="PatientAppointmentFilter">
       <div className="background">
-        <div className="AppointmentFilterContend">
+        <div className="AppointmentFilterContend HospitalAppointmentFilterContend">
           <div className="closeBtn" onClick={closeFilter}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -75,4 +75,4 @@ const PatientAppointmentFilter = ({ closeFilter }) => {
   );
 };
 
-export default PatientAppointmentFilter;
+export default HospitalAppointmentFilter;

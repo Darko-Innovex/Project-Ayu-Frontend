@@ -16,7 +16,7 @@
 
 #PatientDashboard .PatientAppointmentContend > :nth-child(2){
     display: flex;
-    width: 100%;
+    width: 97%;
     justify-content: space-between;
     align-items: center;
     margin-top: 43px;
@@ -127,12 +127,13 @@
 }
 
 #PatientDashboard .PatientAppointmentContend .action{
-    width: 61px;
-    max-width: 61px;
+    width: 65px;
+    max-width: 65px;
     overflow: hidden;
     margin-left: 114px;
     display: flex;
-    justify-content: space-between;
+    gap: 30px;
+    justify-content: end;
 }
 
 #PatientDashboard .PatientAppointmentContend input{
@@ -206,4 +207,37 @@
     max-width: 112px;
     overflow: hidden;
     margin-left: 158px;
+}
+
+/*------------------------------------Hospital AppointmentManagementPage Css---------------------------------------------*/
+
+
+#PatientDashboard .HospitalAppointmentManagementPage > :nth-child(2) button{
+    width: 305px;
+}
+
+#PatientDashboard .HospitalAppointmentManagementPage .patientName{
+    width: 200px;
+    max-width: 200px;
+    overflow-y: hidden;
+    text-align: center;
+    margin-left: 137px;
+}
+
+#PatientDashboard .HospitalAppointmentManagementPage .DoctorName{
+    max-width: 230px;
+    min-width: 230px;
+    margin-left: 170px;
+}
+
+#PatientDashboard .HospitalAppointmentManagementPage .status{
+    margin-left: 170px;
+}
+
+#PatientDashboard .HospitalAppointmentManagementPage .action{
+    margin-left: 170px;
+}
+
+#PatientDashboard .HospitalAppointmentManagementPage > :nth-child(2) input{
+    width: 478px;
 }
