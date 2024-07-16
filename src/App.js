@@ -30,6 +30,7 @@ import AdminHospitalManagePage from "./pages/admin/AdminHospitalManagePage";
 import PatientManagementPage from "./pages/hospital/PatientManagementPage";
 import AdminPatientManagePage from "./pages/admin/AdminPatientManagePage";
 import HospitalAppointmentManagementPage from "./pages/hospital/HospitalAppointmentManagementPage";
+import HospitalDoctorManagePage from "./pages/hospital/HospitalDoctorManagePage";
 
 function App() {
   return (
@@ -114,6 +115,10 @@ function App() {
           <Route
             path="/HospitalAppointmentManagementPage"
             element={<HospitalAppointmentManagementPage />}
+          />
+          <Route
+            path="/HospitalDoctorManagement"
+            element={<HospitalDoctorManagePage />}
           />
           {/* ----------- admin routes ----------- */}
           <Route path="/AdminSignIn" element={<AdminSignInPage />} />
