@@ -29,6 +29,7 @@ import HealthCardManagementPage from "./pages/admin/HealthCardManagementPage";
 import AdminHospitalManagePage from "./pages/admin/AdminHospitalManagePage";
 import PatientManagementPage from "./pages/hospital/PatientManagementPage";
 import AdminPatientManagePage from "./pages/admin/AdminPatientManagePage";
+import HospitalAppointmentManagementPage from "./pages/hospital/HospitalAppointmentManagementPage";
 
 function App() {
   return (
@@ -109,6 +110,10 @@ function App() {
           <Route
             path="/HospitalPatientManagement"
             element={<PatientManagementPage />}
+          />
+          <Route
+            path="/HospitalAppointmentManagementPage"
+            element={<HospitalAppointmentManagementPage />}
           />
           {/* ----------- admin routes ----------- */}
           <Route path="/AdminSignIn" element={<AdminSignInPage />} />
