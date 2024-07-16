@@ -84,3 +84,10 @@
     background-color: #0e9a66;
     color: #FFFFFF;
 }
+
+/*-----------------------------------------------HospitalAppointmentFilter------------------------------------------*/
+
+#PatientAppointmentFilter .HospitalAppointmentFilterContend{
+    left: 69vh;
+    top: 24vh;
+}
