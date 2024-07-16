@@ -10,6 +10,7 @@ import { useState } from "react";
 import HospitalPatientManagementFilter from "../component/HospitalPatientManage/HospitalPatientManagementFilter";
 import HospitalAppointmentFilter from "../component/HospitalAppointment/HospitalAppointmentFilter";
 import HospitalViewAppointment from "../component/HospitalAppointment/HospitalViewAppointment";
+import HospitalCancelAppointment from "../component/HospitalAppointment/HospitalCancelAppointment";
 
 const HospitalAppointmentManagementPage = () => {
   const navigate = useNavigate(null);
@@ -17,6 +18,7 @@ const HospitalAppointmentManagementPage = () => {
   const [filter, setFilter] = useState(false);
   const [viewAppointment, setViewAppointment] = useState(false);
   const [patientData, setPatientData] = useState(null);
+  const [cancelAppointment, setCancelAppointment] = useState(false);
 
   const Components = [
     HomeButton,
@@ -27,7 +29,7 @@ const HospitalAppointmentManagementPage = () => {
   const Paths = [
     "/HospitalDashboard",
     "/HospitalPatientManagement",
-    "/HospitalSignIn",
+    "/HospitalAppointmentManagementPage",
     "/HospitalSignIn",
   ];
 
@@ -46,6 +48,11 @@ const HospitalAppointmentManagementPage = () => {
   const handleViewAppointment = (patientData) => {
     setPatientData(patientData);
     setViewAppointment(!viewAppointment);
+  };
+
+  const handleCancelAppointment = (patientData) => {
+    setPatientData(patientData);
+    setCancelAppointment(!cancelAppointment);
   };
 
   let data = {
@@ -100,6 +107,13 @@ const HospitalAppointmentManagementPage = () => {
         <HospitalViewAppointment
           AppointmentData={patientData}
           HideAppointment={handleViewAppointment}
+        />
+      )}
+
+      {cancelAppointment && (
+        <HospitalCancelAppointment
+          AppointmentData={patientData}
+          cancel={handleCancelAppointment}
         />
       )}
 
@@ -185,7 +199,7 @@ const HospitalAppointmentManagementPage = () => {
             <h1 className="action">Action</h1>
           </div>
           <div className="tableBody">
-            {setRows(dataSet, handleViewAppointment)}
+            {setRows(dataSet, handleViewAppointment, handleCancelAppointment)}
           </div>
         </div>
       </div>
