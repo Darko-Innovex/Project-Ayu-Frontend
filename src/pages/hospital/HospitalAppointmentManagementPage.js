@@ -9,11 +9,14 @@ import HospitalAddAppointment from "../component/HospitalAppointment/HospitalAdd
 import { useState } from "react";
 import HospitalPatientManagementFilter from "../component/HospitalPatientManage/HospitalPatientManagementFilter";
 import HospitalAppointmentFilter from "../component/HospitalAppointment/HospitalAppointmentFilter";
+import HospitalViewAppointment from "../component/HospitalAppointment/HospitalViewAppointment";
 
 const HospitalAppointmentManagementPage = () => {
   const navigate = useNavigate(null);
   const [addAppointment, setAddAppointment] = useState(false);
   const [filter, setFilter] = useState(false);
+  const [viewAppointment, setViewAppointment] = useState(false);
+  const [patientData, setPatientData] = useState(null);
 
   const Components = [
     HomeButton,
@@ -38,6 +41,11 @@ const HospitalAppointmentManagementPage = () => {
 
   const handleFilter = () => {
     setFilter(!filter);
+  };
+
+  const handleViewAppointment = (patientData) => {
+    setPatientData(patientData);
+    setViewAppointment(!viewAppointment);
   };
 
   let data = {
@@ -87,6 +95,13 @@ const HospitalAppointmentManagementPage = () => {
       )}
 
       {filter && <HospitalAppointmentFilter closeFilter={handleFilter} />}
+
+      {viewAppointment && (
+        <HospitalViewAppointment
+          AppointmentData={patientData}
+          HideAppointment={handleViewAppointment}
+        />
+      )}
 
       <div className="container">
         <Navbar
@@ -169,7 +184,9 @@ const HospitalAppointmentManagementPage = () => {
             <h1 className="status">Status</h1>
             <h1 className="action">Action</h1>
           </div>
-          <div className="tableBody">{setRows(dataSet)}</div>
+          <div className="tableBody">
+            {setRows(dataSet, handleViewAppointment)}
+          </div>
         </div>
       </div>
     </div>

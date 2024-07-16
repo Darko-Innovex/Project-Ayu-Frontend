@@ -100,3 +100,14 @@
     color: #262626;
     text-align: center;
 }
+
+/*-------------------------------------HospitalViewAppointment-------------------------------------*/
+
+#AppointmentDetails .transparent *{
+    background-color: transparent;
+    color: transparent;
+}
+
+#AppointmentDetails .HospitalViewAppointment{
+    min-height: 740px;
+}
