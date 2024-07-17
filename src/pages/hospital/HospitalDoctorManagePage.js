@@ -8,11 +8,13 @@ import "../../css/HospitalPatientManagementPage.css";
 import "../../css/HospitalDoctorManage.css";
 import HospitalDoctorView from "../component/HospitalDoctorManage/HospitalDoctorView";
 import { useState } from "react";
+import HospitalAddDoctor from "../component/HospitalDoctorManage/HospitalAddDoctor";
 
 const HospitalDoctorManagePage = () => {
   const navigate = useNavigate(null);
   const [viewDoctor, setViewDoctor] = useState(false);
   const [doctorData, setDoctorData] = useState(null);
+  const [addDoctor, setAddDoctor] = useState(false);
 
   const Components = [
     HomeButton,
@@ -35,6 +37,10 @@ const HospitalDoctorManagePage = () => {
   const handelViewDoctor = (doctorData) => {
     setDoctorData(doctorData);
     setViewDoctor(!viewDoctor);
+  };
+
+  const handelAddDoctor = () => {
+    setAddDoctor(!addDoctor);
   };
 
   const dataSet = [
@@ -127,6 +133,8 @@ const HospitalDoctorManagePage = () => {
           />
         )}
 
+        {addDoctor && <HospitalAddDoctor closeBtnOnAction={handelAddDoctor} />}
+
         <div className="container">
           <Navbar
             components={Components}
@@ -180,7 +188,7 @@ const HospitalDoctorManagePage = () => {
                   />
                 </svg>
               </div>
-              <button>
+              <button onClick={handelAddDoctor}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="27"
