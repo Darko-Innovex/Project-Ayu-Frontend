@@ -1,23 +1,19 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import PatientSignInPage from "./pages/patient/PatientSignInPage";
-import PatientSignUpPage from "./pages/patient/PatientSignUpPage";
+import SignInPage from "./pages/registration/SignInPage";
+import PatientSignUpPage from "./pages/registration/PatientSignUpPage";
 import PatientForgetPasswordPage from "./pages/patient/PatientForgetPasswordPage";
 import PatientResetPasswordPage from "./pages/patient/PatientResetPasswordPage";
 import PatientDashboardPage from "./pages/patient/PatientDashboardPage";
 import PatientMedicalReportPage from "./pages/patient/PatientMedicalReportPage";
-import DoctorSignInPage from "./pages/doctor/DoctorSignInPage";
 import DoctorForgetPasswordPage from "./pages/doctor/DoctorForgetPasswordPage";
 import DoctorResetPasswordPage from "./pages/doctor/DoctorResetPasswordPage";
 import DoctorDashboardPage from "./pages/doctor/DoctorDashboardPage";
 import DoctorPatientNfcCardScanPage from "./pages/doctor/DoctorPatientNfcCardScanPage";
 import DoctorPatientDetailPage from "./pages/doctor/DoctorPatientDetailPage";
-import HospitalSignInPage from "./pages/hospital/HospitalSignInPage";
 import HospitalForgetPasswordPage from "./pages/hospital/HospitalForgetPasswordPage";
 import HospitalResetPasswordPage from "./pages/hospital/HospitalResetPasswordPage";
 import HospitalDashboardPage from "./pages/hospital/HospitalDashboardPage";
-import AdminSignInPage from "./pages/admin/AdminSignInPage";
-import AdminSignUpPage from "./pages/admin/AdminSignUpPage";
 import AdminForgetPasswordPage from "./pages/admin/AdminForgetPasswordPage";
 import AdminResetPasswordPage from "./pages/admin/AdminResetPasswordPage";
 import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
@@ -38,7 +34,7 @@ function App() {
       <Router>
         <Routes>
           {/* ----------- patient routes ----------- */}
-          <Route path="/" element={<PatientSignInPage />} />
+          <Route path="/" element={<SignInPage />} />
           <Route path="/PatientSignUp" element={<PatientSignUpPage />} />
           <Route
             path="/PatientForgetPassword"
@@ -64,8 +60,8 @@ function App() {
             path="/PatientDoctorReviewPage"
             element={<PatientDoctorReviewPage />}
           />
+
           {/* ----------- doctor routes ----------- */}
-          <Route path="/DoctorSignIn" element={<DoctorSignInPage />} />
           <Route
             path="/DoctorForgetPassword"
             element={<DoctorForgetPasswordPage />}
@@ -94,8 +90,8 @@ function App() {
             path="/DoctorOldPatientPage"
             element={<DoctorOldPatientPage />}
           />
+
           {/* ----------- hospital routes ----------- */}
-          <Route path="/HospitalSignIn" element={<HospitalSignInPage />} />
           <Route
             path="/HospitalForgetPassword"
             element={<HospitalForgetPasswordPage />}
@@ -120,9 +116,8 @@ function App() {
             path="/HospitalDoctorManagement"
             element={<HospitalDoctorManagePage />}
           />
+
           {/* ----------- admin routes ----------- */}
-          <Route path="/AdminSignIn" element={<AdminSignInPage />} />
-          <Route path="/AdminSignUp" element={<AdminSignUpPage />} />
           <Route
             path="/AdminForgetPassword"
             element={<AdminForgetPasswordPage />}
@@ -131,7 +126,10 @@ function App() {
             path="/AdminResetPassword"
             element={<AdminResetPasswordPage />}
           />
-          <Route path="/AdminDashboard" element={<AdminDashboardPage />} />
+          <Route
+            path="/AdminDashboard:adminId"
+            element={<AdminDashboardPage />}
+          />
           <Route
             path="/AdminPatientManage"
             element={<AdminPatientManagePage />}
