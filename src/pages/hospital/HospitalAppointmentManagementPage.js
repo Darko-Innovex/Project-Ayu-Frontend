@@ -26,11 +26,12 @@ const HospitalAppointmentManagementPage = () => {
     AppointmentButton,
     DoctorsButton,
   ];
+
   const Paths = [
     "/HospitalDashboard",
     "/HospitalPatientManagement",
     "/HospitalAppointmentManagementPage",
-    "/HospitalSignIn",
+    "/HospitalDoctorManagement",
   ];
 
   const logOutBtnOnAction = () => {

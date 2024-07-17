@@ -42,7 +42,7 @@ const HospitalDashboardPage = () => {
     "/HospitalDashboard",
     "/HospitalPatientManagement",
     "/HospitalAppointmentManagementPage",
-    "/HospitalSignIn",
+    "/HospitalDoctorManagement",
   ];
 
   const showNotificationPanel = () => {

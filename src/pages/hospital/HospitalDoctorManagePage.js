@@ -10,6 +10,7 @@ import HospitalDoctorView from "../component/HospitalDoctorManage/HospitalDoctor
 import { useState } from "react";
 import HospitalAddDoctor from "../component/HospitalDoctorManage/HospitalAddDoctor";
 import HospitalDeleteDoctor from "../component/HospitalDoctorManage/HospitalDeleteDoctor";
+import HospitalDoctorManageFilter from "../component/HospitalDoctorManage/HospitalDoctorManageFilter";
 
 const HospitalDoctorManagePage = () => {
   const navigate = useNavigate(null);
@@ -17,6 +18,7 @@ const HospitalDoctorManagePage = () => {
   const [doctorData, setDoctorData] = useState(null);
   const [addDoctor, setAddDoctor] = useState(false);
   const [deleteDoctor, setDeleteDoctor] = useState(false);
+  const [Filter, setFilter] = useState(false);
 
   const Components = [
     HomeButton,
@@ -48,6 +50,10 @@ const HospitalDoctorManagePage = () => {
   const handelDeleteDoctor = (doctorData) => {
     setDoctorData(doctorData);
     setDeleteDoctor(!deleteDoctor);
+  };
+
+  const handelFilter = () => {
+    setFilter(!Filter);
   };
 
   const dataSet = [
@@ -149,6 +155,8 @@ const HospitalDoctorManagePage = () => {
           />
         )}
 
+        {Filter && <HospitalDoctorManageFilter closeFiler={handelFilter} />}
+
         <div className="container">
           <Navbar
             components={Components}
@@ -179,6 +187,7 @@ const HospitalDoctorManagePage = () => {
                   </svg>
                 </div>
                 <svg
+                  onClick={handelFilter}
                   xmlns="http://www.w3.org/2000/svg"
                   width="53"
                   height="53"
