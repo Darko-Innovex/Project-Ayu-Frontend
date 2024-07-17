@@ -24,7 +24,7 @@ const PatientManagementPage = () => {
     "/HospitalDashboard",
     "/HospitalPatientManagement",
     "/HospitalAppointmentManagementPage",
-    "/HospitalSignIn",
+    "/HospitalDoctorManagement",
   ];
 
   const logOutBtnOnAction = () => {
