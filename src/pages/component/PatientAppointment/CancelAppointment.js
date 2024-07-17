@@ -1,6 +1,18 @@
 import "../../../css/component/Appointment/CancelAppointment.css";
+import axios from "axios";
+import PatientAppointmentPage from "../../patient/PatientAppointmentPage";
 
-const CancelAppointment = ({ AppointmentData, cancel }) => {
+const CancelAppointment = ({ AppointmentId, cancel }) => {
+  const deleteAppointment = async () => {
+    const response = await axios.put(
+      `http://localhost:8080/appointment/${AppointmentId}`,
+    );
+
+    if (response.status === 200) {
+      cancel();
+    } else alert(`Operation failed with id ${AppointmentId}`);
+  };
+
   return (
     <div id="CancelAppointment">
       <div className="background">
@@ -25,7 +37,7 @@ const CancelAppointment = ({ AppointmentData, cancel }) => {
               </div>
             </div>
             <div className="buttons">
-              <button>Yes</button>
+              <button onClick={deleteAppointment}>Yes</button>
               <button onClick={cancel}>No</button>
             </div>
           </div>

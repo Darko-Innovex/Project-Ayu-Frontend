@@ -1,22 +1,54 @@
-const SearchLine = ({ showFilter }) => {
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+const SearchLine = ({ showFilter, type, id }) => {
+  const [data1, setData1] = useState(0);
+  const [data2, setData2] = useState(0);
+  const [data3, setData3] = useState(0);
+
+  useEffect(() => {
+    getUserData();
+  }, []);
+
+  const getUserData = async () => {
+    if (type === "patient") {
+      const response = await axios.get(
+        `http://localhost:8080/patient/dashboard_data/${id}`,
+      );
+      console.log(response.data);
+      setData1(response.data.completedAppointment);
+      setData2(response.data.pendingAppointment);
+      setData3(response.data.labReportsCount);
+    } else if (type === "doctor") {
+      const response = await axios.get(
+        `http://localhost:8080/doctor/dashboard_data/${id}`,
+      );
+      console.log(response.data);
+      setData1(response.data.completedAppointment);
+      setData2(response.data.pendingAppointment);
+      setData3(response.data.labReportsCount);
+    }
+
+    // TODO : DO similar for admin hospital
+  };
+
   return (
     <div className="SearchLine">
       <div id="counts">
         <div>
-          <h1>34</h1>
+          <h1>{data1}</h1>
           <div>
             <h2>
-              <span>+4</span>
+              <span>+{data2}</span>
               <br />
               Channels
             </h2>
           </div>
         </div>
         <div>
-          <h1>18</h1>
+          <h1>{data3}</h1>
           <div>
             <h2>
-              <span>+4</span>
               <br />
               Lab Report
             </h2>

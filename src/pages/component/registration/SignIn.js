@@ -48,6 +48,10 @@ const SignIn = () => {
           navigate(`/HospitalDashboard/${response.data.hospitalId}`);
         else if (response.data.type === "admin")
           navigate(`/AdminDashboard/${response.data.adminId}`);
+        else if (response.data.type === "patient/doctor") {
+          let id = response.data.patientd + "#" + response.data.doctorId;
+          navigate(`load the popup`, id); //TODO: Call the doctor or patient selection popup component
+        }
       }
     } catch (error) {
       console.error("Error fetching user data:", error);

@@ -3,7 +3,7 @@ import HomeButton from "../component/dashboard/button/HomeButton";
 import AppointmentButton from "../component/dashboard/button/AppointmentButton";
 import ReportButton from "../component/dashboard/button/ReportButton";
 import ReviewButton from "../component/dashboard/button/ReviewButton";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import PatientDoctorReviewCard from "../component/DoctorReview/PatientDoctorReviewCard";
 import "../../css/PatientDoctorReview.css";
 import PatientDoctorReviewBackground from "../component/DoctorReview/PatientDoctorReviewBackground";
@@ -17,17 +17,20 @@ const PatientDoctorReviewPage = () => {
   const [addReview, setAddReview] = useState(false);
   const [viewReview, setViewReview] = useState(false);
   const [currentForcingPatient, setCurrentForcingPatient] = useState(null);
+  const { userId } = useParams();
+
   const Components = [
     HomeButton,
     AppointmentButton,
     ReportButton,
     ReviewButton,
   ];
+
   const Paths = [
-    "/PatientDashboard",
-    "/PatientAppointment",
-    "/PatientMedicalReport",
-    "/PatientDoctorReviewPage",
+    `/PatientDashboard/${userId}`,
+    `/PatientAppointment/${userId}`,
+    `/PatientMedicalReport/${userId}`,
+    `/PatientDoctorReviewPage${userId}`,
   ];
 
   const logOutBtnOnAction = () => {
