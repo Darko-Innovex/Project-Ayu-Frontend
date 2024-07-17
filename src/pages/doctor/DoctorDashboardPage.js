@@ -41,7 +41,7 @@ const DoctorDashboardPage = () => {
   };
 
   const logOutBtnOnAction = () => {
-    navigate("/DoctorSignIn");
+    navigate("/");
   };
 
   let userData = {

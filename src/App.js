@@ -45,19 +45,19 @@ function App() {
             element={<PatientResetPasswordPage />}
           />
           <Route
-            path="/PatientDashboard/:patientId"
+            path="/PatientDashboard/:userId"
             element={<PatientDashboardPage />}
           />
           <Route
-            path="/PatientMedicalReport"
+            path="/PatientMedicalReport/:userId"
             element={<PatientMedicalReportPage />}
           />
           <Route
-            path="/PatientAppointment"
+            path="/PatientAppointment/:userId"
             element={<PatientAppointmentPage />}
           />
           <Route
-            path="/PatientDoctorReviewPage"
+            path="/PatientDoctorReviewPage/:userId"
             element={<PatientDoctorReviewPage />}
           />
 
@@ -127,7 +127,7 @@ function App() {
             element={<AdminResetPasswordPage />}
           />
           <Route
-            path="/AdminDashboard:adminId"
+            path="/AdminDashboard/:adminId"
             element={<AdminDashboardPage />}
           />
           <Route

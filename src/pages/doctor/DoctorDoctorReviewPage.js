@@ -20,7 +20,7 @@ const DoctorDoctorReviewPage = () => {
   ];
 
   const logOutBtnOnAction = () => {
-    navigate("/DoctorSignIn");
+    navigate("/");
   };
 
   const handlePressButton = (pressButton) => {

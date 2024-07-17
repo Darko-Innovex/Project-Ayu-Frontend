@@ -12,23 +12,26 @@ import DashboardUserDetailsCard from "../component/dashboard/DashboardUserDetail
 import NotificationPanel from "../component/dashboard/NotificationPanel";
 import { useState } from "react";
 import DashboardFilter from "../component/dashboard/DashboardFilter";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const PatientDashboardPage = () => {
   const [notificationPanel, setNotificationPanel] = useState(false);
   const [filterPanel, setFilterPanel] = useState(false);
   const navigate = useNavigate(null);
+  const { userId } = useParams();
+
   const Components = [
     HomeButton,
     AppointmentButton,
     ReportButton,
     ReviewButton,
   ];
+
   const Paths = [
-    "/PatientDashboard",
-    "/PatientAppointment",
-    "/PatientMedicalReport",
-    "/PatientDoctorReviewPage",
+    `/PatientDashboard/${userId}`,
+    `/PatientAppointment/${userId}`,
+    `/PatientMedicalReport/${userId}`,
+    `/PatientDoctorReviewPage/${userId}`,
   ];
 
   const showNotificationPanel = () => {
@@ -44,7 +47,7 @@ const PatientDashboardPage = () => {
   };
 
   const navigateToMedicalPage = () => {
-    navigate("/PatientMedicalReport");
+    navigate(`/PatientMedicalReport/${userId}`);
   };
 
   const logOutBtnOnAction = () => {
@@ -77,7 +80,11 @@ const PatientDashboardPage = () => {
             <DashboardHeader showNotification={showNotificationPanel} />
             <div>
               <div>
-                <SearchLine showFilter={showAndHideFilterPanel} />
+                <SearchLine
+                  type={"patient"}
+                  id={userId}
+                  showFilter={showAndHideFilterPanel}
+                />
                 <div>
                   <div className="MediCardSectionTitle">
                     <h1>Medical Reports</h1>
@@ -98,7 +105,7 @@ const PatientDashboardPage = () => {
                     </button>
                   </div>
                   <div className="MediCardList">
-                    <DashboardMediCard />
+                    <DashboardMediCard reportId={1} />
                     <DashboardMediCard />
                     <DashboardMediCard />
                   </div>
@@ -137,7 +144,7 @@ const PatientDashboardPage = () => {
                 </div>
               </div>
               <div className="sideCard">
-                <DashboardUserDetailsCard />
+                <DashboardUserDetailsCard type={"patient"} />
               </div>
             </div>
           </div>

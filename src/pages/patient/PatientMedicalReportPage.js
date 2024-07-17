@@ -11,13 +11,14 @@ import OldCard from "../component/medicalReport/OldCard";
 import SearchFilter from "../component/medicalReport/SearchFilter";
 import PopupBackground from "../component/medicalReport/popup/PopupBackground";
 import labReport from "../../../src/img/a-visual-guide-chart-showing-blood-chemistry-test-interpretation 2.pdf";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const PatientMedicalReportPage = () => {
   const [labReportFilter, setLabReportFilter] = useState(false);
   const [oldReportFilter, setOldReportFilter] = useState(false);
   const [reportViewPopup, setReportViewPopup] = useState(false);
   const navigate = useNavigate(null);
+  const { userId } = useParams();
 
   const Components = [
     HomeButton,
@@ -25,11 +26,12 @@ const PatientMedicalReportPage = () => {
     ReportButton,
     ReviewButton,
   ];
+
   const Paths = [
-    "/PatientDashboard",
-    "/PatientAppointment",
-    "/PatientMedicalReport",
-    "/PatientDoctorReviewPage",
+    `/PatientDashboard/${userId}`,
+    `/PatientAppointment/${userId}`,
+    `/PatientMedicalReport/${userId}`,
+    `/PatientDoctorReviewPage/${userId}`,
   ];
 
   const sowAndHideLabReportFilter = () => {

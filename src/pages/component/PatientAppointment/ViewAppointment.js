@@ -29,42 +29,42 @@ const ViewAppointment = ({ AppointmentData, HideAppointment }) => {
             <div>
               <div>
                 <div>
-                  <h2>Appointment Id :</h2>
-                  <h3>A - 001 251</h3>
+                  <h2>Appointment Id : </h2>
+                  <h3>{AppointmentData.AppointmentId}</h3>
                 </div>
                 <div>
                   <h2 className="status">Status</h2>
-                  <h3>Complete</h3>
+                  <h3>{AppointmentData.Status}</h3>
                 </div>
               </div>
               <div>
                 <div>
                   <h2>Hospital Name</h2>
-                  <h3>Ruhunu Hospital , Karap...</h3>
+                  <h3>{AppointmentData.Hospital}</h3>
                 </div>
                 <div>
                   <h2>Appointment No :</h2>
-                  <h3>10</h3>
+                  <h3>{AppointmentData.AppointmentNumber}</h3>
                 </div>
               </div>
               <div>
                 <div>
                   <h2>Doctor Name</h2>
-                  <h3>Dr. Ashen Madhusanka</h3>
+                  <h3>{AppointmentData.DoctorName}</h3>
                 </div>
                 <div>
                   <h2>Doctor Specialty</h2>
-                  <h3>Cardiologist</h3>
+                  <h3>{AppointmentData.DoctorSpeciality}</h3>
                 </div>
               </div>
               <div>
                 <div>
                   <h2>Date</h2>
-                  <h3>2023 / 06 / 25</h3>
+                  <h3>{AppointmentData.Date}</h3>
                 </div>
                 <div>
                   <h2>Time</h2>
-                  <h3>09 : 00 AM</h3>
+                  <h3>{AppointmentData.Time}</h3>
                 </div>
               </div>
             </div>

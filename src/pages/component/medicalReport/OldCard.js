@@ -5,84 +5,72 @@ import { useEffect, useState } from "react";
 const OldCard = ({ Appointment, hideReport }) => {
   const [doctor, setDoctor] = useState(null);
 
-  const [date, setDate] = useState(null);
+  useEffect(() => {
+    if (Appointment) {
+      getDoctor();
+    }
+  }, [Appointment]);
 
-  const [time, setTime] = useState(null);
+  const getDoctor = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8080/doctor/${Appointment.doctorId}`,
+      );
+      setDoctor(response.data);
+    } catch (error) {
+      console.error("Error fetching doctor:", error);
+    }
+  };
 
-  function onClickViewDoctorReport() {
-    //Must get Medical Report using Appointment ID
-
-    async function getMedicalReport() {
+  const onClickViewDoctorReport = async () => {
+    if (Appointment) {
       try {
         const response = await axios.get(
           `http://localhost:8080/appointment/${Appointment.id}/medical_report`,
         );
         setReportData(response.data);
       } catch (error) {
-        console.error(error);
+        console.error("Error fetching doctor report:", error);
       }
     }
-
-    getMedicalReport();
     hideReport();
-  }
+  };
 
-  function onClickMedicalList() {
-    //Must get Medicine List using Appointment ID
-    async function getMedicineList() {
+  const onClickMedicalList = async () => {
+    if (Appointment) {
       try {
         const response = await axios.get(
           `http://localhost:8080/appointment/${Appointment.id}/medicine_list`,
         );
         setReportData(response.data);
       } catch (error) {
-        console.error(error);
+        console.error("Error fetching medicine list:", error);
       }
     }
-
-    getMedicineList();
     hideReport();
-  }
+  };
 
-  function getDoctor() {
-    //Must get Medicine List using Appointment ID
-    console.log(Appointment.doctorId);
-    try {
-      const response = axios.get(
-        `http://localhost:8080/doctor/${Appointment.doctorId}`,
-      );
-      console.log(response.data);
-      setDoctor(response.data);
-    } catch (error) {
-      console.error(error);
+  const getDate = (appointment) => {
+    if (appointment) {
+      let date = new Date(appointment.timestamp);
+      let year = date.getFullYear();
+      let month = date.getMonth() + 1; // getMonth() returns 0-11, so we add 1 for human-readable month
+      let day = date.getDate();
+      return `${year} : ${month} : ${day}`;
     }
+    return "";
+  };
 
-    hideReport();
-  }
-
-  function getDate(appointment) {
-    let date = new Date(appointment.timestamp);
-
-    let year = date.getFullYear();
-    let month = date.getMonth() + 1; // getMonth() returns 0-11, so we add 1 for human-readable month
-    let day = date.getDate();
-
-    return `${year} : ${month} : ${day}`;
-  }
-
-  function getTime(appointment) {
-    let date = new Date(appointment.timestamp);
-
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
-    let seconds = date.getSeconds();
-
-    return `${hours} : ${minutes} : ${seconds}`;
-  }
-
-  useEffect(() => {
-    getDoctor();
-  }, [Appointment]);
+  const getTime = (appointment) => {
+    if (appointment) {
+      let date = new Date(appointment.timestamp);
+      let hours = date.getHours();
+      let minutes = date.getMinutes();
+      let seconds = date.getSeconds();
+      return `${hours} : ${minutes} : ${seconds}`;
+    }
+    return "";
+  };
 
   return (
     <div className="labCard">
