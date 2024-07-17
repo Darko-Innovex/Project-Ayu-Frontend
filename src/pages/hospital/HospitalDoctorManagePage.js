@@ -9,12 +9,14 @@ import "../../css/HospitalDoctorManage.css";
 import HospitalDoctorView from "../component/HospitalDoctorManage/HospitalDoctorView";
 import { useState } from "react";
 import HospitalAddDoctor from "../component/HospitalDoctorManage/HospitalAddDoctor";
+import HospitalDeleteDoctor from "../component/HospitalDoctorManage/HospitalDeleteDoctor";
 
 const HospitalDoctorManagePage = () => {
   const navigate = useNavigate(null);
   const [viewDoctor, setViewDoctor] = useState(false);
   const [doctorData, setDoctorData] = useState(null);
   const [addDoctor, setAddDoctor] = useState(false);
+  const [deleteDoctor, setDeleteDoctor] = useState(false);
 
   const Components = [
     HomeButton,
@@ -41,6 +43,11 @@ const HospitalDoctorManagePage = () => {
 
   const handelAddDoctor = () => {
     setAddDoctor(!addDoctor);
+  };
+
+  const handelDeleteDoctor = (doctorData) => {
+    setDoctorData(doctorData);
+    setDeleteDoctor(!deleteDoctor);
   };
 
   const dataSet = [
@@ -135,6 +142,13 @@ const HospitalDoctorManagePage = () => {
 
         {addDoctor && <HospitalAddDoctor closeBtnOnAction={handelAddDoctor} />}
 
+        {deleteDoctor && (
+          <HospitalDeleteDoctor
+            cancel={handelDeleteDoctor}
+            doctorData={doctorData}
+          />
+        )}
+
         <div className="container">
           <Navbar
             components={Components}
@@ -221,7 +235,7 @@ const HospitalDoctorManagePage = () => {
               <h1 className="action">Action</h1>
             </div>
             <div className="tableBody">
-              {setRows(dataSet, handelViewDoctor)}
+              {setRows(dataSet, handelViewDoctor, handelDeleteDoctor)}
             </div>
           </div>
         </div>
@@ -230,7 +244,7 @@ const HospitalDoctorManagePage = () => {
   );
 };
 
-const setRows = (dataSet, viewDoctor) => {
+const setRows = (dataSet, viewDoctor, deleteDoctor) => {
   const rowSet = [];
   for (let i = 0; i < dataSet.length; i++) {
     rowSet.push(
@@ -241,7 +255,7 @@ const setRows = (dataSet, viewDoctor) => {
         <h1 className="NIC">{dataSet[i].NIC}</h1>
         <h1 className="speciality">{dataSet[i].Speciality}</h1>
         <div className="action">
-          <button>
+          <button onClick={() => deleteDoctor(dataSet[i])}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
