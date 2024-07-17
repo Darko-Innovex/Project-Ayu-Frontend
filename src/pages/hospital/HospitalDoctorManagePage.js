@@ -6,9 +6,14 @@ import DoctorsButton from "../component/dashboard/button/DoctorsButton";
 import { useNavigate } from "react-router-dom";
 import "../../css/HospitalPatientManagementPage.css";
 import "../../css/HospitalDoctorManage.css";
+import HospitalDoctorView from "../component/HospitalDoctorManage/HospitalDoctorView";
+import { useState } from "react";
 
 const HospitalDoctorManagePage = () => {
   const navigate = useNavigate(null);
+  const [viewDoctor, setViewDoctor] = useState(false);
+  const [doctorData, setDoctorData] = useState(null);
+
   const Components = [
     HomeButton,
     PatientsButton,
@@ -25,6 +30,11 @@ const HospitalDoctorManagePage = () => {
 
   const logOutBtnOnAction = () => {
     navigate("/HospitalSignIn");
+  };
+
+  const handelViewDoctor = (doctorData) => {
+    setDoctorData(doctorData);
+    setViewDoctor(!viewDoctor);
   };
 
   const dataSet = [
@@ -109,6 +119,13 @@ const HospitalDoctorManagePage = () => {
           <div></div>
           <div></div>
         </div>
+
+        {viewDoctor && (
+          <HospitalDoctorView
+            closeBtn={handelViewDoctor}
+            doctorData={doctorData}
+          />
+        )}
 
         <div className="container">
           <Navbar
@@ -195,7 +212,9 @@ const HospitalDoctorManagePage = () => {
               <h1 className="speciality">Speciality</h1>
               <h1 className="action">Action</h1>
             </div>
-            <div className="tableBody">{setRows(dataSet)}</div>
+            <div className="tableBody">
+              {setRows(dataSet, handelViewDoctor)}
+            </div>
           </div>
         </div>
       </div>
@@ -203,7 +222,7 @@ const HospitalDoctorManagePage = () => {
   );
 };
 
-const setRows = (dataSet) => {
+const setRows = (dataSet, viewDoctor) => {
   const rowSet = [];
   for (let i = 0; i < dataSet.length; i++) {
     rowSet.push(
@@ -228,7 +247,7 @@ const setRows = (dataSet) => {
               />
             </svg>
           </button>
-          <button>
+          <button onClick={() => viewDoctor(dataSet[i])}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"

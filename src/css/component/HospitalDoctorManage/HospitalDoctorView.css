@@ -1,0 +1,95 @@
+#hospitalDoctorView .background > div{
+    width: 1155px;
+    height: 744px;
+    background-image: url('/src/img/PatientDoctorReviewBackground.png');
+    background-size: cover;
+    border-radius: 30px;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.25);
+    padding: 50px 70px;
+}
+
+#hospitalDoctorView .background{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#hospitalDoctorView .background .title{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 33px;
+}
+
+#hospitalDoctorView .background > div *{
+    color: #262626;
+    font-family: 'Kanit', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+#hospitalDoctorView .background .title h1{
+    font-size: 50px;
+    font-weight: 400;
+    letter-spacing: 3.5px;
+}
+
+#hospitalDoctorView .background .title button{
+    width: 218px;
+    height: 65px;
+    display: flex;
+    gap: 29px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: #12C080;
+    border: none;
+}
+
+#hospitalDoctorView .background .title + div{
+    width: 100%;
+    display: flex;
+    gap: 80px;
+}
+
+#hospitalDoctorView .background .title + div h2{
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+#hospitalDoctorView .background input,
+#hospitalDoctorView .background select{
+    width: 485px;
+    height: 70px;
+    padding: 20px 31px;
+    border-radius: 10px;
+    background: #FFFEFE;
+    border: none;
+    margin-bottom: 22px;
+    letter-spacing: 1px;
+}
+
+#hospitalDoctorView .background .title + div > :last-child > div{
+    width: 450px;
+    height: 450px;
+    border-radius: 300px;
+    background: rgba(255, 255, 255, 0.60);
+    object-fit: fill;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#hospitalDoctorView .background img{
+    width: 110%;
+    height: auto;
+    margin-top: 20px;
+}
+
+#hospitalDoctorView .background .title + div > :last-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
