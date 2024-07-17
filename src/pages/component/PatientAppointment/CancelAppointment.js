@@ -2,13 +2,14 @@ import "../../../css/component/Appointment/CancelAppointment.css";
 import axios from "axios";
 import PatientAppointmentPage from "../../patient/PatientAppointmentPage";
 
-const CancelAppointment = ({ AppointmentId, cancel }) => {
+const CancelAppointment = ({ AppointmentId, cancel, reloadTable }) => {
   const deleteAppointment = async () => {
     const response = await axios.put(
       `http://localhost:8080/appointment/${AppointmentId}`,
     );
 
     if (response.status === 200) {
+      reloadTable();
       cancel();
     } else alert(`Operation failed with id ${AppointmentId}`);
   };

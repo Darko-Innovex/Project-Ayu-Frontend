@@ -31,7 +31,7 @@ const PatientDashboardPage = () => {
     `/PatientDashboard/${userId}`,
     `/PatientAppointment/${userId}`,
     `/PatientMedicalReport/${userId}`,
-    `/PatientDoctorReviewPage${userId}`,
+    `/PatientDoctorReviewPage/${userId}`,
   ];
 
   const showNotificationPanel = () => {

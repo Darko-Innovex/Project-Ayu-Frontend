@@ -61,21 +61,15 @@ const PatientAppointmentPage = () => {
     setCancelAppointment(!cancelAppointment);
   };
 
-  let data1 = {
-    AppointmentNumber: 10,
-    DoctorName: "Dr. Gayanuka Bulegoda",
-    Hospital: "Ruhunu Hospital",
-    Date: "15 / 05 / 2024",
-    Status: "Complete",
+  const reloadTable = () => {
+    getData();
   };
 
   function getDate(timeStamp) {
     let date = new Date(timeStamp);
-
     let year = date.getFullYear();
-    let month = date.getMonth() + 1; // getMonth() returns 0-11, so we add 1 for human-readable month
+    let month = date.getMonth() + 1;
     let day = date.getDate();
-
     return `${year} / ${month} / ${day}`;
   }
 
@@ -105,133 +99,45 @@ const PatientAppointmentPage = () => {
         `http://localhost:8080/patient/${userId}/appointment`,
         { params: userData },
       );
-      console.log(response.data);
-
       const appointments = response.data;
-
+      setRows([]);
       setDataSet([]);
 
-      for (let i = 0; i < appointments.length; i++) {
-        let hospital;
-        let doctor;
-
-        console.log(appointments[i]);
-
+      const appointmentPromises = appointments.map(async (appointment) => {
         try {
-          hospital = await axios.get(
-            `http://localhost:8080/hospital/${appointments[i].hospitalId}`,
-          );
-
-          doctor = await axios.get(
-            `http://localhost:8080/doctor/${appointments[i].doctorId}`,
-          );
+          const [hospitalResponse, doctorResponse] = await Promise.all([
+            axios.get(
+              `http://localhost:8080/hospital/${appointment.hospitalId}`,
+            ),
+            axios.get(`http://localhost:8080/doctor/${appointment.doctorId}`),
+          ]);
+          const date = getDate(appointment.timestamp);
+          const time = getTime(appointment.timestamp);
+          return {
+            AppointmentId: appointment.id,
+            AppointmentNumber: appointment.appointmentNo,
+            DoctorName: doctorResponse.data.name,
+            DoctorSpeciality: doctorResponse.data.speciality,
+            Hospital: hospitalResponse.data.name,
+            Date: date,
+            Time: time,
+            Status: appointment.status,
+          };
         } catch (err) {
-          console.error(err);
+          console.error(
+            `Error fetching hospital or doctor data for appointment ${appointment.id}:`,
+            err,
+          );
+          return null;
         }
+      });
 
-        const date = getDate(appointments[i].timestamp);
-        const time = getTime(appointments[i].timestamp);
-
-        let data = {
-          AppointmentId: appointments[i].id,
-          AppointmentNumber: appointments[i].appointmentNo,
-          DoctorName: doctor.data.name,
-          DoctorSpeciality: doctor.data.speciality,
-          Hospital: hospital.data.name,
-          Date: date,
-          Time: time,
-          Status: appointments[i].status,
-        };
-
-        console.log(data);
-
-        setDataSet((prevDataSet) => [...prevDataSet, data]); // ... => suggests get new data set after previous ones
-      }
+      const appointmentData = await Promise.all(appointmentPromises);
+      setDataSet(appointmentData.filter((data) => data !== null));
     } catch (err) {
-      console.error(err);
+      console.error("Error fetching appointment data:", err);
     }
   };
-
-  // ------------------------------------------
-
-  useEffect(() => {
-    setTable(dataSet, handleViewAppointment, handleCancelAppointment);
-  }, [dataSet]);
-
-  const setTable = (dataSet, ViewAppointment, cancelAppointment) => {
-    const StatusColor = (status) => {
-      if (status === "Complete") {
-        return { color: "#499A51" };
-      } else if (status === "Pending") {
-        return { color: "#7E83F8" };
-      } else {
-        return { color: "#F87E7E" };
-      }
-    };
-
-    console.log("<<<<: ", dataSet.length);
-
-    // let data = {
-    //   AppointmentNumber: appointments[i].appointmentNo,
-    //   DoctorName: doctor.data.name,
-    //   Hospital: hospital,
-    //   Date: date,
-    //   Status: appointments[i].status,
-    // };
-
-    if (dataSet) {
-      for (let i = 0; i < dataSet.length; i++) {
-        rowSet.push(
-          <div>
-            <input type="checkbox" />
-            <h1 className="appointmentNm">{dataSet[i].AppointmentNumber}</h1>
-            <h1 className="doctorName">{dataSet[i].DoctorName}</h1>
-            <h1 className="hospital">{dataSet[i].Hospital}</h1>
-            <h1 className="date">{dataSet[i].Date}</h1>
-            <h1 style={StatusColor(dataSet[i].Status)} className="status">
-              {dataSet[i].Status}
-            </h1>
-            <div className="action">
-              {dataSet[i].Status === "Pending" ? (
-                <button onClick={() => cancelAppointment(dataSet[i])}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="15"
-                    height="15"
-                    viewBox="0 0 15 15"
-                    fill="none"
-                  >
-                    <path
-                      d="M12.966 2.08028C12.7219 1.8362 12.3262 1.8362 12.0821 2.08028L7.52313 6.63927L2.96416 2.08028C2.72008 1.8362 2.32435 1.8362 2.08028 2.08028C1.8362 2.32435 1.8362 2.72008 2.08028 2.96416L6.63925 7.52315L2.08029 12.0821C1.83621 12.3262 1.83621 12.7219 2.08029 12.966C2.32437 13.2101 2.7201 13.2101 2.96417 12.966L7.52313 8.40702L12.0821 12.966C12.3262 13.2101 12.7219 13.2101 12.966 12.966C13.2101 12.7219 13.2101 12.3262 12.966 12.0821L8.407 7.52315L12.966 2.96416C13.2101 2.72008 13.2101 2.32435 12.966 2.08028Z"
-                      fill="#9A9A9A"
-                    />
-                  </svg>
-                </button>
-              ) : (
-                ""
-              )}
-              <button onClick={() => ViewAppointment(dataSet[i])}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="14"
-                  viewBox="0 0 20 14"
-                  fill="none"
-                >
-                  <path
-                    d="M10 0C16.25 0 20 7 20 7C20 7 16.25 14 10 14C3.75 14 0 7 0 7C0 7 3.75 0 10 0ZM10 1.27273C5.6 1.27273 2.4975 5.41036 1.46875 7C2.49625 8.58836 5.59875 12.7273 10 12.7273C14.4 12.7273 17.5025 8.58964 18.5312 7C17.5037 5.41164 14.4012 1.27273 10 1.27273ZM10 2.54545C11.1603 2.54545 12.2731 3.01477 13.0936 3.85016C13.9141 4.68555 14.375 5.81858 14.375 7C14.375 8.18142 13.9141 9.31445 13.0936 10.1498C12.2731 10.9852 11.1603 11.4545 10 11.4545C8.83968 11.4545 7.72688 10.9852 6.90641 10.1498C6.08594 9.31445 5.625 8.18142 5.625 7C5.625 5.81858 6.08594 4.68555 6.90641 3.85016C7.72688 3.01477 8.83968 2.54545 10 2.54545ZM10 3.81818C9.1715 3.81918 8.37721 4.15473 7.79138 4.75122C7.20554 5.34771 6.87598 6.15644 6.875 7C6.875 8.75382 8.27625 10.1818 10 10.1818C11.7238 10.1818 13.125 8.75382 13.125 7C13.125 5.24618 11.7238 3.81818 10 3.81818Z"
-                    fill="#9A9A9A"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>,
-        );
-      }
-    }
-  };
-
-  //--------------------------------------------
 
   return (
     <div>
@@ -254,6 +160,7 @@ const PatientAppointmentPage = () => {
           <CancelAppointment
             AppointmentId={appointmentData.AppointmentId}
             cancel={handleCancelAppointment}
+            reloadTable={reloadTable}
           />
         )}
 
@@ -332,7 +239,6 @@ const PatientAppointmentPage = () => {
             </button>
           </div>
           <div className="tableHead">
-            <input type="checkbox" />
             <h1 className="appointmentNm">Appointment No</h1>
             <h1 className="doctorName">Doctor Name</h1>
             <h1 className="hospital">Hospital</h1>
@@ -340,10 +246,71 @@ const PatientAppointmentPage = () => {
             <h1 className="status">Status</h1>
             <h1 className="action">Action</h1>
           </div>
-          <div className="tableBody">{rowSet && rowSet}</div>
+          <div className="tableBody">
+            {dataSet.map((appointment) => (
+              <div>
+                <h1 className="appointmentNm">
+                  {appointment.AppointmentNumber}
+                </h1>
+                <h1 className="doctorName">{appointment.DoctorName}</h1>
+                <h1 className="hospital">{appointment.Hospital}</h1>
+                <h1 className="date">{appointment.Date}</h1>
+                <h1
+                  style={
+                    appointment.Status === "Completed"
+                      ? { color: "#499A51" }
+                      : appointment.Status === "Pending"
+                        ? { color: "#7E83F8" }
+                        : { color: "#F87E7E" }
+                  }
+                  className="status"
+                >
+                  {appointment.Status}
+                </h1>
+                <div className="action">
+                  {appointment.Status === "Pending" ? (
+                    <button
+                      onClick={() => handleCancelAppointment(appointment)}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="15"
+                        height="15"
+                        viewBox="0 0 15 15"
+                        fill="none"
+                      >
+                        <path
+                          d="M12.966 2.08028C12.7219 1.8362 12.3262 1.8362 12.0821 2.08028L7.52313 6.63927L2.96416 2.08028C2.72008 1.8362 2.32435 1.8362 2.08028 2.08028C1.8362 2.32435 1.8362 2.72008 2.08028 2.96416L6.63925 7.52315L2.08029 12.0821C1.83621 12.3262 1.83621 12.7219 2.08029 12.966C2.32437 13.2101 2.7201 13.2101 2.96417 12.966L7.52313 8.40702L12.0821 12.966C12.3262 13.2101 12.7219 13.2101 12.966 12.966C13.2101 12.7219 13.2101 12.3262 12.966 12.0821L8.407 7.52315L12.966 2.96416C13.2101 2.72008 13.2101 2.32435 12.966 2.08028Z"
+                          fill="#9A9A9A"
+                        />
+                      </svg>
+                    </button>
+                  ) : (
+                    ""
+                  )}
+                  <button onClick={() => handleViewAppointment(appointment)}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="14"
+                      viewBox="0 0 20 14"
+                      fill="none"
+                    >
+                      <path
+                        d="M10 0C16.25 0 20 7 20 7C20 7 16.25 14 10 14C3.75 14 0 7 0 7C0 7 3.75 0 10 0ZM10 1.27273C5.6 1.27273 2.4975 5.41036 1.46875 7C2.49625 8.58836 5.59875 12.7273 10 12.7273C14.4 12.7273 17.5025 8.58964 18.5312 7C17.5037 5.41164 14.4012 1.27273 10 1.27273ZM10 2.54545C11.1603 2.54545 12.2731 3.01477 13.0936 3.85016C13.9141 4.68555 14.375 5.81858 14.375 7C14.375 8.18142 13.9141 9.31445 13.0936 10.1498C12.2731 10.9852 11.1603 11.4545 10 11.4545C8.83968 11.4545 7.72688 10.9852 6.90641 10.1498C6.08594 9.31445 5.625 8.18142 5.625 7C5.625 5.81858 6.08594 4.68555 6.90641 3.85016C7.72688 3.01477 8.83968 2.54545 10 2.54545ZM10 3.81818C9.1715 3.81918 8.37721 4.15473 7.79138 4.75122C7.20554 5.34771 6.87598 6.15644 6.875 7C6.875 8.75382 8.27625 10.1818 10 10.1818C11.7238 10.1818 13.125 8.75382 13.125 7C13.125 5.24618 11.7238 3.81818 10 3.81818Z"
+                        fill="#9A9A9A"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
           <div>
             <div id="btn_slide">
-              <button>
+              <button
+                onClick={() => setPage((prevPage) => Math.max(prevPage - 1, 0))}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="15"
@@ -358,9 +325,15 @@ const PatientAppointmentPage = () => {
                 </svg>
               </button>
 
-              <h3>05</h3>
+              <h3>{page + 1}</h3>
 
-              <button>
+              <button
+                onClick={() =>
+                  setPage((prevPage) => {
+                    return dataSet.length < 8 ? prevPage : prevPage + 1;
+                  })
+                }
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="15"

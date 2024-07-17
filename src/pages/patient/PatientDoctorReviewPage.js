@@ -30,7 +30,7 @@ const PatientDoctorReviewPage = () => {
     `/PatientDashboard/${userId}`,
     `/PatientAppointment/${userId}`,
     `/PatientMedicalReport/${userId}`,
-    `/PatientDoctorReviewPage${userId}`,
+    `/PatientDoctorReviewPage/${userId}`,
   ];
 
   const logOutBtnOnAction = () => {
