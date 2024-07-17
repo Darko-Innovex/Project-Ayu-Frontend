@@ -1,0 +1,67 @@
+#HospitalAddDoctor .background > div{
+    width: 693px;
+    height: 422px;
+    background-image: url("../../../img/PatientDoctorReviewBackground.png");
+    background-size: cover;
+    border-radius: 30px;
+    padding: 50px 70px;
+}
+
+#HospitalAddDoctor .background{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#HospitalAddDoctor .background > div *{
+    color: #262626;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 400;
+}
+
+#HospitalAddDoctor h1{
+    font-size: 50px;
+    letter-spacing: 3.5px;
+    margin-bottom: 34px;
+}
+
+#HospitalAddDoctor h3{
+    font-size: 19px;
+    font-weight: 300;
+    margin-bottom: 5px;
+}
+
+#HospitalAddDoctor input{
+    width: 553px;
+    height: 70px;
+    border-radius: 10px;
+    background: #FFF;
+    border: none;
+    font-size: 20px;
+    padding: 10px 20px;
+}
+
+#HospitalAddDoctor .buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 48px;
+}
+
+#HospitalAddDoctor button{
+    width: 250px;
+    height: 65px;
+    padding: 16px 0px;
+    letter-spacing: 6.6px;
+    font-size: 22px;
+    border: none;
+    border-radius: 10px;
+}
+
+#HospitalAddDoctor .buttons > :first-child{
+    background: #12C080;
+}
+
+#HospitalAddDoctor .buttons > :last-child{
+    background: #262626;
+    color: #FFFFFF;
+}
