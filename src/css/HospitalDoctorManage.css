@@ -1,0 +1,49 @@
+#dashboard .hospitalDoctorManage .id{
+    min-width: 80px;
+    max-width: 45px;
+    overflow: hidden;
+    text-align: center;
+    margin-left: 90px;
+    margin-right: 120px;
+}
+
+#dashboard .hospitalDoctorManage input[type="checkbox"]{
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+#dashboard .hospitalDoctorManage .Name{
+    min-width: 240px;
+    max-width: 240px;
+    overflow: hidden;
+    text-align: center;
+    margin: 0;
+}
+
+#dashboard .hospitalDoctorManage .action{
+    margin-left: 200px;
+    margin-right: 0;
+}
+
+#dashboard .hospitalDoctorManage .NIC{
+    margin: 0 180px 0 180px;
+}
+
+#dashboard .hospitalDoctorManage .speciality{
+    text-align: center;
+    min-width: 110px;
+    max-width: 110px;
+}
+
+#dashboard .hospitalDoctorManage .action{
+    display: flex;
+    text-align: center;
+    width: 80px;
+    justify-content: center;
+    gap: 30px;
+}
+
+#dashboard .hospitalDoctorManage .action button{
+    background-color: transparent;
+    border: none;
+}

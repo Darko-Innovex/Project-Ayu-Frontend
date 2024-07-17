@@ -1,0 +1,55 @@
+#HospitalDoctorManageFilter{
+    width: 348px;
+    height: 319px;
+    border-radius: 30px;
+    background: #F0FFFA;
+    padding: 17px 27px;
+    position: absolute;
+    left: 36.5vw;
+    top: 17.5vh;
+}
+
+#HospitalDoctorManageFilter *{
+    color: #0E9A66;
+    font-family: "Poppins", sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+#HospitalDoctorManageFilter select ,
+#HospitalDoctorManageFilter input{
+    width: 100%;
+    height: 38px;
+    border-radius: 18px;
+    background: #BFFFE7;
+    border: none;
+    padding: 0 30px;
+}
+
+#HospitalDoctorManageFilter .closeBtn{
+    width: 24px;
+    height: 24px;
+    background: rgba(227, 227, 227, 0.50);
+    border-radius: 50%;
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#HospitalDoctorManageFilter h2{
+    color: #636363;
+    font-size: 8px;
+    font-weight: 400;
+    margin-bottom: 11px;
+    margin-top: 17px;
+}
+
+#HospitalDoctorManageFilter .closeBtn + h2{
+    margin-top: 20px;
+}
+
+#HospitalDoctorManageFilter .fromTo{
+    display: flex;
+    gap: 45px;
+}
