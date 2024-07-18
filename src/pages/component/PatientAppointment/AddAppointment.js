@@ -7,10 +7,69 @@ const AddAppointment = ({ hideAppointment }) => {
   const [hospitals, setHospitals] = useState([]);
   const [specialties, setSpecialties] = useState([]);
   const [doctors, setDoctors] = useState([]);
+  const [schedule, setSchedule] = useState([]);
+  const [selectedRow, setSelectedRow] = useState(null);
 
   const [selectedLocation, setSelectedLocation] = useState("");
   const [selectedHospital, setSelectedHospital] = useState("");
   const [selectedSpecialty, setSelectedSpecialty] = useState("");
+
+  const handleRowClick = (index) => {
+    setSelectedRow(index);
+  };
+
+  useEffect(() => {
+    setSchedule([
+      {
+        Day: "Monday",
+        Time: "10:00 AM - 11:00 AM",
+      },
+      {
+        Day: "SunDay",
+        Time: "10:00 AM - 11:00 AM",
+      },
+      {
+        Day: "Monday",
+        Time: "10:00 AM - 11:00 AM",
+      },
+      {
+        Day: "Monday",
+        Time: "10:00 AM - 11:00 AM",
+      },
+      {
+        Day: "Monday",
+        Time: "10:00 AM - 11:00 AM",
+      },
+      {
+        Day: "Monday",
+        Time: "10:00 AM - 11:00 AM",
+      },
+      {
+        Day: "Monday",
+        Time: "10:00 AM - 11:00 AM",
+      },
+      {
+        Day: "Monday",
+        Time: "10:00 AM - 11:00 AM",
+      },
+      {
+        Day: "Monday",
+        Time: "10:00 AM - 11:00 AM",
+      },
+      {
+        Day: "Monday",
+        Time: "10:00 AM - 11:00 AM",
+      },
+      {
+        Day: "Monday",
+        Time: "10:00 AM - 11:00 AM",
+      },
+      {
+        Day: "Monday",
+        Time: "10:00 AM - 11:00 AM",
+      },
+    ]);
+  }, []);
 
   useEffect(() => {
     const fetchOptions = async () => {
@@ -205,7 +264,19 @@ const AddAppointment = ({ hideAppointment }) => {
                   ))}
                 </select>
               </div>
-              <img src="" alt="" />
+              <div className="schedule">
+                {schedule.map((item, index) => (
+                  <div
+                    className={`scheduleBox ${selectedRow === index ? "selected" : ""}`}
+                    key={index}
+                    onClick={() => handleRowClick(index)}
+                  >
+                    <h2>{item.Day}</h2>
+                    <h2>-</h2>
+                    <h2>{item.Time}</h2>
+                  </div>
+                ))}
+              </div>
             </div>
             <button>Add Appointment</button>
           </div>

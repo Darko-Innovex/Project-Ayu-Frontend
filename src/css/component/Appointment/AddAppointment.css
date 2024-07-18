@@ -118,12 +118,11 @@
     border: none;
 }
 
-#addAppointment img{
+#addAppointment .schedule{
     width: 549px;
-    height: 466px;
-    border-radius: 30px;
-    background: rgba(255, 255, 255, 0.30);
+    height: 486px;
     border: none;
+    overflow-y: scroll;
 }
 
 #addAppointment .circle + div > button{
@@ -140,6 +139,33 @@
     letter-spacing: 6.6px;
     box-shadow: 0 4px 10px 0 rgba(255, 255, 255, 0.20);
     margin-top: 30px;
+}
+
+#addAppointment .schedule .scheduleBox{
+    display: flex;
+    gap: 20px;
+    height: 67px;
+    margin-bottom: 16px;
+    width: 100%;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.40);
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+
+#addAppointment .schedule .scheduleBox h2{
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+#addAppointment .schedule::-webkit-scrollbar{
+    width: 0;
+}
+
+#addAppointment .schedule .selected {
+    background-color: rgba(255, 255, 255, 0.80);
 }
 
 /*-----------------------------------------------Hospital Appointment-----------------------------------------------*/
