@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../../../css/component/Appointment/AddAppointment.css";
 
-const AddAppointment = ({ hideAppointment }) => {
+const AddAppointment = ({ patientId, hideAppointment, reloadTable }) => {
   const [locations, setLocations] = useState([]);
   const [hospitals, setHospitals] = useState([]);
   const [specialties, setSpecialties] = useState([]);
@@ -13,63 +13,37 @@ const AddAppointment = ({ hideAppointment }) => {
   const [selectedLocation, setSelectedLocation] = useState("");
   const [selectedHospital, setSelectedHospital] = useState("");
   const [selectedSpecialty, setSelectedSpecialty] = useState("");
+  const [selectedDoctor, setSelectedDoctor] = useState("");
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  function getDate(timeStamp) {
+    let date = new Date(timeStamp);
+    let formattedDay = date.toLocaleDateString("en-LK", { weekday: "long" });
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+    let output = `${year} / ${month} / ${day} `;
+    return (
+      <>
+        {output}&nbsp;&nbsp;{formattedDay}
+      </>
+    );
+  }
+
+  const getTime = (timeStamp) => {
+    if (timeStamp) {
+      let date = new Date(timeStamp);
+      let hours = date.getHours();
+      let minutes = date.getMinutes();
+      let seconds = date.getSeconds();
+      return `${hours} : ${minutes} : ${seconds}`;
+    }
+    return "";
+  };
 
   const handleRowClick = (index) => {
     setSelectedRow(index);
   };
-
-  useEffect(() => {
-    setSchedule([
-      {
-        Day: "Monday",
-        Time: "10:00 AM - 11:00 AM",
-      },
-      {
-        Day: "SunDay",
-        Time: "10:00 AM - 11:00 AM",
-      },
-      {
-        Day: "Monday",
-        Time: "10:00 AM - 11:00 AM",
-      },
-      {
-        Day: "Monday",
-        Time: "10:00 AM - 11:00 AM",
-      },
-      {
-        Day: "Monday",
-        Time: "10:00 AM - 11:00 AM",
-      },
-      {
-        Day: "Monday",
-        Time: "10:00 AM - 11:00 AM",
-      },
-      {
-        Day: "Monday",
-        Time: "10:00 AM - 11:00 AM",
-      },
-      {
-        Day: "Monday",
-        Time: "10:00 AM - 11:00 AM",
-      },
-      {
-        Day: "Monday",
-        Time: "10:00 AM - 11:00 AM",
-      },
-      {
-        Day: "Monday",
-        Time: "10:00 AM - 11:00 AM",
-      },
-      {
-        Day: "Monday",
-        Time: "10:00 AM - 11:00 AM",
-      },
-      {
-        Day: "Monday",
-        Time: "10:00 AM - 11:00 AM",
-      },
-    ]);
-  }, []);
 
   useEffect(() => {
     const fetchOptions = async () => {
@@ -115,6 +89,29 @@ const AddAppointment = ({ hideAppointment }) => {
       fetchDoctorsData();
     }
   }, [selectedHospital, selectedSpecialty]);
+
+  useEffect(() => {
+    if (selectedHospital && selectedDoctor) {
+      const fetchScheduleData = async () => {
+        const scheduleData = await fetchSchedules(
+          selectedHospital,
+          selectedDoctor,
+        );
+        setSchedule(scheduleData);
+      };
+
+      fetchScheduleData();
+    }
+  }, [selectedHospital, selectedDoctor]);
+
+  useEffect(() => {
+    setIsFormValid(
+      selectedLocation !== "" &&
+        selectedHospital !== "" &&
+        selectedSpecialty !== "" &&
+        selectedDoctor !== "",
+    );
+  }, [selectedLocation, selectedHospital, selectedSpecialty, selectedDoctor]);
 
   const fetchLocations = async () => {
     try {
@@ -181,6 +178,61 @@ const AddAppointment = ({ hideAppointment }) => {
     } catch (error) {
       console.error("Error fetching doctors:", error);
       return [];
+    }
+  };
+
+  const fetchSchedules = async (hospitalId, doctorId) => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8080/hospital/${hospitalId}/doctor/${doctorId}/schedule`,
+      );
+      if (response.status === 200) {
+        return response.data; // Assuming response.data contains the array of schedules
+      } else {
+        console.error("Failed to fetch schedules:", response.status);
+        return [];
+      }
+    } catch (error) {
+      console.error("Error fetching schedules:", error);
+      return [];
+    }
+  };
+
+  const handleAddAppointment = async () => {
+    if (selectedRow === null) {
+      alert("You need to select a schedule");
+      return;
+    }
+
+    if (selectedDoctor && selectedHospital) {
+      const selectedSchedule = schedule[selectedRow];
+
+      const appointmentData = {
+        patientId,
+        doctorId: selectedDoctor,
+        hospitalId: selectedHospital,
+        scheduleId: selectedSchedule.id,
+      };
+
+      try {
+        const response = await axios.post(
+          "http://localhost:8080/appointment",
+          appointmentData,
+        );
+        if (response.status === 200 || response.status === 201) {
+          reloadTable();
+          hideAppointment();
+          console.log("Appointment added successfully");
+        } else {
+          alert("Failed to add appointment");
+          console.error("Failed to add appointment:", response.status);
+        }
+      } catch (error) {
+        alert("Error adding appointment");
+        console.error("Error adding appointment:", error);
+      }
+    } else {
+      alert("Please select a doctor, hospital, and schedule");
     }
   };
 
@@ -255,7 +307,11 @@ const AddAppointment = ({ hideAppointment }) => {
                   ))}
                 </select>
                 <h2>Doctor</h2>
-                <select name="doctor" id="doctor">
+                <select
+                  name="doctor"
+                  id="doctor"
+                  onChange={(e) => setSelectedDoctor(e.target.value)}
+                >
                   <option value="">Select Doctor</option>
                   {doctors.map((doctor) => (
                     <option key={doctor.id} value={doctor.id}>
@@ -271,14 +327,20 @@ const AddAppointment = ({ hideAppointment }) => {
                     key={index}
                     onClick={() => handleRowClick(index)}
                   >
-                    <h2>{item.Day}</h2>
+                    <h2>{getDate(item.date)}</h2>
                     <h2>-</h2>
-                    <h2>{item.Time}</h2>
+                    <h2>
+                      {getTime(item.inTime)}
+                      &nbsp;&nbsp;&nbsp;to&nbsp;&nbsp;&nbsp;
+                      {getTime(item.outTime)}
+                    </h2>
                   </div>
                 ))}
               </div>
             </div>
-            <button>Add Appointment</button>
+            <button onClick={handleAddAppointment} disabled={!isFormValid}>
+              Add Appointment
+            </button>
           </div>
         </div>
       </div>
