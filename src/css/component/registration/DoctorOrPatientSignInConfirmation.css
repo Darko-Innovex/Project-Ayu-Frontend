@@ -1,0 +1,51 @@
+#DoctorOrPatientSignInConfirmation .background > div{
+    width: 559px;
+    height: 245px;
+    background-image: url("../../../img/EnterNfcPinBack.png");
+    background-size: cover;
+    border-radius: 30px;
+    padding: 0 48px;
+}
+
+#DoctorOrPatientSignInConfirmation *{
+    color: #262626;
+    font-family: 'Kanit', sans-serif;
+    font-size: 40px;;
+    font-weight: 400;
+    letter-spacing: 2.8px;
+    color: #262626;
+}
+
+#DoctorOrPatientSignInConfirmation button{
+    border-radius: 10px;
+    background: rgba(18, 192, 128, 0.90);
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+    width: 220px;
+    height: 50px;
+}
+
+#DoctorOrPatientSignInConfirmation .background > div > div{
+    display: flex;
+    gap: 23px;
+    margin-top: 42px;
+}
+
+#DoctorOrPatientSignInConfirmation .background > div > :first-child{
+    display: flex;
+    justify-content: end;
+    margin: 0;
+}
+
+#DoctorOrPatientSignInConfirmation svg{
+    position: relative;
+    left: 2vw;
+    top: 1.5vh;
+}
+
+#DoctorOrPatientSignInConfirmation .background{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
