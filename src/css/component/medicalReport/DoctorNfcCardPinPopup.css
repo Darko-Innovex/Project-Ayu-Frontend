@@ -1,0 +1,78 @@
+#DoctorNfcCardPinPopup .background{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#DoctorNfcCardPinPopup .background > div{
+    width: 790px;
+    height: 385px;
+    background-image: url("../../../img/EnterNfcPinBack.png");
+    background-size: cover;
+    border-radius: 30px;
+    border: none;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 30px;
+}
+
+#DoctorNfcCardPinPopup * {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: #262626;
+    box-sizing: border-box;
+}
+
+
+#DoctorNfcCardPinPopup .background > div > div{
+    display: flex;
+}
+
+#DoctorNfcCardPinPopup h1{
+    font-size: 32px;
+    letter-spacing: 1.6px;
+}
+
+#DoctorNfcCardPinPopup h2{
+    font-size: 22px;
+    letter-spacing: 0.88px;
+    color: #808080;
+    font-weight: 400;
+}
+
+#DoctorNfcCardPinPopup input{
+    width: 57px;
+    height: 82px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.40);
+    border: none;
+    text-align: center;
+}
+
+#DoctorNfcCardPinPopup .code{
+    gap: 36px;
+    margin-top: 29px;
+}
+
+#DoctorNfcCardPinPopup button{
+    width: 181px;
+    height: 65px;
+    color: #FFFFFF;
+    border-radius: 6px;
+    border: none;
+    margin-top: 39px;
+}
+
+#DoctorNfcCardPinPopup .buttons > :first-child{
+    background: #0E9A66;
+}
+
+#DoctorNfcCardPinPopup .buttons > :last-child{
+    background: #262626;
+}
+
+#DoctorNfcCardPinPopup .buttons{
+    gap: 70px;
+}
