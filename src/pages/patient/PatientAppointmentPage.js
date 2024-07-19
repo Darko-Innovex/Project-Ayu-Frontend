@@ -148,7 +148,11 @@ const PatientAppointmentPage = () => {
         </div>
         {Filter && <PatientAppointmentFilter closeFilter={handleFilter} />}
         {addAppointment && (
-          <AddAppointment hideAppointment={handleAppointment} />
+          <AddAppointment
+            hideAppointment={handleAppointment}
+            patientId={userId}
+            reloadTable={reloadTable}
+          />
         )}
         {viewAppointment && (
           <ViewAppointment
