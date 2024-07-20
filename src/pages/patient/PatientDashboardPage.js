@@ -10,14 +10,17 @@ import DashboardMediCard from "../component/dashboard/DashboardMediCard";
 import DashboardAppointmentCard from "../component/dashboard/DashboardAppointmentCard";
 import DashboardUserDetailsCard from "../component/dashboard/DashboardUserDetailsCard";
 import NotificationPanel from "../component/dashboard/NotificationPanel";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DashboardFilter from "../component/dashboard/DashboardFilter";
 import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 
 const PatientDashboardPage = () => {
   const [notificationPanel, setNotificationPanel] = useState(false);
   const [filterPanel, setFilterPanel] = useState(false);
-  const navigate = useNavigate(null);
+  const [appointmentData, setAppointmentData] = useState([]);
+  const [patientData, setPatientData] = useState(null);
+  const navigate = useNavigate();
   const { userId } = useParams();
 
   const Components = [
@@ -53,6 +56,63 @@ const PatientDashboardPage = () => {
   const logOutBtnOnAction = () => {
     navigate("/");
   };
+
+  const navigateToPatientAppointmentPage = () => {
+    navigate(`/PatientAppointment/${userId}`);
+  };
+
+  useEffect(() => {
+    const fetchAppointmentData = async () => {
+      const userData = {
+        page: 1,
+        count: 3,
+      };
+
+      try {
+        const response = await axios.get(
+          `http://localhost:8080/patient/${userId}/appointment`,
+          { params: userData },
+        );
+
+        if (response.status === 200) {
+          const appointments = response.data;
+
+          // Fetch doctor data for each appointment
+          const appointmentsWithDoctorData = await Promise.all(
+            appointments.map(async (appointment) => {
+              const doctorResponse = await axios.get(
+                `http://localhost:8080/doctor/${appointment.doctorId}`,
+              );
+              return {
+                ...appointment,
+                doctor: doctorResponse.data,
+              };
+            }),
+          );
+
+          setAppointmentData(appointmentsWithDoctorData);
+        } else {
+          console.error("Failed to fetch appointments:", response.status);
+        }
+      } catch (error) {
+        console.error("Error fetching appointments:", error);
+      }
+    };
+
+    const fetchPatientData = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:8080/patient/${userId}`,
+        );
+        setPatientData(response.data);
+      } catch (error) {
+        console.error("Error fetching patient data:", error);
+      }
+    };
+
+    fetchAppointmentData();
+    fetchPatientData();
+  }, [userId]);
 
   return (
     <div>
@@ -112,11 +172,18 @@ const PatientDashboardPage = () => {
                   <h1 className="AppointmentCardTitle">Appointments</h1>
                   <div className="AppointmentCardList">
                     <div>
-                      <DashboardAppointmentCard />
-                      <DashboardAppointmentCard />
-                      <DashboardAppointmentCard />
+                      {appointmentData.map((appointment, index) => (
+                        <DashboardAppointmentCard
+                          key={index}
+                          AppointmentData={appointment}
+                          DoctorData={appointment.doctor}
+                        />
+                      ))}
                     </div>
-                    <div className="viewMore">
+                    <div
+                      className="viewMore"
+                      onClick={navigateToPatientAppointmentPage}
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="80"
@@ -144,7 +211,10 @@ const PatientDashboardPage = () => {
                 </div>
               </div>
               <div className="sideCard">
-                <DashboardUserDetailsCard type={"patient"} />
+                <DashboardUserDetailsCard
+                  type={"patient"}
+                  // userData={patientData}
+                />
               </div>
             </div>
           </div>
