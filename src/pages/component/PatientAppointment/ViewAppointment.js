@@ -1,6 +1,8 @@
 import "../../../css/component/Appointment/AppointmentDetails.css";
 
 const ViewAppointment = ({ AppointmentData, HideAppointment }) => {
+  console.log(AppointmentData, " -- in view appointment");
+
   return (
     <div id="AppointmentDetails">
       <div className="background">

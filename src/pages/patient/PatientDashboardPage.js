@@ -14,6 +14,7 @@ import { useState, useEffect } from "react";
 import DashboardFilter from "../component/dashboard/DashboardFilter";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import ViewAppointment from "../component/PatientAppointment/ViewAppointment";
 
 const PatientDashboardPage = () => {
   const [notificationPanel, setNotificationPanel] = useState(false);
@@ -22,6 +23,54 @@ const PatientDashboardPage = () => {
   const [patientData, setPatientData] = useState(null);
   const navigate = useNavigate();
   const { userId } = useParams();
+  const [viewAppointment, setViewAppointment] = useState(false);
+  const [data, setData] = useState(null);
+
+  function getDate(timeStamp) {
+    let date = new Date(timeStamp);
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+    return `${year} / ${month} / ${day}`;
+  }
+
+  const getTime = (timeStamp) => {
+    if (timeStamp) {
+      let date = new Date(timeStamp);
+      let hours = date.getHours();
+      let minutes = date.getMinutes();
+      let seconds = date.getSeconds();
+      return `${hours} : ${minutes} : ${seconds}`;
+    }
+    return "";
+  };
+
+  const handleViewAppointment = (data) => {
+    if (data.doctor) {
+      setData({
+        AppointmentId: data.id,
+        Status: data.status,
+        Hospital: data.hospitalId,
+        AppointmentNumber: data.appointmentNo,
+        DoctorName: data.doctor.name,
+        DoctorSpeciality: data.doctor.speciality,
+        Date: getDate(data.timestamp),
+        Time: getTime(data.timestamp),
+      });
+    } else {
+      setData({
+        AppointmentId: data.id,
+        Status: data.status,
+        Hospital: data.hospitalId,
+        AppointmentNumber: data.appointmentNo,
+        DoctorName: "Unknown",
+        DoctorSpeciality: "Unknown",
+        Date: getDate(data.timestamp),
+        Time: getTime(data.timestamp),
+      });
+    }
+    setViewAppointment(!viewAppointment);
+  };
 
   const Components = [
     HomeButton,
@@ -122,6 +171,13 @@ const PatientDashboardPage = () => {
           <div></div>
         </div>
 
+        {viewAppointment && (
+          <ViewAppointment
+            AppointmentData={data}
+            HideAppointment={handleViewAppointment}
+          />
+        )}
+
         {notificationPanel && (
           <NotificationPanel hideNotification={hideNotificationPanel} />
         )}
@@ -177,6 +233,7 @@ const PatientDashboardPage = () => {
                           key={index}
                           AppointmentData={appointment}
                           DoctorData={appointment.doctor}
+                          handelAppointment={handleViewAppointment}
                         />
                       ))}
                     </div>
@@ -211,10 +268,7 @@ const PatientDashboardPage = () => {
                 </div>
               </div>
               <div className="sideCard">
-                <DashboardUserDetailsCard
-                  type={"patient"}
-                  // userData={patientData}
-                />
+                <DashboardUserDetailsCard type={"Patient"} Data={patientData} />
               </div>
             </div>
           </div>

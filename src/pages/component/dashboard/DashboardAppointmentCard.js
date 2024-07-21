@@ -1,23 +1,13 @@
 import "../../../css/component/dashboard/AppointmentCard.css";
 import ProfileImage from "../../../img/Young bearded man with striped shirt.png";
-import { useState } from "react";
-import ViewAppointment from "../PatientAppointment/ViewAppointment";
 
-const DashboardAppointmentCard = ({ AppointmentData, DoctorData }) => {
-  const [viewAppointment, setViewAppointment] = useState(false);
-
-  const handleViewAppointment = () => {
-    setViewAppointment(!viewAppointment);
-  };
-
+const DashboardAppointmentCard = ({
+  AppointmentData,
+  DoctorData,
+  handelAppointment,
+}) => {
   return (
     <div>
-      {viewAppointment && (
-        <ViewAppointment
-          HideAppointment={handleViewAppointment}
-          AppointmentData={AppointmentData}
-        />
-      )}
       <div id="AppointmentCard">
         <div className="image">
           <img src={ProfileImage} alt="" />
@@ -115,7 +105,9 @@ const DashboardAppointmentCard = ({ AppointmentData, DoctorData }) => {
             {AppointmentData.status}
           </h3>
         </div>
-        <button onClick={handleViewAppointment}>View Appointment</button>
+        <button onClick={() => handelAppointment(AppointmentData, DoctorData)}>
+          View Appointment
+        </button>
       </div>
     </div>
   );
