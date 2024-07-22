@@ -167,3 +167,21 @@
 #ViewReport .container .title button:hover{
     background: rgba(18, 192, 128, 0.8);
 }
+
+#PatientDoctorReviewCard .viewButton:hover{
+    background: rgba(14, 154, 102, 0.80);
+}
+
+
+#PatientDoctorReviewCard .addButton:hover{
+    background: rgba(14, 154, 102, 0.80);
+}
+
+#PatientDoctorReviewPopup > :first-child button:hover{
+    background: rgba(18, 192, 128, 0.8);
+}
+
+
+#PatientDoctorReviewPopup .lastLine > button:hover{
+    background: rgba(18, 192, 128, 0.8);
+}
