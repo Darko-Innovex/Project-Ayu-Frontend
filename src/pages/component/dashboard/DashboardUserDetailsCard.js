@@ -137,16 +137,16 @@ const passTags = (
       <input
         type="text"
         className={highlightClass}
-        value={mobile}
         onChange={(e) => setMobile(e.target.value)}
         readOnly={!editAction}
         key="mobile"
+        defaultValue={mobile}
       />,
       <h2 key="emailLabel">Email</h2>,
       <input
         type="email"
         className={highlightClass}
-        value={email}
+        defaultValue={email}
         onChange={(e) => setEmail(e.target.value)}
         key="email"
         readOnly={!editAction}
@@ -164,7 +164,7 @@ const passTags = (
       <input
         type="text"
         className={highlightClass}
-        value={mobile}
+        defaultValue={mobile}
         onChange={(e) => setMobile(e.target.value)}
         readOnly={!editAction}
         key="mobile"
@@ -173,7 +173,7 @@ const passTags = (
       <input
         type="email"
         className={highlightClass}
-        value={email}
+        defaultValue={email}
         onChange={(e) => setEmail(e.target.value)}
         key="email"
         readOnly={!editAction}

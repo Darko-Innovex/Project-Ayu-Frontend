@@ -1,0 +1,83 @@
+*{
+    transition: 0.5s;
+}
+
+#MainForm #Form button:hover{
+    background: rgba(18, 192, 128, 0.80);
+}
+
+#MainForm #Form a h2:hover{
+    color: rgba(18, 192, 128, 0.80);
+}
+
+
+#MainForm .container .learnMore:hover{
+    background: rgba(38, 38, 38, 0.80);
+}
+
+#DashMediCard .viewButton:hover{
+    background: #262626;
+    border: 0;
+}
+
+#DashMediCard .viewButton:hover svg path{
+    fill: #FFFFFF;
+    stroke: #FFFFFF;
+}
+
+#PatientDashboard .MediCardSectionTitle button:hover{
+    background: rgba(38, 38, 38, 0.80);
+}
+
+#sideCard .editIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sideCard .editIcon:hover{
+    background: #F7F5F5;
+    border: 0.5px solid #262626;
+    border-radius: 50%;
+    transition: 1s;
+}
+
+#DashMediCard .MediCardContend button:hover{
+    background: rgba(38, 38, 38, 0.80);
+}
+
+#PatientDashboard .AppointmentCardList > :last-child rect{
+    stroke-width: 3px;
+}
+
+#PatientDashboard .AppointmentCardList > :last-child rect:hover{
+    fill-opacity: 1;
+    stroke-width: 0;
+}
+
+#NotificationPanel .notificationList .notificationCard:hover{
+    background: #F6F3F3;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+#dashboardFilter .buttons .clicked {
+    background: #0E9A66;
+    color: #FFFFFF;
+}
+
+#dashboardFilter .buttons select.clicked {
+    background-color: #007bff;
+    color: white;
+}
+
+#dashboardFilter .closeBtn:hover{
+    background: rgba(255, 144, 144, 0.15);
+}
+
+#dashboardFilter .closeBtn:hover svg path{
+    fill: #FF9090;
+}
+
+#dashboardFilter .buttons .unclicked:hover{
+    background: #98FFD9;
+}

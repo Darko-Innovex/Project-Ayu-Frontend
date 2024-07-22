@@ -28,6 +28,12 @@ import AdminPatientManagePage from "./pages/admin/AdminPatientManagePage";
 import HospitalAppointmentManagementPage from "./pages/hospital/HospitalAppointmentManagementPage";
 import HospitalDoctorManagePage from "./pages/hospital/HospitalDoctorManagePage";
 
+// ----------------------------------css----------------------------------
+
+import "../src/css/Hover/PatientHover.css";
+
+// ----------------------------------css----------------------------------
+
 function App() {
   return (
     <div className="App">
