@@ -30,11 +30,11 @@ const NotificationPanel = ({ hideNotification }) => {
   const data = [data1, data2, data3, data1, data2, data3];
 
   const [currentStatus, setCurrentStatus] = useState("All");
-  const [selectedButton, setSelectedButton] = useState(null);
+  const [selectedButton, setSelectedButton] = useState("All");
 
-  const handleButtonClick = (status, button) => {
+  const handleButtonClick = (status) => {
     setCurrentStatus(status);
-    setSelectedButton(button);
+    setSelectedButton(status);
   };
 
   const filteredNotifications = data.filter((notification) => {
@@ -53,19 +53,19 @@ const NotificationPanel = ({ hideNotification }) => {
         <div className="buttons">
           <button
             className={selectedButton === "All" ? "clicked" : "unclicked"}
-            onClick={() => handleButtonClick("All", "button1")}
+            onClick={() => handleButtonClick("All")}
           >
             &nbsp;&nbsp;All&nbsp;&nbsp;
           </button>
           <button
             className={selectedButton === "Unread" ? "clicked" : "unclicked"}
-            onClick={() => handleButtonClick("Unread", "button2")}
+            onClick={() => handleButtonClick("Unread")}
           >
             Unread
           </button>
           <button
             className={selectedButton === "Read" ? "clicked" : "unclicked"}
-            onClick={() => handleButtonClick("Read", "button3")}
+            onClick={() => handleButtonClick("Read")}
           >
             Read
           </button>

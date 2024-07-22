@@ -1,6 +1,15 @@
+import React, { useState } from "react";
 import "../../../css/component/dashboard/DashboardFilter.css";
 
 const DashboardFilter = ({ closeFilter }) => {
+  const [selectedReportType, setSelectedReportType] = useState("All");
+  const [fromDate, setFromDate] = useState("");
+  const [toDate, setToDate] = useState("");
+
+  const handleReportTypeClick = (type) => {
+    setSelectedReportType(type);
+  };
+
   return (
     <div>
       <div className="background">
@@ -21,17 +30,45 @@ const DashboardFilter = ({ closeFilter }) => {
           </div>
           <h1>Reports</h1>
           <div className="buttons">
-            <button>All</button>
-            <button>Lab Reports</button>
-            <button>Medical Reports</button>
+            <button
+              className={selectedReportType === "All" ? "clicked" : "unclicked"}
+              onClick={() => handleReportTypeClick("All")}
+            >
+              All
+            </button>
+            <button
+              className={
+                selectedReportType === "Lab Reports" ? "clicked" : "unclicked"
+              }
+              onClick={() => handleReportTypeClick("Lab Reports")}
+            >
+              Lab Reports
+            </button>
+            <button
+              className={
+                selectedReportType === "Medical Reports"
+                  ? "clicked"
+                  : "unclicked"
+              }
+              onClick={() => handleReportTypeClick("Medical Reports")}
+            >
+              Medical Reports
+            </button>
           </div>
           <h1>Appointment Date</h1>
           <div className="buttons">
-            <button>All</button>
-            <select name="" id="">
+            <button
+              className={
+                selectedReportType === "By-Date" ? "clicked" : "unclicked"
+              }
+              onClick={() => handleReportTypeClick("By-Date")}
+            >
+              All
+            </button>
+            <select className={"unclicked"}>
               <option value="">From</option>
             </select>
-            <select name="" id="">
+            <select className={"unclicked"}>
               <option value="">To</option>
             </select>
           </div>
