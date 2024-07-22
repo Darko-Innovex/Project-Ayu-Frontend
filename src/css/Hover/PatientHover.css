@@ -65,10 +65,10 @@
     color: #FFFFFF;
 }
 
-#dashboardFilter .buttons select.clicked {
-    background-color: #007bff;
-    color: white;
-}
+/*#dashboardFilter .buttons select.clicked {*/
+/*    background-color: #007bff;*/
+/*    color: white;*/
+/*}*/
 
 #dashboardFilter .closeBtn:hover{
     background: rgba(255, 144, 144, 0.15);
@@ -136,4 +136,34 @@
 
 #btn_slide svg path:hover{
     fill: #000000;
+}
+
+#PatientMediReport .cardSet .labCard button:hover{
+    background: rgba(65, 205, 153, 0.80);
+}
+
+#PatientMediReport .OldMediReport .labCard .viewDoctor:hover{
+    background: rgba(65, 205, 153, 0.80);
+}
+
+.background .filter .closeBtn:hover{
+    background: rgba(255, 144, 144, 0.15);
+    border-radius: 50%;
+    border: none;
+}
+
+.background .filter .closeBtn:hover svg path{
+    fill: #FF9090;
+}
+
+.background .filter .option input:hover{
+    background: #98FFD9;
+}
+
+.background .filter .option select:hover{
+    background: #98FFD9;
+}
+
+#ViewReport .container .title button:hover{
+    background: rgba(18, 192, 128, 0.8);
 }
