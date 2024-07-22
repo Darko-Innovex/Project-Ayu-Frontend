@@ -81,3 +81,59 @@
 #dashboardFilter .buttons .unclicked:hover{
     background: #98FFD9;
 }
+
+#PatientDashboard .PatientAppointmentContend .action > :first-child:hover svg path{
+    fill: rgba(255, 144, 144, 1);
+}
+
+#PatientDashboard .PatientAppointmentContend .action > :last-child:hover svg path{
+    fill: rgba(72, 80, 255, 1);
+}
+
+#AppointmentDetails .close:hover{
+    background: rgba(255, 144, 144, 0.15);
+}
+
+#AppointmentDetails .close:hover svg path{
+    fill: #FF9090;
+}
+
+#CancelAppointment button:hover{
+    background: rgba(14, 154, 102, 0.8);
+}
+
+#CancelAppointment button + button:hover{
+    background: rgba(38, 38, 38, 0.8);
+}
+
+#PatientDashboard .PatientAppointmentContend > :nth-child(2) button:hover{
+    background: rgba(38, 38, 38, 0.80);
+}
+#addAppointment button:hover{
+    background: rgba(18, 192, 128, 0.80);
+}
+
+#addAppointment .circle + div > button:hover{
+    background: rgba(18, 192, 128, 0.80);
+}
+
+#PatientAppointmentFilter .closeBtn:hover{
+    background: rgba(255, 144, 144, 0.15);
+}
+
+#PatientAppointmentFilter .closeBtn:hover svg path{
+    fill: #FF9090;
+}
+
+#PatientAppointmentFilter .buttons .unclicked:hover,
+#PatientAppointmentFilter .buttons select:hover{
+    background: #98FFD9;
+}
+
+#logOut {
+    transition: 0s !important;
+}
+
+#btn_slide svg path:hover{
+    fill: #000000;
+}
