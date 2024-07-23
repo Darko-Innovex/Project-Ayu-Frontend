@@ -1,11 +1,19 @@
-import "../../../css/component/medicalReport/DoctorNfcCardPinPopup.css";
-import { useRef } from "react";
+import "../../../../css/component/medicalReport/DoctorNfcCardPinPopup.css";
+import { useRef, useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-const DoctorNfcCardPinPopup = ({ closeBtn }) => {
+const DoctorNfcCardPinPopup = ({ closeBtn, index }) => {
   const fields = [useRef(null), useRef(null), useRef(null), useRef(null)];
+  const [pin, setPin] = useState(["", "", "", ""]);
+  const navigate = useNavigate();
 
   const handleInput = (e, index) => {
     const input = e.target;
+    const newPin = [...pin];
+    newPin[index] = input.value;
+    setPin(newPin);
+
     if (input.value.length === 1 && index < fields.length - 1) {
       fields[index + 1].current.focus();
     }
@@ -14,6 +22,27 @@ const DoctorNfcCardPinPopup = ({ closeBtn }) => {
   const handleKeyDown = (e, index) => {
     if (e.key === "Backspace" && e.target.value.length === 0 && index > 0) {
       fields[index - 1].current.focus();
+    }
+  };
+
+  const handleSubmit = async () => {
+    const pinValue = pin.join("");
+
+    try {
+      const response = await axios.get(
+        `http://localhost:8080/card/${index}/patient`,
+        {
+          params: {
+            password: pinValue,
+          },
+        },
+      );
+
+      if (response.status === 200) {
+        navigate(`/DoctorPatientDetailPage/${response.data}`);
+      }
+    } catch (error) {
+      console.error("Error fetching patient data:", error);
     }
   };
 
@@ -30,13 +59,14 @@ const DoctorNfcCardPinPopup = ({ closeBtn }) => {
                 ref={field}
                 type="text"
                 maxLength="1"
+                value={pin[index]}
                 onInput={(e) => handleInput(e, index)}
                 onKeyDown={(e) => handleKeyDown(e, index)}
               />
             ))}
           </div>
           <div className="buttons">
-            <button>Submit</button>
+            <button onClick={handleSubmit}>Submit</button>
             <button onClick={closeBtn}>Cancel</button>
           </div>
         </div>
