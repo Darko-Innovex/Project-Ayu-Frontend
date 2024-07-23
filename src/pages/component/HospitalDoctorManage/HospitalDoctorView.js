@@ -27,13 +27,17 @@ const HospitalDoctorView = ({ closeBtn, doctorData }) => {
           <div className="inputs">
             <div>
               <h2>Name</h2>
-              <input type="text" />
+              <input type="text" readOnly={true} value={doctorData.name} />
               <h2>Speciality</h2>
-              <select name="" id=""></select>
+              <input
+                type="text"
+                readOnly={true}
+                value={doctorData.speciality}
+              />
               <h2>Email</h2>
-              <input type="text" />
+              <input type="text" readOnly={true} value={doctorData.email} />
               <h2>Phone Number</h2>
-              <input type="text" />
+              <input type="text" readOnly={true} value={doctorData.mobile} />
             </div>
             <div>
               <div>

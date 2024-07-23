@@ -11,22 +11,30 @@ const SearchLine = ({ showFilter, type, id }) => {
   }, []);
 
   const getUserData = async () => {
-    if (type === "patient") {
-      const response = await axios.get(
-        `http://localhost:8080/patient/dashboard_data/${id}`,
-      );
-      console.log(response.data);
-      setData1(response.data.completedAppointment);
-      setData2(response.data.pendingAppointment);
-      setData3(response.data.labReportsCount);
-    } else if (type === "doctor") {
-      const response = await axios.get(
-        `http://localhost:8080/doctor/dashboard_data/${id}`,
-      );
-      console.log(response.data);
-      setData1(response.data.completedAppointment);
-      setData2(response.data.pendingAppointment);
-      setData3(response.data.labReportsCount);
+    try {
+      let response;
+      if (type === "patient") {
+        response = await axios.get(
+          `http://localhost:8080/patient/dashboard_data/${id}`,
+        );
+      } else if (type === "doctor") {
+        response = await axios.get(
+          `http://localhost:8080/doctor/dashboard_data/${id}`,
+        );
+      } else if (type === "Hospital") {
+        response = await axios.get(
+          `http://localhost:8080/hospital/dashboard_data/${id}`,
+        );
+      }
+
+      if (response) {
+        console.log(response.data);
+        setData1(response.data.completedAppointment);
+        setData2(response.data.pendingAppointment);
+        setData3(response.data.labReportsCount);
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
     }
 
     // TODO : DO similar for admin hospital

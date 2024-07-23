@@ -12,15 +12,23 @@ import DoctorDashboardOldPatientCard from "../component/dashboard/DoctorDashboar
 import HospitalOurDoctorCard from "../component/HospitalOurDoctorCard";
 import DashboardUserDetailsCard from "../component/dashboard/DashboardUserDetailsCard";
 import NotificationPanel from "../component/dashboard/NotificationPanel";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HospitalDashboardFilter from "../component/dashboard/HospitalDashboardFilter";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../../css/PatientAppointment.css";
+import axios from "axios";
+import HospitalDoctorView from "../component/HospitalDoctorManage/HospitalDoctorView";
 
 const HospitalDashboardPage = () => {
   const [notificationPanel, setNotificationPanel] = useState(false);
   const [HospitalFilter, setHospitalFilter] = useState(false);
   const navigate = useNavigate(null);
+  const { hospitalId } = useParams();
+  const [hospitalData, setHospitalData] = useState(null);
+  const [doctorData, setDoctorData] = useState([]);
+  const [doctorCount, setDoctorCount] = useState(0);
+  const [viewDoctor, setViewDoctor] = useState(false);
+  const [currentDoctorData, setCurrentDoctorData] = useState(null);
 
   const userData = {
     Name: "Lanka Hospital Galle",
@@ -57,9 +65,63 @@ const HospitalDashboardPage = () => {
     setHospitalFilter(!HospitalFilter);
   };
 
-  const logOutBtnOnAction = () => {
-    navigate("/HospitalSignIn");
+  const handleViewDoctor = (data) => {
+    setCurrentDoctorData(data);
+    setViewDoctor(!viewDoctor);
   };
+
+  const logOutBtnOnAction = () => {
+    navigate("/");
+  };
+
+  useEffect(() => {
+    const fetchHospitalData = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:8080/hospital/${hospitalId}`,
+        );
+        setHospitalData(response.data);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    const getFirstTreeDoctor = async () => {
+      const sendData = {
+        page: 0,
+        count: 3,
+      };
+      try {
+        const response = await axios.get(
+          `http://localhost:8080/hospital/${hospitalId}/doctor`,
+          { params: sendData },
+        );
+        setDoctorData(response.data);
+        console.log(response.data, "----------------------------------Loukika");
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    const getHospitalDoctorCount = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:8080/hospital/dashboard_data/${hospitalId}/doctor`,
+        );
+        console.log(
+          response.data.doctorCount,
+          "----------------------------------doctor count",
+        );
+        setDoctorCount(response.data.doctorCount);
+      } catch (error) {
+        console.error("Error fetching user data", error);
+      }
+    };
+
+    fetchHospitalData().then((r) => console.log(r));
+    getFirstTreeDoctor().then((r) => console.log(r));
+    getHospitalDoctorCount().then((r) => console.log(r));
+  }, [hospitalId]);
 
   return (
     <div>
@@ -74,6 +136,12 @@ const HospitalDashboardPage = () => {
         {HospitalFilter && (
           <HospitalDashboardFilter CloseFilter={showAndHideFilterPanel} />
         )}
+        {viewDoctor && (
+          <HospitalDoctorView
+            closeBtn={handleViewDoctor}
+            doctorData={currentDoctorData}
+          />
+        )}
         <div className="container">
           <Navbar
             components={Components}
@@ -84,26 +152,41 @@ const HospitalDashboardPage = () => {
             <DashboardHeader showNotification={showNotificationPanel} />
             <div>
               <div>
-                <SearchLine showFilter={showAndHideFilterPanel} />
+                <SearchLine
+                  type={"Hospital"}
+                  id={hospitalId}
+                  showFilter={showAndHideFilterPanel}
+                />
                 <div></div>
                 <div>
                   <h1 className="title">Monthly Patients</h1>
                   <div className="chart">
-                    <BarChart />
+                    <BarChart hospitalId={hospitalId} />
                   </div>
                   <h1 className="title">Our Doctor</h1>
                   <div className="ourDoctorCardSet">
-                    <HospitalOurDoctorCard data={""} />
-                    <HospitalOurDoctorCard data={""} />
-                    <HospitalOurDoctorCard data={""} />
+                    {/*<HospitalOurDoctorCard data={""} />*/}
+                    {/*<HospitalOurDoctorCard data={""} />*/}
+                    {/*<HospitalOurDoctorCard data={""} />*/}
+
+                    {doctorData.map((doctor) => (
+                      <HospitalOurDoctorCard
+                        data={doctor}
+                        handelViewDoctor={handleViewDoctor}
+                      />
+                    ))}
+
                     <div className="moreBtn">
-                      <div>20+</div>
+                      <div>{doctorCount - 3}+</div>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="sideBar">
-                <DashboardUserDetailsCard userData={userData} />
+                <DashboardUserDetailsCard
+                  Data={hospitalData}
+                  type={"Hospital"}
+                />
               </div>
             </div>
           </div>

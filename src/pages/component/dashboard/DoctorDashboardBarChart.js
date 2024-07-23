@@ -9,6 +9,7 @@ import {
   Tooltip,
 } from "chart.js";
 import { useEffect, useState } from "react";
+import axios from "axios";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -18,11 +19,22 @@ ChartJS.register(
   Legend,
 );
 
-const BarChart = () => {
+const BarChart = ({ hospitalId }) => {
   const [counts, setCounts] = useState([]);
 
+  const fetchAppointments = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8080/hospital/dashboard_data/${hospitalId}/appointmet`,
+      );
+      setCounts(response.data);
+    } catch (error) {
+      console.error("Error fetching appointments data:", error);
+    }
+  };
+
   useEffect(() => {
-    setCounts([12, 7, 10, 14, 5, 15, 10, 9, 17, 8, 13, 14]);
+    fetchAppointments().then((r) => console.log(r));
   }, []);
 
   const data = {
