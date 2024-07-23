@@ -2,7 +2,7 @@ import "../../../css/component/Appointment/AppointmentFilter.css";
 import { useState } from "react";
 
 const PatientAppointmentFilter = ({ closeFilter }) => {
-  const [pressButton, setPressButton] = useState("");
+  const [pressButton, setPressButton] = useState("All");
 
   const handleButtonClick = (button) => {
     setPressButton(button);
@@ -29,25 +29,25 @@ const PatientAppointmentFilter = ({ closeFilter }) => {
           <h1>Status</h1>
           <div className="buttons">
             <button
-              className={`All ${pressButton === "All" ? "active" : ""}`}
+              className={`All ${pressButton === "All" ? "active" : "unclicked"}`}
               onClick={() => handleButtonClick("All")}
             >
               All
             </button>
             <button
-              className={`pending ${pressButton === "pending" ? "active" : ""}`}
+              className={`pending ${pressButton === "pending" ? "active" : "unclicked"}`}
               onClick={() => handleButtonClick("pending")}
             >
               Pending
             </button>
             <button
-              className={`complete ${pressButton === "complete" ? "active" : ""}`}
+              className={`complete ${pressButton === "complete" ? "active" : "unclicked"}`}
               onClick={() => handleButtonClick("complete")}
             >
               Completed
             </button>
             <button
-              className={`cancel ${pressButton === "cancel" ? "active" : ""}`}
+              className={`cancel ${pressButton === "cancel" ? "active" : "unclicked"}`}
               onClick={() => handleButtonClick("cancel")}
             >
               Canceled
@@ -56,7 +56,7 @@ const PatientAppointmentFilter = ({ closeFilter }) => {
           <h1>Appointment Date</h1>
           <div className="buttons">
             <button
-              className={`All ${pressButton === "AllAppointment" ? "active" : ""}`}
+              className={`All ${pressButton === "AllAppointment" ? "active" : "unclicked"}`}
               onClick={() => handleButtonClick("AllAppointment")}
             >
               All

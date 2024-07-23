@@ -1,6 +1,5 @@
 import "../../../css/component/Appointment/CancelAppointment.css";
 import axios from "axios";
-import PatientAppointmentPage from "../../patient/PatientAppointmentPage";
 
 const CancelAppointment = ({ AppointmentId, cancel, reloadTable }) => {
   const deleteAppointment = async () => {

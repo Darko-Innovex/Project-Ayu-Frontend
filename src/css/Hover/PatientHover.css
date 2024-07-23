@@ -1,0 +1,187 @@
+*{
+    transition: 0.5s;
+}
+
+#MainForm #Form button:hover{
+    background: rgba(18, 192, 128, 0.80);
+}
+
+#MainForm #Form a h2:hover{
+    color: rgba(18, 192, 128, 0.80);
+}
+
+
+#MainForm .container .learnMore:hover{
+    background: rgba(38, 38, 38, 0.80);
+}
+
+#DashMediCard .viewButton:hover{
+    background: #262626;
+    border: 0;
+}
+
+#DashMediCard .viewButton:hover svg path{
+    fill: #FFFFFF;
+    stroke: #FFFFFF;
+}
+
+#PatientDashboard .MediCardSectionTitle button:hover{
+    background: rgba(38, 38, 38, 0.80);
+}
+
+#sideCard .editIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sideCard .editIcon:hover{
+    background: #F7F5F5;
+    border: 0.5px solid #262626;
+    border-radius: 50%;
+    transition: 1s;
+}
+
+#DashMediCard .MediCardContend button:hover{
+    background: rgba(38, 38, 38, 0.80);
+}
+
+#PatientDashboard .AppointmentCardList > :last-child rect{
+    stroke-width: 3px;
+}
+
+#PatientDashboard .AppointmentCardList > :last-child rect:hover{
+    fill-opacity: 1;
+    stroke-width: 0;
+}
+
+#NotificationPanel .notificationList .notificationCard:hover{
+    background: #F6F3F3;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+#dashboardFilter .buttons .clicked {
+    background: #0E9A66;
+    color: #FFFFFF;
+}
+
+/*#dashboardFilter .buttons select.clicked {*/
+/*    background-color: #007bff;*/
+/*    color: white;*/
+/*}*/
+
+#dashboardFilter .closeBtn:hover{
+    background: rgba(255, 144, 144, 0.15);
+}
+
+#dashboardFilter .closeBtn:hover svg path{
+    fill: #FF9090;
+}
+
+#dashboardFilter .buttons .unclicked:hover{
+    background: #98FFD9;
+}
+
+#PatientDashboard .PatientAppointmentContend .action > :first-child:hover svg path{
+    fill: rgba(255, 144, 144, 1);
+}
+
+#PatientDashboard .PatientAppointmentContend .action > :last-child:hover svg path{
+    fill: rgba(72, 80, 255, 1);
+}
+
+#AppointmentDetails .close:hover{
+    background: rgba(255, 144, 144, 0.15);
+}
+
+#AppointmentDetails .close:hover svg path{
+    fill: #FF9090;
+}
+
+#CancelAppointment button:hover{
+    background: rgba(14, 154, 102, 0.8);
+}
+
+#CancelAppointment button + button:hover{
+    background: rgba(38, 38, 38, 0.8);
+}
+
+#PatientDashboard .PatientAppointmentContend > :nth-child(2) button:hover{
+    background: rgba(38, 38, 38, 0.80);
+}
+#addAppointment button:hover{
+    background: rgba(18, 192, 128, 0.80);
+}
+
+#addAppointment .circle + div > button:hover{
+    background: rgba(18, 192, 128, 0.80);
+}
+
+#PatientAppointmentFilter .closeBtn:hover{
+    background: rgba(255, 144, 144, 0.15);
+}
+
+#PatientAppointmentFilter .closeBtn:hover svg path{
+    fill: #FF9090;
+}
+
+#PatientAppointmentFilter .buttons .unclicked:hover,
+#PatientAppointmentFilter .buttons select:hover{
+    background: #98FFD9;
+}
+
+#logOut {
+    transition: 0s !important;
+}
+
+#btn_slide svg path:hover{
+    fill: #000000;
+}
+
+#PatientMediReport .cardSet .labCard button:hover{
+    background: rgba(65, 205, 153, 0.80);
+}
+
+#PatientMediReport .OldMediReport .labCard .viewDoctor:hover{
+    background: rgba(65, 205, 153, 0.80);
+}
+
+.background .filter .closeBtn:hover{
+    background: rgba(255, 144, 144, 0.15);
+    border-radius: 50%;
+    border: none;
+}
+
+.background .filter .closeBtn:hover svg path{
+    fill: #FF9090;
+}
+
+.background .filter .option input:hover{
+    background: #98FFD9;
+}
+
+.background .filter .option select:hover{
+    background: #98FFD9;
+}
+
+#ViewReport .container .title button:hover{
+    background: rgba(18, 192, 128, 0.8);
+}
+
+#PatientDoctorReviewCard .viewButton:hover{
+    background: rgba(14, 154, 102, 0.80);
+}
+
+
+#PatientDoctorReviewCard .addButton:hover{
+    background: rgba(14, 154, 102, 0.80);
+}
+
+#PatientDoctorReviewPopup > :first-child button:hover{
+    background: rgba(18, 192, 128, 0.8);
+}
+
+
+#PatientDoctorReviewPopup .lastLine > button:hover{
+    background: rgba(18, 192, 128, 0.8);
+}

@@ -7,9 +7,9 @@ import saveIcon from "../../../img/profileSave.png";
 import { Link } from "react-router-dom";
 import viewMapArrow from "../../../img/ViewMapArrow.png";
 
-const DashboardUserDetailsCard = ({ userData }) => {
-  if (!userData) {
-    userData = {
+const DashboardUserDetailsCard = ({ Data, type }) => {
+  if (!Data) {
+    Data = {
       img: Image,
       Name: "Mr. Gayanuka Bulegoda",
       NIC: "200209805286111",
@@ -20,6 +20,18 @@ const DashboardUserDetailsCard = ({ userData }) => {
       UserType: "Patient",
     };
   }
+
+  const userData = {
+    img: Data.img,
+    Name: Data.firstName + " " + Data.lastName,
+    NIC: Data.nic,
+    BOD: Data.dob,
+    Mobile: Data.mobile,
+    Email: Data.email,
+    BloodType: Data.bloodType,
+  };
+
+  console.log(userData, "----------------GRB");
 
   const [mobile, setMobile] = useState(userData.Mobile);
   const [email, setEmail] = useState(userData.Email);
@@ -62,17 +74,35 @@ const DashboardUserDetailsCard = ({ userData }) => {
           )}
           <img style={imagePosition} src={Image} alt="" />
         </div>
-        {passTags(userData, mobile, email, setMobile, setEmail, editBtnAction)}
+        {passTags(
+          userData,
+          mobile,
+          email,
+          setMobile,
+          setEmail,
+          editBtnAction,
+          type,
+        )}
       </div>
     </div>
   );
 };
 
-const passTags = (data, mobile, email, setMobile, setEmail, editAction) => {
+const passTags = (
+  data,
+  mobile,
+  email,
+  setMobile,
+  setEmail,
+  editAction,
+  type,
+) => {
   const Tags = [];
 
+  console.log(data, "0e9e9ejsidndunsdn");
+
   const setMargin =
-    data.UserType === "Doctor" || data.UserType === "Hospital"
+    type === "Doctor" || data.UserType === "Hospital"
       ? { marginTop: "30px" }
       : {};
 
@@ -90,7 +120,7 @@ const passTags = (data, mobile, email, setMobile, setEmail, editAction) => {
 
   const highlightClass = editAction ? "highlight" : "";
 
-  if (data && data.UserType === "Patient") {
+  if (data && type === "Patient") {
     Tags.push(
       <div className="bloodType" key="bloodType">
         {data.BloodType}
@@ -107,22 +137,22 @@ const passTags = (data, mobile, email, setMobile, setEmail, editAction) => {
       <input
         type="text"
         className={highlightClass}
-        value={mobile}
         onChange={(e) => setMobile(e.target.value)}
         readOnly={!editAction}
         key="mobile"
+        defaultValue={mobile}
       />,
       <h2 key="emailLabel">Email</h2>,
       <input
         type="email"
         className={highlightClass}
-        value={email}
+        defaultValue={email}
         onChange={(e) => setEmail(e.target.value)}
         key="email"
         readOnly={!editAction}
       />,
     );
-  } else if (data && data.UserType === "Doctor") {
+  } else if (data && type === "Doctor") {
     Tags.push(
       <h2 style={setMargin} key="nameLabel">
         Name
@@ -134,7 +164,7 @@ const passTags = (data, mobile, email, setMobile, setEmail, editAction) => {
       <input
         type="text"
         className={highlightClass}
-        value={mobile}
+        defaultValue={mobile}
         onChange={(e) => setMobile(e.target.value)}
         readOnly={!editAction}
         key="mobile"
@@ -143,7 +173,7 @@ const passTags = (data, mobile, email, setMobile, setEmail, editAction) => {
       <input
         type="email"
         className={highlightClass}
-        value={email}
+        defaultValue={email}
         onChange={(e) => setEmail(e.target.value)}
         key="email"
         readOnly={!editAction}
@@ -152,7 +182,7 @@ const passTags = (data, mobile, email, setMobile, setEmail, editAction) => {
         {setHospitalCount(data.HospitalCount)}
       </div>,
     );
-  } else if (data && data.UserType === "Hospital") {
+  } else if (data && type === "Hospital") {
     Tags.push(
       <h2 style={setMargin} key="nameLabel">
         Name
