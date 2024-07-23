@@ -21,17 +21,23 @@ const DashboardUserDetailsCard = ({ Data, type }) => {
     };
   }
 
-  const userData = {
-    img: Data.img,
-    Name: Data.firstName + " " + Data.lastName,
-    NIC: Data.nic,
-    BOD: Data.dob,
-    Mobile: Data.mobile,
-    Email: Data.email,
-    BloodType: Data.bloodType,
-  };
+  let userData = {};
 
-  console.log(userData, "----------------GRB");
+  if (type === "Patient") {
+    userData = {
+      img: Data.img,
+      Name: Data.firstName + " " + Data.lastName,
+      NIC: Data.nic,
+      BOD: Data.dob,
+      Mobile: Data.mobile,
+      Email: Data.email,
+      BloodType: Data.bloodType,
+    };
+  } else if (type === "Hospital") {
+    userData = Data;
+  }
+
+  console.log(Data, "----------------GRB");
 
   const [mobile, setMobile] = useState(userData.Mobile);
   const [email, setEmail] = useState(userData.Email);
@@ -39,13 +45,12 @@ const DashboardUserDetailsCard = ({ Data, type }) => {
   const [editImage, setEditImage] = useState(editIcon);
   const [imagePosition, setImagePosition] = useState();
 
-  const setMargin =
-    userData.UserType === "Hospital" ? { marginTop: "27px" } : {};
+  const setMargin = type === "Hospital" ? { marginTop: "27px" } : {};
 
   useEffect(() => {
     setMobile(userData.Mobile);
     setEmail(userData.Email);
-    if (userData.UserType === "Hospital") {
+    if (type === "Hospital") {
       setEditImage(null);
       setImagePosition({ position: "static" });
     }
@@ -65,7 +70,7 @@ const DashboardUserDetailsCard = ({ Data, type }) => {
     <div style={setMargin} id="sideCard">
       <div>
         <div className="image">
-          {userData.UserType === "Hospital" ? (
+          {type === "Hospital" ? (
             ""
           ) : (
             <div className="editIcon" onClick={handleEditAction}>
@@ -102,9 +107,7 @@ const passTags = (
   console.log(data, "0e9e9ejsidndunsdn");
 
   const setMargin =
-    type === "Doctor" || data.UserType === "Hospital"
-      ? { marginTop: "30px" }
-      : {};
+    type === "Doctor" || type === "Hospital" ? { marginTop: "30px" } : {};
 
   const setHospitalCount = (count) => {
     const Hospitals = [];
@@ -187,21 +190,21 @@ const passTags = (
       <h2 style={setMargin} key="nameLabel">
         Name
       </h2>,
-      <h1 key="name">{data.Name}</h1>,
+      <h1 key="name">{data.name}</h1>,
       <h2 key="locationLabel">Location</h2>,
       <h1 key="location">
-        <Link to={data.LocationUrl} target="_blank">
+        <Link to={data.location} target="_blank">
           Open In Map
         </Link>
         <img src={viewMapArrow} alt="" />
       </h1>,
       <h2 key="mobileLabel">Mobile</h2>,
-      <h1 key="mobile">{data.Mobile}</h1>,
+      <h1 key="mobile">{data.mobile}</h1>,
       <h2 key="emailLabel">Email</h2>,
-      <h1 key="email">{data.Email}</h1>,
+      <h1 key="email">{data.email}</h1>,
       <h2 key="websiteLabel">Website</h2>,
       <h1 key="website">
-        <Link to={data.WebiteUrl} target="_blank">
+        <Link to={""} target="_blank">
           Open in Browser
         </Link>
         <img src={viewMapArrow} alt="" />
