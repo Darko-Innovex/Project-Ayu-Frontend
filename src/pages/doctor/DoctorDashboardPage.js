@@ -2,7 +2,6 @@ import "../../css/component/dashboard/DashboardBackground.css";
 import Navbar from "../component/dashboard/Navbar";
 import HomeButton from "../component/dashboard/button/HomeButton";
 import ScanButton from "../component/dashboard/button/ScanButton";
-import ReviewButton from "../component/dashboard/button/ReviewButton";
 import DashboardHeader from "../component/dashboard/DashboardHeader";
 import SearchLine from "../component/dashboard/SearchSection";
 import BarChart from "../component/dashboard/DoctorDashboardBarChart";
@@ -16,7 +15,7 @@ import DoctorDashboardFilter from "../component/dashboard/DoctorDashboardFilter"
 import { useNavigate, useParams } from "react-router-dom";
 
 const DoctorDashboardPage = () => {
-  const Components = [HomeButton, ReviewButton, ScanButton];
+  const Components = [HomeButton, ScanButton];
   const [notificationPanel, setNotificationPanel] = useState(false);
   const [filterPanel, setFilterPanel] = useState(false);
   const navigate = useNavigate(null);
@@ -24,7 +23,6 @@ const DoctorDashboardPage = () => {
 
   const Paths = [
     `/DoctorDashboard/${doctorId}`,
-    `/DoctorDoctorReviewPage/${doctorId}`,
     `/DoctorPatientNfcCardScanPage/${doctorId}`,
   ];
 

@@ -65,6 +65,10 @@
   max-height: 200px;
 }
 
+#PatientReports .cardSet .labReportCard {
+  max-height: 165px;
+}
+
 #PatientReports .cardSet .labCard h1 {
   color: #000;
   font-family: "Poppins", sans-serif;

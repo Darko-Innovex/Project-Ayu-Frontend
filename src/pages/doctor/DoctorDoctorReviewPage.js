@@ -1,7 +1,6 @@
 import Navbar from "../component/dashboard/Navbar";
 import { useNavigate, useParams } from "react-router-dom";
 import HomeButton from "../component/dashboard/button/HomeButton";
-import ReviewButton from "../component/dashboard/button/ReviewButton";
 import ScanButton from "../component/dashboard/button/ScanButton";
 import "../../css/DoctorDoctorReviewPage.css";
 import { useState } from "react";
@@ -10,12 +9,11 @@ import DoctorDoctorReviewCard from "../component/DoctorReview/DoctorDoctorReview
 const DoctorDoctorReviewPage = () => {
   const navigate = useNavigate(null);
   const [pressButton, setPressButton] = useState("All");
-  const Components = [HomeButton, ReviewButton, ScanButton];
+  const Components = [HomeButton, ScanButton];
   const { doctorId } = useParams();
 
   const Paths = [
     `/DoctorDashboard/${doctorId}`,
-    `/DoctorDoctorReviewPage${doctorId}`,
     `/DoctorPatientNfcCardScanPage/${doctorId}`,
   ];
 

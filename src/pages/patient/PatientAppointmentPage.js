@@ -25,12 +25,7 @@ const PatientAppointmentPage = () => {
   const [rowSet, setRows] = useState([]);
   const { userId } = useParams();
 
-  const Components = [
-    HomeButton,
-    AppointmentButton,
-    ReportButton,
-    ReviewButton,
-  ];
+  const Components = [HomeButton, AppointmentButton, ReportButton];
 
   const logOutBtnOnAction = () => {
     navigate("/");
@@ -40,7 +35,6 @@ const PatientAppointmentPage = () => {
     `/PatientDashboard/${userId}`,
     `/PatientAppointment/${userId}`,
     `/PatientMedicalReport/${userId}`,
-    `/PatientDoctorReviewPage/${userId}`,
   ];
 
   const handleFilter = () => {

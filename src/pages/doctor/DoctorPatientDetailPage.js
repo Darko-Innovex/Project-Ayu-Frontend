@@ -30,7 +30,7 @@ const DoctorPatientDetailPage = () => {
   const [regularDrugs, setRegularDrugs] = useState([]);
   const [patient, setPatient] = useState(null);
 
-  const Components = [HomeButton, ReviewButton, ScanButton];
+  const Components = [HomeButton, ScanButton];
 
   const { patientId } = useParams();
   const { doctorId } = useParams();
@@ -43,7 +43,6 @@ const DoctorPatientDetailPage = () => {
 
   const Paths = [
     `/DoctorDashboard/${doctorId}`,
-    `/DoctorDoctorReviewPage/${doctorId}`,
     `/DoctorPatientNfcCardScanPage/${doctorId}`,
   ];
 

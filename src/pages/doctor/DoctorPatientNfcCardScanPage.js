@@ -7,7 +7,7 @@ import ScanButton from "../component/dashboard/button/ScanButton";
 import axios from "axios";
 
 const DoctorPatientNfcCardScanPage = () => {
-  const Components = [HomeButton, ReviewButton, ScanButton];
+  const Components = [HomeButton, ScanButton];
   const [cardId, setCardId] = useState(null);
   const [patient, setPatient] = useState(null);
   const [port, setPort] = useState(null);
@@ -98,7 +98,6 @@ const DoctorPatientNfcCardScanPage = () => {
 
   const Paths = [
     `/DoctorDashboard/${doctorId}`,
-    `/DoctorDoctorReviewPage/${doctorId}`,
     `/DoctorPatientNfcCardScanPage/${doctorId}`,
   ];
 
