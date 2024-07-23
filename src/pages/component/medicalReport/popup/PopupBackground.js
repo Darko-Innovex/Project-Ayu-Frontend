@@ -3,23 +3,40 @@ import "../../../../css/component/medicalReport/ViewReport.css";
 import MedicalTestViewPopup from "./MedicalTestViewPopup";
 import DoctorReportViewPopup from "./DoctorReportViewPopup";
 import MedicineReportViewPopup from "./MedicineReportViewPopup";
+import { useState } from "react";
 
 let data = [];
+let hospitalData = {};
+let title = "";
 
-export const setReportData = (getData) => {
+export const setReportData = (getData, hospital) => {
   data = getData;
+  hospitalData = hospital;
 };
 
 const ReportType = () => {
-  /*switch (data.reportType) {
+  switch (data.reportType) {
     case "pdf":
+      title = "Lab Report";
       return <MedicalTestViewPopup data={data.file} />;
     case "text":
+      title = "Medical Report";
       return <DoctorReportViewPopup data={data.file} />;
     default:
-    // return <MedicineReportViewPopup />; // Must add data function when we connect front-end with backend
-  }*/
-  return <DoctorReportViewPopup data={data.file} />;
+      title = "Medicine Bill";
+      return <MedicineReportViewPopup data={data.medicineList} />; // Must add data function when we connect front-end with backend
+  }
+};
+
+const getDate = (timestamp) => {
+  if (timestamp) {
+    let date = new Date(timestamp);
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1; // getMonth() returns 0-11, so we add 1 for human-readable month
+    let day = date.getDate();
+    return `${year} / ${month} / ${day}`;
+  }
+  return "";
 };
 
 const PopupBackground = ({ hideReport }) => {
@@ -34,8 +51,7 @@ const PopupBackground = ({ hideReport }) => {
           </div>
           <header>
             <div className="title">
-              {/*<h1>{data.title}</h1>*/}
-              <h1>Medical Report</h1>
+              <h1>{title}</h1>
               <button className="backBtn" onClick={hideReport}>
                 <img src={ButtonArrow} alt="" />
                 Back
@@ -43,8 +59,8 @@ const PopupBackground = ({ hideReport }) => {
             </div>
             <div className="subData">
               {/*<div>{data.place}</div>*/}
-              <div>Ruhunu Hospital</div>
-              <div>{data.timestamp}</div>
+              <div>{hospitalData.name}</div>
+              <div>{getDate(data.timestamp)}</div>
             </div>
             {ReportType()}
           </header>

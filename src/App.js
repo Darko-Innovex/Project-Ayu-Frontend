@@ -28,6 +28,12 @@ import AdminPatientManagePage from "./pages/admin/AdminPatientManagePage";
 import HospitalAppointmentManagementPage from "./pages/hospital/HospitalAppointmentManagementPage";
 import HospitalDoctorManagePage from "./pages/hospital/HospitalDoctorManagePage";
 
+// ----------------------------------css----------------------------------
+
+// import "../src/css/Hover/PatientHover.css";
+
+// ----------------------------------css----------------------------------
+
 function App() {
   return (
     <div className="App">
@@ -75,7 +81,7 @@ function App() {
             element={<DoctorDashboardPage />}
           />
           <Route
-            path="/DoctorPatientNfcCardScanPage"
+            path="/DoctorPatientNfcCardScanPage/:doctorId"
             element={<DoctorPatientNfcCardScanPage />}
           />
           <Route
@@ -83,11 +89,11 @@ function App() {
             element={<DoctorPatientDetailPage />}
           />
           <Route
-            path="/DoctorDoctorReviewPage"
+            path="/DoctorDoctorReviewPage/:doctorId"
             element={<DoctorDoctorReviewPage />}
           />
           <Route
-            path="/DoctorOldPatientPage"
+            path="/DoctorOldPatientPage/:doctorId"
             element={<DoctorOldPatientPage />}
           />
 

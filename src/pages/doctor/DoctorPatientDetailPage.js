@@ -33,15 +33,18 @@ const DoctorPatientDetailPage = () => {
   const Components = [HomeButton, ReviewButton, ScanButton];
 
   const { patientId } = useParams();
+  const { doctorId } = useParams();
+
+  const [page, setPage] = useState(0);
 
   useEffect(() => {
     console.log(patientId);
   }, [patientId]);
 
   const Paths = [
-    "/DoctorDashboard",
-    "/DoctorDoctorReviewPage",
-    "/DoctorPatientNfcCardScanPage",
+    `/DoctorDashboard/${doctorId}`,
+    `/DoctorDoctorReviewPage/${doctorId}`,
+    `/DoctorPatientNfcCardScanPage/${doctorId}`,
   ];
 
   let data = {
@@ -118,8 +121,16 @@ const DoctorPatientDetailPage = () => {
 
   const getAppointments = async () => {
     try {
+      const data = {
+        page: 0,
+        count: 6,
+      };
+
       const response = await axios.get(
         `http://localhost:8080/patient/${patientId}/appointment`,
+        {
+          params: data,
+        },
       );
       setAppointments(response.data);
     } catch (error) {
@@ -162,8 +173,16 @@ const DoctorPatientDetailPage = () => {
 
   const getLabReports = async () => {
     try {
+      const data = {
+        page: 0,
+        count: 6,
+      };
+
       const response = await axios.get(
         `http://localhost:8080/patient/${patientId}/lab_reports`,
+        {
+          params: data,
+        },
       );
       setLabReports(response.data);
     } catch (error) {

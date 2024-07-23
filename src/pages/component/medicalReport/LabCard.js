@@ -1,7 +1,9 @@
 import PopupBackground, { setReportData } from "./popup/PopupBackground";
+import { PdfToByteArray } from "../../../../src/utils/PdfToByteArray";
 
 const LabCard = ({ data, showReport }) => {
   const onClickViewBtn = () => {
+    console.log(data);
     setReportData(data);
     showReport();
   };
