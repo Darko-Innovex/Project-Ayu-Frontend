@@ -1,4 +1,4 @@
-const MedicineReportViewPopup = () => {
+const MedicineReportViewPopup = ({ data }) => {
   return (
     <div id="ReportData">
       <table>
@@ -10,86 +10,13 @@ const MedicineReportViewPopup = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Vitamin C</td>
-            <td>10mg</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>Vitamin C</td>
-            <td>10mg</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>Vitamin C</td>
-            <td>10mg</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>Vitamin C</td>
-            <td>10mg</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>Vitamin C</td>
-            <td>10mg</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>Vitamin C</td>
-            <td>10mg</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>Vitamin C</td>
-            <td>10mg</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>Vitamin C</td>
-            <td>10mg</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>Vitamin C</td>
-            <td>10mg</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>Vitamin C</td>
-            <td>10mg</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>Vitamin C</td>
-            <td>10mg</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>Vitamin C</td>
-            <td>10mg</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>Vitamin C</td>
-            <td>10mg</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>Vitamin C</td>
-            <td>10mg</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>Vitamin C</td>
-            <td>10mg</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>Vitamin C</td>
-            <td>10mg</td>
-            <td>2</td>
-          </tr>
+          {data.map((data) => (
+            <tr>
+              <td>{data.medicineName}</td>
+              <td>{data.dose}</td>
+              <td>{data.dosesPerDay}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

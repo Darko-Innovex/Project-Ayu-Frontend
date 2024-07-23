@@ -1,22 +1,20 @@
 import Navbar from "../component/dashboard/Navbar";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import HomeButton from "../component/dashboard/button/HomeButton";
-import ReviewButton from "../component/dashboard/button/ReviewButton";
 import ScanButton from "../component/dashboard/button/ScanButton";
 import "../../css/DoctorDoctorReviewPage.css";
 import { useState } from "react";
-import DoctorDoctorReview from "../component/DoctorReview/DoctorDoctorReviewCard";
 import DoctorDoctorReviewCard from "../component/DoctorReview/DoctorDoctorReviewCard";
 
 const DoctorDoctorReviewPage = () => {
   const navigate = useNavigate(null);
   const [pressButton, setPressButton] = useState("All");
+  const Components = [HomeButton, ScanButton];
+  const { doctorId } = useParams();
 
-  const Components = [HomeButton, ReviewButton, ScanButton];
   const Paths = [
-    "/DoctorDashboard",
-    "/DoctorDoctorReviewPage",
-    "/DoctorPatientNfcCardScanPage",
+    `/DoctorDashboard/${doctorId}`,
+    `/DoctorPatientNfcCardScanPage/${doctorId}`,
   ];
 
   const logOutBtnOnAction = () => {

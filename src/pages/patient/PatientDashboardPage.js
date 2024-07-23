@@ -72,18 +72,12 @@ const PatientDashboardPage = () => {
     setViewAppointment(!viewAppointment);
   };
 
-  const Components = [
-    HomeButton,
-    AppointmentButton,
-    ReportButton,
-    ReviewButton,
-  ];
+  const Components = [HomeButton, AppointmentButton, ReportButton];
 
   const Paths = [
     `/PatientDashboard/${userId}`,
     `/PatientAppointment/${userId}`,
     `/PatientMedicalReport/${userId}`,
-    `/PatientDoctorReviewPage/${userId}`,
   ];
 
   const showNotificationPanel = () => {
