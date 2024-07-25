@@ -6,6 +6,7 @@ import ReviewButton from "../component/dashboard/button/ReviewButton";
 import ScanButton from "../component/dashboard/button/ScanButton";
 import axios from "axios";
 import DoctorNfcCardPinPopup from "../component/medicalReport/popup/DoctorNfcCardPinPopup";
+import DoctorSelectSchedulePopup from "../component/medicalReport/popup/DoctorSelectSchedulePopup";
 
 const DoctorPatientNfcCardScanPage = () => {
   const Components = [HomeButton, ScanButton];
@@ -14,6 +15,7 @@ const DoctorPatientNfcCardScanPage = () => {
   const [port, setPort] = useState(null);
   const { doctorId } = useParams();
   const [showNfcPinPopup, setShowNfcPinPopup] = useState(false);
+  const [doctorSchedule, setDoctorSchedule] = useState(false);
 
   const navigate = useNavigate();
 
@@ -106,6 +108,18 @@ const DoctorPatientNfcCardScanPage = () => {
     setShowNfcPinPopup(!showNfcPinPopup);
   };
 
+  const handelDoctorSchedule = () => {
+    setDoctorSchedule(!doctorSchedule);
+  };
+
+  useEffect(() => {
+    const setSchedule = localStorage.getItem("schedule");
+    if (setSchedule === "false") {
+      localStorage.setItem("schedule", "true");
+      handelDoctorSchedule();
+    }
+  }, []);
+
   return (
     <div>
       <div id="DoctorDashboard">
@@ -116,6 +130,11 @@ const DoctorPatientNfcCardScanPage = () => {
         {showNfcPinPopup && (
           <DoctorNfcCardPinPopup closeBtn={handelSubmitPopup} index={cardId} />
         )}
+
+        {doctorSchedule && (
+          <DoctorSelectSchedulePopup closeAction={handelDoctorSchedule} />
+        )}
+
         <div className="container">
           <Navbar
             components={Components}
