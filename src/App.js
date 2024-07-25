@@ -31,9 +31,9 @@ import HospitalSchedulePage from "./pages/hospital/HospitalSchedulePage";
 
 // ----------------------------------css----------------------------------
 
-
 // import "../src/css/Hover/PatientHover.css";
 import "../src/css/Hover/PatientHover.css";
+import ProtectedRoutes from "./utils/ProtectedRoutes";
 // import "../src/css/Hover/PatientHover.css";
 
 // ----------------------------------css----------------------------------
@@ -43,7 +43,112 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          {/* ----------- patient routes ----------- */}
+          <Route element={<ProtectedRoutes />}>
+            {/* ----------- patient routes ----------- */}
+            <Route
+              path="/PatientDashboard/:userId"
+              element={<PatientDashboardPage />}
+            />
+            <Route
+              path="/PatientMedicalReport/:userId"
+              element={<PatientMedicalReportPage />}
+            />
+            <Route
+              path="/PatientAppointment/:userId"
+              element={<PatientAppointmentPage />}
+            />
+            <Route
+              path="/PatientDoctorReviewPage/:userId"
+              element={<PatientDoctorReviewPage />}
+            />
+
+            {/* ----------- doctor routes ----------- */}
+            <Route
+              path="/DoctorForgetPassword"
+              element={<DoctorForgetPasswordPage />}
+            />
+            <Route
+              path="/DoctorResetPassword"
+              element={<DoctorResetPasswordPage />}
+            />
+            <Route
+              path="/DoctorDashboard/:doctorId"
+              element={<DoctorDashboardPage />}
+            />
+            <Route
+              path="/DoctorPatientNfcCardScanPage/:doctorId"
+              element={<DoctorPatientNfcCardScanPage />}
+            />
+            <Route
+              path="/DoctorPatientDetailPage/:patientId"
+              element={<DoctorPatientDetailPage />}
+            />
+            <Route
+              path="/DoctorDoctorReviewPage/:doctorId"
+              element={<DoctorDoctorReviewPage />}
+            />
+            <Route
+              path="/DoctorOldPatientPage/:doctorId"
+              element={<DoctorOldPatientPage />}
+            />
+
+            {/* ----------- hospital routes ----------- */}
+            <Route
+              path="/HospitalForgetPassword"
+              element={<HospitalForgetPasswordPage />}
+            />
+            <Route
+              path="/HospitalResetPassword"
+              element={<HospitalResetPasswordPage />}
+            />
+            <Route
+              path="/HospitalDashboard/:hospitalId"
+              element={<HospitalDashboardPage />}
+            />
+            <Route
+              path="/HospitalPatientManagement"
+              element={<PatientManagementPage />}
+            />
+            <Route
+              path="/HospitalAppointmentManagementPage"
+              element={<HospitalAppointmentManagementPage />}
+            />
+            <Route
+              path="/HospitalDoctorManagement"
+              element={<HospitalDoctorManagePage />}
+            />
+            <Route
+              path={"/HospitalSchedule"}
+              element={<HospitalSchedulePage />}
+            />
+
+            {/* ----------- admin routes ----------- */}
+            <Route
+              path="/AdminForgetPassword"
+              element={<AdminForgetPasswordPage />}
+            />
+            <Route
+              path="/AdminResetPassword"
+              element={<AdminResetPasswordPage />}
+            />
+            <Route
+              path="/AdminDashboard/:adminId"
+              element={<AdminDashboardPage />}
+            />
+            <Route
+              path="/AdminPatientManage"
+              element={<AdminPatientManagePage />}
+            />
+            <Route
+              path="/AdminHospitalManage"
+              element={<AdminHospitalManagePage />}
+            />
+            <Route
+              path="/HealthCardManage"
+              element={<HealthCardManagementPage />}
+            />
+          </Route>
+
           <Route path="/" element={<SignInPage />} />
           <Route path="/PatientSignUp" element={<PatientSignUpPage />} />
           <Route
@@ -53,108 +158,6 @@ function App() {
           <Route
             path="/PatientResetPassword"
             element={<PatientResetPasswordPage />}
-          />
-          <Route
-            path="/PatientDashboard/:userId"
-            element={<PatientDashboardPage />}
-          />
-          <Route
-            path="/PatientMedicalReport/:userId"
-            element={<PatientMedicalReportPage />}
-          />
-          <Route
-            path="/PatientAppointment/:userId"
-            element={<PatientAppointmentPage />}
-          />
-          <Route
-            path="/PatientDoctorReviewPage/:userId"
-            element={<PatientDoctorReviewPage />}
-          />
-
-          {/* ----------- doctor routes ----------- */}
-          <Route
-            path="/DoctorForgetPassword"
-            element={<DoctorForgetPasswordPage />}
-          />
-          <Route
-            path="/DoctorResetPassword"
-            element={<DoctorResetPasswordPage />}
-          />
-          <Route
-            path="/DoctorDashboard/:doctorId"
-            element={<DoctorDashboardPage />}
-          />
-          <Route
-            path="/DoctorPatientNfcCardScanPage/:doctorId"
-            element={<DoctorPatientNfcCardScanPage />}
-          />
-          <Route
-            path="/DoctorPatientDetailPage/:patientId"
-            element={<DoctorPatientDetailPage />}
-          />
-          <Route
-            path="/DoctorDoctorReviewPage/:doctorId"
-            element={<DoctorDoctorReviewPage />}
-          />
-          <Route
-            path="/DoctorOldPatientPage/:doctorId"
-            element={<DoctorOldPatientPage />}
-          />
-
-          {/* ----------- hospital routes ----------- */}
-          <Route
-            path="/HospitalForgetPassword"
-            element={<HospitalForgetPasswordPage />}
-          />
-          <Route
-            path="/HospitalResetPassword"
-            element={<HospitalResetPasswordPage />}
-          />
-          <Route
-            path="/HospitalDashboard/:hospitalId"
-            element={<HospitalDashboardPage />}
-          />
-          <Route
-            path="/HospitalPatientManagement"
-            element={<PatientManagementPage />}
-          />
-          <Route
-            path="/HospitalAppointmentManagementPage"
-            element={<HospitalAppointmentManagementPage />}
-          />
-          <Route
-            path="/HospitalDoctorManagement"
-            element={<HospitalDoctorManagePage />}
-          />
-          <Route
-            path={"/HospitalSchedule"}
-            element={<HospitalSchedulePage />}
-          />
-
-          {/* ----------- admin routes ----------- */}
-          <Route
-            path="/AdminForgetPassword"
-            element={<AdminForgetPasswordPage />}
-          />
-          <Route
-            path="/AdminResetPassword"
-            element={<AdminResetPasswordPage />}
-          />
-          <Route
-            path="/AdminDashboard/:adminId"
-            element={<AdminDashboardPage />}
-          />
-          <Route
-            path="/AdminPatientManage"
-            element={<AdminPatientManagePage />}
-          />
-          <Route
-            path="/AdminHospitalManage"
-            element={<AdminHospitalManagePage />}
-          />
-          <Route
-            path="/HealthCardManage"
-            element={<HealthCardManagementPage />}
           />
         </Routes>
       </Router>

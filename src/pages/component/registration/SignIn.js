@@ -39,6 +39,10 @@ const SignIn = () => {
       const response = await axios.post(url, data);
 
       if (response.status === 200) {
+        localStorage.setItem("token", response.data);
+        axios.defaults.headers.common["Authorization"] =
+          `Bearer ${response.data}`;
+
         if (response.data.type === "patient")
           navigate(`/PatientDashboard/${response.data.patientId}`);
         else if (response.data.type === "doctor")
