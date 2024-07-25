@@ -5,6 +5,7 @@ import HomeButton from "../component/dashboard/button/HomeButton";
 import ReviewButton from "../component/dashboard/button/ReviewButton";
 import ScanButton from "../component/dashboard/button/ScanButton";
 import axios from "axios";
+import DoctorNfcCardPinPopup from "../component/medicalReport/popup/DoctorNfcCardPinPopup";
 
 const DoctorPatientNfcCardScanPage = () => {
   const Components = [HomeButton, ScanButton];
@@ -12,6 +13,7 @@ const DoctorPatientNfcCardScanPage = () => {
   const [patient, setPatient] = useState(null);
   const [port, setPort] = useState(null);
   const { doctorId } = useParams();
+  const [showNfcPinPopup, setShowNfcPinPopup] = useState(false);
 
   const navigate = useNavigate();
 
@@ -79,22 +81,12 @@ const DoctorPatientNfcCardScanPage = () => {
   useEffect(() => {
     const fetchPatient = async () => {
       if (cardId !== null) {
-        try {
-          const response = await axios.get(
-            `http://localhost:8080/card/${cardId}/patient`,
-          );
-          if (response.status === 200) {
-            setPatient(response.data);
-            navigate(`/DoctorPatientDetailPage/${response.data.id}`);
-          }
-        } catch (error) {
-          console.error("Error fetching patient data:", error);
-        }
+        handelSubmitPopup();
       }
     };
 
     fetchPatient();
-  }, [cardId, navigate]);
+  }, [cardId]);
 
   const Paths = [
     `/DoctorDashboard/${doctorId}`,
@@ -110,6 +102,10 @@ const DoctorPatientNfcCardScanPage = () => {
     navigate("/DoctorSignIn");
   };
 
+  const handelSubmitPopup = () => {
+    setShowNfcPinPopup(!showNfcPinPopup);
+  };
+
   return (
     <div>
       <div id="DoctorDashboard">
@@ -117,6 +113,9 @@ const DoctorPatientNfcCardScanPage = () => {
           <div></div>
           <div></div>
         </div>
+        {showNfcPinPopup && (
+          <DoctorNfcCardPinPopup closeBtn={handelSubmitPopup} index={cardId} />
+        )}
         <div className="container">
           <Navbar
             components={Components}

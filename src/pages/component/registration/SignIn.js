@@ -37,7 +37,6 @@ const SignIn = () => {
 
     try {
       const response = await axios.post(url, data);
-      console.log(response.data.type);
 
       if (response.status === 200) {
         if (response.data.type === "patient")
