@@ -9,9 +9,12 @@ import AppointmentButton from "../component/dashboard/button/AppointmentButton";
 import DoctorsButton from "../component/dashboard/button/DoctorsButton";
 import ScheduleButton from "../component/dashboard/button/ScheduleButton";
 import { useNavigate } from "react-router-dom";
+import CreateSchedulePopup from "../component/HospitalSchedule/CreateSchedulePopup";
+import { useState } from "react";
 
 const HospitalSchedulePage = () => {
   const navigate = useNavigate(null);
+  const [createSchedulePopup, setCreateSchedulePopup] = useState(false);
 
   const Components = [
     HomeButton,
@@ -68,12 +71,20 @@ const HospitalSchedulePage = () => {
     data1,
   ];
 
+  const handleCreateSchedule = () => {
+    setCreateSchedulePopup(!createSchedulePopup);
+  };
+
   return (
     <div id="PatientDashboard">
       <div className="cir">
         <div></div>
         <div></div>
       </div>
+
+      {createSchedulePopup && (
+        <CreateSchedulePopup hidePopup={handleCreateSchedule} />
+      )}
 
       <div className="container">
         <Navbar
@@ -124,9 +135,7 @@ const HospitalSchedulePage = () => {
                 />
               </svg>
             </div>
-            <button
-            // onClick={handleAddAppointment}
-            >
+            <button onClick={handleCreateSchedule}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="27"
