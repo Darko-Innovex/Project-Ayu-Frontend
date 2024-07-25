@@ -41,9 +41,10 @@ const SignIn = () => {
       if (response.status === 200) {
         if (response.data.type === "patient")
           navigate(`/PatientDashboard/${response.data.patientId}`);
-        else if (response.data.type === "doctor")
+        else if (response.data.type === "doctor") {
+          localStorage.setItem("schedule", "false");
           navigate(`/DoctorDashboard/${response.data.doctorId}`);
-        else if (response.data.type === "hospital")
+        } else if (response.data.type === "hospital")
           navigate(`/HospitalDashboard/${response.data.hospitalId}`);
         else if (response.data.type === "admin")
           navigate(`/AdminDashboard/${response.data.adminId}`);
