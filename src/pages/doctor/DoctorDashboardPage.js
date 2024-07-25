@@ -2,7 +2,6 @@ import "../../css/component/dashboard/DashboardBackground.css";
 import Navbar from "../component/dashboard/Navbar";
 import HomeButton from "../component/dashboard/button/HomeButton";
 import ScanButton from "../component/dashboard/button/ScanButton";
-import ReviewButton from "../component/dashboard/button/ReviewButton";
 import DashboardHeader from "../component/dashboard/DashboardHeader";
 import SearchLine from "../component/dashboard/SearchSection";
 import BarChart from "../component/dashboard/DoctorDashboardBarChart";
@@ -12,20 +11,19 @@ import DashboardUserDetailsCard from "../component/dashboard/DashboardUserDetail
 import Image from "../../../src/img/sideImage.png";
 import NotificationPanel from "../component/dashboard/NotificationPanel";
 import { useState } from "react";
-import DashboardFilter from "../component/dashboard/DashboardFilter";
 import DoctorDashboardFilter from "../component/dashboard/DoctorDashboardFilter";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const DoctorDashboardPage = () => {
-  const Components = [HomeButton, ReviewButton, ScanButton];
+  const Components = [HomeButton, ScanButton];
   const [notificationPanel, setNotificationPanel] = useState(false);
   const [filterPanel, setFilterPanel] = useState(false);
   const navigate = useNavigate(null);
+  const { doctorId } = useParams();
 
   const Paths = [
-    "/DoctorDashboard",
-    "/DoctorDoctorReviewPage",
-    "/DoctorPatientNfcCardScanPage",
+    `/DoctorDashboard/${doctorId}`,
+    `/DoctorPatientNfcCardScanPage/${doctorId}`,
   ];
 
   const showNotificationPanel = () => {

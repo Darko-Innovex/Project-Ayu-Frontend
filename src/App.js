@@ -31,9 +31,10 @@ import HospitalSchedulePage from "./pages/hospital/HospitalSchedulePage";
 
 // ----------------------------------css----------------------------------
 
-// import "../src/css/Hover/PatientHover.css";
 
+// import "../src/css/Hover/PatientHover.css";
 import "../src/css/Hover/PatientHover.css";
+// import "../src/css/Hover/PatientHover.css";
 
 // ----------------------------------css----------------------------------
 
@@ -84,7 +85,7 @@ function App() {
             element={<DoctorDashboardPage />}
           />
           <Route
-            path="/DoctorPatientNfcCardScanPage"
+            path="/DoctorPatientNfcCardScanPage/:doctorId"
             element={<DoctorPatientNfcCardScanPage />}
           />
           <Route
@@ -92,11 +93,11 @@ function App() {
             element={<DoctorPatientDetailPage />}
           />
           <Route
-            path="/DoctorDoctorReviewPage"
+            path="/DoctorDoctorReviewPage/:doctorId"
             element={<DoctorDoctorReviewPage />}
           />
           <Route
-            path="/DoctorOldPatientPage"
+            path="/DoctorOldPatientPage/:doctorId"
             element={<DoctorOldPatientPage />}
           />
 

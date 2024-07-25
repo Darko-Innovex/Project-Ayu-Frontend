@@ -19,18 +19,12 @@ const PatientDoctorReviewPage = () => {
   const [currentForcingPatient, setCurrentForcingPatient] = useState(null);
   const { userId } = useParams();
 
-  const Components = [
-    HomeButton,
-    AppointmentButton,
-    ReportButton,
-    ReviewButton,
-  ];
+  const Components = [HomeButton, AppointmentButton, ReportButton];
 
   const Paths = [
     `/PatientDashboard/${userId}`,
     `/PatientAppointment/${userId}`,
     `/PatientMedicalReport/${userId}`,
-    `/PatientDoctorReviewPage/${userId}`,
   ];
 
   const logOutBtnOnAction = () => {

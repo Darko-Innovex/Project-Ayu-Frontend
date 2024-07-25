@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "../component/dashboard/Navbar";
 import HomeButton from "../component/dashboard/button/HomeButton";
 import ReviewButton from "../component/dashboard/button/ReviewButton";
@@ -7,10 +7,11 @@ import ScanButton from "../component/dashboard/button/ScanButton";
 import axios from "axios";
 
 const DoctorPatientNfcCardScanPage = () => {
-  const Components = [HomeButton, ReviewButton, ScanButton];
+  const Components = [HomeButton, ScanButton];
   const [cardId, setCardId] = useState(null);
   const [patient, setPatient] = useState(null);
   const [port, setPort] = useState(null);
+  const { doctorId } = useParams();
 
   const navigate = useNavigate();
 
@@ -96,9 +97,8 @@ const DoctorPatientNfcCardScanPage = () => {
   }, [cardId, navigate]);
 
   const Paths = [
-    "/DoctorDashboard",
-    "/DoctorDoctorReviewPage",
-    "/DoctorPatientNfcCardScanPage",
+    `/DoctorDashboard/${doctorId}`,
+    `/DoctorPatientNfcCardScanPage/${doctorId}`,
   ];
 
   const handleScanPatientCardClick = () => {

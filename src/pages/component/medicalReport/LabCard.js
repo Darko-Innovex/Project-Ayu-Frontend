@@ -1,17 +1,59 @@
 import PopupBackground, { setReportData } from "./popup/PopupBackground";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const LabCard = ({ data, showReport }) => {
+  const [hospital, setHospital] = useState(null);
+
+  useEffect(() => {
+    getHospital();
+  }, [data]);
+
   const onClickViewBtn = () => {
-    setReportData(data);
+    setReportData(data, hospital);
     showReport();
   };
+
+  const getHospital = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8080/hospital/${data.hospitalId}`,
+      );
+      setHospital(response.data);
+    } catch (error) {
+      console.error("Error fetching hospital: ", error);
+    }
+  };
+
+  const getDate = (timestamp) => {
+    if (timestamp) {
+      let date = new Date(timestamp);
+      let year = date.getFullYear();
+      let month = date.getMonth() + 1; // getMonth() returns 0-11, so we add 1 for human-readable month
+      let day = date.getDate();
+      return `${year} / ${month} / ${day}`;
+    }
+    return "";
+  };
+
+  const getTime = (timestamp) => {
+    if (timestamp) {
+      let date = new Date(timestamp);
+      let hours = date.getHours();
+      let minutes = date.getMinutes();
+      let seconds = date.getSeconds();
+      return `${hours} : ${minutes} : ${seconds}`;
+    }
+    return "";
+  };
+
   return (
-    <div className="labCard">
-      <h1>{data.title}</h1>
-      <h2>{data.place}</h2>
+    <div className="labCard labReportCard">
+      <h1>{data.type}</h1>
+      {hospital && <h2>{hospital.name}</h2>}
       <div>
-        <h3>{data.date}</h3>
-        <h3>{data.time}</h3>
+        <h3>{getDate(data.timestamp)}</h3>
+        <h3>{getTime(data.timestamp)}</h3>
       </div>
       <button onClick={onClickViewBtn}>View</button>
     </div>
