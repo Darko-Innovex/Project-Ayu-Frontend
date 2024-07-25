@@ -116,11 +116,11 @@ const DoctorPatientDetailPage = () => {
 
   useEffect(() => {
     if (patientId) {
-      getAppointments();
-      getAllergies();
-      getRegularDrugs();
-      getPatinet();
-      getLabReports();
+      getAppointments().then((r) => console.log(r));
+      getAllergies().then((r) => console.log(r));
+      getRegularDrugs().then((r) => console.log(r));
+      getPatinet().then((r) => console.log(r));
+      getLabReports().then((r) => console.log(r));
     }
   }, [patientId]);
 
@@ -244,6 +244,8 @@ const DoctorPatientDetailPage = () => {
       )}
       {addMedicinePopup && (
         <DoctorAddMedicinePopup
+          patientId={patientId}
+          scheduleId={scheduleId}
           backButtonOnAction={showAndHideAddMedicalPopup}
         />
       )}

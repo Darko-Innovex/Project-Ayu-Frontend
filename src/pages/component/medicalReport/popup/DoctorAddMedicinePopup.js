@@ -1,7 +1,51 @@
 import "../../../../css/component/medicalReport/AddMedicine.css";
 import AddMedicalTableRow from "../tableRow/AddMedicalTableRow";
+import { useState } from "react";
+import axios from "axios";
 
-const DoctorAddMedicinePopup = ({ backButtonOnAction }) => {
+const DoctorAddMedicinePopup = ({
+  backButtonOnAction,
+  scheduleId,
+  patientId,
+}) => {
+  const [medicineName, setMedicineName] = useState("");
+  const [medicineBrand, setMedicineBrand] = useState("");
+  const [weight, setWeight] = useState("");
+  const [dayCount, setDayCount] = useState("");
+  const [dose, setDose] = useState("");
+  const [dosePerDay, setDosePerDay] = useState([]);
+
+  const addBtnOnAction = () => {
+    let medicalData = {
+      dayCount: dayCount,
+      medicineName: medicineName,
+      medicineBrand: medicineBrand,
+      medicineWeight: weight,
+      dose: dose,
+      dosePerDay: dosePerDay,
+    };
+
+    const sendData = {
+      patientId: patientId,
+      scheduleId: scheduleId,
+      medicalData: medicalData,
+    };
+
+    sendDataBackEnd(sendData).then((r) => console.log(r));
+  };
+
+  const sendDataBackEnd = async (medicalData) => {
+    try {
+      const response = await axios.post(
+        `http://localhost:8080/medicine_bill`,
+        medicalData,
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div id="AddMedicine">
       <div>
@@ -64,18 +108,27 @@ const DoctorAddMedicinePopup = ({ backButtonOnAction }) => {
                 <label>
                   <h1>Medicine Name : </h1>
                 </label>
-                <input type="text" />
+                <input
+                  type="text"
+                  onChange={(e) => setMedicineName(e.target.value)}
+                />
                 <div>
                   <div>
                     <label>
                       <h1>Medicine Brand : </h1>
-                      <select />
+                      <input
+                        type="text"
+                        onChange={(e) => setMedicineBrand(e.target.value)}
+                      />
                     </label>
                   </div>
                   <div>
                     <label>
                       <h1>Weight ( mg ) :</h1>
-                      <select />
+                      <input
+                        type="text"
+                        onChange={(e) => setWeight(e.target.value)}
+                      />
                     </label>
                   </div>
                 </div>
@@ -84,13 +137,19 @@ const DoctorAddMedicinePopup = ({ backButtonOnAction }) => {
                   <div>
                     <label>
                       <h1>Day Count : </h1>
-                      <input type="text" />
+                      <input
+                        type="text"
+                        onChange={(e) => setDayCount(e.target.value)}
+                      />
                     </label>
                   </div>
                   <div>
                     <label>
                       <h1>Dose : </h1>
-                      <input type="text" />
+                      <input
+                        type="text"
+                        onChange={(e) => setDose(e.target.value)}
+                      />
                     </label>
                   </div>
                 </div>
@@ -98,20 +157,35 @@ const DoctorAddMedicinePopup = ({ backButtonOnAction }) => {
                   <h1>Doses’ Per Day : </h1>
                   <div>
                     <div>
-                      <input type="radio" />
+                      <input
+                        type="radio"
+                        onChange={() =>
+                          setDosePerDay([...dosePerDay, "Morning"])
+                        }
+                      />
                       <h2>Morning</h2>
                     </div>
                     <div>
-                      <input type="radio" />
+                      <input
+                        type="radio"
+                        onChange={() =>
+                          setDosePerDay([...dosePerDay, "Afternoon"])
+                        }
+                      />
                       <h2>Afternoon</h2>
                     </div>
                     <div>
-                      <input type="radio" />
+                      <input
+                        type="radio"
+                        onChange={() =>
+                          setDosePerDay([...dosePerDay, "Evening"])
+                        }
+                      />
                       <h2>Evening</h2>
                     </div>
                   </div>
                 </label>
-                <button>Add</button>
+                <button onClick={addBtnOnAction}>Add</button>
               </div>
               <button>Add Drug List</button>
             </div>
