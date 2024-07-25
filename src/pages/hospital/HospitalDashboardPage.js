@@ -19,6 +19,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import "../../css/PatientAppointment.css";
 import axios from "axios";
 import HospitalDoctorView from "../component/HospitalDoctorManage/HospitalDoctorView";
+import ReportButton from "../component/dashboard/button/ReportButton";
 
 const HospitalDashboardPage = () => {
   const [notificationPanel, setNotificationPanel] = useState(false);
@@ -46,6 +47,7 @@ const HospitalDashboardPage = () => {
     AppointmentButton,
     DoctorsButton,
     ScheduleButton,
+    ReportButton,
   ];
 
   const Paths = [
@@ -54,6 +56,7 @@ const HospitalDashboardPage = () => {
     "/HospitalAppointmentManagementPage",
     "/HospitalDoctorManagement",
     "/HospitalSchedule",
+    "/HospitalLabReport",
   ];
 
   const showNotificationPanel = () => {

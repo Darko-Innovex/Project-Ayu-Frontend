@@ -12,6 +12,7 @@ import HospitalAddDoctor from "../component/HospitalDoctorManage/HospitalAddDoct
 import HospitalDeleteDoctor from "../component/HospitalDoctorManage/HospitalDeleteDoctor";
 import HospitalDoctorManageFilter from "../component/HospitalDoctorManage/HospitalDoctorManageFilter";
 import ScheduleButton from "../component/dashboard/button/ScheduleButton";
+import ReportButton from "../component/dashboard/button/ReportButton";
 
 const HospitalDoctorManagePage = () => {
   const navigate = useNavigate(null);
@@ -27,6 +28,7 @@ const HospitalDoctorManagePage = () => {
     AppointmentButton,
     DoctorsButton,
     ScheduleButton,
+    ReportButton,
   ];
 
   const Paths = [
@@ -35,6 +37,7 @@ const HospitalDoctorManagePage = () => {
     "/HospitalAppointmentManagementPage",
     "/HospitalDoctorManagement",
     "/HospitalSchedule",
+    "/HospitalLabReport",
   ];
 
   const logOutBtnOnAction = () => {
