@@ -11,10 +11,12 @@ import ScheduleButton from "../component/dashboard/button/ScheduleButton";
 import { useNavigate } from "react-router-dom";
 import CreateSchedulePopup from "../component/HospitalSchedule/CreateSchedulePopup";
 import { useState } from "react";
+import ViewSchedule from "../component/HospitalSchedule/ViewSchedule";
 
 const HospitalSchedulePage = () => {
   const navigate = useNavigate(null);
   const [createSchedulePopup, setCreateSchedulePopup] = useState(false);
+  const [viewSchedulePopup, setViewSchedulePopup] = useState(false);
 
   const Components = [
     HomeButton,
@@ -75,6 +77,10 @@ const HospitalSchedulePage = () => {
     setCreateSchedulePopup(!createSchedulePopup);
   };
 
+  const handleViewSchedule = () => {
+    setViewSchedulePopup(!viewSchedulePopup);
+  };
+
   return (
     <div id="PatientDashboard">
       <div className="cir">
@@ -85,6 +91,8 @@ const HospitalSchedulePage = () => {
       {createSchedulePopup && (
         <CreateSchedulePopup hidePopup={handleCreateSchedule} />
       )}
+
+      {viewSchedulePopup && <ViewSchedule hidePopup={handleViewSchedule} />}
 
       <div className="container">
         <Navbar
@@ -167,7 +175,9 @@ const HospitalSchedulePage = () => {
             <h1 className="status">Status</h1>
             <h1 className="action">Action</h1>
           </div>
-          <div className="tableBody">{setRows(dataSet)}</div>
+          <div className="tableBody">
+            {setRows(dataSet, handleViewSchedule)}
+          </div>
         </div>
       </div>
     </div>
