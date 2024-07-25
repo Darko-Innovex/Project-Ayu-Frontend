@@ -1,25 +1,24 @@
+import HospitalAddAppointment from "../component/HospitalAppointment/HospitalAddAppointment";
+import HospitalAppointmentFilter from "../component/HospitalAppointment/HospitalAppointmentFilter";
+import HospitalViewAppointment from "../component/HospitalAppointment/HospitalViewAppointment";
+import HospitalCancelAppointment from "../component/HospitalAppointment/HospitalCancelAppointment";
+import Navbar from "../component/dashboard/Navbar";
 import HomeButton from "../component/dashboard/button/HomeButton";
 import PatientsButton from "../component/dashboard/button/PatientsButton";
 import AppointmentButton from "../component/dashboard/button/AppointmentButton";
 import DoctorsButton from "../component/dashboard/button/DoctorsButton";
-import Navbar from "../component/dashboard/Navbar";
-import { useNavigate } from "react-router-dom";
-import "../../../src/css/PatientAppointment.css";
-import HospitalAddAppointment from "../component/HospitalAppointment/HospitalAddAppointment";
-import { useState } from "react";
-import HospitalPatientManagementFilter from "../component/HospitalPatientManage/HospitalPatientManagementFilter";
-import HospitalAppointmentFilter from "../component/HospitalAppointment/HospitalAppointmentFilter";
-import HospitalViewAppointment from "../component/HospitalAppointment/HospitalViewAppointment";
-import HospitalCancelAppointment from "../component/HospitalAppointment/HospitalCancelAppointment";
 import ScheduleButton from "../component/dashboard/button/ScheduleButton";
+import { useNavigate } from "react-router-dom";
+import CreateSchedulePopup from "../component/HospitalSchedule/CreateSchedulePopup";
+import { useState } from "react";
+import ViewSchedule from "../component/HospitalSchedule/ViewSchedule";
+import CancelSchedule from "../component/HospitalSchedule/CancelSchedule";
 
-const HospitalAppointmentManagementPage = () => {
+const HospitalSchedulePage = () => {
   const navigate = useNavigate(null);
-  const [addAppointment, setAddAppointment] = useState(false);
-  const [filter, setFilter] = useState(false);
-  const [viewAppointment, setViewAppointment] = useState(false);
-  const [patientData, setPatientData] = useState(null);
-  const [cancelAppointment, setCancelAppointment] = useState(false);
+  const [createSchedulePopup, setCreateSchedulePopup] = useState(false);
+  const [viewSchedulePopup, setViewSchedulePopup] = useState(false);
+  const [cancelSchedule, setCancelSchedule] = useState(false);
 
   const Components = [
     HomeButton,
@@ -39,24 +38,6 @@ const HospitalAppointmentManagementPage = () => {
 
   const logOutBtnOnAction = () => {
     navigate("/HospitalSignIn");
-  };
-
-  const handleAddAppointment = () => {
-    setAddAppointment(!addAppointment);
-  };
-
-  const handleFilter = () => {
-    setFilter(!filter);
-  };
-
-  const handleViewAppointment = (patientData) => {
-    setPatientData(patientData);
-    setViewAppointment(!viewAppointment);
-  };
-
-  const handleCancelAppointment = (patientData) => {
-    setPatientData(patientData);
-    setCancelAppointment(!cancelAppointment);
   };
 
   let data = {
@@ -94,6 +75,18 @@ const HospitalAppointmentManagementPage = () => {
     data1,
   ];
 
+  const handleCreateSchedule = () => {
+    setCreateSchedulePopup(!createSchedulePopup);
+  };
+
+  const handleViewSchedule = () => {
+    setViewSchedulePopup(!viewSchedulePopup);
+  };
+
+  const handleCancelSchedule = () => {
+    setCancelSchedule(!cancelSchedule);
+  };
+
   return (
     <div id="PatientDashboard">
       <div className="cir">
@@ -101,25 +94,13 @@ const HospitalAppointmentManagementPage = () => {
         <div></div>
       </div>
 
-      {addAppointment && (
-        <HospitalAddAppointment hideAppointment={handleAddAppointment} />
+      {createSchedulePopup && (
+        <CreateSchedulePopup hidePopup={handleCreateSchedule} />
       )}
 
-      {filter && <HospitalAppointmentFilter closeFilter={handleFilter} />}
+      {viewSchedulePopup && <ViewSchedule hidePopup={handleViewSchedule} />}
 
-      {viewAppointment && (
-        <HospitalViewAppointment
-          AppointmentData={patientData}
-          HideAppointment={handleViewAppointment}
-        />
-      )}
-
-      {cancelAppointment && (
-        <HospitalCancelAppointment
-          AppointmentData={patientData}
-          cancel={handleCancelAppointment}
-        />
-      )}
+      {cancelSchedule && <CancelSchedule cancel={handleCancelSchedule} />}
 
       <div className="container">
         <Navbar
@@ -128,7 +109,7 @@ const HospitalAppointmentManagementPage = () => {
           LogOut={logOutBtnOnAction}
         />
         <div className="PatientAppointmentContend HospitalAppointmentManagementPage">
-          <h1 className="title">Appointment Management</h1>
+          <h1 className="title">Schedule Management</h1>
           <div>
             <div>
               <svg
@@ -145,7 +126,7 @@ const HospitalAppointmentManagementPage = () => {
               </svg>
               <input type="text" placeholder="Search" />
               <svg
-                onClick={handleFilter}
+                // onClick={handleFilter}
                 className="filter"
                 xmlns="http://www.w3.org/2000/svg"
                 width="53"
@@ -170,7 +151,7 @@ const HospitalAppointmentManagementPage = () => {
                 />
               </svg>
             </div>
-            <button onClick={handleAddAppointment}>
+            <button onClick={handleCreateSchedule}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="27"
@@ -191,19 +172,19 @@ const HospitalAppointmentManagementPage = () => {
                   fill="white"
                 />
               </svg>
-              Create Appointment
+              Create Schedule
             </button>
           </div>
           <div className="tableHead">
             <input type="checkbox" />
-            <h1 className="appointmentNm">Appointment No</h1>
-            <h1 className="patientName">Patient Name</h1>
-            <h1 className="DoctorName">Doctor Name</h1>
+            <h1 className="appointmentNm">Doctor Name</h1>
+            <h1 className="patientName">Date</h1>
+            <h1 className="DoctorName">In Time - Out Time</h1>
             <h1 className="status">Status</h1>
             <h1 className="action">Action</h1>
           </div>
           <div className="tableBody">
-            {setRows(dataSet, handleViewAppointment, handleCancelAppointment)}
+            {setRows(dataSet, handleViewSchedule, handleCancelSchedule)}
           </div>
         </div>
       </div>
@@ -277,4 +258,4 @@ const setRows = (dataSet, ViewAppointment, cancelAppointment) => {
   return RowSet;
 };
 
-export default HospitalAppointmentManagementPage;
+export default HospitalSchedulePage;

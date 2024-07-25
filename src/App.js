@@ -27,12 +27,14 @@ import PatientManagementPage from "./pages/hospital/PatientManagementPage";
 import AdminPatientManagePage from "./pages/admin/AdminPatientManagePage";
 import HospitalAppointmentManagementPage from "./pages/hospital/HospitalAppointmentManagementPage";
 import HospitalDoctorManagePage from "./pages/hospital/HospitalDoctorManagePage";
+import HospitalSchedulePage from "./pages/hospital/HospitalSchedulePage";
 
 // ----------------------------------css----------------------------------
 
 
 // import "../src/css/Hover/PatientHover.css";
-
+import "../src/css/Hover/PatientHover.css";
+// import "../src/css/Hover/PatientHover.css";
 
 // ----------------------------------css----------------------------------
 
@@ -123,6 +125,10 @@ function App() {
           <Route
             path="/HospitalDoctorManagement"
             element={<HospitalDoctorManagePage />}
+          />
+          <Route
+            path={"/HospitalSchedule"}
+            element={<HospitalSchedulePage />}
           />
 
           {/* ----------- admin routes ----------- */}

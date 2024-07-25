@@ -8,6 +8,7 @@ import "../../css/HospitalPatientManagementPage.css";
 import HospitalAddPatient from "../component/HospitalPatientManage/HospitalAddPatient";
 import { useState } from "react";
 import HospitalPatientManagementFilter from "../component/HospitalPatientManage/HospitalPatientManagementFilter";
+import ScheduleButton from "../component/dashboard/button/ScheduleButton";
 
 const PatientManagementPage = () => {
   const navigate = useNavigate(null);
@@ -18,6 +19,7 @@ const PatientManagementPage = () => {
     PatientsButton,
     AppointmentButton,
     DoctorsButton,
+    ScheduleButton,
   ];
 
   const Paths = [
@@ -25,6 +27,7 @@ const PatientManagementPage = () => {
     "/HospitalPatientManagement",
     "/HospitalAppointmentManagementPage",
     "/HospitalDoctorManagement",
+    "/HospitalSchedule",
   ];
 
   const logOutBtnOnAction = () => {
