@@ -4,6 +4,7 @@ import HomeButton from "../component/dashboard/button/HomeButton";
 import PatientsButton from "../component/dashboard/button/PatientsButton";
 import AppointmentButton from "../component/dashboard/button/AppointmentButton";
 import DoctorsButton from "../component/dashboard/button/DoctorsButton";
+import ScheduleButton from "../component/dashboard/button/ScheduleButton";
 import DashboardHeader from "../component/dashboard/DashboardHeader";
 import SearchLine from "../component/dashboard/SearchSection";
 import BarChart from "../component/dashboard/DoctorDashboardBarChart";
@@ -44,6 +45,7 @@ const HospitalDashboardPage = () => {
     PatientsButton,
     AppointmentButton,
     DoctorsButton,
+    ScheduleButton,
   ];
 
   const Paths = [
@@ -51,6 +53,7 @@ const HospitalDashboardPage = () => {
     "/HospitalPatientManagement",
     "/HospitalAppointmentManagementPage",
     "/HospitalDoctorManagement",
+    "/HospitalSchedule",
   ];
 
   const showNotificationPanel = () => {
