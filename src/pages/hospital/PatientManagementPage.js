@@ -9,17 +9,20 @@ import HospitalAddPatient from "../component/HospitalPatientManage/HospitalAddPa
 import { useState } from "react";
 import HospitalPatientManagementFilter from "../component/HospitalPatientManage/HospitalPatientManagementFilter";
 import ScheduleButton from "../component/dashboard/button/ScheduleButton";
+import ReportButton from "../component/dashboard/button/ReportButton";
 
 const PatientManagementPage = () => {
   const navigate = useNavigate(null);
   const [addPatient, setAddPatient] = useState(false);
   const [filter, setFilter] = useState(false);
+
   const Components = [
     HomeButton,
     PatientsButton,
     AppointmentButton,
     DoctorsButton,
     ScheduleButton,
+    ReportButton,
   ];
 
   const Paths = [
@@ -28,6 +31,7 @@ const PatientManagementPage = () => {
     "/HospitalAppointmentManagementPage",
     "/HospitalDoctorManagement",
     "/HospitalSchedule",
+    "/HospitalLabReport",
   ];
 
   const logOutBtnOnAction = () => {

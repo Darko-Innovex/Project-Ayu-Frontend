@@ -31,9 +31,9 @@ import HospitalSchedulePage from "./pages/hospital/HospitalSchedulePage";
 
 // ----------------------------------css----------------------------------
 
-
 // import "../src/css/Hover/PatientHover.css";
 import "../src/css/Hover/PatientHover.css";
+import HospitalLabReportPage from "./pages/hospital/HospitalLabReportPage";
 // import "../src/css/Hover/PatientHover.css";
 
 // ----------------------------------css----------------------------------
@@ -129,6 +129,10 @@ function App() {
           <Route
             path={"/HospitalSchedule"}
             element={<HospitalSchedulePage />}
+          />
+          <Route
+            path={"/HospitalLabReport"}
+            element={<HospitalLabReportPage />}
           />
 
           {/* ----------- admin routes ----------- */}

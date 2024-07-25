@@ -1,48 +1,12 @@
-import HospitalAddAppointment from "../component/HospitalAppointment/HospitalAddAppointment";
-import HospitalAppointmentFilter from "../component/HospitalAppointment/HospitalAppointmentFilter";
-import HospitalViewAppointment from "../component/HospitalAppointment/HospitalViewAppointment";
-import HospitalCancelAppointment from "../component/HospitalAppointment/HospitalCancelAppointment";
 import Navbar from "../component/dashboard/Navbar";
 import HomeButton from "../component/dashboard/button/HomeButton";
 import PatientsButton from "../component/dashboard/button/PatientsButton";
 import AppointmentButton from "../component/dashboard/button/AppointmentButton";
 import DoctorsButton from "../component/dashboard/button/DoctorsButton";
 import ScheduleButton from "../component/dashboard/button/ScheduleButton";
-import { useNavigate } from "react-router-dom";
-import CreateSchedulePopup from "../component/HospitalSchedule/CreateSchedulePopup";
-import { useState } from "react";
-import ViewSchedule from "../component/HospitalSchedule/ViewSchedule";
-import CancelSchedule from "../component/HospitalSchedule/CancelSchedule";
 import ReportButton from "../component/dashboard/button/ReportButton";
 
-const HospitalSchedulePage = () => {
-  const navigate = useNavigate(null);
-  const [createSchedulePopup, setCreateSchedulePopup] = useState(false);
-  const [viewSchedulePopup, setViewSchedulePopup] = useState(false);
-  const [cancelSchedule, setCancelSchedule] = useState(false);
-
-  const Components = [
-    HomeButton,
-    PatientsButton,
-    AppointmentButton,
-    DoctorsButton,
-    ScheduleButton,
-    ReportButton,
-  ];
-
-  const Paths = [
-    "/HospitalDashboard",
-    "/HospitalPatientManagement",
-    "/HospitalAppointmentManagementPage",
-    "/HospitalDoctorManagement",
-    "/HospitalSchedule",
-    "/HospitalLabReport",
-  ];
-
-  const logOutBtnOnAction = () => {
-    navigate("/HospitalSignIn");
-  };
-
+const HospitalLabReportPage = () => {
   let data = {
     AppointmentNumber: 10,
     PatientName: "Gayanuka Bulegoda",
@@ -78,17 +42,23 @@ const HospitalSchedulePage = () => {
     data1,
   ];
 
-  const handleCreateSchedule = () => {
-    setCreateSchedulePopup(!createSchedulePopup);
-  };
+  const Components = [
+    HomeButton,
+    PatientsButton,
+    AppointmentButton,
+    DoctorsButton,
+    ScheduleButton,
+    ReportButton,
+  ];
 
-  const handleViewSchedule = () => {
-    setViewSchedulePopup(!viewSchedulePopup);
-  };
-
-  const handleCancelSchedule = () => {
-    setCancelSchedule(!cancelSchedule);
-  };
+  const Paths = [
+    "/HospitalDashboard",
+    "/HospitalPatientManagement",
+    "/HospitalAppointmentManagementPage",
+    "/HospitalDoctorManagement",
+    "/HospitalSchedule",
+    "/HospitalLabReport",
+  ];
 
   return (
     <div id="PatientDashboard">
@@ -97,22 +67,10 @@ const HospitalSchedulePage = () => {
         <div></div>
       </div>
 
-      {createSchedulePopup && (
-        <CreateSchedulePopup hidePopup={handleCreateSchedule} />
-      )}
-
-      {viewSchedulePopup && <ViewSchedule hidePopup={handleViewSchedule} />}
-
-      {cancelSchedule && <CancelSchedule cancel={handleCancelSchedule} />}
-
       <div className="container">
-        <Navbar
-          components={Components}
-          Paths={Paths}
-          LogOut={logOutBtnOnAction}
-        />
+        <Navbar components={Components} Paths={Paths} />
         <div className="PatientAppointmentContend HospitalAppointmentManagementPage">
-          <h1 className="title">Schedule Management</h1>
+          <h1 className="title">Lab Report Management</h1>
           <div>
             <div>
               <svg
@@ -154,7 +112,9 @@ const HospitalSchedulePage = () => {
                 />
               </svg>
             </div>
-            <button onClick={handleCreateSchedule}>
+            <button
+            // onClick={handleAddAppointment}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="27"
@@ -175,20 +135,18 @@ const HospitalSchedulePage = () => {
                   fill="white"
                 />
               </svg>
-              Create Schedule
+              Add Lab Report
             </button>
           </div>
           <div className="tableHead">
             <input type="checkbox" />
-            <h1 className="appointmentNm">Doctor Name</h1>
-            <h1 className="patientName">Date</h1>
-            <h1 className="DoctorName">In Time - Out Time</h1>
+            <h1 className="appointmentNm">Patient Name</h1>
+            <h1 className="patientName">Hospital</h1>
+            <h1 className="DoctorName">Date</h1>
             <h1 className="status">Status</h1>
             <h1 className="action">Action</h1>
           </div>
-          <div className="tableBody">
-            {setRows(dataSet, handleViewSchedule, handleCancelSchedule)}
-          </div>
+          <div className="tableBody">{setRows(dataSet)}</div>
         </div>
       </div>
     </div>
@@ -196,6 +154,17 @@ const HospitalSchedulePage = () => {
 };
 
 const setRows = (dataSet, ViewAppointment, cancelAppointment) => {
+  const handelFile = () => {
+    const fileInput = document.createElement("input");
+    fileInput.type = "file";
+
+    fileInput.addEventListener("change", (event) => {
+      const file = event.target.files[0];
+      console.log(file);
+    });
+
+    fileInput.click();
+  };
   const RowSet = [];
 
   const StatusColor = (status) => {
@@ -219,20 +188,32 @@ const setRows = (dataSet, ViewAppointment, cancelAppointment) => {
           <h1 style={StatusColor(dataSet[i].Status)} className="status">
             {dataSet[i].Status}
           </h1>
-          <div className="action">
+          <div style={{ gap: "20px" }} className="action">
             {dataSet[i].Status === "Pending" ? (
-              <button onClick={() => cancelAppointment(dataSet[i])}>
+              <button onClick={() => handelFile()}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="15"
-                  height="15"
-                  viewBox="0 0 15 15"
+                  width="23"
+                  height="23"
+                  viewBox="0 0 23 23"
                   fill="none"
                 >
-                  <path
-                    d="M12.966 2.08028C12.7219 1.8362 12.3262 1.8362 12.0821 2.08028L7.52313 6.63927L2.96416 2.08028C2.72008 1.8362 2.32435 1.8362 2.08028 2.08028C1.8362 2.32435 1.8362 2.72008 2.08028 2.96416L6.63925 7.52315L2.08029 12.0821C1.83621 12.3262 1.83621 12.7219 2.08029 12.966C2.32437 13.2101 2.7201 13.2101 2.96417 12.966L7.52313 8.40702L12.0821 12.966C12.3262 13.2101 12.7219 13.2101 12.966 12.966C13.2101 12.7219 13.2101 12.3262 12.966 12.0821L8.407 7.52315L12.966 2.96416C13.2101 2.72008 13.2101 2.32435 12.966 2.08028Z"
-                    fill="#9A9A9A"
-                  />
+                  <g clip-path="url(#clip0_2302_7116)">
+                    <path
+                      d="M11.5324 3.80263C11.1873 3.80262 10.9074 4.08245 10.9074 4.42762L10.9074 10.875L4.46006 10.875C4.11488 10.875 3.83505 11.1548 3.83506 11.5C3.83505 11.8452 4.11488 12.125 4.46006 12.125L10.9074 12.125L10.9074 18.5723C10.9074 18.9176 11.1872 19.1973 11.5325 19.1974C11.8776 19.1974 12.1574 18.9175 12.1575 18.5724L12.1574 12.125L18.6048 12.125C18.95 12.125 19.2298 11.8452 19.2298 11.5C19.2298 11.1548 18.95 10.875 18.6048 10.875L12.1574 10.875L12.1574 4.42763C12.1574 4.08246 11.8776 3.80264 11.5324 3.80263Z"
+                      fill="#9A9A9A"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_2302_7116">
+                      <rect
+                        width="15"
+                        height="15"
+                        fill="white"
+                        transform="translate(0.893066 11.5) rotate(-45)"
+                      />
+                    </clipPath>
+                  </defs>
                 </svg>
               </button>
             ) : (
@@ -261,4 +242,4 @@ const setRows = (dataSet, ViewAppointment, cancelAppointment) => {
   return RowSet;
 };
 
-export default HospitalSchedulePage;
+export default HospitalLabReportPage;
