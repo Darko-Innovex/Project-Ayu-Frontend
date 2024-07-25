@@ -132,7 +132,10 @@ const DoctorPatientNfcCardScanPage = () => {
         )}
 
         {doctorSchedule && (
-          <DoctorSelectSchedulePopup closeAction={handelDoctorSchedule} />
+          <DoctorSelectSchedulePopup
+            doctorId={doctorId}
+            closeAction={handelDoctorSchedule}
+          />
         )}
 
         <div className="container">

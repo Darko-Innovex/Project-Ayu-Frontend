@@ -1,27 +1,55 @@
 import "../../../../css/component/medicalReport/DoctorSchedulePopup.css";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { setScheduleId } from "../../../doctor/DoctorPatientDetailPage";
 
-const DoctorSelectSchedulePopup = ({ closeAction }) => {
-  const data = {
-    hospital: "Lanka Hospital",
-    time: "10 : 00 - 13 : 00 AM",
+const DoctorSelectSchedulePopup = ({ closeAction, doctorId }) => {
+  const [schedule, setSchedule] = useState(null);
+  const [scheduleWithHospitals, setScheduleWithHospitals] = useState([]);
+
+  useEffect(() => {
+    const fetchDoctorSchedules = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:8080/doctor/${doctorId}/schedule`,
+        );
+        console.log("response", response.data);
+        setSchedule(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchDoctorSchedules().then((r) => console.log(r));
+  }, [doctorId]);
+
+  useEffect(() => {
+    const fetchHospitalData = async () => {
+      if (schedule) {
+        const hospitalPromises = schedule.map(async (data) => {
+          try {
+            const response = await axios.get(
+              `http://localhost:8080/hospital/${data.hospitalId}`,
+            );
+            return { ...data, hospital: response.data };
+          } catch (error) {
+            console.error(error);
+            return { ...data, hospital: { name: "Unknown" } }; // Fallback in case of error
+          }
+        });
+
+        const updatedSchedule = await Promise.all(hospitalPromises);
+        setScheduleWithHospitals(updatedSchedule);
+      }
+    };
+
+    fetchHospitalData().then((r) => console.log(r));
+  }, [schedule]);
+
+  const onclickSchedule = (scheduleId) => {
+    setScheduleId(scheduleId);
+    closeAction();
   };
-
-  const dataset = [
-    data,
-    data,
-    data,
-    data,
-    data,
-    data,
-    data,
-    data,
-    data,
-    data,
-    data,
-    data,
-    data,
-    data,
-  ];
 
   return (
     <div id="DoctorSelectSchedulePopup">
@@ -43,12 +71,12 @@ const DoctorSelectSchedulePopup = ({ closeAction }) => {
           </div>
           <h1>Schedules</h1>
           <div className="table">
-            {dataset.map((data, index) => {
-              return (
+            {scheduleWithHospitals.length > 0 ? (
+              scheduleWithHospitals.map((data, index) => (
                 <div key={index} className="row">
-                  <h2>{data.hospital}</h2>
-                  <h2>{data.time}</h2>
-                  <div className="btn">
+                  <h2>{data.hospital.name}</h2>
+                  <h2>{data.inTime}</h2>
+                  <div className="btn" onClick={() => onclickSchedule(data.id)}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -60,15 +88,17 @@ const DoctorSelectSchedulePopup = ({ closeAction }) => {
                       <path
                         d="M16 9L10 15L7 12"
                         stroke="white"
-                        stroke-width="2.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                   </div>
                 </div>
-              );
-            })}
+              ))
+            ) : (
+              <p>Loading...</p>
+            )}
           </div>
         </div>
       </div>

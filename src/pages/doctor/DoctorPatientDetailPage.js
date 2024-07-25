@@ -16,6 +16,12 @@ import DoctorAddAllergyPopup from "../component/medicalReport/popup/DoctorAddAll
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
+let scheduleId = "";
+
+export const setScheduleId = (id) => {
+  scheduleId = id;
+};
+
 const DoctorPatientDetailPage = () => {
   const [labReportFilter, setLabReportFilter] = useState(false);
   const [oldReportFilter, setOldReportFilter] = useState(false);
