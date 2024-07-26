@@ -31,6 +31,7 @@ const HospitalDashboardPage = () => {
   const [doctorCount, setDoctorCount] = useState(0);
   const [viewDoctor, setViewDoctor] = useState(false);
   const [currentDoctorData, setCurrentDoctorData] = useState(null);
+  const { userId } = useParams();
 
   const userData = {
     Name: "Lanka Hospital Galle",
@@ -51,12 +52,12 @@ const HospitalDashboardPage = () => {
   ];
 
   const Paths = [
-    "/HospitalDashboard",
-    "/HospitalPatientManagement",
-    "/HospitalAppointmentManagementPage",
-    "/HospitalDoctorManagement",
-    "/HospitalSchedule",
-    "/HospitalLabReport",
+    `/HospitalDashboard/${userId}`,
+    `/HospitalPatientManagement/${userId}`,
+    `/HospitalAppointmentManagementPage/${userId}`,
+    `/HospitalDoctorManagement/${userId}`,
+    `/HospitalSchedule/${userId}`,
+    `/HospitalLabReport/${userId}`,
   ];
 
   const showNotificationPanel = () => {

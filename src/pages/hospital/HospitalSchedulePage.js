@@ -8,7 +8,7 @@ import PatientsButton from "../component/dashboard/button/PatientsButton";
 import AppointmentButton from "../component/dashboard/button/AppointmentButton";
 import DoctorsButton from "../component/dashboard/button/DoctorsButton";
 import ScheduleButton from "../component/dashboard/button/ScheduleButton";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import CreateSchedulePopup from "../component/HospitalSchedule/CreateSchedulePopup";
 import { useState } from "react";
 import ViewSchedule from "../component/HospitalSchedule/ViewSchedule";
@@ -20,6 +20,7 @@ const HospitalSchedulePage = () => {
   const [createSchedulePopup, setCreateSchedulePopup] = useState(false);
   const [viewSchedulePopup, setViewSchedulePopup] = useState(false);
   const [cancelSchedule, setCancelSchedule] = useState(false);
+  const { userId } = useParams();
 
   const Components = [
     HomeButton,
@@ -31,16 +32,16 @@ const HospitalSchedulePage = () => {
   ];
 
   const Paths = [
-    "/HospitalDashboard",
-    "/HospitalPatientManagement",
-    "/HospitalAppointmentManagementPage",
-    "/HospitalDoctorManagement",
-    "/HospitalSchedule",
-    "/HospitalLabReport",
+    `/HospitalDashboard/${userId}`,
+    `/HospitalPatientManagement/${userId}`,
+    `/HospitalAppointmentManagementPage/${userId}`,
+    `/HospitalDoctorManagement/${userId}`,
+    `/HospitalSchedule/${userId}`,
+    `/HospitalLabReport/${userId}`,
   ];
 
   const logOutBtnOnAction = () => {
-    navigate("/HospitalSignIn");
+    navigate("/");
   };
 
   let dataSet = [
@@ -195,7 +196,7 @@ const HospitalSchedulePage = () => {
             </button>
           </div>
           <div className="tableHead">
-            <input type="checkbox" />
+            {/*<input type="checkbox" />*/}
             <h1 className="appointmentNm">Doctor Name</h1>
             <h1 className="patientName">Date</h1>
             <h1 className="DoctorName">In Time - Out Time</h1>
@@ -228,7 +229,7 @@ const setRows = (dataSet, ViewAppointment, cancelAppointment) => {
     for (let i = 0; i < dataSet.length; i++) {
       RowSet.push(
         <div>
-          <input type="checkbox" />
+          {/*<input type="checkbox" />*/}
           <h1 className="appointmentNm">{dataSet[i].AppointmentNumber}</h1>
           <h1 className="patientName">{dataSet[i].PatientName}</h1>
           <h1 className="DoctorName">{dataSet[i].DoctorName}</h1>

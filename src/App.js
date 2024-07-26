@@ -111,27 +111,27 @@ function App() {
             element={<HospitalResetPasswordPage />}
           />
           <Route
-            path="/HospitalDashboard/:hospitalId"
+            path="/HospitalDashboard/:userId"
             element={<HospitalDashboardPage />}
           />
           <Route
-            path="/HospitalPatientManagement"
+            path="/HospitalPatientManagement/:userId"
             element={<PatientManagementPage />}
           />
           <Route
-            path="/HospitalAppointmentManagementPage"
+            path="/HospitalAppointmentManagementPage/:userId"
             element={<HospitalAppointmentManagementPage />}
           />
           <Route
-            path="/HospitalDoctorManagement"
+            path="/HospitalDoctorManagement/:userId"
             element={<HospitalDoctorManagePage />}
           />
           <Route
-            path={"/HospitalSchedule"}
+            path="/HospitalSchedule/:userId"
             element={<HospitalSchedulePage />}
           />
           <Route
-            path={"/HospitalLabReport"}
+            path="/HospitalLabReport/:userId"
             element={<HospitalLabReportPage />}
           />
 

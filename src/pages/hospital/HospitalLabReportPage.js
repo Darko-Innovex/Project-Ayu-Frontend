@@ -8,9 +8,11 @@ import ReportButton from "../component/dashboard/button/ReportButton";
 import axios from "axios";
 import { useState } from "react";
 import HospitalAddLabReport from "../component/hospitalLabReportManage/HospitalAddLabReport";
+import { useParams } from "react-router-dom";
 
 const HospitalLabReportPage = () => {
   const [addHospitalLabReport, setAddHospitalLabReport] = useState(false);
+  const { userId } = useParams();
 
   let dataSet = [
     {
@@ -73,12 +75,12 @@ const HospitalLabReportPage = () => {
   ];
 
   const Paths = [
-    "/HospitalDashboard",
-    "/HospitalPatientManagement",
-    "/HospitalAppointmentManagementPage",
-    "/HospitalDoctorManagement",
-    "/HospitalSchedule",
-    "/HospitalLabReport",
+    `/HospitalDashboard/${userId}`,
+    `/HospitalPatientManagement/${userId}`,
+    `/HospitalAppointmentManagementPage/${userId}`,
+    `/HospitalDoctorManagement/${userId}`,
+    `/HospitalSchedule/${userId}`,
+    `/HospitalLabReport/${userId}`,
   ];
 
   const handleAddLabReport = () => {

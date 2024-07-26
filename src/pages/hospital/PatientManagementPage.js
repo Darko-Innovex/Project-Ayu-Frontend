@@ -3,7 +3,7 @@ import HomeButton from "../component/dashboard/button/HomeButton";
 import PatientsButton from "../component/dashboard/button/PatientsButton";
 import AppointmentButton from "../component/dashboard/button/AppointmentButton";
 import DoctorsButton from "../component/dashboard/button/DoctorsButton";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../../css/HospitalPatientManagementPage.css";
 import HospitalAddPatient from "../component/HospitalPatientManage/HospitalAddPatient";
 import { useState } from "react";
@@ -15,6 +15,7 @@ const PatientManagementPage = () => {
   const navigate = useNavigate(null);
   const [addPatient, setAddPatient] = useState(false);
   const [filter, setFilter] = useState(false);
+  const { userId } = useParams();
 
   const Components = [
     HomeButton,
@@ -26,16 +27,16 @@ const PatientManagementPage = () => {
   ];
 
   const Paths = [
-    "/HospitalDashboard",
-    "/HospitalPatientManagement",
-    "/HospitalAppointmentManagementPage",
-    "/HospitalDoctorManagement",
-    "/HospitalSchedule",
-    "/HospitalLabReport",
+    `/HospitalDashboard/${userId}`,
+    `/HospitalPatientManagement/${userId}`,
+    `/HospitalAppointmentManagementPage/${userId}`,
+    `/HospitalDoctorManagement/${userId}`,
+    `/HospitalSchedule/${userId}`,
+    `/HospitalLabReport/${userId}`,
   ];
 
   const logOutBtnOnAction = () => {
-    navigate("/HospitalSignIn");
+    navigate("/");
   };
 
   const handelAddPatient = () => {
@@ -69,7 +70,7 @@ const PatientManagementPage = () => {
       NIC: 1975123456789,
       IndexNumber: "3141592653",
       Date: "2024 / 07 / 14",
-      Time: "09 : 45",
+      Time: "13 : 19",
     },
     {
       Id: "P004",
@@ -84,7 +85,7 @@ const PatientManagementPage = () => {
       Name: "Mr. Michael Brown",
       NIC: 1968123456789,
       IndexNumber: "9988776655",
-      Date: "2024 / 09 / 20",
+      Date: "2024 / 08 / 2",
       Time: "15 : 15",
     },
     {
@@ -124,15 +125,15 @@ const PatientManagementPage = () => {
       Name: "Ms. Anna Garcia",
       NIC: 1995123456789,
       IndexNumber: "5566778890",
-      Date: "2025 / 02 / 02",
-      Time: "09 : 35",
+      Date: "2025 / 02 / 5",
+      Time: "11 : 18",
     },
     {
       Id: "P011",
       Name: "Mr. Daniel Rodriguez",
       NIC: 1982123456789,
       IndexNumber: "9900112233",
-      Date: "2025 / 03 / 04",
+      Date: "2025 / 03 / 4",
       Time: "10 : 45",
     },
     {
@@ -140,7 +141,7 @@ const PatientManagementPage = () => {
       Name: "Ms. Maria Hernandez",
       NIC: 1973123456789,
       IndexNumber: "3344556677",
-      Date: "2025 / 04 / 06",
+      Date: "2025 / 04 / 6",
       Time: "11 : 55",
     },
     {
@@ -148,7 +149,7 @@ const PatientManagementPage = () => {
       Name: "Mr. Christopher Davis",
       NIC: 1997123456789,
       IndexNumber: "1122334455",
-      Date: "2025 / 05 / 08",
+      Date: "2025 / 05 / 8",
       Time: "13 : 05",
     },
     {
@@ -259,7 +260,7 @@ const PatientManagementPage = () => {
               </button>
             </div>
             <div className="tableHead">
-              <input type="checkbox" />
+              {/*<input type="checkbox" />*/}
               <h1 className="id">ID</h1>
               <h1 className="Name">Name</h1>
               <h1 className="NIC">NIC</h1>
@@ -280,7 +281,7 @@ const setRows = (dataSet) => {
   for (let i = 0; i < dataSet.length; i++) {
     rowSet.push(
       <div>
-        <input type="checkbox" />
+        {/*<input type="checkbox" />*/}
         <h1 className="id">{dataSet[i].Id}</h1>
         <h1 className="Name">{dataSet[i].Name}</h1>
         <h1 className="NIC">{dataSet[i].NIC}</h1>
