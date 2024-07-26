@@ -173,14 +173,14 @@ const PatientMedicalReportPage = () => {
                 <Search showFilter={sowAndHideLabReportFilter} />
               </div>
               <div className="cardSet">
-                {/*{labReports &&*/}
-                {/*    labReports.map((labReport) => (*/}
-                {/*        <LabCard*/}
-                {/*            key={labReport.id}*/}
-                {/*            data={labReport}*/}
-                {/*            showReport={showAndHideReportViesPopUp}*/}
-                {/*        />*/}
-                {/*    ))}*/}
+                {labReports &&
+                  labReports.map((labReport) => (
+                    <LabCard
+                      key={labReport.id}
+                      data={labReport}
+                      showReport={showAndHideReportViesPopUp}
+                    />
+                  ))}
               </div>
             </div>
             <div className="OldMediReport">
@@ -192,7 +192,6 @@ const PatientMedicalReportPage = () => {
                 {appointments &&
                   appointments.map((appointment) => (
                     <OldCard
-                      key={appointment.id}
                       Appointment={appointment}
                       hideReport={showAndHideReportViesPopUp}
                     />

@@ -327,12 +327,12 @@ const AddAppointment = ({ patientId, hideAppointment, reloadTable }) => {
                     key={index}
                     onClick={() => handleRowClick(index)}
                   >
-                    <h2>{getDate(item.date)}</h2>
+                    <h2>{item.date}</h2>
                     <h2>-</h2>
                     <h2>
-                      {getTime(item.inTime)}
+                      {item.inTime}
                       &nbsp;&nbsp;&nbsp;to&nbsp;&nbsp;&nbsp;
-                      {getTime(item.outTime)}
+                      {item.outTime}
                     </h2>
                   </div>
                 ))}

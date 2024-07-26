@@ -5,30 +5,31 @@ import DoctorReportViewPopup from "./DoctorReportViewPopup";
 import MedicineReportViewPopup from "./MedicineReportViewPopup";
 import { useState } from "react";
 
-let data = [];
+let SetData = [];
 let hospitalData = {};
 let title = "";
 
 export const setReportData = (getData, hospital) => {
-  data = getData;
+  SetData = getData;
   hospitalData = hospital;
 };
 
 const ReportType = () => {
-  switch (data.reportType) {
+  switch (SetData.reportType) {
     case "pdf":
       title = "Lab Report";
-      return <MedicalTestViewPopup data={data.file} />;
+      return <MedicalTestViewPopup data={SetData.file} />;
     case "text":
       title = "Medical Report";
-      return <DoctorReportViewPopup data={data.file} />;
+      return <DoctorReportViewPopup data={SetData.file} />;
     default:
       title = "Medicine Bill";
-      return <MedicineReportViewPopup data={data.medicineList} />; // Must add data function when we connect front-end with backend
+      return <MedicineReportViewPopup data={SetData.medicineList} />; // Must add data function when we connect front-end with backend
   }
 };
 
 const getDate = (timestamp) => {
+  console.log(timestamp);
   if (timestamp) {
     let date = new Date(timestamp);
     let year = date.getFullYear();
@@ -60,7 +61,7 @@ const PopupBackground = ({ hideReport, data }) => {
             <div className="subData">
               {/*<div>{data.place}</div>*/}
               <div>{hospitalData.name}</div>
-              <div>{getDate(data.timestamp)}</div>
+              <div>{getDate(SetData.timestamp)}</div>
             </div>
             {ReportType()}
           </header>

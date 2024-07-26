@@ -6,64 +6,40 @@ import DoctorsButton from "../component/dashboard/button/DoctorsButton";
 import ScheduleButton from "../component/dashboard/button/ScheduleButton";
 import ReportButton from "../component/dashboard/button/ReportButton";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HospitalAddLabReport from "../component/hospitalLabReportManage/HospitalAddLabReport";
 import { useParams } from "react-router-dom";
 
 const HospitalLabReportPage = () => {
   const [addHospitalLabReport, setAddHospitalLabReport] = useState(false);
+  // let labReports;
+  const [labReports, setLabReports] = useState(false);
   const { userId } = useParams();
 
-  let dataSet = [
-    {
-      AppointmentNumber: 1,
-      PatientName: "Ruhunu Hospital",
-      DoctorName: "Dr. John Smith",
-      Status: "Pending",
-    },
-    {
-      AppointmentNumber: 2,
-      PatientName: "Medihelp Hospital",
-      DoctorName: "Dr. Jane Doe",
-      Status: "Complete",
-    },
-    {
-      AppointmentNumber: 3,
-      PatientName: "Apeksha Hospital",
-      DoctorName: "Dr. Emily Clark",
-      Status: "Cancel",
-    },
-    {
-      AppointmentNumber: 4,
-      PatientName: "National Hospital",
-      DoctorName: "Dr. Michael Brown",
-      Status: "Pending",
-    },
-    {
-      AppointmentNumber: 5,
-      PatientName: "Hemas Hospital",
-      DoctorName: "Dr. Sarah Johnson",
-      Status: "Complete",
-    },
-    {
-      AppointmentNumber: 6,
-      PatientName: "Ayu Hospital",
-      DoctorName: "Dr. David Lee",
-      Status: "Cancel",
-    },
-    {
-      AppointmentNumber: 7,
-      PatientName: "Lanka Hospital",
-      DoctorName: "Dr. Laura Wilson",
-      Status: "Pending",
-    },
-    {
-      AppointmentNumber: 8,
-      PatientName: "Co-op Hospital",
-      DoctorName: "Dr. Robert Martinez",
-      Status: "Complete",
-    },
-  ];
+  const getLabReports = async () => {
+    try {
+      const data = {
+        page: 0,
+        count: 6,
+      };
+
+      const response = await axios.get(
+        `http://localhost:8080/hospital/${userId}/lab_reports`,
+        {
+          params: data,
+        },
+      );
+
+      // labReports = response.data;
+      setLabReports(response.data);
+    } catch (error) {
+      console.error("Error fetching lab reports:", error);
+    }
+  };
+
+  useEffect(() => {
+    getLabReports().then((r) => console.log(r));
+  }, []);
 
   const Components = [
     HomeButton,
@@ -169,21 +145,21 @@ const HospitalLabReportPage = () => {
           </div>
           <div className="tableHead">
             {/*<input type="checkbox" />*/}
-            <h1 className="appointmentNm">Patient Name</h1>
-            <h1 className="patientName">Hospital</h1>
+            <h1 className="appointmentNm">Patient Id</h1>
+            <h1 className="patientName">Patient Name</h1>
             <h1 className="DoctorName">Date</h1>
             <h1 className="status">Status</h1>
             <h1 className="action">Action</h1>
           </div>
-          <div className="tableBody">{setRows(dataSet)}</div>
+          <div className="tableBody">{SetRows(labReports, userId)}</div>
         </div>
       </div>
     </div>
   );
 };
 
-const setRows = (dataSet, ViewAppointment, cancelAppointment) => {
-  const handelFile = (patientId) => {
+const SetRows = (labReports, userId, ViewAppointment, cancelAppointment) => {
+  const handelFile = (lab_report_id) => {
     const fileInput = document.createElement("input");
     fileInput.type = "file";
 
@@ -198,13 +174,14 @@ const setRows = (dataSet, ViewAppointment, cancelAppointment) => {
 
         // Send the file to the backend
         axios
-          .put(`http://localhost:8080/lab_report/${1}`, formData, {
+          .put(`http://localhost:8080/lab_report/${lab_report_id}`, formData, {
             headers: {
               "Content-Type": "multipart/form-data",
             },
           })
           .then((response) => {
             console.log("File uploaded successfully", response.data);
+            window.location.reload();
           })
           .catch((error) => {
             console.error("Error uploading file", error);
@@ -226,21 +203,47 @@ const setRows = (dataSet, ViewAppointment, cancelAppointment) => {
     }
   };
 
-  if (dataSet) {
-    for (let i = 0; i < dataSet.length; i++) {
-      console.log(dataSet[i]);
+  const getDate = (timestamp) => {
+    if (timestamp) {
+      let date = new Date(timestamp);
+      let year = date.getFullYear();
+      let month = date.getMonth() + 1; // getMonth() returns 0-11, so we add 1 for human-readable month
+      let day = date.getDate();
+      return `${year} / ${month} / ${day}`;
+    }
+    return "";
+  };
+
+  const [patient, setPatient] = useState(null);
+
+  const getPatient = async (patientId) => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8080/patient/${patientId}`,
+      );
+      setPatient(response.data.firstName + " " + response.data.lastName);
+    } catch (error) {
+      console.error(error);
+      return "";
+    }
+  };
+
+  if (labReports) {
+    for (let i = 0; i < labReports.length; i++) {
+      console.log(labReports[i]);
+      getPatient(labReports[i].patientId).then((r) => console.log(r));
       RowSet.push(
         <div>
           {/*<input type="checkbox" />*/}
-          <h1 className="appointmentNm">{dataSet[i].AppointmentNumber}</h1>
-          <h1 className="patientName">{dataSet[i].PatientName}</h1>
-          <h1 className="DoctorName">{dataSet[i].DoctorName}</h1>
-          <h1 style={StatusColor(dataSet[i].Status)} className="status">
-            {dataSet[i].Status}
+          <h1 className="appointmentNm">{labReports[i].patientId}</h1>
+          <h1 className="patientName">{patient}</h1>
+          <h1 className="DoctorName">{getDate(labReports[i].timestamp)}</h1>
+          <h1 style={StatusColor(labReports[i].status)} className="status">
+            {labReports[i].status}
           </h1>
           <div style={{ gap: "20px" }} className="action">
-            {dataSet[i].Status === "Pending" ? (
-              <button onClick={() => handelFile()}>
+            {labReports[i].status === "Pending" ? (
+              <button onClick={() => handelFile(labReports[i].id)}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="23"
@@ -269,7 +272,7 @@ const setRows = (dataSet, ViewAppointment, cancelAppointment) => {
             ) : (
               ""
             )}
-            <button onClick={() => ViewAppointment(dataSet[i])}>
+            <button onClick={() => ViewAppointment(labReports[i])}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"

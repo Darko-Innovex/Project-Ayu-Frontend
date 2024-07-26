@@ -7,6 +7,7 @@ const OldCard = ({ Appointment, hideReport }) => {
   const [hospital, setHospital] = useState(null);
 
   useEffect(() => {
+    console.log("Appointment==================================: ", Appointment);
     if (Appointment) {
       getDoctor();
       getHospital();
@@ -64,6 +65,7 @@ const OldCard = ({ Appointment, hideReport }) => {
   };
 
   const getDate = (appointment) => {
+    console.log(appointment.timestamp);
     if (appointment) {
       let date = new Date(appointment.timestamp);
       let year = date.getFullYear();
