@@ -4,7 +4,6 @@ import Navbar from "../component/dashboard/Navbar";
 import HomeButton from "../component/dashboard/button/HomeButton";
 import AppointmentButton from "../component/dashboard/button/AppointmentButton";
 import ReportButton from "../component/dashboard/button/ReportButton";
-import ReviewButton from "../component/dashboard/button/ReviewButton";
 import Search from "../component/medicalReport/Search";
 import LabCard from "../component/medicalReport/LabCard";
 import OldCard from "../component/medicalReport/OldCard";
@@ -23,7 +22,7 @@ const PatientMedicalReportPage = () => {
   const [labReports, setLabReports] = useState([]);
   const [allergies, setAllergies] = useState([]);
   const [regularDrugs, setRegularDrugs] = useState([]);
-  const navigate = useNavigate(null);
+  const navigate = useNavigate();
   const { userId } = useParams();
 
   const Components = [HomeButton, AppointmentButton, ReportButton];
@@ -50,44 +49,6 @@ const PatientMedicalReportPage = () => {
     navigate("/");
   };
 
-  let data = {
-    title: "Blood Test",
-    place: "Lanka Hospital Matara",
-    date: "2024 / 05 / 25",
-    time: "05 : 36 : 52 PM",
-    report: labReport,
-    reportType: "pdf",
-  };
-
-  let data1 = {
-    title: "Blood Test",
-    place: "Lanka Hospital Matara",
-    date: "2024 / 05 / 25",
-    time: "05 : 36 : 52 PM",
-    report:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\n" +
-      "        tempor incididunt ut labore et dolore magna aliqua. Sed felis eget velit\n" +
-      "        aliquet sagittis id consectetur purus ut. Dui vivamus arcu felis\n" +
-      "        bibendum ut tristique. Pellentesque diam volutpat commodo sed egestas\n" +
-      "        egestas fringilla phasellus. Et egestas quis ipsum suspendisse.\n" +
-      "        Consectetur lorem donec massa sapien faucibus et molestie ac. At\n" +
-      "        volutpat diam ut venenatis tellus in. Vel facilisis volutpat est velit\n" +
-      "        egestas dui. Sit amet commodo nulla facilisi nullam vehicula ipsum a\n" +
-      "        arcu. Risus ultricies tristique nulla aliquet enim tortor at auctor.\n" +
-      "        Elementum curabitur vitae nunc sed velit dignissim sodales. Sed enim ut\n" +
-      "        sem viverra aliquet eget.",
-    reportType: "text",
-  };
-
-  let data2 = {
-    title: "Blood Test",
-    place: "Lanka Hospital Matara",
-    date: "2024 / 05 / 25",
-    time: "05 : 36 : 52 PM",
-    report: labReport,
-    reportType: "Table",
-  };
-
   useEffect(() => {
     const getAppointments = async () => {
       try {
@@ -104,7 +65,7 @@ const PatientMedicalReportPage = () => {
         );
         setAppointments(response.data);
       } catch (error) {
-        console.error(error);
+        console.error("Error fetching appointments:", error);
       }
     };
 
@@ -115,7 +76,7 @@ const PatientMedicalReportPage = () => {
         );
         setAllergies(response.data);
       } catch (error) {
-        console.error(error);
+        console.error("Error fetching allergies:", error);
       }
     };
 
@@ -126,7 +87,7 @@ const PatientMedicalReportPage = () => {
         );
         setRegularDrugs(response.data);
       } catch (error) {
-        console.error(error);
+        console.error("Error fetching regular drugs:", error);
       }
     };
 
@@ -145,15 +106,15 @@ const PatientMedicalReportPage = () => {
         );
         setLabReports(response.data);
       } catch (error) {
-        console.error(error);
+        console.error("Error fetching lab reports:", error);
       }
     };
 
-    getLabReports().then((r) => console.log(r));
-    getAppointments().then((r) => console.log(r));
-    getAllergies().then((r) => console.log(r));
-    getRegularDrugs().then((r) => console.log(r));
-  }, []);
+    getLabReports();
+    getAppointments();
+    getAllergies();
+    getRegularDrugs();
+  }, [userId]);
 
   const calculateAge = (dob) => {
     const dobDate = new Date(dob);
@@ -212,13 +173,14 @@ const PatientMedicalReportPage = () => {
                 <Search showFilter={sowAndHideLabReportFilter} />
               </div>
               <div className="cardSet">
-                {labReports &&
-                  labReports.map((labReport) => (
-                    <LabCard
-                      data={labReport}
-                      showReport={showAndHideReportViesPopUp}
-                    />
-                  ))}
+                {/*{labReports &&*/}
+                {/*    labReports.map((labReport) => (*/}
+                {/*        <LabCard*/}
+                {/*            key={labReport.id}*/}
+                {/*            data={labReport}*/}
+                {/*            showReport={showAndHideReportViesPopUp}*/}
+                {/*        />*/}
+                {/*    ))}*/}
               </div>
             </div>
             <div className="OldMediReport">
@@ -230,6 +192,7 @@ const PatientMedicalReportPage = () => {
                 {appointments &&
                   appointments.map((appointment) => (
                     <OldCard
+                      key={appointment.id}
                       Appointment={appointment}
                       hideReport={showAndHideReportViesPopUp}
                     />

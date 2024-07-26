@@ -1,5 +1,5 @@
 import "../../../../css/component/medicalReport/DoctorNfcCardPinPopup.css";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 

@@ -1,0 +1,91 @@
+#HospitalAddLabReport .background > div{
+    height: 750px;
+    width: 683px;
+    background-image: url("../../img/addlabReport.png");
+    background-size: cover;
+    padding: 35px 45px;
+    border-radius: 30px;
+}
+
+#HospitalAddLabReport .background{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#HospitalAddLabReport *{
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    box-sizing: border-box;
+}
+
+#HospitalAddLabReport .closeBtn{
+    width: 30px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.50);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    float: right;
+    position: relative;
+    left: 1vw;
+}
+
+#HospitalAddLabReport h1{
+    font-size: 45px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+#HospitalAddLabReport h2{
+    margin-bottom: 10px;
+}
+
+#HospitalAddLabReport input{
+    height: 60px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 0;
+    margin-bottom: 20px;
+}
+
+#HospitalAddLabReport h3{
+    background-color: #12C080;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #262626;
+    letter-spacing: 1px;
+    font-size: 20px;
+    margin-top: 30px;
+    font-weight: 500;
+}
+
+#HospitalAddLabReport h1 + div{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 20px;
+}
+
+#HospitalAddLabReport h1 + div input{
+    margin: 0;
+    width: 22vw;
+}
+
+#HospitalAddLabReport button{
+    width: 126px;
+    height: 60px;
+    background-color: #12C080;
+    color: white;
+    border: 0;
+    border-radius: 13px;
+}

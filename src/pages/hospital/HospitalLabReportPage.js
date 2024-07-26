@@ -7,8 +7,11 @@ import ScheduleButton from "../component/dashboard/button/ScheduleButton";
 import ReportButton from "../component/dashboard/button/ReportButton";
 import axios from "axios";
 import { useState } from "react";
+import HospitalAddLabReport from "../component/hospitalLabReportManage/HospitalAddLabReport";
 
 const HospitalLabReportPage = () => {
+  const [addHospitalLabReport, setAddHospitalLabReport] = useState(false);
+
   let dataSet = [
     {
       AppointmentNumber: 1,
@@ -78,12 +81,20 @@ const HospitalLabReportPage = () => {
     "/HospitalLabReport",
   ];
 
+  const handleAddLabReport = () => {
+    setAddHospitalLabReport(!addHospitalLabReport);
+  };
+
   return (
     <div id="PatientDashboard">
       <div className="cir">
         <div></div>
         <div></div>
       </div>
+
+      {addHospitalLabReport && (
+        <HospitalAddLabReport hideLabReport={handleAddLabReport} />
+      )}
 
       <div className="container">
         <Navbar components={Components} Paths={Paths} />
@@ -130,9 +141,7 @@ const HospitalLabReportPage = () => {
                 />
               </svg>
             </div>
-            <button
-            // onClick={handleAddAppointment}
-            >
+            <button onClick={handleAddLabReport}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="27"

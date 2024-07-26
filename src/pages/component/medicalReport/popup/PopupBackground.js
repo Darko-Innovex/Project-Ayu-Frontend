@@ -39,7 +39,7 @@ const getDate = (timestamp) => {
   return "";
 };
 
-const PopupBackground = ({ hideReport }) => {
+const PopupBackground = ({ hideReport, data }) => {
   return (
     <div id="ViewReport">
       <div className="ReportBackground">
