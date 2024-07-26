@@ -62,39 +62,73 @@ const HospitalAppointmentManagementPage = () => {
     setCancelAppointment(!cancelAppointment);
   };
 
-  let data = {
-    AppointmentNumber: 10,
-    PatientName: "Gayanuka Bulegoda",
-    DoctorName: "Dr. Gayanuka Bulegoda",
-    Status: "Pending",
-  };
-
-  let data1 = {
-    AppointmentNumber: 10,
-    PatientName: "Gayanuka Bulegoda",
-    DoctorName: "Dr. Gayanuka Bulegoda",
-    Status: "Complete",
-  };
-
-  let data2 = {
-    AppointmentNumber: 10,
-    PatientName: "Gayanuka Bulegoda",
-    DoctorName: "Dr. Gayanuka Bulegoda",
-    Status: "Cancel",
-  };
-
   let dataSet = [
-    data,
-    data1,
-    data2,
-    data,
-    data1,
-    data2,
-    data,
-    data1,
-    data2,
-    data,
-    data1,
+    {
+      AppointmentNumber: 1,
+      PatientName: "Alice Smith",
+      DoctorName: "Dr. John Doe",
+      Status: "Pending",
+    },
+    {
+      AppointmentNumber: 2,
+      PatientName: "Bob Johnson",
+      DoctorName: "Dr. Jane Smith",
+      Status: "Complete",
+    },
+    {
+      AppointmentNumber: 3,
+      PatientName: "Charlie Brown",
+      DoctorName: "Dr. Emily Davis",
+      Status: "Cancel",
+    },
+    {
+      AppointmentNumber: 4,
+      PatientName: "Diana Green",
+      DoctorName: "Dr. Michael Miller",
+      Status: "Pending",
+    },
+    {
+      AppointmentNumber: 5,
+      PatientName: "Edward White",
+      DoctorName: "Dr. Sarah Wilson",
+      Status: "Complete",
+    },
+    {
+      AppointmentNumber: 6,
+      PatientName: "Fiona Black",
+      DoctorName: "Dr. David Lee",
+      Status: "Cancel",
+    },
+    {
+      AppointmentNumber: 7,
+      PatientName: "George Harris",
+      DoctorName: "Dr. Laura Martinez",
+      Status: "Pending",
+    },
+    {
+      AppointmentNumber: 8,
+      PatientName: "Hannah Clark",
+      DoctorName: "Dr. Robert Rodriguez",
+      Status: "Complete",
+    },
+    {
+      AppointmentNumber: 9,
+      PatientName: "Alice Smith",
+      DoctorName: "Dr. John Doe",
+      Status: "Pending",
+    },
+    {
+      AppointmentNumber: 10,
+      PatientName: "Bob Johnson",
+      DoctorName: "Dr. Jane Smith",
+      Status: "Complete",
+    },
+    {
+      AppointmentNumber: 11,
+      PatientName: "Charlie Brown",
+      DoctorName: "Dr. Emily Davis",
+      Status: "Cancel",
+    },
   ];
 
   return (

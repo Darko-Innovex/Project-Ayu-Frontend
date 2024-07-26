@@ -185,3 +185,7 @@
 #PatientDoctorReviewPopup .lastLine > button:hover{
     background: rgba(18, 192, 128, 0.8);
 }
+
+#dashboard .hospitalPatientManagement .id{
+    width: 51px !important;
+}

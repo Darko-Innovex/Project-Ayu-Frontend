@@ -43,39 +43,55 @@ const HospitalSchedulePage = () => {
     navigate("/HospitalSignIn");
   };
 
-  let data = {
-    AppointmentNumber: 10,
-    PatientName: "Gayanuka Bulegoda",
-    DoctorName: "Dr. Gayanuka Bulegoda",
-    Status: "Pending",
-  };
-
-  let data1 = {
-    AppointmentNumber: 10,
-    PatientName: "Gayanuka Bulegoda",
-    DoctorName: "Dr. Gayanuka Bulegoda",
-    Status: "Complete",
-  };
-
-  let data2 = {
-    AppointmentNumber: 10,
-    PatientName: "Gayanuka Bulegoda",
-    DoctorName: "Dr. Gayanuka Bulegoda",
-    Status: "Cancel",
-  };
-
   let dataSet = [
-    data,
-    data1,
-    data2,
-    data,
-    data1,
-    data2,
-    data,
-    data1,
-    data2,
-    data,
-    data1,
+    {
+      AppointmentNumber: 1,
+      PatientName: "Alice Johnson",
+      DoctorName: "Dr. John Smith",
+      Status: "Pending",
+    },
+    {
+      AppointmentNumber: 2,
+      PatientName: "Bob Brown",
+      DoctorName: "Dr. Jane Doe",
+      Status: "Complete",
+    },
+    {
+      AppointmentNumber: 3,
+      PatientName: "Charlie Davis",
+      DoctorName: "Dr. Emily Clark",
+      Status: "Cancel",
+    },
+    {
+      AppointmentNumber: 4,
+      PatientName: "Diana Evans",
+      DoctorName: "Dr. Michael Brown",
+      Status: "Pending",
+    },
+    {
+      AppointmentNumber: 5,
+      PatientName: "Edward White",
+      DoctorName: "Dr. Sarah Johnson",
+      Status: "Complete",
+    },
+    {
+      AppointmentNumber: 6,
+      PatientName: "Fiona Green",
+      DoctorName: "Dr. David Lee",
+      Status: "Cancel",
+    },
+    {
+      AppointmentNumber: 7,
+      PatientName: "George Harris",
+      DoctorName: "Dr. Laura Wilson",
+      Status: "Pending",
+    },
+    {
+      AppointmentNumber: 8,
+      PatientName: "Hannah Clark",
+      DoctorName: "Dr. Robert Martinez",
+      Status: "Complete",
+    },
   ];
 
   const handleCreateSchedule = () => {

@@ -5,41 +5,59 @@ import AppointmentButton from "../component/dashboard/button/AppointmentButton";
 import DoctorsButton from "../component/dashboard/button/DoctorsButton";
 import ScheduleButton from "../component/dashboard/button/ScheduleButton";
 import ReportButton from "../component/dashboard/button/ReportButton";
+import axios from "axios";
+import { useState } from "react";
 
 const HospitalLabReportPage = () => {
-  let data = {
-    AppointmentNumber: 10,
-    PatientName: "Gayanuka Bulegoda",
-    DoctorName: "Dr. Gayanuka Bulegoda",
-    Status: "Pending",
-  };
-
-  let data1 = {
-    AppointmentNumber: 10,
-    PatientName: "Gayanuka Bulegoda",
-    DoctorName: "Dr. Gayanuka Bulegoda",
-    Status: "Complete",
-  };
-
-  let data2 = {
-    AppointmentNumber: 10,
-    PatientName: "Gayanuka Bulegoda",
-    DoctorName: "Dr. Gayanuka Bulegoda",
-    Status: "Cancel",
-  };
-
   let dataSet = [
-    data,
-    data1,
-    data2,
-    data,
-    data1,
-    data2,
-    data,
-    data1,
-    data2,
-    data,
-    data1,
+    {
+      AppointmentNumber: 1,
+      PatientName: "Ruhunu Hospital",
+      DoctorName: "Dr. John Smith",
+      Status: "Pending",
+    },
+    {
+      AppointmentNumber: 2,
+      PatientName: "Medihelp Hospital",
+      DoctorName: "Dr. Jane Doe",
+      Status: "Complete",
+    },
+    {
+      AppointmentNumber: 3,
+      PatientName: "Apeksha Hospital",
+      DoctorName: "Dr. Emily Clark",
+      Status: "Cancel",
+    },
+    {
+      AppointmentNumber: 4,
+      PatientName: "National Hospital",
+      DoctorName: "Dr. Michael Brown",
+      Status: "Pending",
+    },
+    {
+      AppointmentNumber: 5,
+      PatientName: "Hemas Hospital",
+      DoctorName: "Dr. Sarah Johnson",
+      Status: "Complete",
+    },
+    {
+      AppointmentNumber: 6,
+      PatientName: "Ayu Hospital",
+      DoctorName: "Dr. David Lee",
+      Status: "Cancel",
+    },
+    {
+      AppointmentNumber: 7,
+      PatientName: "Lanka Hospital",
+      DoctorName: "Dr. Laura Wilson",
+      Status: "Pending",
+    },
+    {
+      AppointmentNumber: 8,
+      PatientName: "Co-op Hospital",
+      DoctorName: "Dr. Robert Martinez",
+      Status: "Complete",
+    },
   ];
 
   const Components = [
@@ -139,7 +157,7 @@ const HospitalLabReportPage = () => {
             </button>
           </div>
           <div className="tableHead">
-            <input type="checkbox" />
+            {/*<input type="checkbox" />*/}
             <h1 className="appointmentNm">Patient Name</h1>
             <h1 className="patientName">Hospital</h1>
             <h1 className="DoctorName">Date</h1>
@@ -154,13 +172,33 @@ const HospitalLabReportPage = () => {
 };
 
 const setRows = (dataSet, ViewAppointment, cancelAppointment) => {
-  const handelFile = () => {
+  const handelFile = (patientId) => {
     const fileInput = document.createElement("input");
     fileInput.type = "file";
 
     fileInput.addEventListener("change", (event) => {
       const file = event.target.files[0];
       console.log(file);
+
+      if (file) {
+        // Create a FormData object
+        const formData = new FormData();
+        formData.append("file", file);
+
+        // Send the file to the backend
+        axios
+          .put(`http://localhost:8080/lab_report/${1}`, formData, {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          })
+          .then((response) => {
+            console.log("File uploaded successfully", response.data);
+          })
+          .catch((error) => {
+            console.error("Error uploading file", error);
+          });
+      }
     });
 
     fileInput.click();
@@ -179,9 +217,10 @@ const setRows = (dataSet, ViewAppointment, cancelAppointment) => {
 
   if (dataSet) {
     for (let i = 0; i < dataSet.length; i++) {
+      console.log(dataSet[i]);
       RowSet.push(
         <div>
-          <input type="checkbox" />
+          {/*<input type="checkbox" />*/}
           <h1 className="appointmentNm">{dataSet[i].AppointmentNumber}</h1>
           <h1 className="patientName">{dataSet[i].PatientName}</h1>
           <h1 className="DoctorName">{dataSet[i].DoctorName}</h1>

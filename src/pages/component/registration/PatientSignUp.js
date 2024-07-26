@@ -72,7 +72,7 @@ const PatientSignUp = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/auth/sign-up",
+        "http://localhost:8080/auth/signUp",
         data,
       );
       console.log(response.data);

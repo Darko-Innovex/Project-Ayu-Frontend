@@ -30,9 +30,10 @@ const DoctorNfcCardPinPopup = ({ closeBtn, index }) => {
 
     try {
       const response = await axios.get(
-        `http://localhost:8080/card/${index}/patient`,
+        `http://localhost:8080/health-card/config`,
         {
           params: {
+            pinNo: index,
             password: pinValue,
           },
         },
