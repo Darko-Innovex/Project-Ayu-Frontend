@@ -51,6 +51,9 @@
     <li>
       <a href="#backend-repository">Backend Repository</a>
     </li>
+<li>
+      <a href="#project-documentation">Project Documentation</a>
+    </li>
     <li><a href="#top-contributors">Top Contributors</a></li>
     <li><a href="#license">License</a></li>
   </ol>
@@ -101,7 +104,7 @@ Other dependencies are included in the project.
 
 1. **Clone the repository**
    ```sh
-   git clone https://github.com/YourOrg/Project-Ayu-Frontend.git
+   git clone https://github.com/Darko-Innovex/Project-Ayu-Frontend.git
    ```
 
 2. **Navigate to the project directory**
@@ -138,7 +141,7 @@ For detailed information on the project requirements and system design, please r
 
 ## Top Contributors
 
-<a href="https://github.com/YourOrg/Project-Ayu-Frontend/graphs/contributors">
+<a href="https://github.com/Darko-Innovex/Project-Ayu-Frontend/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=YourOrg/Project-Ayu-Frontend" alt="Top Contributors" />
 </a>
 
@@ -150,8 +153,10 @@ Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+---
+
 <p align="center">
-  &copy; 2024 Project Ayu
+  &copy; 2024 Project Ayu | Darko Innovex
 </p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
@@ -163,7 +168,7 @@ Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
 [stars-url]: https://github.com/Darko-Innovex/Project-Ayu-Frontend/stargazers
 [issues-shield]: https://img.shields.io/github/issues/Darko-Innovex/Project-Ayu-Frontend.svg?style=for-the-badge
 [issues-url]: https://github.com/Darko-Innovex/Project-Ayu-Frontend/issues
-[license-shield]: https://img.shields.io/github/license/Darko-Innovex/Project-Ayu-Frontend.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/darko-innovex/Project-Ayu-Frontend.svg?style=for-the-badge
 [license-url]: https://github.com/Darko-Innovex/Project-Ayu-Frontend/blob/main/LICENSE
 [CSS.com]: https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white
 [CSS-url]: https://developer.mozilla.org/en-US/docs/Web/CSS
